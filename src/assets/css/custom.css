@@ -1,0 +1,14 @@
+/* Hide horizontal negative overhang and redefine background */
+body {
+    position: relative;
+    overflow-x: hidden;
+    background-color: rgba(20,40,60,0.1);
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+}
+
+/* Make images easier to work with */
+img {
+    display: inline-block;
+    max-width: 100%;
+}
