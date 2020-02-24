@@ -6,10 +6,16 @@ import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-        faSearch,
-        faPenNib,
-        faUsers,
-    } from '@fortawesome/free-solid-svg-icons'
+    faSearch,
+    faPenNib,
+    faUsers,
+    faFlag
+} from '@fortawesome/free-solid-svg-icons'
+import {
+    faFacebook,
+    faInstagram,
+    faTwitter
+} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -18,7 +24,11 @@ import './assets/css/custom.css'
 library.add(
         faSearch,
         faPenNib,
-        faUsers
+        faUsers,
+        faFlag,
+        faFacebook,
+        faInstagram,
+        faTwitter
     )
 
 Vue.use(VueRouter)
