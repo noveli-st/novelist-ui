@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<cmp-header />
-		<main class="min-vh-100" v-on:click="onClickMain">
+		<main class="min-vh-100">
 			<cmp-index />
 		</main>
 		<cmp-footer />
@@ -15,25 +15,10 @@
 
 	export default {
 		name: 'App',
-		data(){
-			return {
-
-			}
-		},
 		components: {
 			cmpHeader,
 			cmpIndex,
 			cmpFooter
-		},
-		methods: {
-			onClickMain(){
-                this.$root.$on('bv::collapse::state', (collapseId, isJustShown) => {
-                    this.$store.state.isCollapseSearch = isJustShown
-                })
-                if(this.$store.state.isCollapseSearch)
-                    this.$root.$emit('bv::toggle::collapse', 'collapseSearch')
-			}
 		}
-
 	}
 </script>
