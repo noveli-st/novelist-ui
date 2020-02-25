@@ -6,11 +6,11 @@
                 <img class="d-none d-sm-block " src="../assets/images/logo/logoname.svg" height="40" alt="Novelist">
             </a>
             <div class="ml-auto d-flex align-items-center">
-                <button class="btn btn-sm text-light mx-2" v-b-toggle.collapseSearch type="button"><font-awesome-icon icon="search" size="lg" /></button>
+                <button ref="searchDialogBtn" class="btn btn-sm text-light mx-2" v-b-toggle.collapseSearch type="button"><font-awesome-icon icon="search" size="lg" /></button>
             </div>
         </div>
         <div class="nav-scroller position-absolute w-100 bg-light shadow-sm">
-            <b-collapse ref="collapseSearch" id="collapseSearch" class="py-3 py-sm-5 px-0 px-sm-3">
+            <b-collapse ref="collapseSearch" id="collapseSearch" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeSearch">
                 <div class="container">
                     <div class="mx-auto">
                         <div class="position-relative" data-action="clearable">
@@ -41,6 +41,13 @@
 
 <script>
     export default {
-        name: 'Header'
+        name: 'Header',
+        methods: {
+            closeSearch(ev) {
+                if (!this.$refs.searchDialogBtn.contains(ev.target)) {
+                    this.$refs.collapseSearch.show = false
+                }
+            }
+        }
     }
 </script>
