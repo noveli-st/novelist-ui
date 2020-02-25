@@ -12,3 +12,15 @@ img {
     display: inline-block;
     max-width: 100%;
 }
+
+/* Additional classes for Bootstrap */
+.border-transparent { border-color: transparent !important; }
+
+.bg-clip-padding { background-clip: padding-box; }
+.bg-clip-content { background-clip: content-box; }
+.bg-clip-border { background-clip: border-box; }
+
+.l-0, .lt-0, .bl-0 { left: 0; }
+.t-0, .lt-0, .tr-0 { top: 0; }
+.r-0, .rb-0, .tr-0 { right: 0; }
+.b-0, .rb-0, .bl-0 { bottom: 0; }
