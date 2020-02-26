@@ -1,10 +1,10 @@
 <template>
     <header>
         <div class="p-2 bg-dark text-light d-flex flex-nowrap align-items-center">
-            <a href="#" title="Novelist - share your impressions">
+            <router-link v-bind:to="'/'" title="Novelist - share your impressions">
                 <img class="d-sm-none" src="../assets/images/logo/logo.svg" height="40" alt="Novelist">
                 <img class="d-none d-sm-block " src="../assets/images/logo/logoname.svg" height="40" alt="Novelist">
-            </a>
+            </router-link>
             <div class="ml-auto d-flex align-items-center">
                 <button ref="searchDialogBtn" class="btn btn-sm text-light mx-2" v-b-toggle.collapseSearch type="button"><font-awesome-icon icon="search" size="lg" /></button>
             </div>
@@ -18,14 +18,14 @@
                             <div class="col mt-3">
                                 <span class="text-muted"><font-awesome-icon class="mx-2" icon="pen-nib" />Content</span>
                                 <hr class="mt-2 mb-0">
-                                <a class="d-inline-block text-decoration-none text-nowrap p-2" href="books.html">Books <span class="badge badge-pill bg-secondary text-light">4201</span></a>
-                                <a class="d-inline-block text-decoration-none text-nowrap p-2" href="reviews.html">Reviews <span class="badge badge-pill bg-secondary text-light">137</span></a>
+                                <router-link class="d-inline-block text-decoration-none text-nowrap p-2 disable-muted" v-bind:to="'/books'" v-on:click.native="closeSearch">Books <span class="badge badge-pill bg-secondary text-light">4201</span></router-link>
+                                <router-link class="d-inline-block text-decoration-none text-nowrap p-2 disable-muted" v-bind:to="'/reviews'" v-on:click.native="closeSearch">Reviews <span class="badge badge-pill bg-secondary text-light">137</span></router-link>
                             </div>
                             <div class="col mt-3">
                                 <span class="text-muted"><font-awesome-icon class="mx-2" icon="users" />Community</span>
                                 <hr class="mt-2 mb-0">
-                                <a class="d-inline-block text-decoration-none text-nowrap p-2" href="writers.html">Writers <span class="badge badge-pill bg-secondary text-light">201</span></a>
-                                <a class="d-inline-block text-decoration-none text-nowrap p-2" href="#">Reviewers <span class="badge badge-pill bg-secondary text-light">731</span></a>
+                                <router-link class="d-inline-block text-decoration-none text-nowrap p-2 disable-muted" v-bind:to="'/writers'" v-on:click.native="closeSearch">Writers <span class="badge badge-pill bg-secondary text-light">201</span></router-link>
+                                <router-link class="d-inline-block text-decoration-none text-nowrap p-2 disable-muted" v-bind:to="'/reviewers'" v-on:click.native="closeSearch">Reviewers <span class="badge badge-pill bg-secondary text-light">731</span></router-link>
                                 <!-- <a class="d-inline-block text-decoration-none text-nowrap p-2" href="#">Readers <span class="badge badge-pill bg-secondary text-light">1186</span></a> -->
                             </div>
                         </div>
