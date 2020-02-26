@@ -24,3 +24,9 @@ img {
 .t-0, .lt-0, .tr-0 { top: 0; }
 .r-0, .rb-0, .tr-0 { right: 0; }
 .b-0, .rb-0, .bl-0 { bottom: 0; }
+
+/* Additional classes for VueRouter */
+a.disable-muted.router-link-exact-active {
+    pointer-events: none;
+    color: #6c757d;
+}
