@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Store from './store'
 import VueRouter from 'vue-router'
+import Router from './routes'
 import Vuelidate from 'vuelidate'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
@@ -47,6 +48,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
 new Vue({
-    store: Store,
     render: h => h(App),
+    router: Router,
+    store: Store
 }).$mount('#app')
