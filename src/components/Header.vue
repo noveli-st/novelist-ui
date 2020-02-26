@@ -13,10 +13,7 @@
             <b-collapse ref="collapseSearch" id="collapseSearch" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeSearch">
                 <div class="container">
                     <div class="mx-auto">
-                        <div class="position-relative" data-action="clearable">
-                            <input id="globalSearch" class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-link position-absolute t-0 r-0 px-2 bg-white bg-clip-padding border-transparent" style="display: none;" data-action="clear"><i class="fas fa-backspace fa-lg"></i></button>
-                        </div>
+                        <cmp-cls-input type="search" placeholder="Search" aria-label="Search"/>
                         <div class="row">
                             <div class="col mt-3">
                                 <span class="text-muted"><font-awesome-icon class="mx-2" icon="pen-nib" />Content</span>

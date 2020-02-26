@@ -9,7 +9,8 @@ import {
     faSearch,
     faPenNib,
     faUsers,
-    faFlag
+    faFlag,
+    faBackspace
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebook,
@@ -20,18 +21,22 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/custom.css'
-import { directive as onClickOutside } from 'vue-on-click-outside'
 
+import { directive as onClickOutside } from 'vue-on-click-outside'
 Vue.directive('on-click-outside', onClickOutside)
 
+import cmpClsInput from './components/assets/ClsInput'
+Vue.component('cmp-cls-input', cmpClsInput)
+
 library.add(
-        faSearch,
-        faPenNib,
-        faUsers,
-        faFlag,
-        faFacebook,
-        faInstagram,
-        faTwitter
+    faFacebook,
+    faInstagram,
+    faTwitter,
+    faSearch,
+    faPenNib,
+    faUsers,
+    faFlag,
+    faBackspace
     )
 
 Vue.use(VueRouter)
