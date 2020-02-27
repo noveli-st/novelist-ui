@@ -5,20 +5,9 @@ import Router from './routes'
 import Vuelidate from 'vuelidate'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-    faSearch,
-    faPenNib,
-    faUsers,
-    faFlag,
-    faBackspace
-} from '@fortawesome/free-solid-svg-icons'
-import {
-    faFacebook,
-    faInstagram,
-    faTwitter
-} from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import './fortawesome/index'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/custom.css'
@@ -29,21 +18,9 @@ Vue.directive('on-click-outside', onClickOutside)
 import cmpClsInput from './components/assets/ClsInput'
 Vue.component('cmp-cls-input', cmpClsInput)
 
-library.add(
-    faFacebook,
-    faInstagram,
-    faTwitter,
-    faSearch,
-    faPenNib,
-    faUsers,
-    faFlag,
-    faBackspace
-    )
-
 Vue.use(VueRouter)
 Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

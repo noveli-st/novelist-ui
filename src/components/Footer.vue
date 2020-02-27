@@ -4,22 +4,26 @@
             <div class="row">
                 <div class="col-12 mt-4-">
                     <h2 class="h5">Languages</h2>
-                    <a class="text-white mr-4" href="#"><font-awesome-icon icon="flag" class="mr-2" />English</a>
-                    <a class="text-muted mr-4" href="#">Español</a>
-                    <a class="text-muted mr-4" href="#">Português</a>
-                    <a class="text-muted mr-4" href="#">Français</a>
-                    <a class="text-muted mr-4" href="#">Deutsch</a>
+                    <a class="text-white mr-4"><font-awesome-icon icon="flag" class="mr-2" />English</a>
+                    <a class="text-muted mr-4">Español</a>
+                    <a class="text-muted mr-4">Português</a>
+                    <a class="text-muted mr-4">Français</a>
+                    <a class="text-muted mr-4">Deutsch</a>
                     <hr class="my-3">
                 </div>
                 <div class="col-6 col-md mb-4 mb-md-0">
                     <h2 class="h5">Content</h2>
                     <table>
                         <tr>
-                            <td class="p-0"><a class="text-muted" href="books.html">Books</a></td>
+                            <td class="p-0">
+                                <router-link class="text-muted" v-bind:to="'/books'">Books</router-link>
+                            </td>
                             <td class="px-2 small align-middle text-right">4201</td>
                         </tr>
                         <tr>
-                            <td class="p-0"><a class="text-muted" href="reviews.html">Reviews</a></td>
+                            <td class="p-0">
+                                <router-link class="text-muted" v-bind:to="'/reviews'">Reviews</router-link>
+                            </td>
                             <td class="px-2 small align-middle text-right">137</td>
                         </tr>
                     </table>
@@ -28,17 +32,17 @@
                     <h2 class="h5">Community</h2>
                     <table>
                         <tr>
-                            <td class="p-0"><a class="text-muted" href="writers.html">Writers</a></td>
+                            <td class="p-0">
+                                <router-link class="text-muted" v-bind:to="'/writers'">Writers</router-link>
+                            </td>
                             <td class="px-2 small align-middle text-right">201</td>
                         </tr>
                         <tr>
-                            <td class="p-0"><a class="text-muted" href="#">Reviewers</a></td>
+                            <td class="p-0">
+                                <router-link class="text-muted" v-bind:to="'/reviewers'">Reviewers</router-link>
+                            </td>
                             <td class="px-2 small align-middle text-right">731</td>
                         </tr>
-                        <!--tr>
-                            <td class="p-0"><a class="text-muted" href="#">Читатели</a></td>
-                            <td class="px-2 small align-middle text-right">3186</td>
-                        </tr-->
                     </table>
                 </div>
                 <div class="col-6 col-md">

@@ -13,7 +13,9 @@ img {
     max-width: 100%;
 }
 
-/* Additional classes for Bootstrap */
+
+/*     -     Adds for Bootstrap     -     */
+
 .border-transparent { border-color: transparent !important; }
 
 .bg-clip-padding { background-clip: padding-box; }
@@ -29,4 +31,13 @@ img {
 a.disable-muted.router-link-exact-active {
     pointer-events: none;
     color: #6c757d;
+}
+
+
+/*     -     !!! Hacks !!!     -     */
+
+/* Move over all */
+/* .nav-scroller, */
+.z-index-1 {
+    z-index: 1;
 }

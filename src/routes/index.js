@@ -1,8 +1,11 @@
-import VueRouter from 'vue-router'
-import cmpIndex from '../components/index/Index'
-import cmpBooks from '../components/content/Books'
-import cmpReviews from '../components/content/Reviews'
-import cmp404 from '../components/errors/404'
+import VueRouter       from 'vue-router'
+
+import cmpIndex        from '../components/index/Index'
+import cmpBooks        from '../components/content/Books'
+import cmpReviews      from '../components/content/Reviews'
+import cmpWriters      from '../components/content/Writers'
+import cmpReviewers    from '../components/content/Reviewers'
+import cmp404          from '../components/errors/Error404'
 
 export default new VueRouter({
   routes: [
@@ -17,6 +20,14 @@ export default new VueRouter({
     {
         path: '/reviews',
         component: cmpReviews
+    },
+    {
+        path: '/writers',
+        component: cmpWriters
+    },
+    {
+        path: '/reviewers',
+        component: cmpReviewers
     },
     {
         path: '*',
