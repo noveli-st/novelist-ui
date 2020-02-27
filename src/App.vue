@@ -1,9 +1,7 @@
 <template>
 	<div id="app">
 		<cmp-header />
-		<main class="min-vh-100">
-			<router-view />
-		</main>
+		<router-view />
 		<cmp-footer />
 	</div>
 </template>

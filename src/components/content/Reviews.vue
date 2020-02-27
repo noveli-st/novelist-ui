@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="min-vh-100">
 		reviews
     </main>
 </template>

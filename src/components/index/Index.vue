@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <main class="min-vh-100">
 		index
-    </div>
+    </main>
 </template>
 
 <script>

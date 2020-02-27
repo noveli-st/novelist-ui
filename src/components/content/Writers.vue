@@ -1,11 +1,11 @@
 <template>
     <main class="min-vh-100">
-		password reset content
+		writers
     </main>
 </template>
 
 <script>
 	export default {
-		name: 'PasswordResetContent'
+		name: 'Writers'
 	}
 </script>
