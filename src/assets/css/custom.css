@@ -27,10 +27,19 @@ img {
 .r-0, .rb-0, .tr-0 { right: 0; }
 .b-0, .rb-0, .bl-0 { bottom: 0; }
 
-/* Additional classes for VueRouter */
-a.disable-muted.router-link-exact-active {
+
+/*     -     Adds for BootstrapVue     -     */
+
+/* Bugs fix */
+.modal {
+    width: 100vw !important;
+}
+
+
+/*     -     Adds for VueRouter     -     */
+
+.disable-events.router-link-exact-active {
     pointer-events: none;
-    color: #6c757d;
 }
 
 

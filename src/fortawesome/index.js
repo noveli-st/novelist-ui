@@ -21,7 +21,10 @@ import {
     faUserCog,
     faQuestionCircle,
     faSignInAlt,
-    faSignOutAlt
+    faSignOutAlt,
+    faTimes,
+    faInfoCircle,
+    faRecycle
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -54,7 +57,10 @@ library.add(
     faUserCog,
     faQuestionCircle,
     faSignInAlt,
-    faSignOutAlt
+    faSignOutAlt,
+    faTimes,
+    faInfoCircle,
+    faRecycle
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
