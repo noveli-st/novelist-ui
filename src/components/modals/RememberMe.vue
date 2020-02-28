@@ -1,23 +1,53 @@
 <template>
-	<b-modal id="modalRememberMe" v-bind:header-bg-variant="'light'" centered no-stacking>
+	<b-modal id="modalRememberMe" v-bind:header-bg-variant="'light'" v-on:ok="handleOk" centered no-stacking>
 		<template v-slot:modal-header="{ close }">
 			<div class="h5 modal-title">Please remember me</div>
-                  <button class="btn close" v-on:click="close()" type="button"><font-awesome-icon icon="times" size="sm" /></button>
+            <button class="btn close" v-on:click="close()" type="button"><font-awesome-icon icon="times" size="sm" /></button>
 		</template>
 		<template v-slot:default>
-               <div class="alert alert-info border-0"><font-awesome-icon icon="info-circle" class="mr-2"/> To reset a password for your account, you have to enter the eMail to which the account is linked.</div>
-               <label for="inputEmail" class="sr-only">eMail</label>
-               <input type="email" id="inputEmail" placeholder="Email address" required="required" autofocus="autofocus" class="form-control mb-3">
+			<form ref="form" v-on:submit.prevent="submitRememberMe">
+				<div class="alert alert-info border-0"><font-awesome-icon icon="info-circle" class="mr-2"/> To reset a password for your account, you have to enter the eMail to which the account is linked.</div>
+				<label for="inputForgottenEmail" class="sr-only">eMail</label>
+				<input type="email" id="inputForgottenEmail" placeholder="eMail address" class="form-control"
+					v-bind:class="{'is-invalid': $v.forgottenEmail.$error}"
+                    v-model="forgottenEmail"
+                    v-on:input="$v.forgottenEmail.$touch()">
+                <div class="invalid-feedback" v-if="!$v.forgottenEmail.required">Email field is required</div>
+                <div class="invalid-feedback" v-if="!$v.forgottenEmail.email">This field should be an eMail</div>
+			</form>
 		</template>	
               <template v-slot:modal-footer="{cancel, ok}">
                   <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2" />Close</button>
-                  <button class="btn btn-primary" v-on:click="ok()" type="submit" disabled><font-awesome-icon icon="recycle" class="mr-2" />Reset password</button>
+                  <button class="btn btn-primary" v-on:click="ok()" type="submit" v-bind:disabled="$v.$invalid"><font-awesome-icon icon="recycle" class="mr-2" />Reset password</button>
               </template>
 	</b-modal>
 </template>
 
 <script>
+    import { required, email } from 'vuelidate/lib/validators'
+
 	export default {
-		name: 'ModalRememberMe'
+		name: 'ModalRememberMe',
+        data(){
+            return{
+                forgottenEmail: ''
+            }
+        },
+        methods: {
+            handleOk(){
+                console.log('Ok!')
+                this.submitRememberMe()
+            },
+            submitRememberMe(){
+                
+                console.log('Submit!')
+            }
+        },
+        validations:{
+            forgottenEmail: {
+                required,
+                email
+            }
+        }
 	}
 </script>
