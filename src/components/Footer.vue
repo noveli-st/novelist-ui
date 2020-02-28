@@ -48,16 +48,16 @@
                 <div class="col-6 col-md">
                     <h2 class="h5">Support</h2>
                     <ul class="list-unstyled">
-                        <li><a class="text-muted" href="#">Help center</a></li>
-                        <li><a class="text-muted" href="agreements-policies.html">Agreements & Policies</a></li>
+                        <li><router-link class="text-muted" v-bind:to="'/helpcenter'">Help center</router-link></li>
+                        <li><router-link class="text-muted" v-bind:to="'/agreepolic'">Agreements & Policies</router-link></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">
                     <h2 class="h5">About</h2>
                     <ul class="list-unstyled">
-                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><router-link class="text-muted" v-bind:to="'/team'">Team</router-link></li>
                         <!--li><a class="text-muted" href="#">Location</a></li-->
-                        <li><a class="text-muted" href="#">Sitemap</a></li>
+                        <li><router-link class="text-muted" v-bind:to="'/sitemap'">Sitemap</router-link></li>
                     </ul>
                 </div>
             </div>
