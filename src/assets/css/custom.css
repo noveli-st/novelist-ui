@@ -27,6 +27,46 @@ img {
 .r-0, .rb-0, .tr-0 { right: 0; }
 .b-0, .rb-0, .bl-0 { bottom: 0; }
 
+.image-42 {
+    min-width: 42px;
+    max-width: 42px;
+    min-height: 42px;
+    max-height: 42px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Expand images */
+/* Mouseover gallery for img/svg/... */
+.expand-image:hover::after {
+    content: url(../images/enlarge-image.svg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.expand-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .75);
+    z-index: 2000;
+}
+.expand-container img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 96%;
+    height: 96%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+}
+
 
 /*     -     Adds for BootstrapVue     -     */
 
