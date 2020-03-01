@@ -49,7 +49,7 @@
                     <h2 class="h5">Support</h2>
                     <ul class="list-unstyled">
                         <li><router-link class="text-muted" v-bind:to="'/helpcenter'">Help center</router-link></li>
-                        <li><router-link class="text-muted" v-bind:to="'/agreepolic'">Agreements & Policies</router-link></li>
+                        <li><router-link class="text-muted" v-bind:to="'/agreepolic'">Agreements &amp; Policies</router-link></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">
