@@ -7,13 +7,13 @@
 		<template v-slot:default>
 			<form ref="form" v-on:submit.prevent="submitRememberMe">
 				<div class="alert alert-info border-0"><font-awesome-icon icon="info-circle" class="mr-2"/> To reset a password for your account, you have to enter the eMail to which the account is linked.</div>
-				<label for="inputForgottenEmail" class="sr-only">eMail</label>
-				<input type="email" id="inputForgottenEmail" placeholder="eMail address" class="form-control"
-					v-bind:class="{'is-invalid': $v.forgottenEmail.$error}"
-                    v-model="forgottenEmail"
-                    v-on:input="$v.forgottenEmail.$touch()">
-                <div class="invalid-feedback" v-if="!$v.forgottenEmail.required">Email field is required</div>
-                <div class="invalid-feedback" v-if="!$v.forgottenEmail.email">This field should be an eMail</div>
+				<label for="inputEmail" class="sr-only">eMail</label>
+				<input type="email" id="inputEmail" placeholder="eMail address" class="form-control"
+					v-bind:class="{'is-invalid': $v.email.$error}"
+                    v-model="email"
+                    v-on:input="$v.email.$touch()">
+                <div class="invalid-feedback" v-if="!$v.email.required">Email field is required</div>
+                <div class="invalid-feedback" v-if="!$v.email.email">This field should be an eMail</div>
 			</form>
 		</template>	
               <template v-slot:modal-footer="{cancel, ok}">
@@ -30,7 +30,7 @@
 		name: 'ModalRememberMe',
         data(){
             return{
-                forgottenEmail: ''
+                email: ''
             }
         },
         methods: {
@@ -44,7 +44,7 @@
             }
         },
         validations:{
-            forgottenEmail: {
+            email: {
                 required,
                 email
             }
