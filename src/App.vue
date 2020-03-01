@@ -7,6 +7,8 @@
         <cmp-modal-sign-up />
         <cmp-modal-sign-in />
         <cmp-modal-remember-me />
+
+		<cmp-expand-container />
 	</div>
 </template>
 
@@ -16,6 +18,7 @@
 	import cmpModalSignUp from './components/modals/SignUp'
 	import cmpModalSignIn from './components/modals/SignIn'
 	import cmpModalRememberMe from './components/modals/RememberMe'
+	import cmpExpandContainer from './components/assets/ExpandContainer'
 
 	export default {
 		name: 'App',
@@ -24,7 +27,8 @@
             cmpFooter,
             cmpModalSignUp,
             cmpModalSignIn,
-            cmpModalRememberMe
+			cmpModalRememberMe,
+			cmpExpandContainer
 		}
 	}
 </script>
