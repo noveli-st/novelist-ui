@@ -34,9 +34,57 @@ img {
     max-height: 42px;
 }
 
-.cursor-pointer {
-    cursor: pointer;
+.cursor-pointer { cursor: pointer; }
+
+/* Cards header global hide */
+.cards-no-header .card .card-header {
+    display: none;
 }
+
+/*     -     Adds for Bootstrap cards     -     */
+/* Set with for cards in list */
+.card .w-tmp {
+    width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .card-list .w-tmp {
+        width: 220px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .card-list .card-status {
+        display: none;
+    }
+}
+
+/* Set max with for cards in deck */
+.card-deck .card {
+    min-width: 220px;
+}
+.card-deck .card-status {
+    display: none;
+}
+@media screen and (min-width:576px) {
+    .card-deck .card { max-width: calc(100% - 15px * 2); }
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+@media screen and (min-width:992px) {
+    .card-deck .card { max-width: calc(100% / 2 - 15px * 2); }
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+@media screen and (min-width:1200px) {
+    .card-deck .card { max-width: calc(100% / 3 - 15px * 2); }
+}
+
+
 
 /* Expand images */
 /* Mouseover gallery for img/svg/... */
