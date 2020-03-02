@@ -12,6 +12,7 @@
             closeExpandContainer(){
                 this.$store.state.isImageExpanded = false
                 // this.$store.state.imageExpanderPath = ''
+                document.body.style.paddingRight = ''
                 document.body.classList.remove('overflow-hidden')
             }
         }

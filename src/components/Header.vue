@@ -33,7 +33,6 @@
                     </b-collapse>
                 </div>
                 <div v-else class="btn-group btn-group-sm mx-2">
-                    <!-- <button class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#modalSignIn"><font-awesome-icon icon="sign-in-alt" /><span class="d-none d-md-inline ml-md-2">Sign in</span></button> -->
                     <button class="btn btn-sm btn-primary" v-b-modal.modalSignIn type="button"><font-awesome-icon icon="sign-in-alt" /><span class="d-none d-md-inline ml-md-2">Sign in</span></button>
                     <button class="btn btn-sm btn-success" v-b-modal.modalSignUp type="button" data-toggle="modal" data-target="#modalSignUp"><font-awesome-icon icon="user-plus" /><span class="d-none d-md-inline ml-md-2">Sign up</span></button>
                 </div>
@@ -80,6 +79,12 @@
                     this.$refs.userMainMenu.show = false
                 }
             }
-        }
+        },
+        // mounted() {
+        //     this.$root.$on('bv::collapse::state', (collapseId, isJustShown) => {
+        //         if( collapseId == 'collapseGlobalSearch' && isJustShown)
+        //             document.querySelector("#collapseGlobalSearch input").focus();
+        //     })
+        // }        
     }
 </script>
