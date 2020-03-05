@@ -18,6 +18,9 @@ Vue.directive('on-click-outside', onClickOutside)
 import cmpClsInput from './components/assets/ClsInput'
 Vue.component('cmp-cls-input', cmpClsInput)
 
+import cmpCardeiner from './components/assets/Cardeiner'
+Vue.component('cmp-cardeiner', cmpCardeiner)
+
 import cmpCard from './components/assets/Card'
 Vue.component('cmp-card', cmpCard)
 
