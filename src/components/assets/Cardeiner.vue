@@ -3,9 +3,9 @@
 		<section class="container my-5">
 			<header class="mb-4 pb-3 border-bottom d-flex flex-nowrap">
 				<span class="mb-0 flex-grow-1" v-bind:class="'h' + cardainerHeader" role="heading" v-bind:aria-level="cardainerHeader">{{ cardainerTitle }} <span v-if="cardainerSubtitle" class="h6 text-muted">{{cardainerSubtitle}}</span></span>
-                <template v-if="cardainerStyle">
-                    <button ref="deck" class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardainerStyle == 'deck'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="Gallery view"><font-awesome-icon icon="th" size="lg"></font-awesome-icon></button>
-                    <button ref="list" class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardainerStyle == 'list'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="List view"><font-awesome-icon icon="th-list" size="lg"></font-awesome-icon></button>
+                <template v-if="cardViewStyle">
+                    <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'deck'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="Gallery view"><font-awesome-icon icon="th" size="lg"></font-awesome-icon></button>
+                    <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'list'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="List view"><font-awesome-icon icon="th-list" size="lg"></font-awesome-icon></button>
                 </template>
 			</header>
             <div v-bind:class="cardainerStyleClass">
@@ -21,6 +21,11 @@
 <script>
 	export default {
         name: 'Cardainer',
+        data (){
+            return {
+                cardViewStyle: this.cardainerStyle
+            }
+        },
         props: {
             cardainerHeader: {
                 default: 1,
@@ -46,19 +51,15 @@
         computed: {
             cardainerStyleClass(){
                 return {
-                    '': this.cardainerStyle == '',
-                    'card-deck': this.cardainerStyle == 'deck',
-                    'card-list': this.cardainerStyle == 'list'
+                    '': this.cardViewStyle == '',
+                    'card-deck': this.cardViewStyle == 'deck',
+                    'card-list': this.cardViewStyle == 'list'
                 }
             }
         },
         methods: {
             changeCardainerStyle(){
-                if(this.cardainerStyle == 'deck')
-                    this.cardainerStyle = 'list'
-                else
-                    this.cardainerStyle = 'deck'
-                    
+                this.cardViewStyle == 'deck' ? this.cardViewStyle = 'list' : this.cardViewStyle = 'deck'
                 this.$root.$emit('bv::hide::tooltip')
             }
         }
