@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 import client from 'api-client'
+
+Vue.use(Vuex)
 
 const SET_ME = 'SET_ME'
 const UNSET_ME = 'UNSET_ME'
