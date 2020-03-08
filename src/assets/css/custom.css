@@ -36,6 +36,10 @@ img {
 
 .cursor-pointer { cursor: pointer; }
 
+.z-index-0 { z-index: 0; }
+.z-index-1 { z-index: 1; }
+
+
 /* Cards header global hide */
 .cards-no-header .card .card-header {
     display: none;
@@ -133,8 +137,3 @@ img {
 
 /*     -     !!! Hacks !!!     -     */
 
-/* Move over all */
-/* .nav-scroller, */
-.z-index-1 {
-    z-index: 1;
-}

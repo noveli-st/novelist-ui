@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        isAuthorized: false,
+        isAuthorized: true,
 
         // Full screen image expander
         isImageExpanded: false,
