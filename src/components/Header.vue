@@ -7,11 +7,11 @@
             </router-link>
             <div class="ml-auto d-flex align-items-center">
                 <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="search" size="lg" /></button>
-                <div v-if="$store.state.isAuthorized" class="position-relative d-inline-block mx-2">
+                <div v-if="isAuthorized" class="position-relative d-inline-block mx-2">
                     <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
                     <b-collapse ref="userMainMenu" id="userMainMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-on-click-outside="closeMainMenu">
                         <router-link class="d-flex btn btn-light btn-block border-0 rounded-0 m-0 p-3 text-decoration-none disable-events" active-class="active" v-bind:to="'Profile'">
-                            <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">User name</span>
+                            <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">{{ this.$store.state.me.name }}</span>
                         </router-link>
                         <hr class="my-0">
                         <router-link class="btn btn-outline-secondary btn-block border-0 rounded-0 text-left text-nowrap m-0 px-3 py-3 disable-events" active-class="active" v-bind:to="'wallet'"><font-awesome-icon icon="wallet" class="mr-2" />Wallet <span class="float-right">$201.00</span></router-link>
@@ -29,7 +29,7 @@
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'get-help'"><font-awesome-icon icon="question-circle" size="lg" /><div class="small text-truncate">Get help</div></router-link>
                         </div>
                         <hr class="my-0">
-                        <button class="btn btn-light btn-block border-0 rounded-0 text-right px-3 py-2" type="button">Sign out<font-awesome-icon icon="sign-out-alt" class="ml-2" /></button>
+                        <button class="btn btn-light btn-block border-0 rounded-0 text-right px-3 py-2" v-on:click="signOut" type="button">Sign out<font-awesome-icon icon="sign-out-alt" class="ml-2" /></button>
                     </b-collapse>
                 </div>
                 <div v-else class="btn-group btn-group-sm mx-2">
@@ -65,16 +65,27 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
+
     export default {
         name: 'Header',
+        computed: {
+            isAuthorized() { return this.$store.getters.isAuthorized; }
+        },
         methods: {
+            ...mapActions(['logout']),
+            signOut() {
+                console.log('signOut called')
+                this.closeMainMenu();
+                this.logout();
+            },
             closeGlobalSearch(ev) {
                 if (!this.$refs.buttonGlobalSearch.contains(ev.target)) {
                     this.$refs.collapseGlobalSearch.show = false
                 }
             },
             closeMainMenu(ev) {
-                if (!this.$refs.inputUserMainMenu.contains(ev.target)) {
+                if (!ev || !this.$refs.inputUserMainMenu.contains(ev.target)) {
                     this.$refs.userMainMenu.show = false
                 }
             }
@@ -84,6 +95,6 @@
         //         if( collapseId == 'collapseGlobalSearch' && isJustShown)
         //             document.querySelector("#collapseGlobalSearch input").focus();
         //     })
-        // }        
+        // }
     }
 </script>
