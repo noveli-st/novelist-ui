@@ -39,6 +39,31 @@ img {
 .z-index-0 { z-index: 0; }
 .z-index-1 { z-index: 1; }
 
+.hyphens {
+    hyphens: auto;
+}
+
+/* Scroll pages to top button */
+.btn-jump-to-top {
+    position: fixed;
+    left: 2rem;
+    bottom: 2rem;
+    opacity: .70;
+    z-index: 1030;
+}
+.btn-jump-to-top:hover {
+    opacity: 1;
+}
+
+.jump-to-top-fade-enter-active, 
+.jump-to-top-fade-leave-active {
+  transition: opacity .7s;
+}
+.jump-to-top-fade-enter, 
+.jump-to-top-fade-leave-to {
+  opacity: 0;
+}
+
 
 /* Cards header global hide */
 .cards-no-header .card .card-header {

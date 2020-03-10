@@ -39,7 +39,12 @@ import {
     faGlobe,
     faSave,
     faHistory,
-    faExclamationCircle
+    faExclamationCircle,
+    faUser,
+    faMask,
+    faShieldAlt,
+    faInfo,
+    faArrowAltCircleUp
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -90,7 +95,12 @@ library.add(
     faGlobe,
     faSave,
     faHistory,
-    faExclamationCircle
+    faExclamationCircle,
+    faUser,
+    faMask,
+    faShieldAlt,
+    faInfo,
+    faArrowAltCircleUp
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

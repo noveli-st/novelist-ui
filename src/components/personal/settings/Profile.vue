@@ -8,7 +8,12 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="inputProfileNickname">Nickname</label>
                 <div class="col-lg-9">
-                    <input id="inputProfileNickname" class="form-control" type="text" maxlength="40" aria-describedby="descriptionProfileNickname">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="mask" size="lg" /></span>
+                        </div>
+                        <input id="inputProfileNickname" class="form-control border-left-0" type="text" maxlength="40" aria-describedby="descriptionProfileNickname">
+                    </div>
                     <small id="descriptionProfileNickname" class="form-text text-muted">... or "Pen name" for writers/arts that won't display their real names</small>
                 </div>
             </div>
@@ -43,7 +48,12 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="userStatusText">Status</label>
                 <div class="col-lg-9">
-                    <input id="userStatusText" class="form-control" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="info" size="lg" /></span>
+                        </div>
+                        <input id="userStatusText" class="form-control border-left-0" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
+                    </div>
                     <small id="descriptionProfileStatus" class="form-text text-muted">Short length (maxlength 128 symbols) text in your profile.</small>
                 </div>
             </div>
