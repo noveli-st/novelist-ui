@@ -28,7 +28,18 @@ import {
     faCalendarDay,
     faArrowAltCircleRight,
     faTh,
-    faThList
+    faThList,
+    faUserEdit,
+    faCogs,
+    faUserShield,
+    faPray,
+    faPhone,
+    faAt,
+    faMapMarker,
+    faGlobe,
+    faSave,
+    faHistory,
+    faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -68,7 +79,18 @@ library.add(
     faCalendarDay,
     faArrowAltCircleRight,
     faTh,
-    faThList
+    faThList,
+    faUserEdit,
+    faCogs,
+    faUserShield,
+    faPray,
+    faPhone,
+    faAt,
+    faMapMarker,
+    faGlobe,
+    faSave,
+    faHistory,
+    faExclamationCircle
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

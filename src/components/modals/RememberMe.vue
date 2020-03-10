@@ -16,10 +16,10 @@
                 <div class="invalid-feedback" v-if="!$v.email.email">This field should be an eMail</div>
 			</form>
 		</template>	
-              <template v-slot:modal-footer="{cancel, ok}">
-                  <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2" />Close</button>
-                  <button class="btn btn-primary" v-on:click="ok()" type="submit" v-bind:disabled="$v.$invalid"><font-awesome-icon icon="recycle" class="mr-2" />Reset password</button>
-              </template>
+        <template v-slot:modal-footer="{cancel, ok}">
+            <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2" />Close</button>
+            <button class="btn btn-primary" v-on:click="ok()" type="submit" v-bind:disabled="$v.$invalid"><font-awesome-icon icon="recycle" class="mr-2" />Reset password</button>
+        </template>
 	</b-modal>
 </template>
 

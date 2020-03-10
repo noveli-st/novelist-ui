@@ -1,25 +1,24 @@
 <template>
-    <main class="min-vh-100">
-		<section class="container my-5">
-			<header class="mb-4 pb-3 border-bottom d-flex flex-nowrap">
-				<span class="mb-0 flex-grow-1" v-bind:class="'h' + cardainerHeader" role="heading" v-bind:aria-level="cardainerHeader">{{ cardainerTitle }} <span v-if="cardainerSubtitle" class="h6 text-muted">{{cardainerSubtitle}}</span></span>
-                <template v-if="cardViewStyle">
-                    <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'deck'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="Gallery view"><font-awesome-icon icon="th" size="lg"></font-awesome-icon></button>
-                    <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'list'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="List view"><font-awesome-icon icon="th-list" size="lg"></font-awesome-icon></button>
-                </template>
-			</header>
-            <div v-bind:class="cardainerStyleClass">
-                <slot></slot>
-			</div>
-			<footer v-if="cardainerLink" class="border-top pt-1 text-right">
-				<router-link v-bind:to="cardainerLink" class="btn btn-link">View more<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>
-			</footer>
-		</section>
-    </main>
+    <section class="container my-5">
+        <header class="d-flex flex-nowrap">
+            <span class="mb-0 flex-grow-1" v-bind:class="'h' + cardainerHeader" role="heading" v-bind:aria-level="cardainerHeader">{{ cardainerTitle }} <span v-if="cardainerSubtitle" class="h6 text-muted">{{cardainerSubtitle}}</span></span>
+            <template v-if="cardViewStyle">
+                <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'deck'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="Gallery view"><font-awesome-icon icon="th" size="lg"></font-awesome-icon></button>
+                <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'list'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="List view"><font-awesome-icon icon="th-list" size="lg"></font-awesome-icon></button>
+            </template>
+        </header>
+        <hr class="border-top">
+        <div v-bind:class="cardainerStyleClass">
+            <slot></slot>
+        </div>
+        <footer v-if="cardainerLink" class="border-top pt-1 text-right">
+            <router-link v-bind:to="cardainerLink" class="btn btn-link">View more<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>
+        </footer>
+    </section>
 </template>
 
 <script>
-	export default {
+    export default {
         name: 'Cardainer',
         data (){
             return {
@@ -63,5 +62,5 @@
                 this.$root.$emit('bv::hide::tooltip')
             }
         }
-	}
+    }
 </script>
