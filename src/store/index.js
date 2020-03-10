@@ -1,15 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import client from 'api-client'
+
 Vue.use(Vuex)
+
+const SET_ME = 'SET_ME'
+const UNSET_ME = 'UNSET_ME'
 
 export default new Vuex.Store({
     state: {
-        isAuthorized: true,
+        me: null,
 
         // Full screen image expander
         isImageExpanded: false,
         imageExpanderPath: ''
+    },
+    getters: {
+        isAuthorized: state => state.me != null
     },
     mutations: {
         // Full screen image expander
@@ -17,9 +25,26 @@ export default new Vuex.Store({
             state.isImageExpanded = true
             document.body.style.paddingRight = window.innerWidth - document.body.clientWidth + 'px'
             document.body.classList.add('overflow-hidden')
-            
+
             // после структурирования папок на сервере путь будет изменен на правильный!
             state.imageExpanderPath = "http://mobitoon.ru/novelist/images/books/" + data + '/cover.jpg'
+        },
+        [SET_ME] (state, me) {
+            state.me = me;
+        },
+        [UNSET_ME] (state) {
+            state.me = null;
+        }
+    },
+    actions: {
+        login({ commit }, username, password) {
+            return client.login(username, password)
+                .then(user => commit(SET_ME, user))
+                .catch(error => console.log(error));
+        },
+        logout({ commit }) {
+            client.logout()
+                .then(() => commit(UNSET_ME));
         }
     }
 })

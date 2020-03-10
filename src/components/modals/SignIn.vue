@@ -1,10 +1,10 @@
 <template>
-	<b-modal id="modalSignIn" v-bind:header-bg-variant="'light'" v-on:ok="handleOk" centered no-stacking>
-		<template v-slot:modal-header="{ close }">
-			<div class="h5 modal-title">Please sign in</div>
+    <b-modal id="modalSignIn" v-bind:header-bg-variant="'light'" v-on:ok="handleOk" centered no-stacking>
+        <template v-slot:modal-header="{ close }">
+            <div class="h5 modal-title">Please sign in</div>
             <button class="btn close" v-on:click="close()" type="button"><font-awesome-icon icon="times" size="sm" /></button>
-		</template>
-		<template v-slot:default>
+        </template>
+        <template v-slot:default>
             <form ref="form" v-on:submit.prevent="submitSignIn">
                 <label for="inputEmail" class="sr-only">eMail</label>
                 <input id="inputEmail" class="form-control" placeholder="eMail address" type="email"
@@ -28,38 +28,40 @@
                     <label class="custom-control-label" for="checkRememberMe">Remember me</label>
                 </div>
             </form>
-			<button class="btn btn-link p-0 float-right" v-b-modal.modalRememberMe type="button">Forgot password?</button>
-		</template>	
+            <button class="btn btn-link p-0 float-right" v-b-modal.modalRememberMe type="button">Forgot password?</button>
+        </template>
         <template v-slot:modal-footer="{cancel, ok}">
             <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2" />Close</button>
             <button class="btn btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid || !hasRememberMe" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2" />Sign in</button>
         </template>
-	</b-modal>
+    </b-modal>
 </template>
 
 <script>
     import { required, email, minLength } from 'vuelidate/lib/validators'
+    import { mapActions } from 'vuex'
 
-	export default {
+    export default {
         name: 'ModalSignIn',
-        data(){
-            return{
+        data() {
+            return {
                 email: '',
                 password: '',
                 hasRememberMe: false
             }
         },
         methods: {
-            handleOk(){
+            ...mapActions(['login']),
+            handleOk() {
                 console.log('Ok!')
                 this.submitSignIn()
             },
-            submitSignIn(){
-                
+            submitSignIn() {
+                this.login(this.email, this.password);
                 console.log('Submit!')
             }
         },
-        validations:{
+        validations: {
             email: {
                 required,
                 email
@@ -68,5 +70,5 @@
                 minLength: minLength(6)
             }
         }
-	}
+    }
 </script>
