@@ -44,7 +44,7 @@ export default new Vuex.Store({
         },
         logout({ commit }) {
             client.logout()
-            commit(UNSET_ME);
+                .then(() => commit(UNSET_ME));
         }
     }
 })

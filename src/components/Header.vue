@@ -29,7 +29,7 @@
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'get-help'"><font-awesome-icon icon="question-circle" size="lg" /><div class="small text-truncate">Get help</div></router-link>
                         </div>
                         <hr class="my-0">
-                        <button class="btn btn-light btn-block border-0 rounded-0 text-right px-3 py-2" type="button">Sign out<font-awesome-icon icon="sign-out-alt" class="ml-2" /></button>
+                        <button class="btn btn-light btn-block border-0 rounded-0 text-right px-3 py-2" v-on:click="signOut" type="button">Sign out<font-awesome-icon icon="sign-out-alt" class="ml-2" /></button>
                     </b-collapse>
                 </div>
                 <div v-else class="btn-group btn-group-sm mx-2">
@@ -65,19 +65,27 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
+
     export default {
         name: 'Header',
         computed: {
             isAuthorized() { return this.$store.getters.isAuthorized; }
         },
         methods: {
+            ...mapActions(['logout']),
+            signOut() {
+                console.log('signOut called')
+                this.closeMainMenu();
+                this.logout();
+            },
             closeGlobalSearch(ev) {
                 if (!this.$refs.buttonGlobalSearch.contains(ev.target)) {
                     this.$refs.collapseGlobalSearch.show = false
                 }
             },
             closeMainMenu(ev) {
-                if (!this.$refs.inputUserMainMenu.contains(ev.target)) {
+                if (!ev || !this.$refs.inputUserMainMenu.contains(ev.target)) {
                     this.$refs.userMainMenu.show = false
                 }
             }

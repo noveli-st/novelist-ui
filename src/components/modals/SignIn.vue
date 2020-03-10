@@ -51,7 +51,7 @@
             }
         },
         methods: {
-            ...mapActions(['login', 'logout']),
+            ...mapActions(['login']),
             handleOk() {
                 console.log('Ok!')
                 this.submitSignIn()
