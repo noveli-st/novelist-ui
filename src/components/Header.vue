@@ -8,25 +8,25 @@
             <div class="ml-auto d-flex align-items-center">
                 <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="search" size="lg" /></button>
                 <div v-if="$store.state.isAuthorized" class="position-relative d-inline-block mx-2">
-                    <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
-                    <b-collapse ref="userMainMenu" id="userMainMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-on-click-outside="closeMainMenu">
+                    <input ref="inputUserMenu" v-b-toggle.collapseUserMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
+                    <b-collapse ref="collapseUserMenu" id="collapseUserMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-on-click-outside="closeUserMenu">
                         <router-link class="d-flex btn btn-light btn-block border-0 rounded-0 m-0 p-3 text-decoration-none disable-events" active-class="active" v-bind:to="'Profile'">
                             <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">User name</span>
                         </router-link>
                         <hr class="my-0">
-                        <router-link class="btn btn-outline-secondary btn-block border-0 rounded-0 text-left text-nowrap m-0 px-3 py-3 disable-events" active-class="active" v-bind:to="'wallet'"><font-awesome-icon icon="wallet" class="mr-2" />Wallet <span class="float-right">$201.00</span></router-link>
+                        <router-link class="btn btn-outline-secondary btn-block border-0 rounded-0 text-left text-nowrap m-0 px-3 py-3 disable-events" active-class="active" v-bind:to="'wallet'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="wallet" class="mr-2" />Wallet <span class="float-right">$201.00</span></router-link>
                         <div class="d-flex flex-wrap">
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-library'"><font-awesome-icon icon="book-reader" size="2x" /><div class="small">Library</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-reviews'"><font-awesome-icon icon="glasses" size="2x" /><div class="small">Reviews</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-workroom'"><font-awesome-icon icon="pen-alt" size="2x" /><div class="small">Workroom</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-comments'"><font-awesome-icon icon="comments" size="2x" /><div class="small">Comments</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-Statistics'"><font-awesome-icon icon="chart-area" size="2x" /><div class="small">Stats</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-library'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="book-reader" size="2x" /><div class="small">Library</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-reviews'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="glasses" size="2x" /><div class="small">Reviews</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-workroom'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="pen-alt" size="2x" /><div class="small">Workroom</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-comments'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="comments" size="2x" /><div class="small">Comments</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-Statistics'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="chart-area" size="2x" /><div class="small">Stats</div></router-link>
                         </div>
                         <hr class="my-0">
                         <div class="d-flex flex-wrap">
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'inbox'"><font-awesome-icon icon="inbox" size="lg" /><div class="small text-truncate">Inbox</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'../settings'"><font-awesome-icon icon="cogs" size="lg" /><div class="small">Settings</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'get-help'"><font-awesome-icon icon="question-circle" size="lg" /><div class="small text-truncate">Get help</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'inbox'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="inbox" size="lg" /><div class="small text-truncate">Inbox</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'../settings'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="cogs" size="lg" /><div class="small">Settings</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'get-help'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="question-circle" size="lg" /><div class="small text-truncate">Get help</div></router-link>
                         </div>
                         <hr class="my-0">
                         <button class="btn btn-light btn-block border-0 rounded-0 text-right px-3 py-2" type="button">Sign out<font-awesome-icon icon="sign-out-alt" class="ml-2" /></button>
@@ -73,9 +73,9 @@
                     this.$refs.collapseGlobalSearch.show = false
                 }
             },
-            closeMainMenu(ev) {
-                if (!this.$refs.inputUserMainMenu.contains(ev.target)) {
-                    this.$refs.userMainMenu.show = false
+            closeUserMenu(ev) {
+                if (!this.$refs.inputUserMenu.contains(ev.target)) {
+                    this.$refs.collapseUserMenu.show = false
                 }
             }
         },

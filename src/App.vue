@@ -9,6 +9,8 @@
         <cmp-modal-remember-me />
 
 		<cmp-expand-container />
+
+		<cmp-jump-to-top />
 	</div>
 </template>
 
@@ -19,6 +21,7 @@
 	import cmpModalSignIn from './components/modals/SignIn'
 	import cmpModalRememberMe from './components/modals/RememberMe'
 	import cmpExpandContainer from './components/assets/ExpandContainer'
+	import cmpJumpToTop from './components/assets/JumpToTop'
 
 	export default {
 		name: 'App',
@@ -28,7 +31,8 @@
             cmpModalSignUp,
             cmpModalSignIn,
 			cmpModalRememberMe,
-			cmpExpandContainer
+			cmpExpandContainer,
+			cmpJumpToTop
 		}
 	}
 </script>
