@@ -8,10 +8,8 @@ Vue.use(Vuex)
 const SET_ME = 'SET_ME'
 const UNSET_ME = 'UNSET_ME'
 
-Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
-        isAuthorized: false,
         me: null,
 
         // Full screen image expander
@@ -39,17 +37,10 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        login({ commit }, { username, password }) {
-            return client.login(username, password).then(
-                result => {
-                    if (result.success) {
-                        commit(SET_ME, result.data);
-                    }
-                    else {
-                        // TODO: will be implemented to show login failure
-                    }
-                }
-            );
+        login({ commit }, username, password) {
+            return client.login(username, password)
+                .then(user => commit(SET_ME, user))
+                .catch(error => console.log(error));
         },
         logout({ commit }) {
             client.logout()

@@ -1,32 +1,35 @@
 import me from './data/login'
-
-const S_OK = { code: 200, text: 'OK' }
-const S_UNAUTHORIZED = { code: 401, text: 'Unauthorized' }
-
-const make_response = ({data = {}, status = S_OK, headers = {}} = {}) => {
-    return {
-        data: data,
-        status: status.code,
-        statusText: status.text,
-        headers: headers
-    };
-}
-
-const make_ok = (data, headers = {}) => make_response({data: data, headers: headers})
+import * as SC from '../codes'
+import {err} from '../errors'
 
 const fetch = (response, time = 0) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const isSuccess = Math.floor(response.status / 100) === 2;
-            (isSuccess ? resolve : reject)(response);
+            if (Math.floor(response.code / 100) === 2) {
+                resolve(response.data);
+            }
+            else {
+                reject(response);
+            }
         }, time)
     })
 }
 
 export default {
+    /* eslint-disable no-unused-vars */
     login(username, password) {
-        const valid_user = username === "tester" && password === "tester";
-        const response = valid_user ? make_ok(me) : make_response({ status: S_UNAUTHORIZED });
+    /* eslint-enable no-unused-vars */
+        console.log(`login ${username} ${password}`);
+
+        const valid_user = username === "tester@noveli.st";
+        const timeout_user = username === "timeout@noveli.st";
+
+        console.log(`valid_user ${valid_user}`);
+        console.log(`timeout_user ${timeout_user}`);
+
+        const response =
+            valid_user ? {code: SC.OK.code, message: SC.OK.text, data: me} :
+            timeout_user ? err(SC.TIMEOUT) : err(SC.UNAUTHORIZED);
         return fetch(response, 1000);
     }
 }
