@@ -1,8 +1,12 @@
+import Vue from 'vue'
+
 import me from './data/login'
+import indexBooks from './data/index-books'
+
 import * as SC from '../codes'
 import {err} from '../errors'
 
-const with_status = (status, data) => ({ code: status.code, text: status.text, data: data })
+const with_status = (status, data) => ({ code: status.code, message: status.text, data: data })
 
 const fetch = (response, time = 0) => {
     return new Promise((resolve, reject) => {
@@ -11,11 +15,19 @@ const fetch = (response, time = 0) => {
                 resolve(response.data);
             }
             else {
+                const vm = new Vue();
+                vm.$bvToast.toast(`${response.code} ${response.message}`, {
+                    title: 'Error',
+                    variant: 'danger'
+                });
+
                 reject(response);
             }
         }, time)
     })
 }
+
+const fetchOk = (data, time = 0) => fetch(with_status(SC.OK, data), time)
 
 export default {
     /* eslint-disable no-unused-vars */
@@ -36,5 +48,8 @@ export default {
     },
     logout() {
         return fetch(with_status(SC.NO_CONTENT, null));
+    },
+    findBooks() {
+        return fetchOk(indexBooks);
     }
 }
