@@ -1,6 +1,8 @@
 import Vue from 'vue'
 
 import me from './data/login'
+import indexBooks from './data/index-books'
+
 import * as SC from '../codes'
 import {err} from '../errors'
 
@@ -25,6 +27,8 @@ const fetch = (response, time = 0) => {
     })
 }
 
+const fetchOk = (data, time = 0) => fetch(with_status(SC.OK, data), time)
+
 export default {
     /* eslint-disable no-unused-vars */
     login(username, password) {
@@ -44,5 +48,8 @@ export default {
     },
     logout() {
         return fetch(with_status(SC.NO_CONTENT, null));
+    },
+    findBooks() {
+        return fetchOk(indexBooks);
     }
 }

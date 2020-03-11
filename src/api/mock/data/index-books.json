@@ -1,0 +1,112 @@
+{
+    "total": 100,
+    "list": [{
+        "id": 2,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 8,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 1,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 3,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 9,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 5,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 6,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 7,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 10,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 12,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 11,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }, {
+        "id": 4,
+        "title": "The long title of the book: chapter one",
+        "published": "2019-10-23T18:25:43.511Z",
+        "author": {
+            "id": 1,
+            "name": "Author name"
+        },
+        "type": "book"
+    }]
+}
