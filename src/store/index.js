@@ -37,14 +37,18 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        login({ commit }, username, password) {
-            return client.login(username, password)
-                .then(user => commit(SET_ME, user))
-                .catch(error => console.log(error));
+        async login({ commit }, username, password) {
+            try {
+                const user = await client.login(username, password);
+                commit(SET_ME, user);
+            }
+            catch (error) {
+                console.log(error);
+            }
         },
-        logout({ commit }) {
-            client.logout()
-                .then(() => commit(UNSET_ME));
+        async logout({ commit }) {
+            await client.logout();
+            commit(UNSET_ME);
         }
     }
 })
