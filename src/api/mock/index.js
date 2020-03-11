@@ -1,8 +1,10 @@
+import Vue from 'vue'
+
 import me from './data/login'
 import * as SC from '../codes'
 import {err} from '../errors'
 
-const with_status = (status, data) => ({ code: status.code, text: status.text, data: data })
+const with_status = (status, data) => ({ code: status.code, message: status.text, data: data })
 
 const fetch = (response, time = 0) => {
     return new Promise((resolve, reject) => {
@@ -11,6 +13,12 @@ const fetch = (response, time = 0) => {
                 resolve(response.data);
             }
             else {
+                const vm = new Vue();
+                vm.$bvToast.toast(`${response.code} ${response.message}`, {
+                    title: 'Error',
+                    variant: 'danger'
+                });
+
                 reject(response);
             }
         }, time)
