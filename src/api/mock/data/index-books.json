@@ -10,8 +10,8 @@
                 "name": "Commodi Quaerat"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 8,
@@ -22,8 +22,8 @@
                 "name": "Adipisicing Elit"
             },
             "type": "book",
-            "sale": 35,
-            "cost": 6.00
+            "discount": 35,
+            "price": 6.00
         },
         {
             "id": 1,
@@ -34,8 +34,8 @@
                 "name": "Sapiente facilis \"officiis\""
             },
             "type": "book",
-            "sale": 0,
-            "cost": 2.99
+            "discount": 0,
+            "price": 2.99
         },
         {
             "id": 3,
@@ -46,8 +46,8 @@
                 "name": "Adipisicing Elit"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 9,
@@ -58,8 +58,8 @@
                 "name": "Adipisicing Elit"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 5,
@@ -70,8 +70,8 @@
                 "name": "Libero"
             },
             "type": "book",
-            "sale": 25,
-            "cost": 2.99
+            "discount": 25,
+            "price": 2.99
         },
         {
             "id": 6,
@@ -82,8 +82,8 @@
                 "name": "Vitae Suscipit"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 7,
@@ -94,8 +94,8 @@
                 "name": "Tempora Illum"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 10,
@@ -106,8 +106,8 @@
                 "name": "Tempora Illum"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 12,
@@ -118,8 +118,8 @@
                 "name": "Vitae Suscipit"
             },
             "type": "book",
-            "sale": 10,
-            "cost": 4.00
+            "discount": 10,
+            "price": 4.00
         },
         {
             "id": 11,
@@ -130,8 +130,8 @@
                 "name": "Tempora Illum"
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         },
         {
             "id": 4,
@@ -142,8 +142,8 @@
                 "name": "Sapiente Facilis \"officiis\""
             },
             "type": "book",
-            "sale": 0,
-            "cost": 0
+            "discount": 0,
+            "price": 0
         }
     ]
 }
