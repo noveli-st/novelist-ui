@@ -16,15 +16,15 @@
         <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image"
             v-bind:style="{'background' : 'url(' + bookCoverPreviewUrl + ') no-repeat scroll center center / cover'}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-                <title>{{ book.title}}: {{ book.author.name }}<text v-if="book.sale"> - Sale {{ book.sale }}%</text></title>
-                <template v-if="book.sale">
+                <title>{{ book.title}}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title>
+                <template v-if="book.discount">
                     <polygon fill="#ec4079" opacity=".9" points="0,128 128,0 256,0 0,256" filter="drop-shadow(0 .125rem .25rem rgba(0,0,0,.75))"></polygon>
-                    <text fill="#ffffff" font-weight="bold" font-size="90" transform="translate(55 182) rotate(-45)">{{ book.sale }}%</text>
+                    <text fill="#ffffff" font-weight="bold" font-size="90" transform="translate(55 182) rotate(-45)">{{ book.discount }}%</text>
                 </template>
             </svg>
         </div>
         <div class="card-footer mt-auto">
-            <router-link v-if="book.cost" class="btn btn-block btn-warning" v-bind:to="'/reader/' + book.id">Read for ${{ saleCalc() }}<del v-if="book.sale" class="text-muted ml-2">${{ book.cost.toFixed(2) }}</del></router-link>
+            <router-link v-if="book.price" class="btn btn-block btn-warning" v-bind:to="'/reader/' + book.id">Read for ${{ discountPrice }}<del v-if="book.discount" class="text-muted ml-2">${{ book.price.toFixed(2) }}</del></router-link>
             <router-link v-else class="btn btn-block btn-success" v-bind:to="'/reader/' + book.id">Read for free</router-link>
         </div>
     </div>
@@ -39,12 +39,12 @@
                 bookCoverPreviewUrl: "http://mobitoon.ru/novelist/images/books/" + this.book.id + "/preview.jpg"
             }
         },
-        methods:{
-            saleCalc(){
-                if(this.book.sale)
-                    return (this.book.cost * this.book.sale / 100).toFixed(2)
+        computed:{
+            discountPrice(){
+                if(this.book.discount)
+                    return (this.book.price * this.book.discount / 100).toFixed(2)
                 else
-                    return this.book.cost
+                    return this.book.price
             }
         },
         props: ['book']
