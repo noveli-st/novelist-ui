@@ -35,8 +35,8 @@
         name: 'Card',
         data(){
             return {
-                userAvatarUrl: "http://mobitoon.ru/novelist/images/users/" + this.book.author.id + "/preview.svg",
-                bookCoverPreviewUrl: "http://mobitoon.ru/novelist/images/books/" + this.book.id + "/preview.jpg"
+                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.book.author.id}/preview.svg`,
+                bookCoverPreviewUrl: `http://mobitoon.ru/novelist/images/books/${this.book.id}/preview.jpg`
             }
         },
         computed:{
