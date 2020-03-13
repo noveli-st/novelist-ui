@@ -42,7 +42,7 @@
         computed:{
             discountPrice(){
                 if(this.book.discount)
-                    return (this.book.price * this.book.discount / 100).toFixed(2)
+                    return (this.book.price * (100 - this.book.discount) / 100).toFixed(2)
                 else
                     return this.book.price
             }
