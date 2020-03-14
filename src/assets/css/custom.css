@@ -145,6 +145,8 @@ del:after {
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 64px;
+    height: 64px;
     transform: translate(-50%, -50%);
     z-index: 1;
 }

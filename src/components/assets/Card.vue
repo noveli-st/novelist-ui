@@ -2,7 +2,7 @@
     <div class="card border-0 mb-4 shadow-sm">
         <div class="card-header">
             <router-link class="d-flex align-items-center text-decoration-none" v-bind:to="'/profile/' + book.author.id">
-                <img class="image-42 mr-3 rounded-circle shadow-sm overflow-hidden" :alt="book.author.name" :src="userAvatarUrl">
+                <img class="image-42 mr-3 rounded-circle shadow-sm overflow-hidden" :alt="book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
                 <span class="text-truncate">
                     {{ book.author.name }}
                     <time class="d-block text-muted small mb-1" :datetime="book.published"><font-awesome-icon icon="calendar-day" class="mr-2"></font-awesome-icon>{{ (new Date(book.published)).toLocaleDateString() }}</time>
@@ -35,8 +35,13 @@
         name: 'Card',
         data(){
             return {
-                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.book.author.id}/preview.svg`,
+                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.book.author.id}/preview.jpg`,
                 bookCoverPreviewUrl: `http://mobitoon.ru/novelist/images/books/${this.book.id}/preview.jpg`
+            }
+        },
+        methods: {
+            userAvatarUrlError(event){
+                event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
             }
         },
         computed:{
