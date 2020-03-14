@@ -7,11 +7,11 @@
             </router-link>
             <div class="ml-auto d-flex align-items-center">
                 <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="search" size="lg" /></button>
-                <div v-if="isAuthorized" class="position-relative d-inline-block mx-2">
+                <div v-if="isAuthenticated" class="position-relative d-inline-block mx-2">
                     <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
                     <b-collapse ref="userMainMenu" id="userMainMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-on-click-outside="closeMainMenu">
                         <router-link class="d-flex btn btn-light btn-block border-0 rounded-0 m-0 p-3 text-decoration-none disable-events" active-class="active" v-bind:to="'Profile'">
-                            <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">{{ this.$store.state.me.name }}</span>
+                            <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">{{ this.$store.state.user.me.name }}</span>
                         </router-link>
                         <hr class="my-0">
                         <router-link class="btn btn-outline-secondary btn-block border-0 rounded-0 text-left text-nowrap m-0 px-3 py-3 disable-events" active-class="active" v-bind:to="'wallet'" v-on:click.native="closeUserMenu"><font-awesome-icon icon="wallet" class="mr-2" />Wallet <span class="float-right">$201.00</span></router-link>
@@ -67,13 +67,15 @@
 <script>
     import { mapActions } from 'vuex'
 
+    import { AUTH_LOGOUT } from "../store/actions/auth";
+
     export default {
         name: 'Header',
         computed: {
-            isAuthorized() { return this.$store.getters.isAuthorized; }
+            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; }
         },
         methods: {
-            ...mapActions(['logout']),
+            ...mapActions({ logout: AUTH_LOGOUT }),
             signOut() {
                 console.log('signOut called')
                 this.closeMainMenu();
