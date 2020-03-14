@@ -77,7 +77,6 @@
         methods: {
             ...mapActions({ logout: AUTH_LOGOUT }),
             signOut() {
-                console.log('signOut called')
                 this.closeMainMenu();
                 this.logout();
             },
