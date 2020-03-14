@@ -38,8 +38,10 @@
 </template>
 
 <script>
-    import { required, email, minLength } from 'vuelidate/lib/validators'
-    import { mapActions } from 'vuex'
+    import { required, email, minLength } from 'vuelidate/lib/validators';
+    import { mapActions } from 'vuex';
+
+    import { AUTH_LOGIN } from "../../store/actions/auth";
 
     export default {
         name: 'ModalSignIn',
@@ -51,7 +53,7 @@
             }
         },
         methods: {
-            ...mapActions(['login']),
+            ...mapActions({ 'login': AUTH_LOGIN }),
             handleOk() {
                 console.log('Ok!')
                 this.submitSignIn()
