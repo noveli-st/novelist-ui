@@ -55,12 +55,10 @@
         methods: {
             ...mapActions({ 'login': AUTH_LOGIN }),
             handleOk() {
-                console.log('Ok!')
                 this.submitSignIn()
             },
             submitSignIn() {
                 this.login(this.email, this.password);
-                console.log('Submit!')
             }
         },
         validations: {

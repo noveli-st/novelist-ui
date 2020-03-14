@@ -1,6 +1,5 @@
-import Vue from 'vue'
-
 import store from '../../store/index'
+import toast from '../../util/toast'
 
 import me from './data/login'
 import indexBooks from './data/index-books'
@@ -17,12 +16,7 @@ const fetch = (response, time = 0) => {
                 resolve(response.data);
             }
             else {
-                const vm = new Vue();
-                vm.$bvToast.toast(`${response.code} ${response.message}`, {
-                    title: 'Error',
-                    variant: 'danger'
-                });
-
+                toast.error(`${response.code} ${response.message}`);
                 reject(response);
             }
         }, time)
@@ -45,15 +39,12 @@ export default {
         return fetch(response, 1000);
     },
     logout() {
+        toast.success(`LOGOUT`);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
     fetchMe() {
         const token = store.state.auth.sessionToken;
-        const vm = new Vue();
-        vm.$bvToast.toast(`TOKEN: ${token}`, {
-            title: 'Info',
-            variant: 'info'
-        });
+        toast.info(`TOKEN: ${token}`);
 
         const hasToken = token != null;
         const response = hasToken ?

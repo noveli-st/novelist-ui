@@ -41,12 +41,9 @@
         },
         methods: {
             handleOk(){
-                console.log('Ok!')
                 this.submitSignUp()
             },
             submitSignUp(){
-                
-                console.log('Submit!')
             }
         },
         validations:{
