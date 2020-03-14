@@ -55,11 +55,11 @@ export default {
             variant: 'info'
         });
 
-        const hasToken = token == null;
+        const hasToken = token != null;
         const response = hasToken ?
             with_status(SC.OK, me) : err(SC.make_status(801, 'Token not set'));
 
-        fetch(response, 1000);
+        return fetch(response, 1000);
     },
     findBooks() {
         return fetchOk(indexBooks);
