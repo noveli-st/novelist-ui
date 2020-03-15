@@ -12,7 +12,8 @@ export default {
             document.body.classList.add('overflow-hidden')
 
             // после структурирования папок на сервере путь будет изменен на правильный!
-            state.imageExpanderPath = "http://mobitoon.ru/novelist/images/books/" + data + '/cover.jpg'
+            state.imageExpanderPath = `http://mobitoon.ru/novelist/images/books/${data}/cover.jpg`
+
         }
     }
 }
