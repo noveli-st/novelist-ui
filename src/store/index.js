@@ -1,50 +1,19 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-import client from 'api-client'
+import auth from "./modules/auth";
+import user from "./modules/user";
+import imageExpand from "./modules/imageExpand";
 
 Vue.use(Vuex)
 
-const SET_ME = 'SET_ME'
-const UNSET_ME = 'UNSET_ME'
+const debug = process.env.NODE_ENV !== "production";
 
 export default new Vuex.Store({
-    state: {
-        me: null,
-
-        // Full screen image expander
-        isImageExpanded: false,
-        imageExpanderPath: ''
+    modules: {
+        auth,
+        user,
+        imageExpand
     },
-    getters: {
-        isAuthorized: state => state.me != null
-    },
-    mutations: {
-        // Full screen image expander
-        expandContainer (state, data) {
-            state.isImageExpanded = true
-            document.body.style.paddingRight = window.innerWidth - document.body.clientWidth + 'px'
-            document.body.classList.add('overflow-hidden')
-
-            // после структурирования папок на сервере путь будет изменен на правильный!
-            state.imageExpanderPath = "http://mobitoon.ru/novelist/images/books/" + data + '/cover.jpg'
-        },
-        [SET_ME] (state, me) {
-            state.me = me;
-        },
-        [UNSET_ME] (state) {
-            state.me = null;
-        }
-    },
-    actions: {
-        login({ commit }, username, password) {
-            return client.login(username, password)
-                .then(user => commit(SET_ME, user))
-                .catch(error => console.log(error));
-        },
-        logout({ commit }) {
-            client.logout()
-                .then(() => commit(UNSET_ME));
-        }
-    }
+    strict: debug
 })

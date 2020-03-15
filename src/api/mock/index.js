@@ -1,4 +1,5 @@
-import Vue from 'vue'
+import store from '../../store/index'
+import toast from '../../util/toast'
 
 import me from './data/login'
 import indexBooks from './data/index-books'
@@ -15,12 +16,7 @@ const fetch = (response, time = 0) => {
                 resolve(response.data);
             }
             else {
-                const vm = new Vue();
-                vm.$bvToast.toast(`${response.code} ${response.message}`, {
-                    title: 'Error',
-                    variant: 'danger'
-                });
-
+                toast.error(`${response.code} ${response.message}`);
                 reject(response);
             }
         }, time)
@@ -33,21 +29,28 @@ export default {
     /* eslint-disable no-unused-vars */
     login(username, password) {
     /* eslint-enable no-unused-vars */
-        console.log(`login ${username} ${password}`);
-
         const valid_user = username === "tester@noveli.st";
         const timeout_user = username === "timeout@noveli.st";
 
-        console.log(`valid_user ${valid_user}`);
-        console.log(`timeout_user ${timeout_user}`);
-
         const response =
-            valid_user ? with_status(SC.OK, me) :
+            valid_user ? with_status(SC.OK, 'this-is-a-session-token') :
             timeout_user ? err(SC.TIMEOUT) : err(SC.UNAUTHORIZED);
+
         return fetch(response, 1000);
     },
     logout() {
+        toast.success(`LOGOUT`);
         return fetch(with_status(SC.NO_CONTENT, null));
+    },
+    fetchMe() {
+        const token = store.state.auth.sessionToken;
+        toast.info(`TOKEN: ${token}`);
+
+        const hasToken = token != null;
+        const response = hasToken ?
+            with_status(SC.OK, me) : err(SC.make_status(801, 'Token not set'));
+
+        return fetch(response, 1000);
     },
     findBooks() {
         return fetchOk(indexBooks);
