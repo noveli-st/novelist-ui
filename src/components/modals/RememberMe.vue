@@ -35,12 +35,9 @@
         },
         methods: {
             handleOk(){
-                console.log('Ok!')
                 this.submitRememberMe()
             },
             submitRememberMe(){
-                
-                console.log('Submit!')
             }
         },
         validations:{
