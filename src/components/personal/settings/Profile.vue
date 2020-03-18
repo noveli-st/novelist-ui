@@ -12,7 +12,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="mask" size="lg" /></span>
                         </div>
-                        <input id="inputProfileNickname" class="form-control border-left-0" type="text" maxlength="40" aria-describedby="descriptionProfileNickname">
+                        <input id="inputProfileNickname" v-model="userProfile.name"
+                            class="form-control border-left-0" type="text" maxlength="40" aria-describedby="descriptionProfileNickname" />
                     </div>
                     <small id="descriptionProfileNickname" class="form-text text-muted">... or "Pen name" for writers/arts that won't display their real names</small>
                 </div>
@@ -52,7 +53,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="info" size="lg" /></span>
                         </div>
-                        <input id="userStatusText" class="form-control border-left-0" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
+                        <input id="userStatusText" v-model="userProfile.status" class="form-control border-left-0" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
                     </div>
                     <small id="descriptionProfileStatus" class="form-text text-muted">Short length (maxlength 128 symbols) text in your profile.</small>
                 </div>
@@ -60,7 +61,7 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="textareaProfileAbout">About</label>
                 <div class="col-lg-9">
-                    <textarea id="textareaProfileAbout" class="form-control" rows="3" maxlength="1024" aria-describedby="descriptionProfileAbout"></textarea>
+                    <textarea id="textareaProfileAbout" v-model="userProfile.description" class="form-control" rows="3" maxlength="1024" aria-describedby="descriptionProfileAbout"></textarea>
                     <small id="descriptionProfileAbout" class="form-text text-muted">Text about yourself in your profile.</small>
                 </div>
             </div>
@@ -71,7 +72,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="phone" size="lg" /></span>
                         </div>
-                        <input id="inputProfilePhone" class="form-control border-left-0" type="phone">
+                        <input id="inputProfilePhone" v-model="userProfile.phone" class="form-control border-left-0" type="phone">
                     </div>
                 </div>
             </div>
@@ -82,7 +83,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="at" size="lg" /></span>
                         </div>
-                        <input id="inputProfileEmail" class="form-control border-left-0" type="email" value="" aria-describedby="descriptionProfileEmail">
+                        <input id="inputProfileEmail" v-model="userProfile.email" class="form-control border-left-0" type="email" value="" aria-describedby="descriptionProfileEmail">
                     </div>
                     <small id="descriptionProfileEmail" class="form-text text-warning"><font-awesome-icon icon="exclamation-triangle" /> We don't recommend using eMail that you use for "Sign in"! Use a different email to display in your profile.</small>
                 </div>
@@ -94,7 +95,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="map-marker" size="lg" /></span>
                         </div>
-                        <input id="inputProfileCountry" class="form-control border-left-0" type="text" placeholder="Country/Region">
+                        <input id="inputProfileCountry" v-model="userProfile.location" class="form-control border-left-0" type="text" placeholder="Country/Region">
                     </div>
                 </div>
             </div>
@@ -105,7 +106,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="globe" size="lg" /></span>
                         </div>
-                        <input id="inputProfileWebsite" class="form-control border-left-0" type="url" value="">
+                        <input id="inputProfileWebsite" v-model="userProfile.website" class="form-control border-left-0" type="url" value="">
                     </div>
                 </div>
             </div>
@@ -154,10 +155,10 @@
                             <label class="custom-control-label" for="checkboxProfileDonation">Enable donation from users</label>
                         </div>
                         <small id="descriptionProfileDonation" class="form-text text-warning"><font-awesome-icon icon="exclamation-triangle" /> Not active for readers. Must write at least one book or be one of a books partner (co-author)!</small>
-                    </div>                                        
+                    </div>
                 </div>
             </div-->
-            <div class="row justify-content-center mb-3"> 
+            <div class="row justify-content-center mb-3">
                 <div class="col-md-6">
                     <router-link class="btn btn-block btn-outline-primary" v-bind:to="'profile'"><font-awesome-icon icon="id-card" class="mr-2" />Open profile page</router-link>
                 </div>
@@ -165,14 +166,26 @@
             <hr class="border-top">
             <div class="clearfix">
                 <button class="btn btn-link text-decoration-none float-left" type="reset"><font-awesome-icon icon="history" class="mr-2" />Restore</button>
-                <button id="buttonProfileSave" class="btn btn-primary float-right" type="submit"><font-awesome-icon icon="save" class="mr-2" />Save changes</button>
+                <button id="buttonProfileSave" v-on:click="saveProfile" class="btn btn-primary float-right" type="submit"><font-awesome-icon icon="save" class="mr-2" />Save changes</button>
             </div>
         </div>
     </main>
 </template>
 
 <script>
-	export default {
-        name: 'ProfileEdit'
-	}
+    import client from 'api-client';
+
+    export default {
+        name: 'ProfileEdit',
+        computed: {
+            userProfile() {
+                return this.$store.getters.currentUser;
+            }
+        },
+        methods: {
+            saveProfile(userProfile) {
+                client.saveProfile(userProfile);
+            }
+        }
+    }
 </script>
