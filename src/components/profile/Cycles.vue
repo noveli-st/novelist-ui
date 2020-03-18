@@ -1,6 +1,6 @@
 <template>
-    <div>
-		profile cycles
+    <div class="container">
+		cycles
     </div>
 </template>
 

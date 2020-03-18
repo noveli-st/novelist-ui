@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-		reviews
+		activity
     </div>
 </template>
 
 <script>
 	export default {
-		name: 'ProfileReviews'
+		name: 'ProfileActivity'
 	}
 </script>

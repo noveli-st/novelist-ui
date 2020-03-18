@@ -19,6 +19,16 @@ import cmpEditBook          from '../components/personal/workroom/EditBook'
 import cmpCyclesList        from '../components/personal/workroom/CyclesList'
 import cmpEditCycle         from '../components/personal/workroom/EditCycle'
 
+import cmpProfile           from '../components/profile/Profile'
+import cmpProfileInfo       from '../components/profile/Info'
+import cmpProfileBooks      from '../components/profile/Books'
+import cmpProfileCycles     from '../components/profile/Cycles'
+import cmpProfileReviews    from '../components/profile/Reviews'
+import cmpProfileLibrary    from '../components/profile/Library'
+import cmpProfileFollows    from '../components/profile/Follows'
+import cmpProfileActivity   from '../components/profile/Activity'
+
+
 import cmp404               from '../components/errors/Error404'
 
 export default new VueRouter({
@@ -90,6 +100,44 @@ export default new VueRouter({
         {
             path: '/edit-cycle',
             component: cmpEditCycle
+        },
+        {
+            path: '/profile/:id',
+            component: cmpProfile,
+            children: [
+                {
+                    path: '/',
+                    redirect: 'info'
+                },
+                {
+                    path: 'info',
+                    component: cmpProfileInfo,
+                },
+                {
+                    path: 'books',
+                    component: cmpProfileBooks
+                },
+                {
+                    path: 'cycles',
+                    component: cmpProfileCycles
+                },
+                {
+                    path: 'reviews',
+                    component: cmpProfileReviews
+                },
+                {
+                    path: 'library',
+                    component: cmpProfileLibrary
+                },
+                {
+                    path: 'follows',
+                    component: cmpProfileFollows
+                },
+                {
+                    path: 'activity',
+                    component: cmpProfileActivity
+                }
+            ]
         },
         {
             path: '*',

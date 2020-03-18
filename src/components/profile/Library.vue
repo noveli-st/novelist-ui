@@ -1,6 +1,6 @@
 <template>
-    <div>
-		profile library
+    <div class="container">
+		library
     </div>
 </template>
 
