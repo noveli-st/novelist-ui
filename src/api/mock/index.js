@@ -42,6 +42,7 @@ export default {
         toast.success(`LOGOUT`);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
+    // user and profile
     fetchMe() {
         const token = store.state.auth.sessionToken;
         toast.info(`TOKEN: ${token}`);
@@ -52,6 +53,13 @@ export default {
 
         return fetch(response, 1000);
     },
+    saveProfile(userProfile) {
+        const token = store.state.auth.sessionToken;
+        toast.info(`TOKEN: ${token}`);
+        toast.info(`Save profile: ${JSON.stringify(userProfile)}`);
+        return fetch(with_status(SC.NO_CONTENT, null));
+    },
+    // books
     findBooks() {
         return fetchOk(indexBooks);
     }
