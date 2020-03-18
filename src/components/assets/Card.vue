@@ -1,7 +1,7 @@
 <template>
     <div class="card border-0 mb-4 shadow-sm">
         <div class="card-header">
-            <router-link class="d-flex align-items-center text-decoration-none" v-bind:to="'/profile/' + book.author.id">
+            <router-link class="d-flex align-items-center text-decoration-none" v-bind:to="`/profile/${book.author.id}/info`">
                 <img class="image-42 mr-3 rounded-circle shadow-sm overflow-hidden" :alt="book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
                 <span class="text-truncate">
                     {{ book.author.name }}
@@ -14,7 +14,7 @@
             {{ book.title }}
         </router-link>
         <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image"
-            v-bind:style="{'background' : 'url(' + bookCoverPreviewUrl + ') no-repeat scroll center center / cover'}">
+            v-bind:style="{'background' : `url(${bookCoverPreviewUrl}) no-repeat scroll center center / cover`}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
                 <title>{{ book.title}}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title>
                 <template v-if="book.discount">

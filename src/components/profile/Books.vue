@@ -1,6 +1,6 @@
 <template>
-    <div>
-		profile books
+    <div class="container">
+		books
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-    <div>
-		profile follows
+    <div class="container">
+		follows
     </div>
 </template>
 
