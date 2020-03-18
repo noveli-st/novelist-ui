@@ -1,3 +1,9 @@
 {
-    "name": "TestUser"
+    "name": "TestUser",
+    "phone": "555-1234-567",
+    "email": "tester@noveli.st",
+    "status": "I'm not in the mood",
+    "description": "Noveli.st tester account.",
+    "location": "USA / Texas",
+    "website": "http://noveli.st/profile/tester"
 }
