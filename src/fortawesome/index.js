@@ -44,7 +44,9 @@ import {
     faMask,
     faShieldAlt,
     faInfo,
-    faArrowAltCircleUp
+    faArrowAltCircleUp,
+    faDirections,
+    faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -100,7 +102,9 @@ library.add(
     faMask,
     faShieldAlt,
     faInfo,
-    faArrowAltCircleUp
+    faArrowAltCircleUp,
+    faDirections,
+    faMapMarkerAlt
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
