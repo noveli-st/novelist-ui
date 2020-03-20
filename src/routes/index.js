@@ -28,6 +28,18 @@ import cmpProfileLibrary    from '../components/profile/Library'
 import cmpProfileFollows    from '../components/profile/Follows'
 import cmpProfileActivity   from '../components/profile/Activity'
 
+import cmpBook              from '../components/book/Book'
+import cmpBookInfo          from '../components/book/Info'
+import cmpBookMentions      from '../components/book/Mentions'
+import cmpBookIllustrations from '../components/book/Illustrations'
+import cmpBookQuotations    from '../components/book/Quotations'
+import cmpBookReviews       from '../components/book/Reviews'
+import cmpBookReview        from '../components/book/Review'
+import cmpBookGuestbook     from '../components/book/Guestbook'
+import cmpBookInBookmarks   from '../components/book/InBookmarks'
+import cmpBookActivity      from '../components/book/Activity'
+import cmpBookStatistic     from '../components/book/Statistic'
+
 
 import cmp404               from '../components/errors/Error404'
 
@@ -100,6 +112,56 @@ export default new VueRouter({
         {
             path: '/edit-cycle',
             component: cmpEditCycle
+        },
+        {
+            path: '/book/:id',
+            component: cmpBook,
+            children: [
+                {
+                    path: '/',
+                    redirect: 'info'
+                },
+                {
+                    path: 'info',
+                    component: cmpBookInfo,
+                },
+                {
+                    path: 'mentions',
+                    component: cmpBookMentions,
+                },
+                {
+                    path: 'illustrations',
+                    component: cmpBookIllustrations,
+                },
+                {
+                    path: 'quotations',
+                    component: cmpBookQuotations,
+                },
+                {
+                    path: 'reviews',
+                    component: cmpBookReviews,
+                },
+                {
+                    path: 'review',
+                    component: cmpBookReview,
+                },
+                {
+                    path: 'guestbook',
+                    component: cmpBookGuestbook,
+                },
+                {
+                    path: 'in-bookmarks',
+                    component: cmpBookInBookmarks,
+                },
+                {
+                    path: 'activity',
+                    component: cmpBookActivity,
+                },
+                {
+                    path: 'statistic',
+                    component: cmpBookStatistic,
+                }
+            ]
         },
         {
             path: '/profile/:id',

@@ -1,6 +1,6 @@
 <template>
-    <div>
-		book review
+    <div class="container">
+		review
     </div>
 </template>
 

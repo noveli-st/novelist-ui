@@ -1,6 +1,6 @@
 <template>
-    <div>
-		book illustrations
+    <div class="container">
+		illustrations
     </div>
 </template>
 
