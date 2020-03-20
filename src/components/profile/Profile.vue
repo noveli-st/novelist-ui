@@ -7,7 +7,7 @@
                         <img class="broken img-fluid rounded-circle shadow-sm" v-bind:src="userAvatarUrl" @error="userAvatarUrlError" alt="User name">
                     </div>
                     <div class="col-md-7 col-lg-8">
-                        <h1 class="my-3 mt-md-0">User name</h1>
+                        <h1 class="my-3 mt-md-0">{{ userProfile.name }}</h1>
                         <span class="badge badge-dark mb-3 mr-1" data-toggle="tooltip" data-placement="top" title="... has written a book">
                             <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>Writer
                         </span>
@@ -18,7 +18,7 @@
                             <font-awesome-icon icon="book-reader" class="mr-1"></font-awesome-icon>Reader
                         </span>
                         <p>
-                            This is user status line and if will be limited in length to 128. But the length may well be as much as two lines, just imagine.
+                            {{ userProfile.status }}
                         </p>
                         <div class="small mb-2">
                             <div class="position-absolute"><font-awesome-icon icon="calendar-day" class="mr-1"></font-awesome-icon></div>
@@ -50,9 +50,9 @@
                             <div class="position-absolute"><font-awesome-icon icon="map-marker-alt" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
-                                    <b class="col-4 col-lg-3 pr-0">Adress:</b>
+                                    <b class="col-4 col-lg-3 pr-0">Address:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        Address line will be here
+                                        {{ userProfile.location }}
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Phone:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="text-nowrap text-decoration-none" href="tel:+10000000000">+10000000000</a>
+                                        <a class="text-nowrap text-decoration-none" href="tel:+10000000000">{{ userProfile.phone }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">eMail:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="text-nowrap text-decoration-none" href="mailto:olala@thesite.gogo">user@public.mail</a>
+                                        <a class="text-nowrap text-decoration-none" href="mailto:olala@thesite.gogo">{{ userProfile.email }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="nav-scroller position-relative overflow-hidden border-bottom bg-light shadow-sm mb-4">
             <nav class="nav d-flex flex-nowrap overflow-auto pb-0 container">
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'info'">
@@ -115,18 +115,31 @@
 </template>
 
 <script>
-	export default {
-		name: 'Profile',
-		data() {
-			return {
+    import client from 'api-client';
+    import toast from '../../util/toast'; 
+
+    export default {
+        name: 'Profile',
+        data() {
+            return {
+                userProfile: null,
                 userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.id}/preview.jpg`,
                 id: this.$route.params['id']
-			}
-		},
-        methods: {
-            userAvatarUrlError(event){
-                event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
             }
+        },
+        methods: {
+            userAvatarUrlError(event) {
+                event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+            },
+            setProfile(userProfile) {
+                toast.success('Profile loaded');
+                this.userProfile = userProfile;
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+            toast.info(`Loading ${to.params.id} profile`);
+            client.findProfile(to.params.id).then(profile =>
+                next(vm => vm.setProfile(profile)));
         }
-	}
+    }
 </script>
