@@ -1,11 +1,11 @@
 <template>
-    <div>
-		book bookmarks
+    <div class="container">
+		statistic 
     </div>
 </template>
 
 <script>
 	export default {
-		name: 'BookBookmarks'
+		name: 'BookStatistic'
 	}
 </script>
