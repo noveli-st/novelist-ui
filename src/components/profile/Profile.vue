@@ -81,6 +81,56 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="d-flex mb-2 mb-md-0">
+                            <a class="btn flex-grow-1 btn-primary" href="#">
+                                <font-awesome-icon icon="hand-holding-usd" class="mr-2"></font-awesome-icon>Make a donation
+                            </a>
+                        </div>
+                        <hr class="d-md-none">
+                    </div>
+                    <div class="col-md-7 col-lg-8 mt-auto text-center text-md-right">
+
+                        <b-dd id="userShareDropMenu" no-caret size="sm" variant="primary" menu-class="p-0 overflow-hidden" class="mr-1">
+                            <template slot="button-content"><font-awesome-icon icon="share-square" class="mr-2"></font-awesome-icon>Share</template>
+                            <b-dd-item variant="primary" href="#" target="_blank">
+                                <span class="d-block py-1"><font-awesome-icon :icon="['fab', 'facebook']" class="mr-2"></font-awesome-icon>Facebook</span>
+                            </b-dd-item>
+                            <b-dd-item variant="primary" href="#" target="_blank">
+                                <span class="d-block py-1"><font-awesome-icon :icon="['fab', 'instagram']" class="mr-2"></font-awesome-icon>Instagram</span>
+                            </b-dd-item>
+                            <b-dd-item variant="primary" href="#" target="_blank">
+                                <span class="d-block py-1"><font-awesome-icon :icon="['fab', 'twitter']" class="mr-2"></font-awesome-icon>Twitter</span>
+                            </b-dd-item>
+                        </b-dd>
+
+                        <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+<!--                        <button class="btn btn-sm btn-primary" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->
+                        <button class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button> <!-- disabled если на своей странице -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6 col-sm-5 col-lg-4 text-md-center">
+                        <span class="font-weight-bold d-none d-md-inline-block">User rating:</span>
+                        <span id="userRating" class='starrr text-nowrap'
+                        data-toggle="popover" data-trigger="focus" data-placement="top"
+                        title="Как проголосовать?"
+                        data-content="Никак! Рейтинг пользователя формируется автоматически."></span>
+                    </div>
+                    <div class="col-6 col-sm-7 col-lg-8 text-right">
+
+
+
+                        <div class="mx-n1">
+                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
