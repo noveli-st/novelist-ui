@@ -2,6 +2,7 @@ import store from '../../store/index'
 import toast from '../../util/toast'
 
 import me from './data/login'
+import profiles from './data/profiles'
 import indexBooks from './data/index-books'
 
 import * as SC from '../codes'
@@ -50,6 +51,12 @@ export default {
         const hasToken = token != null;
         const response = hasToken ?
             with_status(SC.OK, me) : err(SC.make_status(801, 'Token not set'));
+
+        return fetch(response, 1000);
+    },
+    findProfile(profileId) {
+        const response = profileId <= 5 ?
+            with_status(SC.OK, profiles[profileId - 1]) : err(SC.make_status(404, 'Not found'));
 
         return fetch(response, 1000);
     },
