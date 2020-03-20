@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-		reviews
+		info
     </div>
 </template>
 
 <script>
 	export default {
-		name: 'BookReviews'
+		name: 'BookInfo'
 	}
 </script>

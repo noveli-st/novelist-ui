@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-		reviews
+		in bookmarks
     </div>
 </template>
 
 <script>
 	export default {
-		name: 'BookReviews'
+		name: 'BookInBookmarks'
 	}
 </script>
