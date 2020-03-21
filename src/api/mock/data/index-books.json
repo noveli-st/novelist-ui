@@ -12,8 +12,10 @@
             },
             "type": { "name": "book" },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "discount": 0,
@@ -28,9 +30,14 @@
                 "id": 5,
                 "name": "Adipisicing Elit"
             },
+            "cycle": {
+                "name": "The Best Cycle Ever"
+            },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -47,8 +54,10 @@
                 "name": "Sapiente facilis \"officiis\""
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -65,8 +74,10 @@
                 "name": "Adipisicing Elit"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -83,8 +94,10 @@
                 "name": "Adipisicing Elit"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -101,8 +114,10 @@
                 "name": "Libero"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -119,8 +134,10 @@
                 "name": "Vitae Suscipit"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -137,8 +154,10 @@
                 "name": "Tempora Illum"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -155,8 +174,10 @@
                 "name": "Tempora Illum"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -173,8 +194,10 @@
                 "name": "Vitae Suscipit"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -191,8 +214,10 @@
                 "name": "Tempora Illum"
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
@@ -209,8 +234,10 @@
                 "name": "Sapiente Facilis \"officiis\""
             },
             "genres": [{
+                "id": 1,
                 "name": "Sci-Fi"
             }, {
+                "id": 2,
                 "name": "Detective"
             }],
             "type": { "name": "book" },
