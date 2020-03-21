@@ -8,13 +8,13 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <h1 class="my-3 mt-md-0">{{ userProfile.name }}</h1>
-                        <span class="badge badge-dark mb-3 mr-1" data-toggle="tooltip" data-placement="top" title="... has written a book">
+                        <span v-if="userProfile.books.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has written a book">
                             <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>Writer
                         </span>
-                        <span class="badge badge-dark mb-3 mr-1" data-toggle="tooltip" data-placement="top" title="... has given review of a book">
+                        <span v-if="userProfile.reviews.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has given review of a book">
                             <font-awesome-icon icon="glasses" class="mr-1"></font-awesome-icon>Reviewer
                         </span>
-                        <span class="badge badge-dark mb-3 mr-1" data-toggle="tooltip" data-placement="top" title="... had read a book">
+                        <span class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... had read a book">
                             <font-awesome-icon icon="book-reader" class="mr-1"></font-awesome-icon>Reader
                         </span>
                         <p>
@@ -25,7 +25,7 @@
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Joined:</b>
-                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">21.10.2019</time>
+                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="userProfile.joined">{{ (new Date(userProfile.joined)).toLocaleString() }}</time>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Phone:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="text-nowrap text-decoration-none" href="tel:+10000000000">{{ userProfile.phone }}</a>
+                                        <a class="text-nowrap text-decoration-none" v-bind:href="`tel:${userProfile.phone}`">{{ userProfile.phone }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">eMail:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="text-nowrap text-decoration-none" href="mailto:olala@thesite.gogo">{{ userProfile.email }}</a>
+                                        <a class="text-nowrap text-decoration-none" v-bind:href="`mailto:${userProfile.email}`">{{ userProfile.email }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -125,14 +125,11 @@
                         data-content="Никак! Рейтинг пользователя формируется автоматически."></span-->
                     </div>
                     <div class="col-6 col-sm-7 col-lg-8 text-right">
-
-
-
                         <div class="mx-n1">
-                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
-                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
-                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
-                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
+                            <a v-if="userProfile.website" class="mx-2" v-bind:href="userProfile.website" v-b-tooltip.hover.focus title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
+                            <a v-if="userProfile.facebook" class="mx-2" v-bind:href="userProfile.facebook" v-b-tooltip.hover.focus title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
+                            <a v-if="userProfile.instagram" class="mx-2" v-bind:href="userProfile.instagram" v-b-tooltip.hover.focus title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
+                            <a v-if="userProfile.twitter" class="mx-2" v-bind:href="userProfile.twitter" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +178,7 @@
             }
         },
         computed: {
-            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; }
+            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; },
             userAvatarUrl() {
                 const id = this.userProfile ? this.userProfile.id : 0; 
                 return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`;
