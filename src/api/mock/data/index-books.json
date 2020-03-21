@@ -5,11 +5,17 @@
             "id": 2,
             "title": "Lorem ipsum dolor sit amet",
             "published": "2019-10-23T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 6,
                 "name": "Commodi Quaerat"
             },
-            "type": "book",
+            "type": { "name": "book" },
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
             "discount": 0,
             "price": 0
         },
@@ -17,11 +23,17 @@
             "id": 8,
             "title": "Adipisci at: chapter one",
             "published": "2019-10-22T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 5,
                 "name": "Adipisicing Elit"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 35,
             "price": 6.00
         },
@@ -29,11 +41,17 @@
             "id": 1,
             "title": "Consectetur adipisicing elit",
             "published": "2019-10-21T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 1,
                 "name": "Sapiente facilis \"officiis\""
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 2.99
         },
@@ -41,11 +59,17 @@
             "id": 3,
             "title": "Quas facilis",
             "published": "2019-10-20T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 5,
                 "name": "Adipisicing Elit"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         },
@@ -53,11 +77,17 @@
             "id": 9,
             "title": "Aperiam blanditiis neque",
             "published": "2019-09-23T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 5,
                 "name": "Adipisicing Elit"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         },
@@ -65,11 +95,17 @@
             "id": 5,
             "title": "Magnam, consequuntur et",
             "published": "2019-09-22T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 4,
                 "name": "Libero"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 25,
             "price": 2.99
         },
@@ -77,11 +113,17 @@
             "id": 6,
             "title": "Optio",
             "published": "2019-09-21T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 3,
                 "name": "Vitae Suscipit"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         },
@@ -89,11 +131,17 @@
             "id": 7,
             "title": "Exercitationem aut officiis",
             "published": "2019-09-20T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 2,
                 "name": "Tempora Illum"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         },
@@ -101,11 +149,17 @@
             "id": 10,
             "title": "Ariatur quibusdam!",
             "published": "2019-09-19T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 2,
                 "name": "Tempora Illum"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         },
@@ -113,11 +167,17 @@
             "id": 12,
             "title": "Amet laborum",
             "published": "2019-09-13T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 3,
                 "name": "Vitae Suscipit"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 10,
             "price": 4.00
         },
@@ -125,11 +185,17 @@
             "id": 11,
             "title": "Voluptatum",
             "published": "2019-09-12T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 2,
                 "name": "Tempora Illum"
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         },
@@ -137,11 +203,17 @@
             "id": 4,
             "title": "Tempora quod nam",
             "published": "2019-08-03T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
             "author": {
                 "id": 1,
                 "name": "Sapiente Facilis \"officiis\""
             },
-            "type": "book",
+            "genres": [{
+                "name": "Sci-Fi"
+            }, {
+                "name": "Detective"
+            }],
+            "type": { "name": "book" },
             "discount": 0,
             "price": 0
         }
