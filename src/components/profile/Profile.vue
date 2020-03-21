@@ -166,15 +166,18 @@
 
 <script>
     import client from 'api-client';
-    import toast from '../../util/toast'; 
+    import toast from '../../util/toast';
 
     export default {
         name: 'Profile',
         data() {
             return {
-                userProfile: null,
-                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.id}/preview.jpg`,
-                id: this.$route.params['id']
+                userProfile: null
+            }
+        },
+        computed: {
+            userAvatarUrl() {
+                return `http://mobitoon.ru/novelist/images/users/${this.book.id}/preview.jpg`;
             }
         },
         methods: {
