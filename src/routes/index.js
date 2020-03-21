@@ -206,7 +206,6 @@ export default new VueRouter({
             component: cmp404
         }
     ],
-    mode: 'history',
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition)
             return savedPosition
