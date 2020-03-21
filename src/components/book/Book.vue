@@ -1,10 +1,10 @@
 <template>
-    <main class="min-vh-100">
+    <main class="min-vh-100" v-if="book">
         <div class="py-3 py-sm-5 px-0 px-sm-3">
             <div class="container mx-auto text-dark">
                 <div class="row">
                     <div class="col-md-5 col-lg-4 text-center">
-                        <div v-on:click="$store.commit('expandContainer', id)" class="position-relative cursor-pointer expand-image rounded shadow-sm"
+                        <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image rounded shadow-sm"
                             v-bind:style="{'background' : `url(${bookCoverPreviewUrl}) no-repeat scroll center center / cover`}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
                                 <!-- <title>{{ book.title}}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title> -->
@@ -16,14 +16,14 @@
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-8">
-                        <h1 class="my-3 mt-md-0">The title of the book</h1>
+                        <h1 class="my-3 mt-md-0">{{ book.title }}</h1>
                         <div class="small mb-2">
                             <div class="position-absolute"><font-awesome-icon icon="user-circle" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Author:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="profile.html">Имя писателя книги</a>
+                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="profile.html">{{ book.author.name }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -33,11 +33,11 @@
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Published:</b>
-                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">21.10.2019</time>
+                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">{{ book.published }}</time>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Last edited:</b>
-                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">21.10.2019</time>
+                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">{{ book.lastEdited }}</time>
                                 </div>
                             </div>
                         </div>
@@ -47,15 +47,13 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Type:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Type's name</a>
+                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ book.type.name }}</a>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" v-if="book.genres">
                                     <b class="col-4 col-lg-3 pr-0">Genres:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Genre's name</a>
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Genre's name</a>
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Genre's name</a>
+                                        <a v-for="genre in book.genres" :key="genre.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +64,7 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Cycle:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="/cycle" title="Одисея Бьйорна">Одисея Бьйорна</a>
+                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="/cycle" title="Одисея Бьйорна">{{ book.cycle.name }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +92,7 @@
                 <div class="row mt-3">
                     <div class="col-md-5 col-lg-4">
                         <div class="d-flex mb-2 mb-md-0">
-                            
+
                             <a class="btn flex-grow-1 btn-success" href="reader.html">Read for free</a>
 
                             <b-dd id="bookEBookDownload" no-caret variant="primary" menu-class="p-0 overflow-hidden shadow-sm text-center" class="ml-2">
@@ -187,21 +185,32 @@
 </template>
 
 <script>
-    import client from 'api-client'
+    import client from 'api-client';
+    import toast from '../../util/toast';
 
     export default {
         name: 'Book',
         data() {
             return {
-                id: this.$route.params['id'],
-                bookCoverPreviewUrl: `http://mobitoon.ru/novelist/images/books/${this.$route.params['id']}/preview.jpg`,
-                books: []
-                // book: {} - вот этот мне надо обьект по id: в books.list
+                book: null
             }
         },
-        mounted() {
-            client.findBooks()
-                .then(books => (this.books = books.list));
+        computed: {
+            bookCoverPreviewUrl() {
+                const id = this.book ? this.book.id : 0;
+                return `http://mobitoon.ru/novelist/images/books/${id}/preview.jpg`;
+            }
+        },
+        methods: {
+            setBook(book) {
+                this.book = book;
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+            toast.info(`Loading ${to.params.id} book`);
+            client.findBook(to.params.id).then(book => {
+                next(vm => vm.setBook(book));
+            });
         }
     }
 </script>

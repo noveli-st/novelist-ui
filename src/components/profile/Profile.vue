@@ -1,5 +1,5 @@
 <template>
-    <main class="min-vh-100">
+    <main class="min-vh-100" v-if="userProfile">
         <div class="py-3 py-sm-5 px-0 px-sm-3">
             <div class="container mx-auto text-dark">
                 <div class="row">
@@ -84,9 +84,9 @@
                 <div class="row mt-3">
                     <div class="col-md-5 col-lg-4">
                         <div class="d-flex mb-2 mb-md-0">
-                            <a class="btn flex-grow-1 btn-primary" href="#">
+                            <button class="btn flex-grow-1 btn-primary" type="button">
                                 <font-awesome-icon icon="hand-holding-usd" class="mr-2"></font-awesome-icon>Make a donation
-                            </a>
+                            </button>
                         </div>
                         <hr class="d-md-none">
                     </div>
@@ -105,29 +105,34 @@
                             </b-dd-item>
                         </b-dd>
 
-                        <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+                        <template v-if="isAuthenticated">
+                            <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
 <!--                        <button class="btn btn-sm btn-primary" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->
-                        <button class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button> <!-- disabled если на своей странице -->
+                        </template>
+                        <span v-else class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can follow! Please Sign in...">
+                            <button class="btn btn-sm btn-outline-primary mr-1" type="button" disabled><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+                        </span>
+                        <button class="btn btn-sm btn-danger" v-b-tooltip.hover.focus title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button> <!-- disabled если на своей странице -->
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-6 col-sm-5 col-lg-4 text-md-center">
                         <span class="font-weight-bold d-none d-md-inline-block">User rating:</span>
-                        <span id="userRating" class='starrr text-nowrap'
+                        <!--span id="userRating" class='starrr text-nowrap'
                         data-toggle="popover" data-trigger="focus" data-placement="top"
                         title="Как проголосовать?"
-                        data-content="Никак! Рейтинг пользователя формируется автоматически."></span>
+                        data-content="Никак! Рейтинг пользователя формируется автоматически."></span-->
                     </div>
                     <div class="col-6 col-sm-7 col-lg-8 text-right">
 
 
 
                         <div class="mx-n1">
-                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
-                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
-                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
-                            <a class="mx-2" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
+                            <a class="mx-2" href="#" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
                         </div>
                     </div>
                 </div>
@@ -166,15 +171,20 @@
 
 <script>
     import client from 'api-client';
-    import toast from '../../util/toast'; 
+    import toast from '../../util/toast';
 
     export default {
         name: 'Profile',
         data() {
             return {
-                userProfile: null,
-                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.id}/preview.jpg`,
-                id: this.$route.params['id']
+                userProfile: null
+            }
+        },
+        computed: {
+            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; }
+            userAvatarUrl() {
+                const id = this.userProfile ? this.userProfile.id : 0; 
+                return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`;
             }
         },
         methods: {

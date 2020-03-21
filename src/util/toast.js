@@ -2,7 +2,16 @@ import Vue from 'vue';
 
 export default {
     get bvToast() {
-        return Vue.prototype.$app.$bvToast;
+        const app = Vue.prototype.$app;
+        if (app === undefined) {
+            return {
+                toast(text, object) {
+                    console.log(`Toast: text`);
+                    console.log(object);
+                }
+            };
+        }
+        return app.$bvToast;
     },
     info(text, title = "Info") {
         this.bvToast.toast(text, {
