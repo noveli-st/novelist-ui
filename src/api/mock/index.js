@@ -67,6 +67,13 @@ export default {
         return fetch(with_status(SC.NO_CONTENT, null));
     },
     // books
+    findBook(bookId) {
+        const response = bookId <= 12 ?
+            with_status(SC.OK, indexBooks.list[bookId - 1]) : err(SC.make_status(404, 'Not found'));
+
+        toast.info(response);
+        return fetch(response, 1000);
+    },
     findBooks() {
         return fetchOk(indexBooks);
     }
