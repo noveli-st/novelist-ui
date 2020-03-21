@@ -1,5 +1,5 @@
 <template>
-    <main class="min-vh-100">
+    <main class="min-vh-100" v-if="userProfile">
         <div class="py-3 py-sm-5 px-0 px-sm-3">
             <div class="container mx-auto text-dark">
                 <div class="row">
@@ -177,7 +177,8 @@
         },
         computed: {
             userAvatarUrl() {
-                return `http://mobitoon.ru/novelist/images/users/${this.book.id}/preview.jpg`;
+                const id = this.userProfile ? this.userProfile.id : 0; 
+                return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`;
             }
         },
         methods: {
