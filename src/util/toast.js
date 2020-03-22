@@ -1,40 +1,32 @@
 import Vue from 'vue';
 
 export default {
-    get bvToast() {
+    toast(text, title, variant) {
+        const settings = {
+            title: title,
+            toaster: 'b-toaster-bottom-right',
+            variant: variant
+        };
+
         const app = Vue.prototype.$app;
         if (app === undefined) {
-            return {
-                toast(text, object) {
-                    console.log(`Toast: text`);
-                    console.log(object);
-                }
-            };
+            console.log(`Toast: text`);
+            console.log(settings);
+            return;
         }
-        return app.$bvToast;
+
+        app.$bvToast.toast(text, settings);
     },
     info(text, title = "Info") {
-        this.bvToast.toast(text, {
-            title: title,
-            variant: 'info'
-        });
+        this.toast(text, title, 'info');
     },
     success(text, title = "Success") {
-        this.bvToast.toast(text, {
-            title: title,
-            variant: 'success'
-        });
+        this.toast(text, title, 'success');
     },
     warn(text, title = "Warning") {
-        this.bvToast.toast(text, {
-            title: title,
-            variant: 'warning'
-        });
+        this.toast(text, title, 'warning');
     },
     error(text, title = "Error") {
-        this.bvToast.toast(text, {
-            title: title,
-            variant: 'danger'
-        });
+        this.toast(text, title, 'danger');
     }
 }
