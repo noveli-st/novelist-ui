@@ -8,10 +8,10 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <h1 class="my-3 mt-md-0">{{ userProfile.name }}</h1>
-                        <span v-if="userProfile.books.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has written a book">
+                        <span v-if="userProfile.books" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has written a book">
                             <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>Writer
                         </span>
-                        <span v-if="userProfile.reviews.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has given review of a book">
+                        <span v-if="userProfile.reviews" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has given review of a book">
                             <font-awesome-icon icon="glasses" class="mr-1"></font-awesome-icon>Reviewer
                         </span>
                         <span class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... had read a book">
@@ -25,7 +25,7 @@
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Joined:</b>
-                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="userProfile.joined">{{ (new Date(userProfile.joined)).toLocaleString() }}</time>
+                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="userProfile.created">{{ (new Date(userProfile.created)).toLocaleString() }}</time>
                                 </div>
                             </div>
                         </div>
