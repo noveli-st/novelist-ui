@@ -38,6 +38,10 @@ del:after {
 
 
 /*     -     Adds for Bootstrap     -     */
+.btn.disabled,
+.btn:disabled {
+    pointer-events: none;
+}
 
 .border-transparent { border-color: transparent !important; }
 
