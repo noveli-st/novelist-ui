@@ -12,7 +12,17 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 2 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ { "id": 3 } ],
+        "im": [ { "id": 1 }, { "id": 6 } ]
+    }
 }, {
     "id": 5,
     "created": "2019-10-23T18:25:43.511Z",
@@ -27,7 +37,17 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 8 }, { "id": 3 }, { "id": 9 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+            "my": [ { "id": 1 }, { "id": 3 } ],
+            "im": [ { "id": 2 } ]
+        }
 }, {
     "id": 1,
     "created": "2019-10-23T18:25:43.511Z",
@@ -42,7 +62,17 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 4 } ],
-    "reviews": [ ]
+    "cycles": [ { "id": 1 } ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+            "my": [ ],
+            "im": [ ]
+        }
 }, {
     "id": 4,
     "created": "2019-10-23T18:25:43.511Z",
@@ -57,7 +87,17 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 5 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+            "my": [ ],
+            "im": [ ]
+        }
 }, {
     "id": 3,
     "created": "2019-10-23T18:25:43.511Z",
@@ -72,7 +112,17 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 6 }, { "id": 12 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+            "my": [ ],
+            "im": [ ]
+        }
 }, {
     "id": 2,
     "created": "2019-10-23T18:25:43.511Z",
@@ -87,5 +137,15 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 7 }, { "id": 10 }, { "id": 11 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+            "my": [ ],
+            "im": [ ]
+        }
 }]
