@@ -35,13 +35,13 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Type:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Name of a book type</a>
+                                        <a v-for="type in userProfile.types" v-bind:key="type.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" v-bind:href="`books/?${type.id}`">{{ type.name }}</a>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Genre:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Name of a book genre</a>
+                                        <a v-for="genre in userProfile.genres" v-bind:key="genre.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,11 +83,13 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-5 col-lg-4">
-                        <div class="d-flex mb-2 mb-md-0">
-                            <button class="btn flex-grow-1 btn-primary" type="button">
-                                <font-awesome-icon icon="hand-holding-usd" class="mr-2"></font-awesome-icon>Make a donation
-                            </button>
-                        </div>
+                        <template v-if="userProfile.books.length">
+                            <div class="d-flex mb-2 mb-md-0">
+                                <button class="btn flex-grow-1 btn-primary" type="button">
+                                    <font-awesome-icon icon="hand-holding-usd" class="mr-2"></font-awesome-icon>Make a donation
+                                </button>
+                            </div>
+                        </template>
                         <hr class="d-md-none">
                     </div>
                     <div class="col-md-7 col-lg-8 mt-auto text-center text-md-right">
