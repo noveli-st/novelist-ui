@@ -10,7 +10,7 @@ export default {
 
         const app = Vue.prototype.$app;
         if (app === undefined) {
-            console.log(`Toast: text`);
+            console.log(`Toast: ${text}`);
             console.log(settings);
             return;
         }
