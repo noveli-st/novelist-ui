@@ -71,7 +71,7 @@ export default {
         const response = bookId <= 12 ?
             with_status(SC.OK, indexBooks.list[bookId - 1]) : err(SC.make_status(404, 'Not found'));
 
-        toast.info(response);
+        toast.info(JSON.stringify(response));
         return fetch(response, 1000);
     },
     findBooks() {
