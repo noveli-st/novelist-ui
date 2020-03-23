@@ -2,6 +2,14 @@
     "id": 6,
     "created": "2019-10-23T18:25:43.511Z",
     "name": "Commodi Quaerat",
+    "types": [
+        { "id": 1, "name": "Novel" }
+    ],
+    "genres": [
+        { "id": 5, "name": "Fantasy" },
+        { "id": 3, "name": "Trapped in Another World" },
+        { "id": 9, "name": "LitRPG" }
+    ],
     "phone": "555-0000-006",
     "email": "test6@noveli.st",
     "status": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti molestiae fugit minus quam mollitia saepe illo obcaecati at.",
@@ -12,11 +20,28 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 2 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ { "id": 3 } ],
+        "im": [ { "id": 1 }, { "id": 6 } ]
+    }
 }, {
     "id": 5,
     "created": "2019-10-23T18:25:43.511Z",
     "name": "Adipisicing Elit",
+    "types": [
+        { "id": 1, "name": "Novel" }
+    ],
+    "genres": [
+        { "id": 9, "name": "LitRPG" },
+        { "id": 5, "name": "Fantasy" }
+    ],
     "phone": "555-0000-005",
     "email": "test5@noveli.st",
     "status": "Repellendus tempora soluta vero molestiae natus saepe modi, est temporibus quibusdam facere facilis beatae asperiores? Atque!",
@@ -27,11 +52,28 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 8 }, { "id": 3 }, { "id": 9 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ { "id": 1 }, { "id": 3 } ],
+        "im": [ { "id": 2 } ]
+    }
 }, {
     "id": 1,
     "created": "2019-10-23T18:25:43.511Z",
     "name": "Sapiente facilis \"officiis\"",
+    "types": [
+        { "id": 1, "name": "Novel" }
+    ],
+    "genres": [
+        { "id": 3, "name": "Trapped in Another World" },
+        { "id": 9, "name": "LitRPG" }
+    ],
     "phone": "555-0000-001",
     "email": "test1@noveli.st",
     "status": "Inventore accusantium corporis fugit id voluptatum culpa eos nulla at recusandae soluta.",
@@ -42,11 +84,29 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 4 } ],
-    "reviews": [ ]
+    "cycles": [ { "id": 1 } ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ ],
+        "im": [ ]
+    }
 }, {
     "id": 4,
     "created": "2019-10-23T18:25:43.511Z",
     "name": "Libero",
+    "types": [
+        { "id": 1, "name": "Novel" }
+    ],
+    "genres": [
+        { "id": 1, "name": "Distopia" },
+        { "id": 2, "name": "Cyberpunk" },
+        { "id": 3, "name": "Trapped in Another World" }
+    ],
     "phone": "555-0000-004",
     "email": "test4@noveli.st",
     "status": "Nisi, qui excepturi ducimus doloribus porro expedita voluptatibus accusamus recusandae fuga quisquam cum laudantium soluta a...",
@@ -57,11 +117,29 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 5 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ ],
+        "im": [ ]
+    }
 }, {
     "id": 3,
     "created": "2019-10-23T18:25:43.511Z",
     "name": "Vitae Suscipit",
+    "types": [
+        { "id": 1, "name": "Novel" }
+    ],
+    "genres": [
+        { "id": 1, "name": "Distopia" },
+        { "id": 2, "name": "Cyberpunk" },
+        { "id": 8, "name": "Detective fiction" }
+    ],
     "phone": "555-0000-003",
     "email": "test3@noveli.st",
     "status": "Repellendus, assumenda laborum? Fugit architecto expedita tenetur ab? Sit fuga neque placeat delectus.",
@@ -72,11 +150,29 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 6 }, { "id": 12 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ ],
+        "im": [ ]
+    }
 }, {
     "id": 2,
     "created": "2019-10-23T18:25:43.511Z",
     "name": "Tempora Illum",
+    "types": [
+        { "id": 1, "name": "Novel" }
+    ],
+    "genres": [
+        { "id": 1, "name": "Distopia" },
+        { "id": 8, "name": "Detective fiction" },
+        { "id": 5, "name": "Fantasy" }
+    ],
     "phone": "555-0000-002",
     "email": "test2@noveli.st",
     "status": "Iste accusamus perspiciatis optio laudantium doloribus facilis impedit.",
@@ -87,5 +183,15 @@
     "instagram": "",
     "twitter": "",
     "books": [ { "id": 7 }, { "id": 10 }, { "id": 11 } ],
-    "reviews": [ ]
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ ],
+        "im": [ ]
+    }
 }]

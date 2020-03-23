@@ -8,10 +8,10 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <h1 class="my-3 mt-md-0">{{ userProfile.name }}</h1>
-                        <span v-if="userProfile.books" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has written a book">
+                        <span v-if="userProfile.books.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has written a book">
                             <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>Writer
                         </span>
-                        <span v-if="userProfile.reviews" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has given review of a book">
+                        <span v-if="userProfile.reviews.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has given review of a book">
                             <font-awesome-icon icon="glasses" class="mr-1"></font-awesome-icon>Reviewer
                         </span>
                         <span class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... had read a book">
@@ -35,13 +35,13 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Type:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Name of a book type</a>
+                                        <a v-for="type in userProfile.types" v-bind:key="type.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" v-bind:href="`books/?${type.id}`">{{ type.name }}</a>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Genre:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">Name of a book genre</a>
+                                        <a v-for="genre in userProfile.genres" v-bind:key="genre.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,11 +83,13 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-5 col-lg-4">
-                        <div class="d-flex mb-2 mb-md-0">
-                            <button class="btn flex-grow-1 btn-primary" type="button">
-                                <font-awesome-icon icon="hand-holding-usd" class="mr-2"></font-awesome-icon>Make a donation
-                            </button>
-                        </div>
+                        <template v-if="userProfile.books.length">
+                            <div class="d-flex mb-2 mb-md-0">
+                                <button class="btn flex-grow-1 btn-primary" type="button">
+                                    <font-awesome-icon icon="hand-holding-usd" class="mr-2"></font-awesome-icon>Make a donation
+                                </button>
+                            </div>
+                        </template>
                         <hr class="d-md-none">
                     </div>
                     <div class="col-md-7 col-lg-8 mt-auto text-center text-md-right">
@@ -143,20 +145,35 @@
                 </router-link >
                 <span class="nav-link border-left px-0"></span>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'books'">
-                    Books<span class="badge badge-pill ml-1 bg-secondary text-light">7</span>
-                </router-link><!-- мои книги -->
+                    Books
+                    <span class="badge badge-pill ml-1 bg-secondary text-light">
+                        {{ userProfile.books.length }}
+                    </span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'cycles'">
-                    Cycles<span class="badge badge-pill ml-1 bg-secondary text-light">2</span>
-                </router-link><!-- мои циклы -->
+                    Cycles
+                    <span class="badge badge-pill ml-1 bg-secondary text-light">
+                        {{ userProfile.cycles.length }}
+                    </span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
-                    Reviews<span class="badge badge-pill ml-1 bg-secondary text-light">189&#8226;16</span>
-                </router-link ><!-- мои подписчики * я подписан -->
+                    Reviews
+                    <span class="badge badge-pill ml-1 bg-secondary text-light">
+                        {{ userProfile.reviews.length }}
+                    </span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'library'">
-                    Library<span class="badge badge-pill ml-1 bg-secondary text-light">2&#8226;3&#8226;3</span>
-                </router-link ><!-- я читаю * я прочел * в закладках -->
+                    Library
+                    <span class="badge badge-pill ml-1 bg-secondary text-light">
+                        {{ userProfile.library.reading.length }} &#8226; {{ userProfile.library.readed.length }} &#8226; {{ userProfile.library.bookmarks.length }}
+                    </span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'follows'">
-                    Follows<span class="badge badge-pill ml-1 bg-secondary text-light">127&#8226;6</span>
-                </router-link ><!-- я слежу * за мной следят -->
+                    Follows
+                    <span class="badge badge-pill ml-1 bg-secondary text-light">
+                        {{ userProfile.follows.my.length }} &#8226; {{ userProfile.follows.im.length }}
+                    </span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
                     Activity
                 </router-link>
