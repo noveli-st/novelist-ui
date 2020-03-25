@@ -1,9 +1,42 @@
 {
-    "name": "TestUser",
+    "id": 7,
+    "created": "2019-10-23T18:25:43.511Z",
+    "name": "Test User",
+    "types": [
+        { }
+    ],
+    "genres": [
+        { }
+    ],
     "phone": "555-1234-567",
     "email": "tester@noveli.st",
     "status": "I'm not in the mood",
-    "description": "Noveli.st tester account.",
+    "about": "This is a noveli.st tester account.",
     "location": "USA / Texas",
-    "website": "http://noveli.st/profile/tester"
+    "website": "http://noveli.st/profile/tester",
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
+    "books": [ ],
+    "cycles": [ ],
+    "reviews": [ ],
+    "library": {
+        "reading": [ ],
+        "readed": [ ],
+        "bookmarks": [ ]
+    },
+    "follows": {
+        "my": [ ],
+        "im": [ { "id": 2 }, { "id": 4 } ]
+    },
+    "rates": {
+        "my": 5,
+        "books": [
+            { "id": 4, "rate": 1 },
+            { "id": 3, "rate": 4 }
+        ],
+        "reviews": [
+            { "id": 2, "rate": 5 }
+        ]
+    }
 }
