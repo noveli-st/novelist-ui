@@ -119,12 +119,9 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-6 col-sm-5 col-lg-4 text-md-center">
-                        <span class="font-weight-bold d-none d-md-inline-block">User rating:</span>
-                        <!--span id="userRating" class='starrr text-nowrap'
-                        data-toggle="popover" data-trigger="focus" data-placement="top"
-                        title="Как проголосовать?"
-                        data-content="Никак! Рейтинг пользователя формируется автоматически."></span-->
+                    <div class="col-6 col-sm-5 col-lg-4 d-flex justify-content-md-center align-items-center">
+                        <span class="font-weight-bold d-none d-md-inline-block mr-2">User rating:</span>
+                        <rate v-bind:length="5" v-bind:value="userProfile.rate" v-bind:showcount="true" v-bind:readonly="true"></rate>
                     </div>
                     <div class="col-6 col-sm-7 col-lg-8 text-right">
                         <div class="mx-n1">
@@ -184,8 +181,10 @@
 </template>
 
 <script>
-    import client from 'api-client';
-    import toast from '../../util/toast';
+    import client from 'api-client'
+    import toast from '../../util/toast'
+    import rate from '../../components/assets/Rate'
+
 
     export default {
         name: 'Profile',
@@ -194,11 +193,14 @@
                 userProfile: null
             }
         },
+        components: {
+            rate
+        },
         computed: {
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; },
             userAvatarUrl() {
-                const id = this.userProfile ? this.userProfile.id : 0; 
-                return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`;
+                const id = this.userProfile ? this.userProfile.id : 0
+                return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`
             }
         },
         methods: {
@@ -206,14 +208,14 @@
                 event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
             },
             setProfile(userProfile) {
-                toast.success('Profile loaded');
-                this.userProfile = userProfile;
+                toast.success('Profile loaded')
+                this.userProfile = userProfile
             }
         },
         beforeRouteEnter(to, from, next) {
-            toast.info(`Loading ${to.params.id} profile`);
+            toast.info(`Loading ${to.params.id} profile`)
             client.findProfile(to.params.id).then(profile =>
-                next(vm => vm.setProfile(profile)));
+                next(vm => vm.setProfile(profile)))
         }
     }
 </script>
