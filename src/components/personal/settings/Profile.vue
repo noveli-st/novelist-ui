@@ -61,7 +61,7 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="textareaProfileAbout">About</label>
                 <div class="col-lg-9">
-                    <textarea id="textareaProfileAbout" v-model="userProfile.description" class="form-control" rows="3" maxlength="1024" aria-describedby="descriptionProfileAbout"></textarea>
+                    <textarea id="textareaProfileAbout" v-model="userProfile.about" class="form-control" rows="3" maxlength="1024" aria-describedby="descriptionProfileAbout"></textarea>
                     <small id="descriptionProfileAbout" class="form-text text-muted">Text about yourself in your profile.</small>
                 </div>
             </div>
