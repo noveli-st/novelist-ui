@@ -8,10 +8,10 @@
                         <h2 class="h5 my-0">About me</h2>
                     </div>
                     <div class="card-body">
-                        <div v-if="!userProfile.about.length" class="alert alert-secondary border-0 mb-0">
-                           <font-awesome-icon icon="frown" class="mr-2"></font-awesome-icon>{{ userProfile.name }} chose not to tell anything about themselves.
+                        <div v-if="!this.$parent.userProfile.about.length" class="alert alert-secondary border-0 mb-0">
+                           <font-awesome-icon icon="frown" class="mr-2"></font-awesome-icon>{{ this.$parent.userProfile.name }} chose not to tell anything about themselves.
                         </div>
-                        {{ userProfile.about }}
+                        {{ this.$parent.userProfile.about }}
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                                 <hr class="my-0">
                             </header>
                             <div class="scroll-box-body px-1 small">
-                                <div v-for="book in userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
+                                <div v-for="book in this.$parent.userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
                                     <div class="pr-4">
                                         <span class="position-absolute">{{ book.id }}</span>
                                     </div>
@@ -60,29 +60,29 @@
 </template>
 
 <script>
-    import client from 'api-client';
-    import toast from '../../util/toast';
+    // import client from 'api-client';
+    // import toast from '../../util/toast';
 
     export default {
-        name: 'ProfileInfo',
-        data() {
-            return {
-                userProfile: null
-            }
-        },
-        computed: {
-            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; }
-        },
-        methods: {
-            setProfile(userProfile) {
-                toast.success('Profile loaded');
-                this.userProfile = userProfile;
-            }
-        },
-        beforeRouteEnter(to, from, next) {
-            toast.info(`Loading ${to.params.id} profile`);
-            client.findProfile(to.params.id).then(profile =>
-                next(vm => vm.setProfile(profile)));
-        }
+        name: 'ProfileInfo'
+        // data() {
+        //     return {
+        //         userProfile: null
+        //     }
+        // },
+        // computed: {
+        //     isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; }
+        // },
+        // methods: {
+        //     setProfile(userProfile) {
+        //         toast.success('Profile loaded');
+        //         this.userProfile = userProfile;
+        //     }
+        // },
+        // beforeRouteEnter(to, from, next) {
+        //     toast.info(`Loading ${to.params.id} profile`);
+        //     client.findProfile(to.params.id).then(profile =>
+        //         next(vm => vm.setProfile(profile)));
+        // }
     }
 </script>
