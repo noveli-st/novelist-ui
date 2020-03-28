@@ -186,9 +186,6 @@
             </nav>
         </div>
         <router-view></router-view>
-
-        <cmp-book-header></cmp-book-header>
-
     </main>
 </template>
 
