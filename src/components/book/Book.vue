@@ -33,11 +33,11 @@
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Published:</b>
-                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">{{ book.published }}</time>
+                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="book.published">{{ (new Date(book.published)).toLocaleString() }}</time>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Last edited:</b>
-                                    <time class="col-8 col-lg-9 pl-0" datetime="2019-10-21T18:25:43.511Z">{{ book.lastEdited }}</time>
+                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="book.lastEdited">{{ (new Date(book.lastEdited)).toLocaleString() }}</time>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2" v-if="book.cycle">
+                        <div class="small mb-2" v-if="book.cycle.name">
                             <div class="position-absolute"><font-awesome-icon icon="link" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
@@ -74,15 +74,15 @@
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Chapters:</b>
-                                    <span class="col-8 col-lg-9 pl-0">3</span>
+                                    <span class="col-8 col-lg-9 pl-0">{{ book.chapters.length }}</span>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Pages:</b>
-                                    <span class="col-8 col-lg-9 pl-0">85</span>
+                                    <span class="col-8 col-lg-9 pl-0">{{ book.pages }}</span>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Symbols:</b>
-                                    <span class="col-8 col-lg-9 pl-0">75640</span>
+                                    <span class="col-8 col-lg-9 pl-0">{{ book.symbols }}</span>
                                 </div>
                             </div>
                         </div>
@@ -127,8 +127,13 @@
                             </b-dd-item>
                         </b-dd>
 
-                        <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
-                        <!--    <button class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Remove bookmark</button>-->
+                        <template v-if="isAuthenticated">
+                            <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
+                            <!--    <button class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Remove bookmark</button>-->
+                        </template>
+                        <span v-else class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can bookmark! Please Sign in...">
+                            <button class="btn btn-sm btn-outline-primary mr-1" type="button" disabled><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
+                        </span>
                         <button class="btn btn-sm btn-danger" v-b-tooltip.hover.focus title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button> <!-- disabled если на своей странице -->
                     </div>
                 </div>
@@ -181,12 +186,15 @@
             </nav>
         </div>
         <router-view></router-view>
+
+        <cmp-book-header></cmp-book-header>
+
     </main>
 </template>
 
 <script>
-    import client from 'api-client';
-    import toast from '../../util/toast';
+    import client from 'api-client'
+    import toast from '../../util/toast'
 
     export default {
         name: 'Book',
@@ -196,21 +204,20 @@
             }
         },
         computed: {
+            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
             bookCoverPreviewUrl() {
-                const id = this.book ? this.book.id : 0;
-                return `http://mobitoon.ru/novelist/images/books/${id}/preview.jpg`;
+                const id = this.book ? this.book.id : 0
+                return `http://mobitoon.ru/novelist/images/books/${id}/preview.jpg`
             }
         },
         methods: {
-            setBook(book) {
-                this.book = book;
-            }
+            setBook(book) { this.book = book }
         },
         beforeRouteEnter(to, from, next) {
-            toast.info(`Loading ${to.params.id} book`);
+            toast.info(`Loading ${to.params.id} book`)
             client.findBook(to.params.id).then(book => {
-                next(vm => vm.setBook(book));
-            });
+                next(vm => vm.setBook(book))
+            })
         }
     }
 </script>
