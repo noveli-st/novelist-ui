@@ -55,7 +55,8 @@ import {
     faLink,
     faBookOpen,
     faBookmark,
-    faDownload
+    faDownload,
+    faFrown
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -122,7 +123,8 @@ library.add(
     faLink,
     faBookOpen,
     faBookmark,
-    faDownload
+    faDownload,
+    faFrown
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
