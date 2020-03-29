@@ -29,14 +29,32 @@
                                 <hr class="my-0">
                             </header>
                             <div class="scroll-box-body px-1 small">
-                                <div class="d-flex flex-row mt-3">
+
+                                <!--div v-for="book in this.$parent.userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
                                     <div class="pr-4">
-                                        <span class="position-absolute">1</span>
+                                        <span class="position-absolute">{{ book.id }}</span>
+                                    </div>
+                                    <div class="flex-grow-1 px-1 text-ellipsis">
+                                        <a href="reader.html">...</a>
+                                    </div>
+                                    <div class="px-1 text-success">...</div>
+                                    <time class="d-none d-md-block text-nowrap w-25 text-right" datetime="2019-01-1">...</time>
+                                </div-->
+
+
+                                <div v-for="chapter in this.$parent.book.chapters" v-bind:key="chapter.order" class="d-flex flex-row mt-3">
+                                    <div class="pr-4">
+                                        <span class="position-absolute">{{ chapter.order }}</span>
                                     </div>
                                     <div class="flex-grow-1 px-1">
-										<font-awesome-icon icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon><a href="reader.html">Name of path of the book</a>
+										<template v-if="!chapter.price || chapter.order >= 2">
+											<font-awesome-icon icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon><a href="reader.html">{{ chapter.title }}</a>
+										</template>
+										<template v-else>
+											<font-awesome-icon icon="lock" size="sm" class="mr-2 text-muted"></font-awesome-icon><a href="reader.html">{{ chapter.title }}</a>
+										</template>
                                     </div>
-                                    <time class="text-nowrap" datetime="2018-07-1">1 July 2018</time>
+									<time class="text-nowrap" v-bind:datetime="chapter.published">{{ (new Date(chapter.published)).toLocaleDateString() }}</time>
                                 </div>
                             </div>
 						</div>

@@ -58,7 +58,8 @@ import {
     faDownload,
     faCheckSquare,
     faPenSquare,
-    faUnlock
+    faUnlock,
+    faLock
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -128,7 +129,8 @@ library.add(
     faDownload,
     faCheckSquare,
     faPenSquare,
-    faUnlock
+    faUnlock,
+    faLock
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
