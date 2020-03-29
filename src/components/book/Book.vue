@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-8">
-                        <h1 class="my-3 mt-md-0">{{ book.title }}</h1>
+                        <div class="my-3 mt-md-0 h1" role="heading" aria-level="1">{{ book.title }}</div>
                         <div class="small mb-2">
                             <div class="position-absolute"><font-awesome-icon icon="user-circle" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
@@ -92,10 +92,10 @@
                 <div class="row mt-3">
                     <div class="col-md-5 col-lg-4">
                         <div class="d-flex mb-2 mb-md-0">
+                            <router-link v-if="book.price" class="btn btn-block btn-warning" v-bind:to="`/reader/${book.id}`">Read for ${{ discountPrice }}<del v-if="book.discount" class="text-muted ml-2">${{ book.price.toFixed(2) }}</del></router-link>
+                            <router-link v-else class="btn flex-grow-1 btn-success" v-bind:to="`/reader/${book.id}`">Read for free</router-link>
 
-                            <a class="btn flex-grow-1 btn-success" href="reader.html">Read for free</a>
-
-                            <b-dd id="bookEBookDownload" no-caret variant="primary" menu-class="p-0 overflow-hidden shadow-sm text-center" class="ml-2">
+                            <b-dd v-if="book.ebook" id="bookEBookDownload" no-caret variant="primary" menu-class="p-0 overflow-hidden shadow-sm text-center" class="ml-2">
                                 <template slot="button-content"><font-awesome-icon icon="download"></font-awesome-icon></template>
                                 <b-dd-item variant="primary" href="#" target="_blank"><span class="d-block py-1 small">.pdf</span></b-dd-item>
                                 <b-dd-item variant="primary" href="#" target="_blank"><span class="d-block py-1 small">.epub</span></b-dd-item>
@@ -148,7 +148,7 @@
                         data-content="Начните читать книгу для того чтобы получить возможность проголосовать."><span id="ratingScore" class="pl-2 pr-1"></span></span> -->
                     </div>
                     <div class="col-6 col-sm-7 col-lg-8 text-right">
-                        <button class="border-0 px-1 rounded bg-dark text-white" type="button" v-b-popover.hover.focus.blur="'The book contains strong sexual content or graphic nudity or extreme portrayals of violence!'">18+</button>
+                        <span v-if="book.adult" class="px-1 rounded bg-dark text-white cursor-default" v-b-popover.hover.focus.blur="'The book contains strong sexual content or graphic nudity or extreme portrayals of violence!'">18+</span>
                     </div>
                 </div>
             </div>
@@ -160,23 +160,23 @@
                 </router-link>
                 <span class="nav-link border-left px-0"></span>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'mentions'">
-                    Mentions<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
+                    Mentions<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.mentions.length }}</span>
                 </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'illustrations'">
-                    Illustrations<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
+                    Illustrations<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.illustrations.length }}</span>
                 </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'quotations'">
+                <!--router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'quotations'">
                     Quotations<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
-                </router-link >
+                </router-link-->
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
-                    Reviews<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
-                </router-link >
+                    Reviews<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.reviews.length }}</span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'guestbook'">
-                    Guestbook<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
-                </router-link >
+                    Guestbook<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.comments }}</span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'in-bookmarks'">
-                    In bookmarks<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
-                </router-link >
+                    In bookmarks<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.bookmarkers.length }}</span>
+                </router-link>
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
                     Activity
                 </router-link>
@@ -205,6 +205,12 @@
             bookCoverPreviewUrl() {
                 const id = this.book ? this.book.id : 0
                 return `http://mobitoon.ru/novelist/images/books/${id}/preview.jpg`
+            },
+            discountPrice(){
+                if(this.book.discount)
+                    return (this.book.price * (100 - this.book.discount) / 100).toFixed(2)
+                else
+                    return this.book.price
             }
         },
         methods: {

@@ -23,8 +23,19 @@
             "discount": 0,
             "price": 0,
             "annotation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi. Unde mollitia facilis voluptatum dolorem voluptatibus.",
-            "status": false
-            },
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 17, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 18, "type":"character", "title": "Capinan Nemo"},
+                { "id": 19, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
+        },
         {
             "id": 8,
             "title": "Adipisci at: chapter one",
@@ -38,14 +49,27 @@
             ],
             "cycle": { "name": "The Best Cycle Ever" },
             "chapters": [
-                { "id": 2, "order": 1, "title": "Story name" }
+                { "id": 2, "order": 1, "title": "Story name", "published": "2019-10-23T18:25:43.511Z" }
             ],
             "pages": 7,
             "symbols": 15901,
             "discount": 35,
             "price": 6.00,
             "annotation": "Amet ex eum ad repellendus vitae, corporis odio illo veniam error. Suscipit, dolor ipsam. Odio cupiditate inventore molestias deserunt porro cumque dolorum ullam. Saepe alias nemo, porro nulla eligendi quos?",
-            "status": false
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 91, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 92, "type":"character", "title": "Capinan Nemo"},
+                { "id": 93, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 5 }
+            ]
         },
         {
             "id": 1,
@@ -70,7 +94,20 @@
             "discount": 0,
             "price": 2.99,
             "annotation": "Quibusdam eos laudantium est voluptate soluta amet impedit repudiandae expedita labore quaerat exercitationem, modi nam rem totam quam, doloremque odit adipisci temporibus, eveniet ex molestiae deserunt. Laudantium iusto quisquam a!",
-            "status": true
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 81, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 82, "type":"character", "title": "Capinan Nemo"},
+                { "id": 83, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 }
+            ]
         },
         {
             "id": 3,
@@ -98,7 +135,21 @@
             "discount": 0,
             "price": 0,
             "annotation": "Fugit unde mollitia totam. Ab facere reprehenderit deserunt, officiis tenetur consequuntur esse vitae suscipit explicabo dolores soluta et incidunt exercitationem sunt, aspernatur accusamus. A autem officiis unde ratione nemo consequuntur!",
-            "status": false
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 71, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 72, "type":"character", "title": "Capinan Nemo"},
+                { "id": 73, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 },
+                { "id": 2 }
+            ]
         },
         {
             "id": 9,
@@ -123,7 +174,20 @@
             "discount": 0,
             "price": 0,
             "annotation": "Ex consequatur nesciunt expedita delectus explicabo qui, quod earum unde quisquam fugiat enim fugit dolorem cum numquam odit nobis possimus quo, natus optio? Nesciunt aliquam, accusamus laborum cupiditate deleniti sequi?",
-            "status": true
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 61, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 62, "type":"character", "title": "Capinan Nemo"},
+                { "id": 63, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 2 }
+            ]
         },
         {
             "id": 5,
@@ -145,7 +209,18 @@
             "discount": 25,
             "price": 2.99,
             "annotation": "Assumenda a possimus iste nostrum, quos ipsam quo molestias quis ex incidunt sint! Incidunt molestiae, laudantium fugit minima corrupti, repellendus itaque voluptatum ea architecto fugiat, vero assumenda ratione aliquid reprehenderit?",
-            "status": false
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 51, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 52, "type":"character", "title": "Capinan Nemo"},
+                { "id": 53, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 6,
@@ -170,7 +245,18 @@
             "discount": 0,
             "price": 0,
             "annotation": "Nihil quidem asperiores veritatis pariatur qui deserunt expedita eveniet, illo ratione delectus nobis vero eos culpa sed totam provident. Ea omnis debitis quae ipsum cum id possimus maxime praesentium aperiam?",
-            "status": true
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 41, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 42, "type":"character", "title": "Capinan Nemo"},
+                { "id": 43, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 7,
@@ -192,10 +278,27 @@
             ],
             "pages": 28,
             "symbols": 55813,
-            "discount": 0,
-            "price": 10,
+            "discount": 50,
+            "price": 3.99,
             "annotation": "Voluptate dolorem voluptates architecto harum nulla repellendus nisi, voluptatem fugit unde soluta libero consequuntur molestiae natus saepe amet quis deserunt eos repellat deleniti cupiditate? Distinctio qui facere excepturi dicta fugiat!",
-            "status": false
+            "status": true,
+            "ebook": false,
+            "adult": true,
+            "mentions": [
+                { "id": 31, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 32, "type":"character", "title": "Capinan Nemo"},
+                { "id": 33, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [
+                { "id": 1, "description": "Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi."},
+                { "id": 2, "description": ""},
+                { "id": 3, "description": "Lipsum dolor sit amet consectetur adipisicing elit..."}
+            ],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 }
+            ]
         },
         {
             "id": 10,
@@ -220,7 +323,18 @@
             "discount": 0,
             "price": 0,
             "annotation": "Debitis aliquam accusantium ab esse velit quod quasi. Vel exercitationem ipsam hic nihil facere officia, deserunt, laboriosam nulla autem corporis maiores quaerat numquam reprehenderit? Dicta tempore magnam quae. Ipsam, qui?",
-            "status": true
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 21, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 22, "type":"character", "title": "Capinan Nemo"},
+                { "id": 23, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 12,
@@ -245,7 +359,20 @@
             "discount": 10,
             "price": 4.00,
             "annotation": "Veritatis voluptatibus laborum praesentium dolorum amet fugiat nobis excepturi facilis, et voluptate dicta commodi at sit ea dolorem obcaecati similique quod beatae nostrum cum corrupti blanditiis odio! Voluptatem, nulla porro?",
-            "status": true
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 11, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 12, "type":"character", "title": "Capinan Nemo"},
+                { "id": 13, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 1 }
+            ]
         },
         {
             "id": 11,
@@ -269,7 +396,18 @@
             "discount": 0,
             "price": 0,
             "annotation": "Quaerat harum aliquid rerum maiores magnam quis. Perspiciatis nisi, architecto amet iste dolorem tempore nemo. Aspernatur est, illo quibusdam consectetur nihil commodi dignissimos quis tenetur nostrum odio ducimus? Sequi, iusto!",
-            "status": true
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 4, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 5, "type":"character", "title": "Capinan Nemo"},
+                { "id": 6, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 4,
@@ -293,7 +431,20 @@
             "discount": 0,
             "price": 0,
             "annotation": "Vitae quae et nam, reiciendis optio qui debitis ipsam aperiam non facilis tempore dolores harum nemo ipsa delectus itaque praesentium tenetur eligendi temporibus. Delectus, perferendis. Ducimus voluptatum harum inventore? Optio!",
-            "status": false
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 7, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 8, "type":"character", "title": "Capinan Nemo"},
+                { "id": 9, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 }
+            ]
         }
     ]
 }
