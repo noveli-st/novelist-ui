@@ -6,243 +6,445 @@
             "title": "Lorem ipsum dolor sit amet",
             "published": "2019-10-23T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 6,
-                "name": "Commodi Quaerat"
-            },
-            "type": { "name": "book" },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
+            "author": { "id": 6, "name": "Commodi Quaerat" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 43, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 11, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 75, "order": 3, "title": "Chapter order third", "published": "2019-10-21T18:25:43.511Z" }
+            ],
+            "pages": 40,
+            "symbols": 75640,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi. Unde mollitia facilis voluptatum dolorem voluptatibus.",
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 17, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 18, "type":"character", "title": "Capinan Nemo"},
+                { "id": 19, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 8,
             "title": "Adipisci at: chapter one",
             "published": "2019-10-22T18:25:43.511Z",
-            "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 5,
-                "name": "Adipisicing Elit"
-            },
-            "cycle": {
-                "name": "The Best Cycle Ever"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "lastEdited": "2019-10-23T12:05:43.511Z",
+            "author": { "id": 5, "name": "Adipisicing Elit" },
+            "type": { "name": "Short Story" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { "name": "The Best Cycle Ever" },
+            "chapters": [
+                { "id": 2, "order": 1, "title": "Story name", "published": "2019-10-23T18:25:43.511Z" }
+            ],
+            "pages": 7,
+            "symbols": 15901,
             "discount": 35,
-            "price": 6.00
+            "price": 6.00,
+            "annotation": "Amet ex eum ad repellendus vitae, corporis odio illo veniam error. Suscipit, dolor ipsam. Odio cupiditate inventore molestias deserunt porro cumque dolorum ullam. Saepe alias nemo, porro nulla eligendi quos?",
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 91, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 92, "type":"character", "title": "Capinan Nemo"},
+                { "id": 93, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 5 }
+            ]
         },
         {
             "id": 1,
             "title": "Consectetur adipisicing elit",
             "published": "2019-10-21T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 1,
-                "name": "Sapiente facilis \"officiis\""
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 1, "name": "Sapiente facilis \"officiis\"" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 46, "order": 1, "title": "Title of a chapter 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 47, "order": 2, "title": "Title of a chapter 2", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 48, "order": 3, "title": "Title of a chapter 3", "published": "2019-10-21T18:25:43.511Z" },
+                { "id": 49, "order": 4, "title": "Title of a chapter 4", "published": "2019-10-20T18:25:43.511Z" }
+            ],
+            "pages": 38,
+            "symbols": 70640,
             "discount": 0,
-            "price": 2.99
+            "price": 2.99,
+            "annotation": "Quibusdam eos laudantium est voluptate soluta amet impedit repudiandae expedita labore quaerat exercitationem, modi nam rem totam quam, doloremque odit adipisci temporibus, eveniet ex molestiae deserunt. Laudantium iusto quisquam a!",
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 81, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 82, "type":"character", "title": "Capinan Nemo"},
+                { "id": 83, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 }
+            ]
         },
         {
             "id": 3,
             "title": "Quas facilis",
             "published": "2019-10-20T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 5,
-                "name": "Adipisicing Elit"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 5, "name": "Adipisicing Elit" },
+            "type": { "name": "Poetry" },
+            "genres": [
+                { "id": 1, "name": "Ironic" },
+                { "id": 2, "name": "Romance" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 3, "order": 1, "title": "Chapter 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 1, "order": 2, "title": "Chapter 2", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 5, "order": 3, "title": "Chapter 3", "published": "2019-10-21T18:25:43.511Z" },
+                { "id": 2, "order": 4, "title": "Chapter 4", "published": "2019-10-20T18:25:43.511Z" },
+                { "id": 4, "order": 5, "title": "Chapter 5", "published": "2019-10-19T18:25:43.511Z" },
+                { "id": 7, "order": 6, "title": "Chapter 6", "published": "2019-10-18T18:25:43.511Z" },
+                { "id": 6, "order": 7, "title": "Chapter 7", "published": "2019-10-17T18:25:43.511Z" }
+            ],
+            "pages": 31,
+            "symbols": 15640,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Fugit unde mollitia totam. Ab facere reprehenderit deserunt, officiis tenetur consequuntur esse vitae suscipit explicabo dolores soluta et incidunt exercitationem sunt, aspernatur accusamus. A autem officiis unde ratione nemo consequuntur!",
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 71, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 72, "type":"character", "title": "Capinan Nemo"},
+                { "id": 73, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 },
+                { "id": 2 }
+            ]
         },
         {
             "id": 9,
             "title": "Aperiam blanditiis neque",
             "published": "2019-09-23T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 5,
-                "name": "Adipisicing Elit"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 5, "name": "Adipisicing Elit" },
+            "type": { "name": "Short Story" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 83, "order": 1, "title": "Chapter title 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 81, "order": 2, "title": "Chapter title 2", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 85, "order": 3, "title": "Chapter title 3", "published": "2019-10-21T18:25:43.511Z" },
+                { "id": 82, "order": 4, "title": "Chapter title 4", "published": "2019-10-20T18:25:43.511Z" }
+            ],
+            "pages": 28,
+            "symbols": 55813,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Ex consequatur nesciunt expedita delectus explicabo qui, quod earum unde quisquam fugiat enim fugit dolorem cum numquam odit nobis possimus quo, natus optio? Nesciunt aliquam, accusamus laborum cupiditate deleniti sequi?",
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 61, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 62, "type":"character", "title": "Capinan Nemo"},
+                { "id": 63, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 2 }
+            ]
         },
         {
             "id": 5,
             "title": "Magnam, consequuntur et",
             "published": "2019-09-22T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 4,
-                "name": "Libero"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 4, "name": "Libero" },
+            "type": { "name": "Short Story" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 52, "order": 1, "title": "Chapter title 1", "published": "2019-10-23T18:25:43.511Z" }
+            ],
+            "pages": 3,
+            "symbols": 5813,
             "discount": 25,
-            "price": 2.99
+            "price": 2.99,
+            "annotation": "Assumenda a possimus iste nostrum, quos ipsam quo molestias quis ex incidunt sint! Incidunt molestiae, laudantium fugit minima corrupti, repellendus itaque voluptatum ea architecto fugiat, vero assumenda ratione aliquid reprehenderit?",
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 51, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 52, "type":"character", "title": "Capinan Nemo"},
+                { "id": 53, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 6,
             "title": "Optio",
             "published": "2019-09-21T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 3,
-                "name": "Vitae Suscipit"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 3, "name": "Vitae Suscipit" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 182, "order": 1, "title": "Title of a chapter 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 183, "order": 2, "title": "Title of a chapter 2", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 184, "order": 3, "title": "Title of a chapter 3", "published": "2019-10-21T18:25:43.511Z" },
+                { "id": 185, "order": 4, "title": "Title of a chapter 4", "published": "2019-10-20T18:25:43.511Z" }
+            ],
+            "pages": 28,
+            "symbols": 55813,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Nihil quidem asperiores veritatis pariatur qui deserunt expedita eveniet, illo ratione delectus nobis vero eos culpa sed totam provident. Ea omnis debitis quae ipsum cum id possimus maxime praesentium aperiam?",
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 41, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 42, "type":"character", "title": "Capinan Nemo"},
+                { "id": 43, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 7,
             "title": "Exercitationem aut officiis",
             "published": "2019-09-20T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 2,
-                "name": "Tempora Illum"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
-            "discount": 0,
-            "price": 0
+            "author": { "id": 2, "name": "Tempora Illum" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 32, "order": 1, "title": "Title of a chapter 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 33, "order": 2, "title": "Title of a chapter 2", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 34, "order": 3, "title": "Title of a chapter 3", "published": "2019-10-21T18:25:43.511Z" },
+                { "id": 35, "order": 4, "title": "Title of a chapter 4", "published": "2019-10-20T18:25:43.511Z" }
+            ],
+            "pages": 28,
+            "symbols": 55813,
+            "discount": 50,
+            "price": 3.99,
+            "annotation": "Voluptate dolorem voluptates architecto harum nulla repellendus nisi, voluptatem fugit unde soluta libero consequuntur molestiae natus saepe amet quis deserunt eos repellat deleniti cupiditate? Distinctio qui facere excepturi dicta fugiat!",
+            "status": true,
+            "ebook": false,
+            "adult": true,
+            "mentions": [
+                { "id": 31, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 32, "type":"character", "title": "Capinan Nemo"},
+                { "id": 33, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [
+                { "id": 1, "description": "Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi."},
+                { "id": 2, "description": ""},
+                { "id": 3, "description": "Lipsum dolor sit amet consectetur adipisicing elit..."}
+            ],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 }
+            ]
         },
         {
             "id": 10,
             "title": "Ariatur quibusdam!",
             "published": "2019-09-19T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 2,
-                "name": "Tempora Illum"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 2, "name": "Tempora Illum" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 312, "order": 1, "title": "Title of a chapter 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 313, "order": 2, "title": "Title of a chapter 2", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 314, "order": 3, "title": "Title of a chapter 3", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 315, "order": 4, "title": "Title of a chapter 4", "published": "2019-10-23T18:25:43.511Z" }
+            ],
+            "pages": 38,
+            "symbols": 70640,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Debitis aliquam accusantium ab esse velit quod quasi. Vel exercitationem ipsam hic nihil facere officia, deserunt, laboriosam nulla autem corporis maiores quaerat numquam reprehenderit? Dicta tempore magnam quae. Ipsam, qui?",
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 21, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 22, "type":"character", "title": "Capinan Nemo"},
+                { "id": 23, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 12,
             "title": "Amet laborum",
             "published": "2019-09-13T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 3,
-                "name": "Vitae Suscipit"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 3, "name": "Vitae Suscipit" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 42, "order": 1, "title": "Title of a chapter 1", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 43, "order": 2, "title": "Title of a chapter 2", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 44, "order": 3, "title": "Title of a chapter 3", "published": "2019-10-21T18:25:43.511Z" },
+                { "id": 45, "order": 4, "title": "Title of a chapter 4", "published": "2019-10-20T18:25:43.511Z" }
+            ],
+            "pages": 38,
+            "symbols": 70640,
             "discount": 10,
-            "price": 4.00
+            "price": 4.00,
+            "annotation": "Veritatis voluptatibus laborum praesentium dolorum amet fugiat nobis excepturi facilis, et voluptate dicta commodi at sit ea dolorem obcaecati similique quod beatae nostrum cum corrupti blanditiis odio! Voluptatem, nulla porro?",
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 11, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 12, "type":"character", "title": "Capinan Nemo"},
+                { "id": 13, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 1 }
+            ]
         },
         {
             "id": 11,
             "title": "Voluptatum",
             "published": "2019-09-12T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 2,
-                "name": "Tempora Illum"
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 2, "name": "Tempora Illum" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 91, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 92, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 93, "order": 3, "title": "Chapter order third", "published": "2019-10-21T18:25:43.511Z" }
+            ],
+            "pages": 40,
+            "symbols": 75640,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Quaerat harum aliquid rerum maiores magnam quis. Perspiciatis nisi, architecto amet iste dolorem tempore nemo. Aspernatur est, illo quibusdam consectetur nihil commodi dignissimos quis tenetur nostrum odio ducimus? Sequi, iusto!",
+            "status": true,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 4, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 5, "type":"character", "title": "Capinan Nemo"},
+                { "id": 6, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [ ]
         },
         {
             "id": 4,
             "title": "Tempora quod nam",
             "published": "2019-08-03T18:25:43.511Z",
             "lastEdited": "2019-10-23T18:25:43.511Z",
-            "author": {
-                "id": 1,
-                "name": "Sapiente Facilis \"officiis\""
-            },
-            "genres": [{
-                "id": 1,
-                "name": "Sci-Fi"
-            }, {
-                "id": 2,
-                "name": "Detective"
-            }],
-            "type": { "name": "book" },
+            "author": { "id": 1, "name": "Sapiente Facilis \"officiis\"" },
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { },
+            "chapters": [
+                { "id": 39, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 19, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 59, "order": 3, "title": "Chapter order third", "published": "2019-10-21T18:25:43.511Z" }
+            ],
+            "pages": 40,
+            "symbols": 75640,
             "discount": 0,
-            "price": 0
+            "price": 0,
+            "annotation": "Vitae quae et nam, reiciendis optio qui debitis ipsam aperiam non facilis tempore dolores harum nemo ipsa delectus itaque praesentium tenetur eligendi temporibus. Delectus, perferendis. Ducimus voluptatum harum inventore? Optio!",
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 7, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 8, "type":"character", "title": "Capinan Nemo"},
+                { "id": 9, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": [
+                { "id": 3 }
+            ]
         }
     ]
 }

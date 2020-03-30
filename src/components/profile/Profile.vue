@@ -107,6 +107,8 @@
                             </b-dd-item>
                         </b-dd>
 
+                        {{isAuthenticated}}
+
                         <template v-if="isAuthenticated">
                             <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
 <!--                        <button class="btn btn-sm btn-primary" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->

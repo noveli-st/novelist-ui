@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-		in bookmarks
+		<header class="mb-3">
+            <div class="h2" role="heading" aria-level="2">In bookmarks</div>
+        </header>
     </div>
 </template>
 
