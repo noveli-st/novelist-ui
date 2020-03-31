@@ -18,7 +18,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
                 <title>{{ book.title}}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title>
                 <template v-if="book.discount">
-                    <polygon fill="#ec4079" opacity=".9" points="0,128 128,0 256,0 0,256" filter="drop-shadow(0 .125rem .25rem rgba(0,0,0,.75))"></polygon>
+                    <polygon fill="#D4145A" opacity=".9" points="0,128 128,0 256,0 0,256" filter="drop-shadow(0 .125rem .25rem rgba(0,0,0,.75))"></polygon>
                     <text fill="#ffffff" font-weight="bold" font-size="90" transform="translate(55 182) rotate(-45)">{{ book.discount }}%</text>
                 </template>
             </svg>

@@ -70,7 +70,7 @@
                     <hr class="bg-secondary my-3">
                     <div class="row flex-md-row-reverse">
                         <div class="col-12 col-md-7 mb-3 my-md-auto text-md-right">
-                            <h3 class="h6 d-inline-block mr-2 mb-0 align-middle">Follow us:</h3>
+                            <div class="h6 d-inline-block mr-2 mb-0 align-middle" role="heading" aria-level="3">Follow us:</div>
                             <div class="btn-group text-nowrap">
                                 <a class="btn btn-sm btn-outline-light" href="#"><font-awesome-icon :icon="['fab', 'facebook']" /><span class="ml-2 ">facebook</span></a>
                                 <a class="btn btn-sm btn-outline-light" href="#"><font-awesome-icon :icon="['fab', 'instagram']" /><span class="ml-2 ">instagram</span></a>

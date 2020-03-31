@@ -2,12 +2,12 @@
     <main class="min-vh-100">
         <div class="container my-5">
             <header>
-                <h1>Settings</h1>
+                <div class="h1" role="heading" aria-level="1">Settings</div>
             </header>
             <hr class="border-top">
             <section class="my-3">
                 <header>
-                    <h2>Edit profile</h2>
+                    <div class="h2" role="heading" aria-level="2">Edit profile</div>
                 </header>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laudantium error ad quia saepe, aut optio consequatur ipsum quo reprehenderit aspernatur, exercitationem fugiat. Commodi asperiores nemo, ea suscipit ex labore.
@@ -18,7 +18,7 @@
             </section>
             <section class="my-3">
                 <header>
-                    <h2>Account <span class="h6 text-muted">Security center</span></h2>
+                    <div class="h2" role="heading" aria-level="2">Account <span class="h6 text-muted">Security center</span></div>
                 </header>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laudantium error ad quia saepe, aut optio consequatur ipsum quo reprehenderit aspernatur, exercitationem fugiat. Commodi asperiores nemo, ea suscipit ex labore.
@@ -29,7 +29,7 @@
             </section>
             <section class="my-3">
                 <header>
-                    <h2>Terminate account</h2>
+                    <div class="h2" role="heading" aria-level="2">Terminate account</div>
                 </header>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, laudantium error ad quia saepe, aut optio consequatur ipsum quo reprehenderit aspernatur, exercitationem fugiat. Commodi asperiores nemo, ea suscipit ex labore.

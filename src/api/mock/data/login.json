@@ -23,7 +23,7 @@
     "library": {
         "reading": [ ],
         "readed": [ ],
-        "bookmarks": [ ]
+        "bookmarks": [ { "id": 7 }, { "id": 12 } ]
     },
     "follows": {
         "my": [ ],
