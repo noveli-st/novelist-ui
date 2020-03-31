@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <div v-if="!this.$parent.userProfile.about.length" class="alert alert-secondary border-0 mb-0">
-                           <font-awesome-icon icon="frown" class="mr-2"></font-awesome-icon>{{ this.$parent.userProfile.name }} chose not to tell anything about themselves.
+                           <font-awesome-icon icon="frown" size="lg" class="mr-3"></font-awesome-icon>{{ this.$parent.userProfile.name }} chose not to tell anything about themselves.
                         </div>
                         {{ this.$parent.userProfile.about }}
                     </div>

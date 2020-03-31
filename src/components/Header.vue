@@ -25,8 +25,7 @@
                         <hr class="my-0">
                         <div class="d-flex flex-wrap">
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'inbox'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="inbox" size="lg" /><div class="small text-truncate">Inbox</div></router-link>
-                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events"
-                                active-class="active" v-bind:to="'/settings'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="cogs" size="lg" /><div class="small">Settings</div></router-link>
+                            <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'/settings'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="cogs" size="lg" /><div class="small">Settings</div></router-link>
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'get-help'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="question-circle" size="lg" /><div class="small text-truncate">Get help</div></router-link>
                         </div>
                         <hr class="my-0">
