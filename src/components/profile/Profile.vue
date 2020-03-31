@@ -7,7 +7,7 @@
                         <img class="broken img-fluid rounded-circle shadow-sm" v-bind:src="userAvatarUrl" @error="userAvatarUrlError" alt="User name">
                     </div>
                     <div class="col-md-7 col-lg-8">
-                        <h1 class="my-3 mt-md-0">{{ userProfile.name }}</h1>
+                        <div class="my-3 mt-md-0 h1" role="heading" aria-level="1">{{ userProfile.name }}</div>
                         <span v-if="userProfile.books.length" class="badge badge-dark mb-3 mr-1" v-b-tooltip.hover title="... has written a book">
                             <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>Writer
                         </span>
@@ -106,8 +106,6 @@
                                 <span class="d-block py-1"><font-awesome-icon :icon="['fab', 'twitter']" class="mr-2"></font-awesome-icon>Twitter</span>
                             </b-dd-item>
                         </b-dd>
-
-                        {{isAuthenticated}}
 
                         <template v-if="isAuthenticated">
                             <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>

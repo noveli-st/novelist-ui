@@ -40,7 +40,7 @@
                                     <div class="pr-4">
                                         <span class="position-absolute">{{ chapter.order }}</span>
                                     </div>
-                                    <div class="flex-grow-1 px-1">
+                                    <div class="d-flex align-items-center flex-grow-1 px-1">
                                         <template v-if="bookPrice">
                                             <font-awesome-icon v-if="chapter.order - 1" icon="lock" size="sm" class="mr-2 text-muted"></font-awesome-icon>
                                             <font-awesome-icon v-else icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon>
@@ -65,36 +65,46 @@
                     <div class="position-relative">
                         <div class="position-absolute d-flex w-100 p-2">
                             <div class="small text-muted my-auto">
-                                <span class="ml-2" data-toggle="tooltip" data-placement="top" title="Followers"><sup><i class="fas fa-long-arrow-alt-down"></i></sup><i class="fas fa-user mr-1"></i>29</span>
-                                <span class="ml-2" data-toggle="tooltip" data-placement="top" title="Following"><sup><i class="fas fa-long-arrow-alt-up"></i></sup><i class="fas fa-user mr-1"></i>174</span>
+                                <!-- <span class="ml-2" data-toggle="tooltip" data-placement="top" title="Followers"><sup><i class="fas fa-long-arrow-alt-down"></i></sup><i class="fas fa-user mr-1"></i>29</span>
+                                <span class="ml-2" data-toggle="tooltip" data-placement="top" title="Following"><sup><i class="fas fa-long-arrow-alt-up"></i></sup><i class="fas fa-user mr-1"></i>174</span> -->
                             </div>
-<!--                            <button class="btn btn-sm btn-primary ml-auto" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->
-                            <button class="btn btn-sm btn-outline-primary ml-auto" type="button"><i class="fas fa-user-check mr-2"></i>Follow</button>
+                            <template v-if="this.$parent.isAuthenticated">
+                                <button class="btn btn-sm btn-outline-primary ml-auto" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+<!--                        <button class="btn btn-sm btn-primary" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->
+                            </template>
+                            <span v-else class="d-inline-block ml-auto" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can follow! Please Sign in...">
+                                <button class="btn btn-sm btn-outline-primary" type="button" disabled><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+                            </span>
                         </div>
                     </div>
                     <div class="card-body text-center">
                         <div class="pl-4 pt-4 pr-4 pb-2">
-                            <div class="rounded-circle shadow-sm" style="background: url(images/users/0/preview.svg) no-repeat scroll center center / cover;">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none"><title>Имя пользователя не слабое</title></svg>
-                            </div>
+                            <img class="rounded-circle shadow-sm overflow-hidden" :alt="this.$parent.book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
                         </div>
-                        <span class="h5 text-center text-ellipsis mb-2">Имя писателя книги</span>
+                        <span class="h5 text-center text-ellipsis mb-2">{{ this.$parent.book.author.name }}</span>
                         <div class="mb-2">
-                            <span class="badge badge-secondary mr-1" data-toggle="tooltip" data-placement="top" title="... has written a book"><i class="fas fa-pen-alt mr-1"></i>3</span>
-                            <span class="badge badge-secondary mr-1" data-toggle="tooltip" data-placement="top" title="... has given review of a book"><i class="fas fa-glasses mr-1"></i>32</span>
-                            <span class="badge badge-secondary mr-1" data-toggle="tooltip" data-placement="top" title="... had read a book"><i class="fas fa-book-reader mr-1"></i>180</span>
+                            <span v-if="this.$parent.book.author.books" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... has written a book">
+                                <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>{{ this.$parent.book.author.books }}
+                            </span>
+                            <span v-if="this.$parent.book.author.reviews" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... has given review of a book">
+                                <font-awesome-icon icon="glasses" class="mr-1"></font-awesome-icon>{{ this.$parent.book.author.reviews }}
+                            </span>
+                            <span v-if="this.$parent.book.author.reads" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... had read a book">
+                                <font-awesome-icon icon="book-reader" class="mr-1"></font-awesome-icon>{{ this.$parent.book.author.reads }}
+                            </span>
                         </div>
-                        <time class="d-block small text-muted" datetime="2019-10-22T21:30"><i class="fas fa-calendar-day mr-2"></i><span class="font-weight-bold">Joined:</span> 22 October 2018</time>
-                        <hr>
-                        <div>
-                            <a class="mx-1" href="#" data-toggle="tooltip" data-placement="top" title="Website"><i class="fas fa-globe fa-lg"></i></a>
-                            <a class="mx-1" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
-                            <a class="mx-1" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
-                            <a class="mx-1" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <!-- <time class="d-block small text-muted" datetime="2019-10-22T21:30"><i class="fas fa-calendar-day mr-2"></i><span class="font-weight-bold">Joined:</span> 22 October 2018</time> -->
+                        <time class="d-inline-block small text-muted" v-bind:datetime="this.$parent.book.author.created"><font-awesome-icon icon="calendar-day" class="mr-2"></font-awesome-icon><span class="font-weight-bold mr-1">Joined:</span>{{ (new Date(this.$parent.book.author.created)).toLocaleDateString() }}</time>
+                        <div v-if="this.$parent.book.author.website || this.$parent.book.author.facebook || this.$parent.book.author.instagram || this.$parent.book.author.twitter">
+                            <hr>
+                            <a v-if="this.$parent.book.author.website" class="mx-2" v-bind:href="this.$parent.book.author.website" v-b-tooltip.hover.focus title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
+                            <a v-if="this.$parent.book.author.facebook" class="mx-2" v-bind:href="this.$parent.book.author.facebook" v-b-tooltip.hover.focus title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
+                            <a v-if="this.$parent.book.author.instagram" class="mx-2" v-bind:href="this.$parent.book.author.instagram" v-b-tooltip.hover.focus title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
+                            <a v-if="this.$parent.book.author.twitter" class="mx-2" v-bind:href="this.$parent.book.author.twitter" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
                         </div>
                     </div>
                     <div class="card-footer mt-auto">
-                        <a class="btn btn-block btn-primary" href="profile.html">View profile</a>
+                        <router-link class="btn btn-block btn-primary" v-bind:to="`/profile/${this.$parent.book.author.id}/info`">View profile</router-link>
                     </div>
                 </div>
             </div>
@@ -107,7 +117,13 @@
         name: 'BookInfo',
         data () {
             return {
-                bookPrice: this.$parent.book.price 
+                bookPrice: this.$parent.book.price,
+                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.$parent.book.author.id}/preview.jpg`
+            }
+        },
+        methods: {
+            userAvatarUrlError(event){
+                event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
             }
         }
 	}

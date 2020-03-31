@@ -12,7 +12,7 @@
                     <hr class="my-3">
                 </div>
                 <div class="col-6 col-md mb-4 mb-md-0">
-                    <h2 class="h5">Content</h2>
+                    <div class="h5" role="heading" aria-level="2">Content</div>
                     <table>
                         <tr>
                             <td class="p-0">
@@ -29,7 +29,7 @@
                     </table>
                 </div>
                 <div class="col-6 col-md mb-4 mb-md-0">
-                    <h2 class="h5">Community</h2>
+                    <div class="h5" role="heading" aria-level="2">Community</div>
                     <table>
                         <tr>
                             <td class="p-0">
@@ -46,14 +46,14 @@
                     </table>
                 </div>
                 <div class="col-6 col-md">
-                    <h2 class="h5">Support</h2>
+                    <div class="h5" role="heading" aria-level="2">Support</div>
                     <ul class="list-unstyled">
                         <li><router-link class="text-muted" v-bind:to="'/helpcenter'">Help center</router-link></li>
                         <li><router-link class="text-muted" v-bind:to="'/agreepolic'">Agreements &amp; Policies</router-link></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">
-                    <h2 class="h5">About</h2>
+                    <div class="h5" role="heading" aria-level="2">About</div>
                     <ul class="list-unstyled">
                         <li><router-link class="text-muted" v-bind:to="'/team'">Team</router-link></li>
                         <!--li><a class="text-muted" href="#">Location</a></li-->
