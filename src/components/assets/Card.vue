@@ -9,7 +9,7 @@
                 </span>
             </router-link>
         </div>
-        <router-link v-bind:to="'/book/' + book.id" class="card-body h6 mb-0 text-truncate py-3" v-b-tooltip.hover.bottom
+        <router-link v-bind:to="`/book/${book.id}`" class="card-body h6 mb-0 text-truncate py-3" v-b-tooltip.hover.bottom
             :title="book.title">
             {{ book.title }}
         </router-link>

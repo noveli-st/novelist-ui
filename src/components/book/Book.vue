@@ -139,8 +139,16 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-6 col-sm-5 col-lg-4 text-md-center">
-                        Book rating:
+                    <div class="col-6 col-sm-5 col-lg-4 d-flex justify-content-md-center align-items-center">
+                        <span class="font-weight-bold d-none d-md-inline-block mr-2">Book rating:</span>
+                        <rate
+                            v-bind:length="5"
+                            v-bind:value="book.rate"
+                            v-bind:showcount="true"
+                            v-bind:readonly="true"
+                            v-b-popover.top.hover.focus.blur="'Start reading the book to vote.'"
+                        ></rate>
+                        
                         <!-- <span class="font-weight-bold d-none d-md-inline-block">Book rating:</span>
                         <span id="bookRating" class="starrr text-nowrap"
                         data-toggle="popover" data-trigger="focus" data-placement="top"
@@ -193,12 +201,18 @@
     import client from 'api-client'
     import toast from '../../util/toast'
 
+    // https://github.com/SinanMtl/vue-rate
+    import rate from '../../components/assets/Rate'
+
     export default {
         name: 'Book',
         data() {
             return {
                 book: null
             }
+        },
+        components: {
+            rate
         },
         computed: {
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
