@@ -2,7 +2,7 @@
     <main class="min-vh-100">
         <div class="container my-5">
             <header>
-                <h1>Edit Profile</h1>
+                <div class="h1" role="heading" aria-level="1">Edit Profile</div>
             </header>
             <hr class="border-top">
             <div class="form-group row">
@@ -111,7 +111,7 @@
                 </div>
             </div>
             <div class="px-3 pt-3 mb-3 border rounded">
-                <h2 class="h5">Social links</h2>
+                <div class="h5" role="heading" aria-level="2">Social links</div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="inputProfileFacebook">Facebook</label>
                     <div class="col-lg-9">

@@ -3,7 +3,7 @@
         <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
                 <symbol id="icon-star-full" viewBox="0 0 32 32">
-                    <title>star-full</title>
+                    <!-- <title>star-full</title> -->
                     <path d="M14.3,1.8l-3.9,7.9L1.6,11c-1.6,0.2-2.2,2.2-1.1,3.3l6.3,6.2l-1.5,8.7c-0.3,1.6,1.4,2.8,2.8,2L16,27l7.8,4.1 c1.4,0.7,3-0.4,2.8-2l-1.5-8.7l6.3-6.2c1.1-1.1,0.5-3-1.1-3.3l-8.7-1.3l-3.9-7.9C17,0.4,15,0.3,14.3,1.8L14.3,1.8z"></path>
                 </symbol>
             </defs>
@@ -92,6 +92,7 @@ export default {
     
     .rate {
         display: inline-flex;
+        align-items: center;
         cursor: default;
     }
     

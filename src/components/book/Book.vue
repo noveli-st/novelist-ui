@@ -7,11 +7,11 @@
                         <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image rounded shadow-sm"
                             v-bind:style="{'background' : `url(${bookCoverPreviewUrl}) no-repeat scroll center center / cover`}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-                                <!-- <title>{{ book.title }}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title> -->
-                                <!-- <template v-if="book.discount">
-                                    <polygon fill="#ec4079" opacity=".9" points="0,128 128,0 256,0 0,256" filter="drop-shadow(0 .125rem .25rem rgba(0,0,0,.75))"></polygon>
+                                <title>{{ book.title }}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title>
+                                <template v-if="book.discount">
+                                    <polygon fill="#D4145A" opacity=".9" points="0,128 128,0 256,0 0,256" filter="drop-shadow(0 .125rem .25rem rgba(0,0,0,.75))"></polygon>
                                     <text fill="#ffffff" font-weight="bold" font-size="90" transform="translate(55 182) rotate(-45)">{{ book.discount }}%</text>
-                                </template> -->
+                                </template>
                             </svg>
                         </div>
                     </div>
@@ -126,10 +126,9 @@
                                 <span class="d-block py-1"><font-awesome-icon :icon="['fab', 'twitter']" class="mr-2"></font-awesome-icon>Twitter</span>
                             </b-dd-item>
                         </b-dd>
-
                         <template v-if="isAuthenticated">
-                            <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
-                            <!--    <button class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Remove bookmark</button>-->
+                            <button v-if="isBookmarked" class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Bookmarked</button>
+                            <button v-else class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
                         </template>
                         <span v-else class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can bookmark! Please Sign in...">
                             <button class="btn btn-sm btn-outline-primary mr-1" type="button" disabled><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
@@ -139,8 +138,16 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-6 col-sm-5 col-lg-4 text-md-center">
-                        Book rating:
+                    <div class="col-6 col-sm-5 col-lg-4 d-flex justify-content-md-center align-items-center">
+                        <span class="font-weight-bold d-none d-md-inline-block mr-2">Book rating:</span>
+                        <rate
+                            v-bind:length="5"
+                            v-bind:value="book.rate"
+                            v-bind:showcount="true"
+                            v-bind:readonly="true"
+                            v-b-popover.top.hover.focus.blur="'Start reading the book to vote.'"
+                        ></rate>
+                        
                         <!-- <span class="font-weight-bold d-none d-md-inline-block">Book rating:</span>
                         <span id="bookRating" class="starrr text-nowrap"
                         data-toggle="popover" data-trigger="focus" data-placement="top"
@@ -193,12 +200,18 @@
     import client from 'api-client'
     import toast from '../../util/toast'
 
+    // https://github.com/SinanMtl/vue-rate
+    import rate from '../../components/assets/Rate'
+
     export default {
         name: 'Book',
         data() {
             return {
                 book: null
             }
+        },
+        components: {
+            rate
         },
         computed: {
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
@@ -211,6 +224,9 @@
                     return (this.book.price * (100 - this.book.discount) / 100).toFixed(2)
                 else
                     return this.book.price
+            },
+            isBookmarked(){
+                return this.$store.getters.currentUser.library.bookmarks.some( bmbook => bmbook.id === this.book.id )
             }
         },
         methods: {

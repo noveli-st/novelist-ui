@@ -2,7 +2,7 @@
     <main class="min-vh-100">
         <div class="container my-5">
             <header>
-                <h1>Account <span class="h6 text-muted">Security center</span></h1>
+                <div class="h1" role="heading" aria-level="1">Account <span class="h6 text-muted">Security center</span></div>
             </header>
             <hr class="border-top">
             <div class="row justify-content-md-end">
