@@ -60,7 +60,17 @@ import {
     faCheckSquare,
     faPenSquare,
     faUnlock,
-    faLock
+    faLock,
+    faBook,
+    faPlus,
+    faTrash,
+    faEdit,
+    faCog,
+    faEye,
+    faPiggyBank,
+    faPercentage,
+    faMoneyBill,
+    faStarHalfAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -132,7 +142,17 @@ library.add(
     faCheckSquare,
     faPenSquare,
     faUnlock,
-    faLock
+    faLock,
+    faBook,
+    faPlus,
+    faTrash,
+    faEdit,
+    faCog,
+    faEye,
+    faPiggyBank,
+    faPercentage,
+    faMoneyBill,
+    faStarHalfAlt
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
