@@ -19,7 +19,9 @@
     "facebook": "",
     "instagram": "",
     "twitter": "",
-    "books": [ { "id": 2 } ],
+    "books": [
+        { "id": 2, "title": "Lorem ipsum dolor sit amet", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" }
+    ],
     "cycles": [ ],
     "reviews": [ ],
     "library": {
@@ -52,7 +54,11 @@
     "facebook": "",
     "instagram": "",
     "twitter": "",
-    "books": [ { "id": 8 }, { "id": 3 }, { "id": 9 } ],
+    "books": [
+        { "id": 8, "title": "Adipisci at: chapter one", "price": 6.00, "lastEdited": "2019-10-23T18:25:43.511Z" },
+        { "id": 3, "title": "Quas facilis", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" },
+        { "id": 9, "title": "Aperiam blanditiis neque", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" }
+    ],
     "cycles": [ ],
     "reviews": [ ],
     "library": {
@@ -85,7 +91,9 @@
     "facebook": "",
     "instagram": "",
     "twitter": "",
-    "books": [ { "id": 4 } ],
+    "books": [
+        { "id": 4, "title": "Tempora quod nam", "price": 6.00, "lastEdited": "2019-10-23T18:25:43.511Z" }
+    ],
     "cycles": [ { "id": 1 } ],
     "reviews": [ ],
     "library": {
@@ -119,7 +127,9 @@
     "facebook": "",
     "instagram": "",
     "twitter": "",
-    "books": [ { "id": 5 } ],
+    "books": [
+        { "id": 5, "title": "Magnam, consequuntur et", "price": 2.99, "lastEdited": "2019-10-23T18:25:43.511Z" }
+    ],
     "cycles": [ ],
     "reviews": [ ],
     "library": {
@@ -153,7 +163,10 @@
     "facebook": "",
     "instagram": "",
     "twitter": "",
-    "books": [ { "id": 6 }, { "id": 12 } ],
+    "books": [
+        { "id": 6, "title": "Optio", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" },
+        { "id": 12, "title": "Amet laborum", "price": 4.00, "lastEdited": "2019-10-23T18:25:43.511Z" }
+    ],
     "cycles": [ ],
     "reviews": [ ],
     "library": {
@@ -187,7 +200,11 @@
     "facebook": "",
     "instagram": "",
     "twitter": "",
-    "books": [ { "id": 7 }, { "id": 10 }, { "id": 11 } ],
+    "books": [
+        { "id": 7, "title": "Exercitationem aut officiis", "price": 3.99, "lastEdited": "2019-10-23T18:25:43.511Z" },
+        { "id": 10, "title": "Ariatur quibusdam!", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" },
+        { "id": 11, "title": "Voluptatum", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" }
+    ],
     "cycles": [ ],
     "reviews": [ ],
     "library": {
