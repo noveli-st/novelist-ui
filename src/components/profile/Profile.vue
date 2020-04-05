@@ -93,7 +93,6 @@
                         <hr class="d-md-none">
                     </div>
                     <div class="col-md-7 col-lg-8 mt-auto text-center text-md-right">
-
                         <b-dd id="userShareDropMenu" no-caret size="sm" variant="primary" menu-class="p-0 overflow-hidden" class="mr-1">
                             <template slot="button-content"><font-awesome-icon icon="share-square" class="mr-2"></font-awesome-icon>Share</template>
                             <b-dd-item variant="primary" href="#" target="_blank">
@@ -108,8 +107,8 @@
                         </b-dd>
 
                         <template v-if="isAuthenticated">
-                            <button class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
-<!--                        <button class="btn btn-sm btn-primary" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->
+                            <button v-if="isFollowed" class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Unfollow</button>
+                            <button v-else class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
                         </template>
                         <span v-else class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can follow! Please Sign in...">
                             <button class="btn btn-sm btn-outline-primary mr-1" type="button" disabled><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
@@ -121,7 +120,13 @@
                 <div class="row">
                     <div class="col-6 col-sm-5 col-lg-4 d-flex justify-content-md-center align-items-center">
                         <span class="font-weight-bold d-none d-md-inline-block mr-2">User rating:</span>
-                        <rate v-bind:length="5" v-bind:value="userProfile.rate" v-bind:showcount="true" v-bind:readonly="true"></rate>
+                        <rate
+                            v-bind:length="5"
+                            v-bind:value="userProfile.rate"
+                            v-bind:showcount="true"
+                            v-bind:readonly="true"
+                            v-b-popover.top.hover.focus.blur="'User rating is generated automatically'"
+                        ></rate>
                     </div>
                     <div class="col-6 col-sm-7 col-lg-8 text-right">
                         <div class="mx-n1">
@@ -201,6 +206,9 @@
             userAvatarUrl() {
                 const id = this.userProfile ? this.userProfile.id : 0
                 return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`
+            },
+            isFollowed(){
+                return this.$store.getters.currentUser.follows.im.some( fluser => fluser.id === this.userProfile.id )
             }
         },
         methods: {

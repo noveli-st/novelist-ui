@@ -15,7 +15,7 @@
                     </div>
                 </div>
 
-                <div id="profileMyBooks" class="card border-0 mb-4 shadow-sm">
+                <div v-if="this.$parent.userProfile.books.length" class="card border-0 mb-4 shadow-sm">
                     <div class="card-header">
                         <h2 class="h5 my-0">My books</h2>
                     </div>
@@ -27,33 +27,41 @@
                                         <span class="position-absolute">#</span>
                                     </div>
                                     <div class="flex-grow-1 px-1">Book title</div>
-                                    <div class="px-1">Cost</div>
-                                    <div class="d-none d-md-block w-25 text-right">Published</div>
+                                    <div class="d-none d-md-block w-25 text-right">Last edited</div>
                                 </div>
                                 <hr class="my-0">
                             </header>
                             <div class="scroll-box-body px-1 small">
-                                <div v-for="book in this.$parent.userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
+                                <div v-for="(book, index) in this.$parent.userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
                                     <div class="pr-4">
-                                        <span class="position-absolute">{{ book.id }}</span>
+                                        <span class="position-absolute">{{ index + 1 }}</span>
                                     </div>
-                                    <div class="flex-grow-1 px-1 text-ellipsis">
-                                        <a href="reader.html">...</a>
+                                    <div class="flex-grow-1 px-1 text-truncate">
+                                        <router-link v-bind:to="`/book/${book.id}`" v-bind:class="[{ 'text-warning': book.price }, 'text-success']">{{ book.title }}</router-link>
                                     </div>
-                                    <div class="px-1 text-success">...</div>
-                                    <time class="d-none d-md-block text-nowrap w-25 text-right" datetime="2019-01-1">...</time>
+                                    <time class="d-none d-md-block text-nowrap w-25 text-right" v-bind:datetime="book.lastEdited">{{ (new Date(book.lastEdited)).toLocaleDateString() }}</time>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer bg-transparent text-right">
-                        <a class="small" href="profile-books.html">View all<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></a>
+                        <router-link v-bind:to="'books'" class="small">View all<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>
                     </div>
                 </div>
 
             </div>
             <div class="col-12 col-lg-4 col-xl-3">
-                ...
+                <div class="card border-0 mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h2 class="h5 my-0">Activity</h2>
+                    </div>
+                    <div class="card-body">
+                        ...
+                    </div>
+                    <div class="card-footer bg-transparent text-right">
+                        <router-link v-bind:to="'activity'" class="small">View all<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
