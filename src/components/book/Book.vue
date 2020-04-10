@@ -17,72 +17,72 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <div class="my-3 mt-md-0 h1" role="heading" aria-level="1">{{ book.title }}</div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="user-circle" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Author:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="profile.html">{{ book.author.name }}</a>
+                                        <a class="d-inline-block mb-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="profile.html">{{ book.author.name }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="calendar-day" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Published:</b>
-                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="book.published">{{ (new Date(book.published)).toLocaleString() }}</time>
+                                    <time class="col-8 col-lg-9 mb-1 pl-0" v-bind:datetime="book.published">{{ (new Date(book.published)).toLocaleString() }}</time>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Last edited:</b>
-                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="book.lastEdited">{{ (new Date(book.lastEdited)).toLocaleString() }}</time>
+                                    <time class="col-8 col-lg-9 mb-1 pl-0" v-bind:datetime="book.lastEdited">{{ (new Date(book.lastEdited)).toLocaleString() }}</time>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="directions" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row" v-if="book.type">
                                     <b class="col-4 col-lg-3 pr-0">Type:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ book.type.name }}</a>
+                                        <a class="d-inline-block mb-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ book.type.name }}</a>
                                     </div>
                                 </div>
                                 <div class="row" v-if="book.genres">
                                     <b class="col-4 col-lg-3 pr-0">Genres:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a v-for="genre in book.genres" :key="genre.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
+                                        <a v-for="genre in book.genres" :key="genre.id" class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2" v-if="book.cycle.name">
+                        <div class="small mb-1" v-if="book.cycle.name">
                             <div class="position-absolute"><font-awesome-icon icon="link" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Cycle:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="/cycle" title="Одисея Бьйорна">{{ book.cycle.name }}</a>
+                                        <a class="d-inline-block mb-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="/cycle" title="Одисея Бьйорна">{{ book.cycle.name }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="book-open" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Chapters:</b>
-                                    <span class="col-8 col-lg-9 pl-0">{{ book.chapters.length }}</span>
+                                    <span class="col-8 col-lg-9 mb-1 pl-0">{{ book.chapters.length }}</span>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Pages:</b>
-                                    <span class="col-8 col-lg-9 pl-0">{{ book.pages }}</span>
+                                    <span class="col-8 col-lg-9 mb-1 pl-0">{{ book.pages }}</span>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Symbols:</b>
-                                    <span class="col-8 col-lg-9 pl-0">{{ book.symbols }}</span>
+                                    <span class="col-8 col-lg-9 mb-1 pl-0">{{ book.symbols }}</span>
                                 </div>
                             </div>
                         </div>
