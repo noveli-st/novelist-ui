@@ -28,31 +28,31 @@
                 <div class="mb-2">
                     <rate v-bind:length="5" v-bind:value="book.rate" v-bind:showcount="true" v-bind:readonly="true"></rate>
                 </div>
-                <div class="small mb-2">
+                <div class="small mb-1">
                     <span class="position-absolute"><font-awesome-icon icon="directions"></font-awesome-icon></span>
                     <div class="ml-1 pl-3">
-                        <router-link v-bind:to="`/book/#${book.type.name}`"  class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none d-inline-block mb-1">{{ book.type.name }}</router-link>
+                        <router-link v-bind:to="`/book/#${book.type.name}`"  class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none d-inline-block">{{ book.type.name }}</router-link>
                         <br>
-                        <router-link v-for="genre in book.genres" v-bind:key="genre.id" v-bind:to="`/book/#${genre.name}`" class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none d-inline-block mb-1 mr-1">{{ genre.name }}</router-link>
+                        <router-link v-for="genre in book.genres" v-bind:key="genre.id" v-bind:to="`/book/#${genre.name}`" class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none">{{ genre.name }}</router-link>
                     </div>
                 </div>
-                <div v-if="book.cycle.name" class="small mb-2">
+                <div v-if="book.cycle.name" class="small mb-1">
                     <span class="position-absolute"><font-awesome-icon icon="link"></font-awesome-icon></span>
                     <div class="ml-1 pl-3">
-                        <router-link v-bind:to="`/book/#${book.cycle.name}`"  class="px-1 bg-primary rounded text-white text-nowrap text-decoration-none d-inline-block mb-1">{{ book.cycle.name }}</router-link>
+                        <router-link v-bind:to="`/book/#${book.cycle.name}`"  class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none d-inline-block">{{ book.cycle.name }}</router-link>
                     </div>
                 </div>
                 <div class="small mb-2">
-                    <span class="mb-2 pr-3 cursor-default">
+                    <span class="mb-2 pr-3 cursor-default" v-b-tooltip.hover.top title="Book status">
                         <span class="position-absolute"><font-awesome-icon icon="book"></font-awesome-icon></span>
                         <span v-if="book.status" class="ml-1 pl-3 text-success">Completed book</span>
                         <span v-else class="ml-1 pl-3 text-secondary">Still underway...</span>
                     </span>
-                    <span class="mb-2 pr-3 cursor-default" data-toggle="tooltip" data-placement="top" title="Last edited: 22 October 2019">
+                    <span class="mb-2 pr-3 cursor-default" v-b-tooltip.hover.top title="Last edited">
                         <span class="position-absolute"><font-awesome-icon icon="edit"></font-awesome-icon></span>
                         <time class="ml-1 pl-3" v-bind:datetime="book.lastEdited">{{ (new Date(book.lastEdited)).toLocaleDateString() }}</time>
                     </span>
-                    <span class="mb-2 cursor-default">
+                    <span class="mb-2 cursor-default" v-b-tooltip.hover.top title="Pages • Symbols">
                         <span class="position-absolute"><font-awesome-icon icon="book-open"></font-awesome-icon></span>
                         <span class="ml-1 pl-3">{{ book.pages }} &bull; {{ book.symbols }}</span>
                     </span>

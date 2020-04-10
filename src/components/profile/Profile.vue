@@ -20,60 +20,60 @@
                         <p>
                             {{ userProfile.status }}
                         </p>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="calendar-day" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Joined:</b>
-                                    <time class="col-8 col-lg-9 pl-0" v-bind:datetime="userProfile.created">{{ (new Date(userProfile.created)).toLocaleString() }}</time>
+                                    <time class="col-8 col-lg-9 mb-1 pl-0" v-bind:datetime="userProfile.created">{{ (new Date(userProfile.created)).toLocaleString() }}</time>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="directions" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Type:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a v-for="type in userProfile.types" v-bind:key="type.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" v-bind:href="`books/?${type.id}`">{{ type.name }}</a>
+                                        <a v-for="type in userProfile.types" v-bind:key="type.id" class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" v-bind:href="`books/?${type.id}`">{{ type.name }}</a>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Genre:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a v-for="genre in userProfile.genres" v-bind:key="genre.id" class="mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
+                                        <a v-for="genre in userProfile.genres" v-bind:key="genre.id" class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="#">{{ genre.name }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="map-marker-alt" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Address:</b>
-                                    <div class="col-8 col-lg-9 pl-0">
+                                    <div class="col-8 col-lg-9 mb-1 pl-0">
                                         {{ userProfile.location }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="phone" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Phone:</b>
-                                    <div class="col-8 col-lg-9 pl-0">
+                                    <div class="col-8 col-lg-9 mb-1 pl-0">
                                         <a class="text-nowrap text-decoration-none" v-bind:href="`tel:${userProfile.phone}`">{{ userProfile.phone }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-2">
+                        <div class="small mb-1">
                             <div class="position-absolute"><font-awesome-icon icon="at" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">eMail:</b>
-                                    <div class="col-8 col-lg-9 pl-0">
+                                    <div class="col-8 col-lg-9 mb-1 pl-0">
                                         <a class="text-nowrap text-decoration-none" v-bind:href="`mailto:${userProfile.email}`">{{ userProfile.email }}</a>
                                     </div>
                                 </div>
