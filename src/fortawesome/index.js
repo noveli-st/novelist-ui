@@ -70,7 +70,10 @@ import {
     faPiggyBank,
     faPercentage,
     faMoneyBill,
-    faStarHalfAlt
+    faStarHalfAlt,
+    faArrowAltCircleDown,
+    faImages,
+    faPaperclip
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -152,7 +155,10 @@ library.add(
     faPiggyBank,
     faPercentage,
     faMoneyBill,
-    faStarHalfAlt
+    faStarHalfAlt,
+    faArrowAltCircleDown,
+    faImages,
+    faPaperclip
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
