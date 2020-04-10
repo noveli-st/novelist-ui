@@ -101,11 +101,13 @@ del:after {
 /*     -     Adds for Bootstrap cards     -     */
 /* Set with for cards in list */
 .card .w-tmp {
-    width: 100%;
+    /* width: 100%; */
 }
 @media screen and (min-width: 768px) {
     .card-list .w-tmp {
+        min-width: 220px;
         width: 220px;
+        max-width: 220px;
     }
 }
 @media screen and (max-width: 767px) {
