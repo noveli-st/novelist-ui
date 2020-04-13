@@ -47,13 +47,13 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="userStatusText">Status</label>
+                <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="inputProfileStatus">Status</label>
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="info" size="lg" /></span>
                         </div>
-                        <input id="userStatusText" v-model="userProfile.status" class="form-control border-left-0" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
+                        <input id="inputProfileStatus" v-model="userProfile.status" class="form-control border-left-0" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
                     </div>
                     <small id="descriptionProfileStatus" class="form-text text-muted">Short length (maxlength 128 symbols) text in your profile.</small>
                 </div>
