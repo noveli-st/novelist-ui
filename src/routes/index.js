@@ -18,6 +18,9 @@ import cmpProfileEdit       from '../components/personal/settings/Profile'
 import cmpWorkroom          from '../components/personal/workroom/Workroom'
 import cmpBooksList         from '../components/personal/workroom/BooksList'
 import cmpEditBook          from '../components/personal/workroom/EditBook'
+import cmpEditBookMentions  from '../components/personal/workroom/EditBookMentions'
+import cmpEditBookSettings  from '../components/personal/workroom/EditBookSettings'
+import cmpEditBookTerminate from '../components/personal/workroom/EditBookTerminate'
 import cmpCyclesList        from '../components/personal/workroom/CyclesList'
 import cmpEditCycle         from '../components/personal/workroom/EditCycle'
 
@@ -107,6 +110,18 @@ export default new VueRouter({
         {
             path: '/my-book',
             component: cmpEditBook
+        },
+        {
+            path: '/my-book/settings',
+            component: cmpEditBookSettings
+        },
+        {
+            path: '/my-book/mentions',
+            component: cmpEditBookMentions
+        },
+        {
+            path: '/my-book/terminate',
+            component: cmpEditBookTerminate
         },
         {
             path: '/my-cycles',
