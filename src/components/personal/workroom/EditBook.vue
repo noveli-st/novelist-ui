@@ -150,6 +150,10 @@
 </template>
 
 <script>
+
+    // https://github.com/davidroyer/vue2-editor
+    // https://github.surmon.me/vue-quill-editor/
+
 	export default {
         name: 'EditBook'
 	}
