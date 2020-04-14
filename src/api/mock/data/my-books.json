@@ -1,37 +1,40 @@
-[
-    {
-        "id": 2,
-        "title": "Lorem ipsum dolor sit amet",
-        "published": "2019-10-23T18:25:43.511Z",
-        "lastEdited": "2019-10-23T18:25:43.511Z",
-        "type": { "name": "Novel" },
-        "genres": [
-            { "id": 1, "name": "Sci-Fi" },
-            { "id": 2, "name": "Detective" }
-        ],
-        "cycle": { "name": "The Best Cycle Ever" },
-        "chapters": [
-            { "id": 43, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
-            { "id": 11, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
-            { "id": 75, "order": 3, "title": "Chapter order third", "published": "2019-10-21T18:25:43.511Z" }
-        ],
-        "pages": 40,
-        "symbols": 75640,
-        "discount": 0,
-        "price": 0,
-        "annotation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi. Unde mollitia facilis voluptatum dolorem voluptatibus.",
-        "rate": 0,
-        "status": false,
-        "ebook": false,
-        "adult": false,
-        "mentions": [
-            { "id": 17, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
-            { "id": 18, "type":"character", "title": "Capinan Nemo"},
-            { "id": 19, "type":"object", "title": "Thrubleland"}
-        ],
-        "illustrations": [],
-        "reviews":[],
-        "comments": 32,
-        "bookmarkers": []
-    }
-]
+{
+    "total": 1,
+    "list": [
+        {
+            "id": 2,
+            "title": "Lorem ipsum dolor sit amet",
+            "published": "2019-10-23T18:25:43.511Z",
+            "lastEdited": "2019-10-23T18:25:43.511Z",
+            "type": { "name": "Novel" },
+            "genres": [
+                { "id": 1, "name": "Sci-Fi" },
+                { "id": 2, "name": "Detective" }
+            ],
+            "cycle": { "name": "The Best Cycle Ever" },
+            "chapters": [
+                { "id": 43, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
+                { "id": 11, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
+                { "id": 75, "order": 3, "title": "Chapter order third", "published": "2019-10-21T18:25:43.511Z" }
+            ],
+            "pages": 40,
+            "symbols": 75640,
+            "discount": 0,
+            "price": 0,
+            "annotation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi. Unde mollitia facilis voluptatum dolorem voluptatibus.",
+            "rate": 0,
+            "status": false,
+            "ebook": false,
+            "adult": false,
+            "mentions": [
+                { "id": 17, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
+                { "id": 18, "type":"character", "title": "Capinan Nemo"},
+                { "id": 19, "type":"object", "title": "Thrubleland"}
+            ],
+            "illustrations": [],
+            "reviews":[],
+            "comments": 32,
+            "bookmarkers": []
+        }
+    ]
+}
