@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 import Router from './routes'
 import Vuelidate from 'vuelidate'
 import BootstrapVue from 'bootstrap-vue'
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
+
 import App from './App.vue'
 
 import './fortawesome/index'
@@ -27,6 +30,7 @@ Vue.component('cmp-card', cmpCard)
 Vue.use(VueRouter)
 Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
+Vue.use(VueLodash, { name: 'app-lodash', lodash: lodash })
 
 Vue.config.productionTip = false
 
