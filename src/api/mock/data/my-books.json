@@ -11,7 +11,7 @@
                 { "id": 1, "name": "Sci-Fi" },
                 { "id": 2, "name": "Detective" }
             ],
-            "cycle": { "name": "The Best Cycle Ever" },
+            "cycle": { "id": 1, "name": "The Best Cycle Ever" },
             "chapters": [
                 { "id": 43, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
                 { "id": 11, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
