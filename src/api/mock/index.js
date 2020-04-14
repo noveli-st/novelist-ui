@@ -4,6 +4,7 @@ import toast from '../../util/toast'
 import me from './data/login'
 import profiles from './data/profiles'
 import indexBooks from './data/index-books'
+import myBooks from './data/my-books'
 
 import * as SC from '../codes'
 import {err} from '../errors'
@@ -76,5 +77,8 @@ export default {
     },
     findBooks() {
         return fetchOk(indexBooks);
+    },
+    findMyBooks() {
+        return fetchOk(myBooks);
     }
 }

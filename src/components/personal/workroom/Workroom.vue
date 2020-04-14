@@ -15,33 +15,10 @@
                     </p>
                     <div class="h5" role="heading" aria-level="3">Last edited</div>
                     <ul class="list-group list-group-flush rounded overflow-hidden">
-                        <li class="list-group-item d-flex flex-column flex-md-row justify-content-between">
+                        <li v-for="book in books" v-bind:key="book.index"
+                            class="list-group-item d-flex flex-column flex-md-row justify-content-between">
                             <div class="flex-grow-1 my-auto text-truncate">
-                                Cras justo odio
-                            </div>
-                            <div class="mx-n2 d-md-flex">
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Edit book" href="my-book.html"><font-awesome-icon icon="edit"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book setting" href="my-book.html#BookSettings"><font-awesome-icon icon="cog"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book page" href="book.html" target="_blank"><font-awesome-icon icon="book"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link" v-b-tooltip.hover.focus title="Reader page" href="reader.html" target="_blank"><font-awesome-icon icon="book-open"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete" href="my-book.html#BookDelete"><font-awesome-icon icon="trash"></font-awesome-icon></a>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex flex-column flex-md-row justify-content-between">
-                            <div class="flex-grow-1 my-auto text-truncate">
-                                Dapibus ac facilisis
-                            </div>
-                            <div class="mx-n2 d-md-flex">
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Edit book" href="my-book.html"><font-awesome-icon icon="edit"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book setting" href="my-book.html#BookSettings"><font-awesome-icon icon="cog"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book page" href="book.html" target="_blank"><font-awesome-icon icon="book"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link" v-b-tooltip.hover.focus title="Reader page" href="reader.html" target="_blank"><font-awesome-icon icon="book-open"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete" href="my-book.html#BookDelete"><font-awesome-icon icon="trash"></font-awesome-icon></a>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex flex-column flex-md-row justify-content-between">
-                            <div class="flex-grow-1 my-auto text-truncate">
-                                Porta ac consectetur ac
+                                {{ book.title }}
                             </div>
                             <div class="mx-n2 d-md-flex">
                                 <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Edit book" href="my-book.html"><font-awesome-icon icon="edit"></font-awesome-icon></a>
@@ -67,9 +44,10 @@
                     </p>
                     <div class="h5" role="heading" aria-level="3">Last edited</div>
                     <ul class="list-group list-group-flush rounded overflow-hidden">
-                        <li class="list-group-item d-flex flex-column flex-md-row justify-content-between">
+                        <li v-for="cycle in cycles" v-bind:key="cycle.id"
+                            class="list-group-item d-flex flex-column flex-md-row justify-content-between">
                             <div class="flex-grow-1 my-auto text-truncate">
-                                My deltorro justo odio
+                                {{ cycle.name }}
                             </div>
                             <div class="mx-n2 d-md-flex">
                                 <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Edit cycle" href="my-cycle.html"><font-awesome-icon icon="edit"></font-awesome-icon></a>
@@ -89,7 +67,25 @@
 </template>
 
 <script>
-	export default {
-        name: 'Workroom'
-	}
+    import client from 'api-client';
+
+    export default {
+        name: 'Workroom',
+        data() {
+            return {
+                books: [],
+                cycles: []
+            }
+        },
+        mounted() {
+            client.findMyBooks().then(books => {
+                this.books = books.list;
+                this.cycles = this._(this.books)
+                    .map(book => book.cycle)
+                    .filter(cycle => !!cycle)
+                    .uniqBy(cycle => cycle.name)
+                    .value();
+            });
+        }
+    }
 </script>
