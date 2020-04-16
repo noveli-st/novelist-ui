@@ -10,7 +10,7 @@
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="mask" size="lg" /></span>
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="mask" size="lg"></font-awesome-icon></span>
                         </div>
                         <input id="inputProfileNickname" v-model="userProfile.name"
                             class="form-control border-left-0" type="text" maxlength="40" aria-describedby="descriptionProfileNickname" />
@@ -51,7 +51,7 @@
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="info" size="lg" /></span>
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="info" size="lg"></font-awesome-icon></span>
                         </div>
                         <input id="inputProfileStatus" v-model="userProfile.status" class="form-control border-left-0" type="text" maxlength="128" aria-describedby="descriptionProfileStatus" value="">
                     </div>
@@ -70,7 +70,7 @@
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="phone" size="lg" /></span>
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="phone" size="lg"></font-awesome-icon></span>
                         </div>
                         <input id="inputProfilePhone" v-model="userProfile.phone" class="form-control border-left-0" type="phone">
                     </div>
@@ -81,11 +81,11 @@
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="at" size="lg" /></span>
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="at" size="lg"></font-awesome-icon></span>
                         </div>
                         <input id="inputProfileEmail" v-model="userProfile.email" class="form-control border-left-0" type="email" value="" aria-describedby="descriptionProfileEmail">
                     </div>
-                    <small id="descriptionProfileEmail" class="form-text text-warning"><font-awesome-icon icon="exclamation-triangle" /> We don't recommend using eMail that you use for "Sign in"! Use a different email to display in your profile.</small>
+                    <small id="descriptionProfileEmail" class="form-text text-warning"><font-awesome-icon icon="exclamation-triangle"></font-awesome-icon> We don't recommend using eMail that you use for "Sign in"! Use a different email to display in your profile.</small>
                 </div>
             </div>
             <div class="form-group row">
@@ -93,7 +93,7 @@
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="map-marker" size="lg" /></span>
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="map-marker" size="lg"></font-awesome-icon></span>
                         </div>
                         <input id="inputProfileCountry" v-model="userProfile.location" class="form-control border-left-0" type="text" placeholder="Country/Region">
                     </div>
@@ -104,7 +104,7 @@
                 <div class="col-lg-9">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="globe" size="lg" /></span>
+                            <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></span>
                         </div>
                         <input id="inputProfileWebsite" v-model="userProfile.website" class="form-control border-left-0" type="url" value="">
                     </div>
@@ -117,7 +117,7 @@
                     <div class="col-lg-9">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text bg-white border-right-0"><font-awesome-icon :icon="['fab', 'facebook']" size="lg" /></span>
+                                <span class="input-group-text bg-white border-right-0"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></span>
                             </div>
                             <input id="inputProfileFacebook" class="form-control border-left-0" type="url" value="">
                         </div>
@@ -128,7 +128,7 @@
                     <div class="col-lg-9">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text bg-white border-right-0"><font-awesome-icon :icon="['fab', 'twitter']" size="lg" /></span>
+                                <span class="input-group-text bg-white border-right-0"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></span>
                             </div>
                             <input id="inputProfileTwitter" class="form-control border-left-0" type="url" value="">
                         </div>
@@ -139,7 +139,7 @@
                     <div class="col-lg-9">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text bg-white border-right-0"><font-awesome-icon :icon="['fab', 'instagram']" size="lg" /></span>
+                                <span class="input-group-text bg-white border-right-0"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></span>
                             </div>
                             <input id="inputProfileInstagram" class="form-control border-left-0" type="url" value="">
                         </div>
@@ -154,20 +154,20 @@
                             <input id="checkboxProfileDonation" class="custom-control-input" type="checkbox" aria-describedby="descriptionProfileDonation" disabled>
                             <label class="custom-control-label" for="checkboxProfileDonation">Enable donation from users</label>
                         </div>
-                        <small id="descriptionProfileDonation" class="form-text text-warning"><font-awesome-icon icon="exclamation-triangle" /> Not active for readers. Must write at least one book or be one of a books partner (co-author)!</small>
+                        <small id="descriptionProfileDonation" class="form-text text-warning"><font-awesome-icon icon="exclamation-triangle"></font-awesome-icon> Not active for readers. Must write at least one book or be one of a books partner (co-author)!</small>
                     </div>
                 </div>
             </div-->
             <div class="row justify-content-center mb-3">
                 <div class="col-md-6">
-                    <router-link class="btn btn-block btn-outline-primary" v-bind:to="'profile'"><font-awesome-icon icon="id-card" class="mr-2" />Open profile page</router-link>
+                    <router-link class="btn btn-block btn-outline-primary" v-bind:to="'profile'"><font-awesome-icon icon="id-card" class="mr-2"></font-awesome-icon>Open profile page</router-link>
                 </div>
             </div>
             <hr class="border-top">
-            <div class="clearfix">
-                <button class="btn btn-link text-decoration-none float-left" type="reset"><font-awesome-icon icon="history" class="mr-2" />Restore</button>
-                <button id="buttonProfileSave" v-on:click="saveProfile" class="btn btn-primary float-right" type="submit"><font-awesome-icon icon="save" class="mr-2" />Save changes</button>
-            </div>
+            <footer class="clearfix">
+                <button class="btn btn-link text-decoration-none float-left" type="reset"><font-awesome-icon icon="history" class="mr-2"></font-awesome-icon>Restore</button>
+                <button id="buttonProfileSave" v-on:click="saveProfile" class="btn btn-primary float-right" type="submit"><font-awesome-icon icon="save" class="mr-2"></font-awesome-icon>Save changes</button>
+            </footer>
         </div>
     </main>
 </template>
