@@ -108,19 +108,19 @@ export default new VueRouter({
             component: cmpBooksList
         },
         {
-            path: '/my-book',
+            path: '/book/:id/edit',
             component: cmpEditBook
         },
         {
-            path: '/my-book/settings',
+            path: '/book/:id/edit/settings',
             component: cmpEditBookSettings
         },
         {
-            path: '/my-book/mentions',
+            path: '/book/:id/edit/mentions',
             component: cmpEditBookMentions
         },
         {
-            path: '/my-book/terminate',
+            path: '/book/:id/terminate',
             component: cmpEditBookTerminate
         },
         {
@@ -138,10 +138,6 @@ export default new VueRouter({
         {
             path: '/books-list',
             component: cmpBooksList
-        },
-        {
-            path: '/edit-book',
-            component: cmpEditBook
         },
         {
             path: '/cycles-list',

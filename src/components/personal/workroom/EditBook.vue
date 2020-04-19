@@ -42,7 +42,10 @@
                     </b-card-header>
                     <b-collapse id="accordion-1-edit" accordion="accordion" role="tabpanel">
                         <b-card-body>
-                            Here will be an editor!
+                            <cmp-editor
+                                v-bind:content="sectionContentTMP"
+                                v-on:updateContent="sectionContentTMP = $event"
+                            ></cmp-editor>
                         </b-card-body>
                     </b-collapse>
                     <b-collapse id="accordion-1-settings" accordion="accordion" role="tabpanel">
@@ -88,6 +91,7 @@
                     </b-collapse>
                 </b-card>
             </div>
+            <hr class="border-top">
             <div class="row my-3">
                 <div class="col text-center">
                     <a class="btn btn-block btn-outline-primary" href="book.html" target="_blank"><font-awesome-icon icon="book" class="mr-2"></font-awesome-icon>Open book's profile</a>
@@ -96,20 +100,30 @@
                     <a class="btn btn-block btn-outline-primary" href="reader.html" target="_blank"><font-awesome-icon icon="book-open" class="mr-2"></font-awesome-icon>Open book in reader</a>
                 </div>
             </div>
-            <hr class="mx-n3">
+            <hr class="border-top">
             <div class="clearfix">
-                <button id="buttonSaveMention" class="btn btn-primary float-right" type="button"><font-awesome-icon icon="save" class="mr-2"></font-awesome-icon>Save changes</button>
+                <button id="buttonSaveMention" class="btn btn-primary float-right" type="button"><font-awesome-icon icon="save" class="mr-2"></font-awesome-icon>Save all changes</button>
             </div>
         </div>
     </main>
 </template>
 
 <script>
-
-    // https://github.com/davidroyer/vue2-editor
-    // https://github.surmon.me/vue-quill-editor/
+    import cmpEditor from '../../../components/assets/Editor'
 
 	export default {
-        name: 'EditBook'
+        name: 'EditBook',
+        data(){
+            return {
+                sectionContentTMP: `
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, totam architecto commodi dolore eligendi culpa laudantium iusto velit voluptate magnam est consequatur perspiciatis rerum nesciunt quae eum in labore? Quam!</p>
+                    <p>Harum illo sed libero facere officia dolor vel eum laboriosam dolorum consequuntur similique natus dicta, deleniti asperiores ducimus et non deserunt est. Ipsa labore rerum porro? Vitae nobis hic iusto?</p>
+                    <p>Alias distinctio repellendus autem commodi eveniet aut molestiae voluptatem ut in sapiente, possimus voluptates cupiditate illum maiores accusantium omnis ab impedit reprehenderit consequatur, repudiandae quod accusamus. Facere dolore nemo illo!</p>
+                `
+            }
+        },
+        components: {
+            cmpEditor
+        },
 	}
 </script>

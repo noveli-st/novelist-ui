@@ -5,7 +5,7 @@
             "id": 2,
             "title": "Lorem ipsum dolor sit amet",
             "published": "2019-10-23T18:25:43.511Z",
-            "lastEdited": "2019-10-23T18:25:43.511Z",
+            "lastEdited": "2019-10-24T18:25:43.511Z",
             "type": { "name": "Novel" },
             "genres": [
                 { "id": 1, "name": "Sci-Fi" },
