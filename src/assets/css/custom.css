@@ -43,6 +43,8 @@ del:after {
     pointer-events: none;
 }
 
+.outline-none { outline: none; }
+
 .border-transparent { border-color: transparent !important; }
 
 .bg-clip-padding { background-clip: padding-box; }
@@ -107,7 +109,7 @@ del:after {
 /*     -     Adds for Bootstrap cards     -     */
 /* Set with for cards in list */
 .card .w-tmp {
-    /* width: 100%; */
+    width: 100%;
 }
 @media screen and (min-width: 768px) {
     .card-list .w-tmp {
@@ -205,6 +207,19 @@ del:after {
     pointer-events: none;
 }
 
+/*     -     Adds for Editor     -     */
+.editor-compress {
+    height: 420px;
+}
+.editor-expand {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1080;
+    padding: 1.25rem;
+}
 
 /*     -     !!! Hacks !!!     -     */
 
