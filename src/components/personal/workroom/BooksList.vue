@@ -10,8 +10,7 @@
                     <button id="buttonCreateNewBook" class="btn btn-success btn-block" type="button"><font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Create new book</button>
                 </p>
             </div>
-            <div id="myBooksList">
-                <!-- <cmp-card v-for="(book, index) in books.slice(0, 4)" v-bind:key="index" v-bind:book="book"></cmp-card> -->
+            <div id="myBooksList" class="card-list">
                 <cmp-card-book-info v-for="book in books" v-bind:key="book.index" v-bind:book="book"></cmp-card-book-info>
             </div>
         </div>
@@ -19,8 +18,7 @@
 </template>
 
 <script>
-    import client from 'api-client';
-    
+    import client from 'api-client'
     import cmpCardBookInfo from '../../../components/assets/CardBookInfo'
     
 	export default {

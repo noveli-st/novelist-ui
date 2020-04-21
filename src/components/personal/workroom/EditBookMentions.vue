@@ -1,10 +1,8 @@
 <template>
-    <main class="min-vh-100">
-        <div class="container my-5">
+        <div>
             <header>
-                <div class="h1 mb-3" role="heading" aria-level="1">Book mentions</div>
+                <div class="h2 mb-4" role="heading" aria-level="2">Book mentions</div>
             </header>
-            <hr class="border-top">
             <div class="row justify-content-center">
                 <div class="col-sm-8 col-md-6 mb-3">
                     <div class="d-flex bd-highlight mb-2">
@@ -48,7 +46,6 @@
                 <button class="btn btn-primary float-right" type="submit"><font-awesome-icon icon="save" class="mr-2"></font-awesome-icon>Save all changes</button>
             </footer>
         </div>
-    </main>
 </template>
 
 <script>

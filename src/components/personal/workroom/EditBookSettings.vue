@@ -1,10 +1,8 @@
 <template>
-    <main class="min-vh-100">
-        <div class="container my-5">
+        <div>
             <header>
-                <div class="h1" role="heading" aria-level="1">Book settings</div>
+                <div class="h2 mb-4" role="heading" aria-level="2">Book settings</div>
             </header>
-            <hr class="border-top">
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="inputBookTitile">Book title</label>
                 <div class="col-lg-9">
@@ -197,7 +195,6 @@
                 <button id="buttonSaveSettings" class="btn btn-primary float-right" type="submit"><font-awesome-icon icon="save" class="mr-2"></font-awesome-icon>Save changes</button>
             </footer>
         </div>
-    </main>
 </template>
 
 <script>
