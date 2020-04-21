@@ -13,9 +13,24 @@
             ],
             "cycle": { "id": 1, "name": "The Best Cycle Ever" },
             "chapters": [
-                { "id": 43, "order": 1, "title": "Chapter order first", "published": "2019-10-23T18:25:43.511Z" },
-                { "id": 11, "order": 2, "title": "Chapter order second", "published": "2019-10-22T18:25:43.511Z" },
-                { "id": 75, "order": 3, "title": "Chapter order third", "published": "2019-10-21T18:25:43.511Z" }
+                {
+                    "id": 43,
+                    "order": 1,
+                    "title": "Chapter order first",
+                    "published": "2019-10-23T18:25:43.511Z"
+                },
+                {
+                    "id": 11,
+                    "order": 2,
+                    "title": "Chapter order second",
+                    "published": "2019-10-22T18:25:43.511Z"
+                },
+                {
+                    "id": 75,
+                    "order": 3,
+                    "title": "Chapter order third",
+                    "published": "2019-10-21T18:25:43.511Z"
+                }
             ],
             "pages": 40,
             "symbols": 75640,
