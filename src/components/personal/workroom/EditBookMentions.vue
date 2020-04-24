@@ -11,7 +11,7 @@
                         </div>
                         <div class="flex-grow-1 bd-highlight">
                             <select id="selectMentionTemplates" class="custom-select" v-model="selectMention">
-                                <option class="text-muted" value='mention' selected>choose one...</option>
+                                <option value="mention" class="text-muted" selected>choose one...</option>
                                 <option value="character">character</option>
                                 <option value="object">object</option>
                                 <option value="note">note</option>
@@ -59,7 +59,7 @@
             addMention(){
                 console.log('add mension')
                 // here is need add script for mentions adding
-                this.selectMention = "null"
+                this.selectMention = "mention"
             },
             mentionHelpAlertOn(){
                 this.isMentionHelpAlert = true
