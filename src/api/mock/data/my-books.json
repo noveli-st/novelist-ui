@@ -6,7 +6,7 @@
             "title": "Lorem ipsum dolor sit amet",
             "published": "2019-10-23T18:25:43.511Z",
             "lastEdited": "2019-10-24T18:25:43.511Z",
-            "type": { "name": "Novel" },
+            "type": { "id":"1", "name": "Novel" },
             "genres": [
                 { "id": 1, "name": "Sci-Fi" },
                 { "id": 2, "name": "Detective" }
@@ -14,33 +14,41 @@
             "cycle": { "id": 1, "name": "The Best Cycle Ever" },
             "chapters": [
                 {
-                    "id": 43,
-                    "order": 1,
-                    "title": "Chapter order first",
-                    "published": "2019-10-23T18:25:43.511Z"
-                },
-                {
                     "id": 11,
                     "order": 2,
                     "title": "Chapter order second",
-                    "published": "2019-10-22T18:25:43.511Z"
+                    "published": "2019-10-22T18:25:43.511Z",
+                    "annotation": "Laborum magnam rem iure amet reprehenderit dicta.",
+                    "visibility": "publiс"
+                },
+                {
+                    "id": 43,
+                    "order": 1,
+                    "title": "Chapter order first",
+                    "published": "2019-10-23T18:25:43.511Z",
+                    "annotation": "Coluptates reiciendis inventore error sunt, aliquam dolorum? Amet laboriosam quo temporibus explicabo quidem accusantium rerum?!",
+                    "visibility": "publiс"
                 },
                 {
                     "id": 75,
                     "order": 3,
                     "title": "Chapter order third",
-                    "published": "2019-10-21T18:25:43.511Z"
+                    "published": "2019-10-21T18:25:43.511Z",
+                    "annotation": "Molestias, tenetur cupiditate? Corrupti delectus nesciunt excepturi dolor est eligendi.",
+                    "visibility": "private"
                 }
             ],
             "pages": 40,
             "symbols": 75640,
             "discount": 0,
             "price": 0,
+            "cost": "none",
             "annotation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque corrupti dolores id, ipsa est iure nemo inventore placeat quisquam voluptates facilis et animi. Unde mollitia facilis voluptatum dolorem voluptatibus.",
             "rate": 0,
-            "status": false,
+            "status": "underway",
+            "visibility": "publiс",
             "ebook": false,
-            "adult": false,
+            "adult": true,
             "mentions": [
                 { "id": 17, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
                 { "id": 18, "type":"character", "title": "Capinan Nemo"},
@@ -49,7 +57,8 @@
             "illustrations": [],
             "reviews":[],
             "comments": 32,
-            "bookmarkers": []
+            "bookmarkers": [],
+            "terminate": false
         }
     ]
 }

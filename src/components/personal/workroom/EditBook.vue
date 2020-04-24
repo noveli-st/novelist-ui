@@ -51,13 +51,20 @@
         name: 'EditBook',
         data(){
             return {
-                book: ""
+                book: "",
+                booksPattern: ""
+                // ,
+                // bookSets: {
+                //     title: book.title,
+                //     type: book.type
+                // }
             }
         },
         mounted() {
             client.findMyBooks().then(books => {
                 this.book = books.list.find(book => book.id === 2)
-            })
+            }),
+            client.booksPattern().then(booksPattern => (this.booksPattern = booksPattern))
         }
 	}
 </script>

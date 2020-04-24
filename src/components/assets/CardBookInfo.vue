@@ -158,7 +158,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <router-link v-bind:to="`/book/${book.id}/edit`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="edit"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Edit</span></router-link>
+            <router-link v-bind:to="`/book/${book.id}/edit/content`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="edit"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Edit</span></router-link>
             <router-link v-bind:to="`/book/${book.id}/edit/settings`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="cog"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Settings</span></router-link>
             <router-link v-bind:to="`/book/${book.id}/edit/mentions`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="paperclip"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Mentions</span></router-link>
             <b-dd id="bookShareDropMenu" no-caret size="sm" variant="primary" menu-class="p-0 overflow-hidden shadow-sm" class="mr-1">
@@ -166,11 +166,11 @@
                 <b-dd-item variant="primary" v-bind:to="`/book/${book.id}/`">
                     <span class="d-block py-1"><font-awesome-icon icon="book" class="mr-2"></font-awesome-icon>Book page</span>
                 </b-dd-item>
-                <b-dd-item variant="primary" href="reader.html" target="_blank">
+                <b-dd-item variant="primary" v-bind:to="`/reader/${book.id}/`" target="_blank">
                     <span class="d-block py-1"><font-awesome-icon icon="book-open" class="mr-2"></font-awesome-icon>Reader page</span>
                 </b-dd-item>
             </b-dd>
-            <router-link v-bind:to="`/book/${book.id}/terminate`" class="btn btn-sm btn-danger float-right"><font-awesome-icon icon="trash"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Delete</span></router-link>
+            <router-link v-bind:to="`/book/${book.id}/edit/terminate`" class="btn btn-sm btn-danger float-right"><font-awesome-icon icon="trash"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Delete</span></router-link>
         </div>                            
     </div>
 
