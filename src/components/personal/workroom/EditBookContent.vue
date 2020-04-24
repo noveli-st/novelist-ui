@@ -5,7 +5,7 @@
         </header>
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6 mb-3">
-                <button class="btn btn-success btn-block" type="button"><font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Add chapter</button>
+                <button class="btn btn-success btn-block" type="button"><font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Add <span class="text-lowercase">{{ chapterTypeName }}</span></button>
             </div>
         </div>
         <b-alert show dismissible class="border-0">
@@ -15,30 +15,30 @@
             <div class="h6 font-weight-bold"><font-awesome-icon icon="info-circle" size="lg" class="mr-3"></font-awesome-icon>Recomendation</div>
             <hr class="my-2">
             <ul>
-                <li><b>Не выкладывайте всю книгу сразу</b> - если вы никогда не публиковали книгу до этого!</li>
-                <li><b>Не выкладывайте всю книгу сразу</b> - несмотря на то что она полностью написана!</li>
-                <li><b>Не выкладывайте всю книгу сразу</b> - даже вы очень хотите поделиться ей!</li>
-                <li><b>Не выкладывайте всю книгу сразу</b> - особенно если она у вас платная!</li>
+                <li><b>Do not publish the entire book</b> - if you've never done it before!</li>
+                <li><b>Do not publish the entire book</b> - even though it's completed!</li>
+                <li><b>Do not publish the entire book</b> - even if you're dying to share it!</li>
+                <li><b>Do not publish the entire book</b> - especially when it's paid!</li>
             </ul>
-            Открывайте доступ к главам с временными промежутками, не больше одной главы в неделю. Тоже самое касается и переведенных книг на другие языки.
+            Reveal chapters gradually, one by one, no more than one chapter per day. This also applied to the translated books.
         </b-alert>
         <div class="accordion">
-            <b-card no-body>
+            <b-card no-body v-for="chapter in orderChapters" v-bind:key="chapter.order">
                 <b-card-header header-tag="header" role="tab" class="d-flex flex-column flex-md-row align-items-md-center">
-                    <div class="h6 mb-0" role="heading" aria-level="3">Chapter title #1</div>
+                    <div class="h6 mb-0" role="heading" aria-level="3">{{ chapter.title }}</div>
                     <div class="ml-md-auto d-flex d-md-inline-flex">
-                        <b-button v-b-toggle="'accordion-1-edit'" class="text-primary" variant="link" v-b-tooltip.hover title="Edit chapter">
+                        <b-button v-b-toggle="`accordion-${chapter.id}-edit`" class="text-primary" variant="link" v-b-tooltip.hover title="Edit chapter">
                             <font-awesome-icon icon="edit"></font-awesome-icon>
                         </b-button>
-                        <b-button v-b-toggle="'accordion-1-settings'" class="text-primary" variant="link" v-b-tooltip.hover title="Chapter settings">
+                        <b-button v-b-toggle="`accordion-${chapter.id}-settings`" class="text-primary" variant="link" v-b-tooltip.hover title="Chapter settings">
                             <font-awesome-icon icon="cog"></font-awesome-icon>
                         </b-button>
-                        <b-button v-b-toggle="'accordion-1-delete'" class="ml-auto ml-md-3 text-danger" variant="link" v-b-tooltip.hover title="Delete chapter">
+                        <b-button v-b-toggle="`accordion-${chapter.id}-delete`" class="ml-auto ml-md-3 text-danger" variant="link" v-b-tooltip.hover title="Delete chapter">
                             <font-awesome-icon icon="trash"></font-awesome-icon>
                         </b-button>
                     </div>
                 </b-card-header>
-                <b-collapse id="accordion-1-edit" accordion="accordion" role="tabpanel">
+                <b-collapse v-bind:id="`accordion-${chapter.id}-edit`" accordion="accordion" role="tabpanel">
                     <b-card-body>
                         <cmp-editor
                             v-bind:content="sectionContentTMP"
@@ -46,36 +46,36 @@
                         ></cmp-editor>
                     </b-card-body>
                 </b-collapse>
-                <b-collapse id="accordion-1-settings" accordion="accordion" role="tabpanel">
+                <b-collapse v-bind:id="`accordion-${chapter.id}-settings`" accordion="accordion" role="tabpanel">
                     <b-card-body>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="inputChapterTitile-1">The title of the chapter</label>
+                            <label class="col-lg-3 col-form-label form-control-label text-lg-right" v-bind:for="`inputChapterTitile-${chapter.id}`">{{ chapterTypeName }} title</label>
                             <div class="col-lg-9">
-                                <input id="inputChapterTitile-1" class="form-control" type="text" value="Curent chapter title">
+                                <input v-bind:id="`inputChapterTitile-${chapter.id}`" class="form-control" type="text" v-bind:value="chapter.title">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="textareaAnnotation-1">Annotation</label>
+                            <label class="col-lg-3 col-form-label form-control-label text-lg-right" v-bind:for="`textareaAnnotation-${chapter.id}`">Annotation</label>
                             <div class="col-lg-9">
-                                <textarea id="textareaAnnotation-1" class="form-control" rows="2" maxlength="128" aria-describedby="descriptionAnnotation-1"></textarea>
-                                <small id="descriptionAnnotation-1" class="form-text text-muted">Short about the chapter.</small>
+                                <textarea v-bins:id="`textareaAnnotation-${chapter.id}`" class="form-control" rows="2" maxlength="128" v-bind:aria-describedby="`descriptionAnnotation-${chapter.id}`" v-bind:value="chapter.annotation"></textarea>
+                                <small v-bind:id="`descriptionAnnotation-${chapter.id}`" class="form-text text-muted">Short about the chapter.</small>
                             </div>
                         </div>
                         <div class="px-3 pt-3 border rounded">
                             <h4 class="h5">Publish settings</h4>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="selectVisibility-1">Visibility</label>
+                                <label class="col-lg-3 col-form-label form-control-label text-lg-right" v-bind:for="`selectVisibility-${chapter.id}`">Visibility</label>
                                 <div class="col-lg-9">
-                                    <select id="selectVisibility-1" class="custom-select">
-                                        <option value="publiс">Public</option>
-                                        <option value="private" selected>Private</option>
+                                    <select v-bind:id="`selectVisibility-${chapter.id}`" class="custom-select" v-model="chapter.visibility">
+                                        <option value="publiс" v-bind:selected="chapter.visibility == 'publiс'">Public</option>
+                                        <option value="private" v-bind:selected="chapter.visibility == 'private'">Private</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </b-card-body>
                 </b-collapse>
-                <b-collapse id="accordion-1-delete" accordion="accordion" role="tabpanel">
+                <b-collapse v-bind:id="`accordion-${chapter.id}-delete`" accordion="accordion" role="tabpanel">
                     <b-card-body>
                         <div class="alert alert-danger border-0">
                             <div class="h6 font-weight-bold"><font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>Confirmation alert</div>
@@ -90,15 +90,6 @@
             </b-card>
         </div>
         <hr class="border-top">
-        <!-- <div class="row my-3">
-            <div class="col text-center">
-                <a class="btn btn-block btn-outline-primary" href="book.html" target="_blank"><font-awesome-icon icon="book" class="mr-2"></font-awesome-icon>Open book's profile</a>
-            </div>
-            <div class="col text-center">
-                <a class="btn btn-block btn-outline-primary" href="reader.html" target="_blank"><font-awesome-icon icon="book-open" class="mr-2"></font-awesome-icon>Open book in reader</a>
-            </div>
-        </div>
-        <hr class="border-top"> -->
         <div class="clearfix">
             <button id="buttonSaveMention" class="btn btn-primary float-right" type="button"><font-awesome-icon icon="save" class="mr-2"></font-awesome-icon>Save all changes</button>
         </div>
@@ -122,5 +113,21 @@
         components: {
             cmpEditor
         },
+        computed: {
+            orderChapters(){
+                return this.$parent.book.chapters
+                // .filter(order => order % 2 === 0)
+            },
+            chapterTypeName(){
+                switch (this.$parent.book.type.id) {
+                    case 2:
+                        return 'Story'
+                    case 3:
+                        return 'Poem'
+                    default:
+                        return 'Chapter'
+                }
+            }
+        }
 	}
 </script>

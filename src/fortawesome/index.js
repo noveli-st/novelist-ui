@@ -77,7 +77,8 @@ import {
     faEyeSlash,
     faExpand,
     faCompress,
-    faImage
+    faImage,
+    faDollarSign
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -166,7 +167,8 @@ library.add(
     faEyeSlash,
     faExpand,
     faCompress,
-    faImage
+    faImage,
+    faDollarSign
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

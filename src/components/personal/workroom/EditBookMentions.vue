@@ -11,25 +11,23 @@
                         </div>
                         <div class="flex-grow-1 bd-highlight">
                             <select id="selectMentionTemplates" class="custom-select" v-model="selectMention">
-                                <option class="text-muted" value='null' selected>choose one...</option>
+                                <option class="text-muted" value='mention' selected>choose one...</option>
                                 <option value="character">character</option>
                                 <option value="object">object</option>
                                 <option value="note">note</option>
                             </select>
                         </div>
-                        <button class="btn btn-link" v-on:click="isMentionHelpAlert = true" v-b-tooltip.hover title="Show mentions description">
+                        <button id="mentionHelpButton" class="btn btn-link" v-on:click="mentionHelpAlertOn" v-b-tooltip.hover title="Show mentions description" :disabled="isMentionHelpAlert">
                             <font-awesome-icon icon="question-circle" size="lg"></font-awesome-icon>
                         </button>
                     </div>
-                    <button class="btn btn-success btn-block" type="button" v-on:click="addMention" :disabled="selectMention == 'null'">
-                        <font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Add mention
+                    <button class="btn btn-success btn-block" type="button" v-on:click="addMention" :disabled="selectMention == 'mention'">
+                        <font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Add {{ selectMention }}
                     </button>
                 </div>
             </div>
             <b-alert v-model="isMentionHelpAlert" dismissible class="border-0">
-                <template v-slot:dismiss class="position-absolute">
-                    <font-awesome-icon icon="times"></font-awesome-icon>
-                </template>
+                <template v-slot:dismiss class="position-absolute"><font-awesome-icon icon="times"></font-awesome-icon></template>
                 <div class="h6 font-weight-bold"><font-awesome-icon icon="info-circle" size="lg" class="mr-3"></font-awesome-icon>Type of mentions</div>
                 <hr class="my-2">
                 <dl>
@@ -53,7 +51,7 @@
         name: 'EditBookMentions',
         data() {
             return {
-                selectMention: 'null',
+                selectMention: 'mention',
                 isMentionHelpAlert: false
             }
         },
@@ -62,6 +60,10 @@
                 console.log('add mension')
                 // here is need add script for mentions adding
                 this.selectMention = "null"
+            },
+            mentionHelpAlertOn(){
+                this.isMentionHelpAlert = true
+                this.$root.$emit('bv::hide::tooltip', 'mentionHelpButton')
             }
         }
 	}

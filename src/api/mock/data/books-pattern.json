@@ -1,0 +1,29 @@
+{
+    "types":[
+        { "id": 1, "name": "Novel" },
+        { "id": 2, "name": "! Short novel" },
+        { "id": 3, "name": "Tale" },
+        { "id": 4, "name": "! Essay" },
+        { "id": 5, "name": "Poetry" }
+    ],
+    "genres":[
+        { "id": 0,  "name": "Other" },
+        { "id": 1,  "name": "Action" },
+        { "id": 2,  "name": "Adventure" },
+        { "id": 3,  "name": "Crime/Detective" },
+        { "id": 4,  "name": "Erotic" },
+        { "id": 5,  "name": "Fable/Fairy tale" },
+        { "id": 6,  "name": "Fan fiction" },
+        { "id": 7,  "name": "Fantasy" },
+        { "id": 8,  "name": "Historical" },
+        { "id": 9,  "name": "Horror" },
+        { "id": 10, "name": "Magical realism" },
+        { "id": 11, "name": "Mystery" },
+        { "id": 12, "name": "Mythology/Mythopoeia" },
+        { "id": 13, "name": "Picture book" },
+        { "id": 14, "name": "Romance" },
+        { "id": 15, "name": "Science fiction" },
+        { "id": 16, "name": "Suspense/Thriller" },
+        { "id": 17, "name": "Western" }
+    ]
+}

@@ -33,8 +33,8 @@
         },
         mounted() {
             client.findMyBooks().then(books => {
-                this.books = books.list;
-            });
+                this.books = books.list
+            })
         },
         computed: {
             bookCoverPreviewUrl() {
