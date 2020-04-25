@@ -82,11 +82,22 @@ export default {
     findMyBooks() {
         return fetchOk(myBooks);
     },
-    booksPattern() {
-        const response =  with_status(SC.OK, booksPattern);
-
-        toast.info(JSON.stringify(response));
-        return fetch(response, 1000);
+    findMyBook(bookId) {
+        return fetchOk(myBooks.list.find(book => book.id === bookId));
     },
-
+    createBook(book) {
+        myBooks.push(book);
+        return fetch(with_status(SC.NO_CONTENT, null));
+    },
+    /* eslint-disable no-unused-vars */
+    saveBook(book) {
+    /* eslint-enable no-unused-vars */
+        return fetch(with_status(SC.NO_CONTENT, null));
+    },
+    listGenres() {
+        return fetchOk(booksPattern.genres)
+    },
+    listBookTypes() {
+        return fetchOk(booksPattern.types)
+    }
 }
