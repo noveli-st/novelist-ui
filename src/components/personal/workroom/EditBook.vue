@@ -47,11 +47,11 @@
 <script>
     import client from 'api-client'
 
-	export default {
+    export default {
         name: 'EditBook',
         data(){
             return {
-                book: "",
+                book: {},
                 booksPattern: ""
                 // ,
                 // bookSets: {
@@ -60,11 +60,11 @@
                 // }
             }
         },
-        mounted() {
+        created() {
             client.findMyBooks().then(books => {
                 this.book = books.list.find(book => book.id === 2)
             }),
             client.booksPattern().then(booksPattern => (this.booksPattern = booksPattern))
         }
-	}
+    }
 </script>
