@@ -1,6 +1,6 @@
 <template>
-    <main class="min-vh-100">
-        <div class="container my-5" v-if="book">
+    <main class="min-vh-100" v-if="book">
+        <div class="container my-5">
             <header>
                 <div class="h1 text-truncate" role="heading" aria-level="1">{{ book.title }}</div>
                 <ul class="nav my-md-n2">
