@@ -99,7 +99,7 @@
 <script>
     import cmpEditor from '../../../components/assets/Editor'
 
-	export default {
+    export default {
         name: 'EditBookContent',
         data(){
             return {
@@ -114,12 +114,15 @@
             cmpEditor
         },
         computed: {
-            orderChapters(){
-                return this.$parent.book.chapters
-                // .filter(order => order % 2 === 0)
+            orderChapters() {
+                const book = this.$parent.book
+                return book ? book.chapters : []
             },
-            chapterTypeName(){
-                switch (this.$parent.book.type.id) {
+            chapterTypeName() {
+                const book = this.$parent.book
+                const bookTypeId = book ? book.type.id : 0
+
+                switch (bookTypeId) {
                     case 2:
                         return 'Story'
                     case 3:
@@ -129,5 +132,5 @@
                 }
             }
         }
-	}
+    }
 </script>
