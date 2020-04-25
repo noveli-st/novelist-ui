@@ -43,6 +43,8 @@ del:after {
     pointer-events: none;
 }
 
+.outline-none { outline: none; }
+
 .border-transparent { border-color: transparent !important; }
 
 .bg-clip-padding { background-clip: padding-box; }
@@ -61,14 +63,20 @@ del:after {
     max-height: 42px;
 }
 
-.cursor-pointer { cursor: pointer; }
-.cursor-default { cursor: default; }
-
 .z-index-0 { z-index: 0; }
 .z-index-1 { z-index: 1; }
 
 .hyphens {
     hyphens: auto;
+}
+
+/* Change cursor */
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+
+.custom-control-input:not(:disabled) ~ .custom-control-label::before,
+.custom-control-input:not(:disabled) ~ .custom-control-label::after {
+    cursor: pointer;
 }
 
 /* Scroll pages to top button */
@@ -101,7 +109,7 @@ del:after {
 /*     -     Adds for Bootstrap cards     -     */
 /* Set with for cards in list */
 .card .w-tmp {
-    /* width: 100%; */
+    width: 100%;
 }
 @media screen and (min-width: 768px) {
     .card-list .w-tmp {
@@ -184,6 +192,14 @@ del:after {
     width: 100vw !important;
 }
 
+.custom-file {
+    z-index: 0;
+}
+
+.alert-dismissible {
+    padding-right: 1.25rem;
+}
+
 
 /*     -     Adds for VueRouter     -     */
 
@@ -191,6 +207,19 @@ del:after {
     pointer-events: none;
 }
 
+/*     -     Adds for Editor     -     */
+.editor-compress {
+    height: 420px;
+}
+.editor-expand {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1080;
+    padding: 1.25rem;
+}
 
 /*     -     !!! Hacks !!!     -     */
 

@@ -11,6 +11,8 @@
 </template>
 
 <script>
+    // https://www.primefaces.org/primevue/showcase/#/chart
+
 	export default {
 		name: 'BookStatistic'
 	}

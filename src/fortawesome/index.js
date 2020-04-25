@@ -73,7 +73,12 @@ import {
     faStarHalfAlt,
     faArrowAltCircleDown,
     faImages,
-    faPaperclip
+    faPaperclip,
+    faEyeSlash,
+    faExpand,
+    faCompress,
+    faImage,
+    faDollarSign
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -158,7 +163,12 @@ library.add(
     faStarHalfAlt,
     faArrowAltCircleDown,
     faImages,
-    faPaperclip
+    faPaperclip,
+    faEyeSlash,
+    faExpand,
+    faCompress,
+    faImage,
+    faDollarSign
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
