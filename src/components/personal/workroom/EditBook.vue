@@ -1,6 +1,6 @@
 <template>
     <main class="min-vh-100">
-        <div class="container my-5">
+        <div class="container my-5" v-if="book">
             <header>
                 <div class="h1 text-truncate" role="heading" aria-level="1">{{ book.title }}</div>
                 <ul class="nav my-md-n2">
@@ -49,22 +49,16 @@
 
     export default {
         name: 'EditBook',
-        data(){
+        data() {
             return {
-                book: {},
+                book: null,
                 booksPattern: ""
-                // ,
-                // bookSets: {
-                //     title: book.title,
-                //     type: book.type
-                // }
             }
         },
-        created() {
-            client.findMyBooks().then(books => {
-                this.book = books.list.find(book => book.id === 2)
-            }),
-            client.booksPattern().then(booksPattern => (this.booksPattern = booksPattern))
+        async created() {
+            const bookId = Number(this.$route.params.id)
+            const books = await client.findMyBooks()
+            this.book = books.list.find(book => book.id === bookId)
         }
     }
 </script>
