@@ -85,11 +85,10 @@ export default {
     findMyBook(bookId) {
         return fetchOk(myBooks.list.find(book => book.id === bookId));
     },
-    booksPattern() {
-        const response =  with_status(SC.OK, booksPattern);
-
-        toast.info(JSON.stringify(response));
-        return fetch(response, 1000);
+    listGenres() {
+        return fetchOk(booksPattern.genres)
     },
-
+    listBookTypes() {
+        return fetchOk(booksPattern.types)
+    }
 }
