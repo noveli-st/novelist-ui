@@ -57,8 +57,7 @@
         },
         async created() {
             const bookId = Number(this.$route.params.id)
-            const books = await client.findMyBooks()
-            this.book = books.list.find(book => book.id === bookId)
+            this.book = await client.findMyBook(bookId)
         }
     }
 </script>

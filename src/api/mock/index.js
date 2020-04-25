@@ -82,6 +82,9 @@ export default {
     findMyBooks() {
         return fetchOk(myBooks);
     },
+    findMyBook(bookId) {
+        return fetchOk(myBooks.list.find(book => book.id === bookId));
+    },
     booksPattern() {
         const response =  with_status(SC.OK, booksPattern);
 
