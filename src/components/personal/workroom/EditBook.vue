@@ -1,5 +1,5 @@
 <template>
-    <main class="min-vh-100">
+    <main class="min-vh-100" v-if="book">
         <div class="container my-5">
             <header>
                 <div class="h1 text-truncate" role="heading" aria-level="1">{{ book.title }}</div>
@@ -47,24 +47,20 @@
 <script>
     import client from 'api-client'
 
-	export default {
+    export default {
         name: 'EditBook',
-        data(){
+        data() {
             return {
-                book: "",
-                booksPattern: ""
-                // ,
-                // bookSets: {
-                //     title: book.title,
-                //     type: book.type
-                // }
+                book: null,
+                genres: [],
+                bookTypes: []
             }
         },
-        mounted() {
-            client.findMyBooks().then(books => {
-                this.book = books.list.find(book => book.id === 2)
-            }),
-            client.booksPattern().then(booksPattern => (this.booksPattern = booksPattern))
+        async created() {
+            const bookId = Number(this.$route.params.id)
+            this.book = await client.findMyBook(bookId)
+            this.genres = await client.listGenres()
+            this.bookTypes = await client.listBookTypes()
         }
-	}
+    }
 </script>

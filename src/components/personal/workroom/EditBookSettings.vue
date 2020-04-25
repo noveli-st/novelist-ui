@@ -1,5 +1,5 @@
 <template>
-        <div>
+        <div v-if="$parent.book">
             <header>
                 <div class="h2 mb-4" role="heading" aria-level="2">Book settings</div>
             </header>
@@ -42,7 +42,7 @@
                 <div class="col-lg-9">
                     <select id="selectBookType" class="custom-select" v-model="$parent.book.type.id">
                         <option
-                            v-for="(option, index) in $parent.booksPattern.types"
+                            v-for="(option, index) in $parent.bookTypes"
                             v-bind:key="index"
                             v-bind:value="option.id"
                         >{{ option.name }}</option>
@@ -86,7 +86,7 @@
                 <div class="col-lg-9">
                     <select id="selectBookCycle" class="custom-select" v-model="$parent.book.cycle.id">
                         <option
-                            v-for="(option, index) in $parent.booksPattern.types"
+                            v-for="(option, index) in $parent.bookTypes"
                             v-bind:key="index"
                             v-bind:value="option.id"
                         >{{ option.name }}</option>
@@ -127,7 +127,7 @@
                                     <button class="btn btn-link p-0" type="button" disabled><i class="fas fa-lg fa-arrow-alt-circle-down"></i></button>
                                 </div>
                             </li>
-                        </ul>                                            
+                        </ul>
                     </div-->
                 </div>
             </div>
@@ -212,7 +212,7 @@
                     </div>
                 </div>
             </div>
-            <!-- {{$parent.booksPattern.genres}} -->
+            <!-- {{$parent.genres}} -->
             <hr class="border-top">
             <footer class="clearfix">
                 <button class="btn btn-link text-decoration-none float-left" type="reset"><font-awesome-icon icon="history" class="mr-2"></font-awesome-icon>Restore</button>
@@ -222,7 +222,7 @@
 </template>
 
 <script>
-	export default {
+    export default {
         name: 'EditBookSettings',
         data() {
             return {
@@ -240,5 +240,5 @@
             }
         }
 
-	}
+    }
 </script>

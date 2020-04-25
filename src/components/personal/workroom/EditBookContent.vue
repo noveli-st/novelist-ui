@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label text-lg-right" v-bind:for="`textareaAnnotation-${chapter.id}`">Annotation</label>
                             <div class="col-lg-9">
-                                <textarea v-bins:id="`textareaAnnotation-${chapter.id}`" class="form-control" rows="2" maxlength="128" v-bind:aria-describedby="`descriptionAnnotation-${chapter.id}`" v-bind:value="chapter.annotation"></textarea>
+                                <textarea v-bind:id="`textareaAnnotation-${chapter.id}`" class="form-control" rows="2" maxlength="128" v-bind:aria-describedby="`descriptionAnnotation-${chapter.id}`" v-bind:value="chapter.annotation"></textarea>
                                 <small v-bind:id="`descriptionAnnotation-${chapter.id}`" class="form-text text-muted">Short about the chapter.</small>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
 <script>
     import cmpEditor from '../../../components/assets/Editor'
 
-	export default {
+    export default {
         name: 'EditBookContent',
         data(){
             return {
@@ -114,12 +114,15 @@
             cmpEditor
         },
         computed: {
-            orderChapters(){
-                return this.$parent.book.chapters
-                // .filter(order => order % 2 === 0)
+            orderChapters() {
+                const book = this.$parent.book
+                return book ? book.chapters : []
             },
-            chapterTypeName(){
-                switch (this.$parent.book.type.id) {
+            chapterTypeName() {
+                const book = this.$parent.book
+                const bookTypeId = book ? book.type.id : 0
+
+                switch (bookTypeId) {
                     case 2:
                         return 'Story'
                     case 3:
@@ -129,5 +132,5 @@
                 }
             }
         }
-	}
+    }
 </script>
