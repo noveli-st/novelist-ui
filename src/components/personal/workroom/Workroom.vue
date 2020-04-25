@@ -11,7 +11,7 @@
                 </header>
                 <div class="mb-3">
                     <p>
-                        All the works you have written are collected in one place. You can manage them easily - add, edit, setting, preview, delete and much more.
+                        All the works you have written are collected in one place. You can manage them easily - add, edit, settings, preview, delete and much more.
                     </p>
                     <div class="h5" role="heading" aria-level="3">Last edited</div>
                     <ul class="list-group list-group-flush rounded overflow-hidden">
@@ -21,17 +21,18 @@
                                 {{ book.title }}
                             </div>
                             <div class="mx-n2 d-md-flex">
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Edit book" href="my-book.html"><font-awesome-icon icon="edit"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book setting" href="my-book.html#BookSettings"><font-awesome-icon icon="cog"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book page" href="book.html" target="_blank"><font-awesome-icon icon="book"></font-awesome-icon></a>
+                                <router-link v-bind:to="`/book/${book.id}/edit`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Edit book"><font-awesome-icon icon="edit"></font-awesome-icon></router-link>
+                                <router-link v-bind:to="`/book/${book.id}/edit/settings`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book settings"><font-awesome-icon icon="cog"></font-awesome-icon></router-link>
+                                <router-link v-bind:to="`/book/${book.id}/edit/mentions`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book mentions"><font-awesome-icon icon="paperclip"></font-awesome-icon></router-link>
+                                <router-link v-bind:to="`/book/${book.id}/`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book page"><font-awesome-icon icon="book"></font-awesome-icon></router-link>
                                 <a class="btn btn-sm btn-link" v-b-tooltip.hover.focus title="Reader page" href="reader.html" target="_blank"><font-awesome-icon icon="book-open"></font-awesome-icon></a>
-                                <a class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete" href="my-book.html#BookDelete"><font-awesome-icon icon="trash"></font-awesome-icon></a>
+                                <router-link v-bind:to="`/book/${book.id}/terminate`" class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete"><font-awesome-icon icon="trash"></font-awesome-icon></router-link>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <footer class="text-center">
-                    <router-link class="col-md-6 d-inline-block btn btn-primary" v-bind:to="'my-books'"><font-awesome-icon icon="book" class="mr-2"></font-awesome-icon>Books list</router-link>
+                    <router-link v-bind:to="'books/my'" class="col-md-6 d-inline-block btn btn-primary"><font-awesome-icon icon="book" class="mr-2"></font-awesome-icon>Books list</router-link>
                 </footer>
             </section>
             <section class="my-3">

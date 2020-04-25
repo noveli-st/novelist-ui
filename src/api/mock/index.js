@@ -4,6 +4,7 @@ import toast from '../../util/toast'
 import me from './data/login'
 import profiles from './data/profiles'
 import indexBooks from './data/index-books'
+import booksPattern from './data/books-pattern'
 import myBooks from './data/my-books'
 
 import * as SC from '../codes'
@@ -80,5 +81,12 @@ export default {
     },
     findMyBooks() {
         return fetchOk(myBooks);
-    }
+    },
+    booksPattern() {
+        const response =  with_status(SC.OK, booksPattern);
+
+        toast.info(JSON.stringify(response));
+        return fetch(response, 1000);
+    },
+
 }

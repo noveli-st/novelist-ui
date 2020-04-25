@@ -1,5 +1,4 @@
 <template>
-
     <div class="card border-0 mb-4 shadow-sm">
         <div class="card-header">
             <router-link class="d-flex align-items-center text-decoration-none" v-bind:to="`/profile/${book.author.id}/info`">
