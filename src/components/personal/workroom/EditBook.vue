@@ -52,12 +52,15 @@
         data() {
             return {
                 book: null,
-                booksPattern: ""
+                genres: [],
+                bookTypes: []
             }
         },
         async created() {
             const bookId = Number(this.$route.params.id)
             this.book = await client.findMyBook(bookId)
+            this.genres = await client.listGenres()
+            this.bookTypes = await client.listBookTypes()
         }
     }
 </script>
