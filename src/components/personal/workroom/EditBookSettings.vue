@@ -50,41 +50,54 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="selectBookGenre">Genre</label>
+                <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="selectBookGenres">Genres</label>
                 <div class="col-lg-9">
-
-                    <!-- prop `add-on-change` is needed to enable adding tags vie the `change` event -->
-                    <b-form-tags v-model="value" add-on-change no-outer-focus class="border-0 p-0 bg-transparent">
-                        <template v-slot="{ tags, inputAttrs, inputHandlers, disabled, removeTag }">
-                            <b-form-select
-                                id="selectBookGenre"
-                                v-bind="inputAttrs"
-                                v-on="inputHandlers"
-                                :disabled="disabled || availableOptions.length === 0 || tags.length >= 3"
-                                :options="availableOptions"
+                    <select id="selectBookGenres" class="custom-select" v-bind:disabled="$parent.book.genres.length > 2">
+                        <option class="d-none">
+                            <template v-if="$parent.book.genres.length < 3">
+                                Select genge
+                            </template>
+                            <template v-else>
+                                No more genre to select
+                            </template>
+                        </option>
+                        <template v-for="genre in $parent.genres">
+                            <option
+                                v-if="!$parent.book.genres.some(selected => selected.id === genre.id)"
+                                v-bind:key="genre.id"
+                                v-bind:value="genre"
+                                v-on:click="$parent.book.genres.push(genre)"
                             >
-                                <template v-slot:first>
-                                    <!-- This is required to prevent bugs with Safari -->
-                                    <option disabled value="">Choose a genres...</option>
-                                </template>
-                            </b-form-select>
-                            <ul v-if="tags.length > 0" class="list-inline d-inline-block mt-2 mb-2">
-                                <li v-for="tag in tags" :key="tag" class="list-inline-item">
-                                    <b-form-tag
-                                        @remove="removeTag(tag)"
-                                        :title="tag"
-                                        :disabled="disabled"
-                                    >{{ tag }}</b-form-tag>
-                                </li>
-                            </ul>
+                                {{ genre.name }}
+                            </option>
                         </template>
-                    </b-form-tags>
+                    </select>
+                    <div>
+                        <small id="selectBookGenres" class="form-text text-muted mb-1">
+                            <template v-if="$parent.book.genres.length === 0">
+                                Only three genres are available for selection.
+                            </template>
+                            <template v-else>
+                                Selected genres<template v-if="$parent.book.genres.length < 3"> ({{ 3 - $parent.book.genres.length }} avaliable to select)</template>:
+                            </template>
+                        </small>
+                        <button
+                            v-for="genre in $parent.book.genres"
+                            v-bind:key="genre.id"
+                            v-on:click="$parent.book.genres.splice($parent.book.genres.indexOf(genre), 1)"
+                            v-b-tooltip.hover title="Click to remove the selected"
+                            class="btn btn-sm btn-outline-secondary mr-1"
+                            type="button"
+                        >
+                            {{ genre.name }}<font-awesome-icon icon="times" class="ml-2"></font-awesome-icon>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="selectBookCycle">Cycle</label>
                 <div class="col-lg-9">
-                    <select id="selectBookCycle" class="custom-select" v-model="$parent.book.cycle.id">
+                    <select id="selectBookCycle" class="custom-select" v-model="$parent.book.cycle.id" disabled>
                         <option
                             v-for="(option, index) in $parent.bookTypes"
                             v-bind:key="index"
@@ -199,7 +212,7 @@
                         <div id="paidBookSelect" class="form-text" v-bind:class="{'d-none' : $parent.book.cost != 'paid'}">
                             <div class="input-group input-group-sm d-inline-flex w-auto">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="dollar-sign" size="md"></font-awesome-icon></span>
+                                    <span class="input-group-text bg-white border-right-0"><font-awesome-icon icon="dollar-sign"></font-awesome-icon></span>
                                 </div>
                                 <input id="inputBookPrise" v-model="$parent.book.price" class="form-control border-left-0" type="text" aria-describedby="descriptionBookPrise">
                             </div>
@@ -226,8 +239,8 @@
         name: 'EditBookSettings',
         data() {
             return {
-                options: ['Apple', 'Orange', 'Banana', 'Lime', 'Peach', 'Chocolate', 'Strawberry'],
-                value: []
+                // options: ['Apple', 'Orange', 'Banana', 'Lime', 'Peach', 'Chocolate', 'Strawberry'],
+                // value: []
                 // bookSets: {
                 //     title: this.$parent.book.title,
                 //     typeId: this.$parent.book.type.id
