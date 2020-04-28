@@ -52,7 +52,9 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="selectBookGenres">Genres</label>
                 <div class="col-lg-9">
-                    <select id="selectBookGenres" class="custom-select" v-bind:disabled="$parent.book.genres.length > 2">
+                    <select id="selectBookGenres" class="custom-select" v-bind:disabled="$parent.book.genres.length > 2"
+                        v-model="selectedGenre"
+                        v-on:change="addGenre">
                         <option class="d-none">
                             <template v-if="$parent.book.genres.length < 3">
                                 Select genge
@@ -66,7 +68,6 @@
                                 v-if="!$parent.book.genres.some(selected => selected.id === genre.id)"
                                 v-bind:key="genre.id"
                                 v-bind:value="genre"
-                                v-on:click="$parent.book.genres.push(genre)"
                             >
                                 {{ genre.name }}
                             </option>
@@ -239,6 +240,7 @@
         name: 'EditBookSettings',
         data() {
             return {
+                selectedGenre: null
                 // options: ['Apple', 'Orange', 'Banana', 'Lime', 'Peach', 'Chocolate', 'Strawberry'],
                 // value: []
                 // bookSets: {
@@ -251,7 +253,13 @@
             availableOptions() {
                 return this.options.filter(opt => this.value.indexOf(opt) === -1)
             }
+        },
+        methods: {
+            addGenre() {
+                if (this.selectedGenre) {
+                    this.$parent.book.genres.push(this.selectedGenre);
+                }
+            }
         }
-
     }
 </script>
