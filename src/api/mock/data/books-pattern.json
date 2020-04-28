@@ -1,13 +1,12 @@
 {
     "types":[
         { "id": 1, "name": "Novel" },
-        { "id": 2, "name": "! Short novel" },
+        { "id": 2, "name": "Short novel" },
         { "id": 3, "name": "Tale" },
-        { "id": 4, "name": "! Essay" },
+        { "id": 4, "name": "Essay" },
         { "id": 5, "name": "Poetry" }
     ],
     "genres":[
-        { "id": 0,  "name": "Other" },
         { "id": 1,  "name": "Action" },
         { "id": 2,  "name": "Adventure" },
         { "id": 3,  "name": "Crime/Detective" },

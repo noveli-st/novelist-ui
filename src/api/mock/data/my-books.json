@@ -8,8 +8,8 @@
             "lastEdited": "2019-10-24T18:25:43.511Z",
             "type": { "id":"1", "name": "Novel" },
             "genres": [
-                { "id": 1, "name": "Sci-Fi" },
-                { "id": 2, "name": "Detective" }
+                { "id": 1, "name": "Action" },
+                { "id": 2, "name": "Adventure" }
             ],
             "cycle": { "id": 1, "name": "The Best Cycle Ever" },
             "chapters": [
