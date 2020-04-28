@@ -113,8 +113,8 @@ export default new VueRouter({
             component: cmpEditBook,
             children: [
                 {
-                     path: '/',
-                     redirect: 'Content'
+                    path: '/',
+                    redirect: 'content'
                 },
                 {
                     path: 'content',
