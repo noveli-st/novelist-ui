@@ -24,5 +24,38 @@
         { "id": 15, "name": "Science fiction" },
         { "id": 16, "name": "Suspense/Thriller" },
         { "id": 17, "name": "Western" }
-    ]
+    ],
+    "mention": {
+        "types": [
+            { "id": 1, "name":"Note", "description": "Additional information for specific words in the text it is like a footnote or reference."},
+            { "id": 2, "name":"Character", "description": "Designed to describe animate objects: people (such as heroes) and animals."},
+            { "id": 3, "name":"Object", "description": "If wish use it to describe the inanimate objects in book (plants, races, continents, buildings, etc.)."}
+        ],
+        "templates": [
+            {
+                "typeId": 1,
+                "id": 0,
+                "keyWords": [],
+                "title": "",
+                "img": null,
+                "description": ""
+            },
+            {
+                "typeId": 2,
+                "id": 0,
+                "keyWords": [],
+                "title": "",
+                "img": "",
+                "description": ""
+            },
+            {
+                "typeId": 2,
+                "id": 0,
+                "keyWords": [],
+                "title": "",
+                "img": "",
+                "description": ""
+            }
+        ]
+    }
 }

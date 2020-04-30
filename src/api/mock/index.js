@@ -99,5 +99,11 @@ export default {
     },
     listBookTypes() {
         return fetchOk(booksPattern.types)
+    },
+    listMentionTypes() {
+        return fetchOk(booksPattern.mention.types)
+    },
+    listMentionTemplates() {
+        return fetchOk(booksPattern.mention.templates)
     }
 }
