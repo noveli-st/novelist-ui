@@ -53,7 +53,9 @@
             return {
                 book: null,
                 genres: [],
-                bookTypes: []
+                bookTypes: [],
+                mentionTypes: [],
+                mentionTemplates: []
             }
         },
         async created() {
@@ -61,6 +63,8 @@
             this.book = await client.findMyBook(bookId)
             this.genres = await client.listGenres()
             this.bookTypes = await client.listBookTypes()
+            this.mentionTypes = await client.listMentionTypes()
+            this.mentionTemplates = await client.listMentionTemplates()
         }
     }
 </script>
