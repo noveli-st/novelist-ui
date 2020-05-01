@@ -136,6 +136,7 @@
 </template>
 
 <script>
+    import client from 'api-client'
     import InputKeywords from '../../../components/assets/InputKeywords'
 
 	export default {
@@ -152,9 +153,10 @@
             InputKeywords
         },
         methods: {
-            addMention(){
+            async addMention(){
                 let template = this.$parent.mentionTemplates.find(selected => selected.typeId === this.selectedMentionId)
-                this.$parent.book.mentions.push(template)
+                const mention = await client.createMention(template)
+                this.$parent.book.mentions.push(mention)
                 // console.log('add mension')
                 // console.log(this.$parent.book.mentions)
                 // console.log(this.selectedMentionId)
