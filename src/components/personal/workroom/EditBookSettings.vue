@@ -54,7 +54,7 @@
                 <div class="col-lg-9">
                     <select
                         id="selectBookGenres" class="custom-select"
-                        v-on:change="$parent.book.genres.push($parent.genres.find(selected => selected.id === Number($event.target.value)))"
+                        v-on:change="addBookGenre($event)"
                         v-bind:disabled="$parent.book.genres.length > 2"
                     >
                         <option class="d-none">
@@ -247,6 +247,10 @@
         computed: {
         },
         methods: {
+            addBookGenre(event) {
+                const genre = this.$parent.genres.find(selected => selected.id === Number(event.target.value));
+                this.$parent.book.genres.push(genre);
+            }
         }
     }
 </script>
