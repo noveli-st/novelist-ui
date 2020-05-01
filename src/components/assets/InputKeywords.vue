@@ -18,7 +18,7 @@
         },
         methods: {
             updateInput(e) {
-                this.$emit('input', e.target.value.split(/\s*,\s*/).filter(element => element !== ""))
+                this.$emit('input', e.target.value.split(/(\s*,)+\s*/))
             }
         }
     }
