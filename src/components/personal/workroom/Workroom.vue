@@ -26,7 +26,7 @@
                                 <router-link v-bind:to="`/book/${book.id}/edit/mentions`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book mentions"><font-awesome-icon icon="paperclip"></font-awesome-icon></router-link>
                                 <router-link v-bind:to="`/book/${book.id}/`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book page"><font-awesome-icon icon="book"></font-awesome-icon></router-link>
                                 <a class="btn btn-sm btn-link" v-b-tooltip.hover.focus title="Reader page" href="reader.html" target="_blank"><font-awesome-icon icon="book-open"></font-awesome-icon></a>
-                                <router-link v-bind:to="`/book/${book.id}/terminate`" class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete"><font-awesome-icon icon="trash"></font-awesome-icon></router-link>
+                                <router-link v-bind:to="`/book/${book.id}/edit/terminate`" class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete"><font-awesome-icon icon="trash"></font-awesome-icon></router-link>
                             </div>
                         </li>
                     </ul>

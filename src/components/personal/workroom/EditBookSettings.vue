@@ -52,9 +52,11 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label text-lg-right" for="selectBookGenres">Genres</label>
                 <div class="col-lg-9">
-                    <select id="selectBookGenres" class="custom-select" v-bind:disabled="$parent.book.genres.length > 2"
-                        v-model="selectedGenre"
-                        v-on:change="addGenre">
+                    <select
+                        id="selectBookGenres" class="custom-select"
+                        v-on:change="addBookGenre($event)"
+                        v-bind:disabled="$parent.book.genres.length > 2"
+                    >
                         <option class="d-none">
                             <template v-if="$parent.book.genres.length < 3">
                                 Select genge
@@ -67,7 +69,7 @@
                             <option
                                 v-if="!$parent.book.genres.some(selected => selected.id === genre.id)"
                                 v-bind:key="genre.id"
-                                v-bind:value="genre"
+                                v-bind:value="genre.id"
                             >
                                 {{ genre.name }}
                             </option>
@@ -240,25 +242,14 @@
         name: 'EditBookSettings',
         data() {
             return {
-                selectedGenre: null
-                // options: ['Apple', 'Orange', 'Banana', 'Lime', 'Peach', 'Chocolate', 'Strawberry'],
-                // value: []
-                // bookSets: {
-                //     title: this.$parent.book.title,
-                //     typeId: this.$parent.book.type.id
-                // }
             }
         },
         computed: {
-            availableOptions() {
-                return this.options.filter(opt => this.value.indexOf(opt) === -1)
-            }
         },
         methods: {
-            addGenre() {
-                if (this.selectedGenre) {
-                    this.$parent.book.genres.push(this.selectedGenre);
-                }
+            addBookGenre(event) {
+                const genre = this.$parent.genres.find(selected => selected.id === Number(event.target.value));
+                this.$parent.book.genres.push(genre);
             }
         }
     }

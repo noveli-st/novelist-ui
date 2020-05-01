@@ -50,9 +50,22 @@
             "ebook": false,
             "adult": true,
             "mentions": [
-                { "id": 17, "type":"note", "title": "Maiores nemo nostrum quibusdam"},
-                { "id": 18, "type":"character", "title": "Capinan Nemo"},
-                { "id": 19, "type":"object", "title": "Thrubleland"}
+                {
+                    "type": 1,
+                    "id": 17,
+                    "keywords": [ "Maior", "Maiores", "Maiorius J/D" ],
+                    "title": "Maiores nemo nostrum quibusdam",
+                    "image": null,
+                    "description": "Amet dolorem, magni ab itaque reprehenderit enim quis vitae necessitatibus error earum asperiores et eligendi a ducimus qui veniam laborum molestias eum."
+                },
+                {
+                    "type": 3,
+                    "id": 43,
+                    "keywords": [ "Qui" ],
+                    "title": "",
+                    "image": "",
+                    "description": "Qui fa otto itaque voluptatem quae maiores non similique architecto necessitatibus suscipit tenetur et, temporibus corrupti repellat eum asperiores.Similique eos asperiores libero non. Inventore sint doloribus voluptatem distinctio aspernatur harum laborum impedit numquam quas nam, magni laudantium possimus soluta voluptatibus culpa. Rerum laboriosam soluta dignissimos veritatis odit"
+                }
             ],
             "illustrations": [],
             "reviews":[],
