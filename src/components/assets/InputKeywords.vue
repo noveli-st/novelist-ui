@@ -13,7 +13,7 @@
         },
         data(){
             return {
-                render: this.value.join(', ')
+                render: this.value ? this.value.join(', ') : ""
             }
         },
         methods: {

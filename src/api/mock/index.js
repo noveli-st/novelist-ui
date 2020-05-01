@@ -26,6 +26,7 @@ const fetch = (response, time = 0) => {
     })
 }
 
+var MENTION_ID = 100
 const fetchOk = (data, time = 0) => fetch(with_status(SC.OK, data), time)
 
 export default {
@@ -105,5 +106,11 @@ export default {
     },
     listMentionTemplates() {
         return fetchOk(booksPattern.mention.templates)
+    },
+    createMention(template) {
+        const mention = {...template}
+        MENTION_ID++
+        mention.id = MENTION_ID
+        return fetchOk(mention)
     }
 }
