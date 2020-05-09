@@ -27,6 +27,9 @@ Vue.component('cmp-cardeiner', cmpCardeiner)
 import cmpCard from './components/assets/Card'
 Vue.component('cmp-card', cmpCard)
 
+import HtmlText from './components/book/HtmlText'
+Vue.component('l-html-text', HtmlText)
+
 Vue.use(VueRouter)
 Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
