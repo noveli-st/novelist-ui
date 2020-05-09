@@ -1,5 +1,5 @@
 <template>
-    <div class="card border-0 mb-4 shadow-sm">
+    <div class="card border-0 shadow-sm">
         <div class="card-header">
             <router-link class="d-flex align-items-center text-decoration-none" v-bind:to="`/profile/${book.author.id}/info`">
                 <img class="image-42 mr-3 rounded-circle shadow-sm overflow-hidden" :alt="book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">

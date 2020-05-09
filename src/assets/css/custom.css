@@ -37,6 +37,54 @@ del:after {
 }
 
 
+/*     -     Adds for VueCarousel     -     */
+
+.VueCarousel-navigation-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;    
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 48px;
+    height: 48px;
+    background-color: #007bff !important;
+    border-radius: 50%;
+    border: 4px solid #e7e9eb !important;
+    outline: none !important;
+}
+.VueCarousel-navigation-button:hover {
+    background-color: #0056b3 !important;
+}
+.VueCarousel-navigation-button.VueCarousel-navigation-next {
+    right: calc(48px - 15px + 4px) !important;
+}
+.VueCarousel-navigation-button svg {
+    height: 75%;
+}
+.VueCarousel-navigation-button.VueCarousel-navigation-prev {
+    left: calc(48px - 15px + 4px) !important;
+}
+@media screen and (max-width: 575px) {
+    .VueCarousel-navigation {
+        display: none;
+    }
+}
+
+/* vue-carusel bugs fix */
+[class*="VueCarousel-dot"] {
+    margin: 0 !important;
+    outline: none !important;
+}
+
+/* color: #007bff;
+background: #e7e9eb;
+display: inline-flex;
+cursor: pointer;
+border: calc(1rem / 4) solid transparent;
+border-radius: 50%;
+outline: none; */
+
+
 /*     -     Adds for Bootstrap     -     */
 .btn.disabled,
 .btn:disabled {

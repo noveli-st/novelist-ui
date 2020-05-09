@@ -78,13 +78,16 @@ import {
     faExpand,
     faCompress,
     faImage,
-    faDollarSign
+    faDollarSign,
+    faHandshake
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
     faFacebook,
     faInstagram,
-    faTwitter
+    faTwitter,
+    faAppStore,
+    faGooglePlay
 } from '@fortawesome/free-brands-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -93,6 +96,8 @@ library.add(
     faFacebook,
     faInstagram,
     faTwitter,
+    faAppStore,
+    faGooglePlay,
     faSearch,
     faPenNib,
     faUsers,
@@ -168,7 +173,8 @@ library.add(
     faExpand,
     faCompress,
     faImage,
-    faDollarSign
+    faDollarSign,
+    faHandshake
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
