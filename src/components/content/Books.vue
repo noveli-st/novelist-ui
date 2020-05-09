@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8 col-xl-9">
                     <div v-bind:class="cardainerStyleClass">
-                        <cmp-card v-for="(book, index) in books.slice(0, booksLoadNumb)" v-bind:key="index" v-bind:book="book"></cmp-card>
+                        <cmp-card v-for="(book, index) in books.slice(0, booksLoadNumb)" v-bind:key="index" v-bind:book="book" class="mb-4"></cmp-card>
                     </div>
                     <button class="btn btn-block btn-outline-primary" type="button" v-on:click="booksLoadNumb += booksLoadNumb" v-bind:class="{'disabled': booksLoadNumb >= books.length}">
                         <template v-if="booksLoadNumb < books.length">
