@@ -31,8 +31,8 @@
             <button class="btn btn-link p-0 float-right" v-b-modal.modalRememberMe type="button">Forgot password?</button>
         </template>
         <template v-slot:modal-footer="{cancel, ok}">
-            <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2" />Close</button>
-            <button class="btn btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid || !hasRememberMe" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2" />Sign in</button>
+            <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2"></font-awesome-icon> Close</button>
+            <button class="btn btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>Sign in</button>
         </template>
     </b-modal>
 </template>
