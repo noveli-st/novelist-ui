@@ -7,7 +7,7 @@
                         <div class="my-0 h5" role="heading" aria-level="2">Annotation</div>
                     </div>
                     <div class="card-body">
-                        {{ this.$parent.book.annotation }}
+                        <l-html-text :text="$parent.book.annotation"/>
                     </div>
                 </div>
                 <div class="card border-0 mb-4 shadow-sm">
@@ -49,13 +49,13 @@
                                         <template v-else>
                                             <font-awesome-icon icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon><a href="reader.html">{{ chapter.title }}</a>
                                         </template>
-									</div>
-									<time class="text-nowrap" v-bind:datetime="chapter.published">{{ (new Date(chapter.published)).toLocaleDateString() }}</time>
+                                    </div>
+                                    <time class="text-nowrap" v-bind:datetime="chapter.published">{{ (new Date(chapter.published)).toLocaleDateString() }}</time>
                                 </div>
                             </div>
-						</div>
-					</div>
-				</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-lg-4 col-xl-3">
                 <div class="card border-0 mb-4 shadow-sm d-none d-lg-flex">
@@ -113,7 +113,7 @@
 </template>
 
 <script>
-	export default {
+    export default {
         name: 'BookInfo',
         data () {
             return {
@@ -126,5 +126,5 @@
                 event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
             }
         }
-	}
+    }
 </script>
