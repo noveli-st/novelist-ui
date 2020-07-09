@@ -5,7 +5,6 @@ import me from './data/login'
 import profiles from './data/profiles'
 import indexBooks from './data/index-books'
 import booksPattern from './data/books-pattern'
-import myBooks from './data/my-books'
 
 import * as SC from '../codes'
 import {err} from '../errors'
@@ -72,7 +71,8 @@ export default {
     // books
     findBook(bookId) {
         const response = bookId <= 12 ?
-            with_status(SC.OK, indexBooks.list[bookId - 1]) : err(SC.make_status(404, 'Not found'));
+        with_status(SC.OK, indexBooks.list.find(book => book.id === Number(bookId))) :
+            err(SC.make_status(404, 'Not found'));
 
         toast.info(JSON.stringify(response));
         return fetch(response, 1000);
@@ -81,13 +81,14 @@ export default {
         return fetchOk(indexBooks);
     },
     findMyBooks() {
-        return fetchOk(myBooks);
+      return fetchOk({ list: this._getMyBooks() });
     },
     findMyBook(bookId) {
-        return fetchOk(myBooks.list.find(book => book.id === bookId));
+      return fetchOk(this._getMyBooks().find(book => book.id === Number(bookId)));
     },
     createBook(book) {
-        myBooks.push(book);
+        // TODO: add as "my" book
+        indexBooks.push(book);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
     /* eslint-disable no-unused-vars */
@@ -112,5 +113,10 @@ export default {
         MENTION_ID++
         mention.id = MENTION_ID
         return fetchOk(mention)
+    },
+    // private methods
+    _getMyBooks() {
+        console.log(indexBooks.list.filter(book => book.id === 2));
+        return indexBooks.list.filter(book => book.id === 2);
     }
 }
