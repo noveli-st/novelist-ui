@@ -35,7 +35,7 @@
                         <router-link v-for="genre in book.genres" v-bind:key="genre.id" v-bind:to="`/book/#${genre.name}`" class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none">{{ genre.name }}</router-link>
                     </div>
                 </div>
-                <div v-if="book.cycle.name" class="small mb-1">
+                <div v-if="book.cycle" class="small mb-1">
                     <span class="position-absolute"><font-awesome-icon icon="link"></font-awesome-icon></span>
                     <div class="ml-1 pl-3">
                         <router-link v-bind:to="`/book/#${book.cycle.name}`"  class="d-inline-block mb-1 mr-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none d-inline-block">{{ book.cycle.name }}</router-link>
