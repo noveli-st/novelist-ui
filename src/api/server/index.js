@@ -2,58 +2,61 @@ import axios from 'axios'
 
 const API_PREFIX = '/api/v1'
 
+const apiCall = (method, ...params) =>
+    axios[method](...params).then(response => response.data)
+
 export default {
   login(username, password) {
-    return axios.post(`${API_PREFIX}/auth/login`, {
+    return apiCall('post', `${API_PREFIX}/auth/login`, {
       username: username,
       password: password
     })
   },
   logout() {
-    return axios.post(`${API_PREFIX}/auth/logout`)
+    return apiCall('post', `${API_PREFIX}/auth/logout`)
   },
   // user and profile
   fetchMe() {
-    return axios.get(`${API_PREFIX}/users/me`)
+    return apiCall('get', `${API_PREFIX}/users/me`)
   },
   findProfile(profileId) {
-    return axios.get(`${API_PREFIX}/users/${profileId}`)
+    return apiCall('get', `${API_PREFIX}/users/${profileId}`)
   },
   saveProfile(userProfile) {
-    return axios.put(`${API_PREFIX}/users/me`, userProfile)
+    return apiCall('put', `${API_PREFIX}/users/me`, userProfile)
   },
   // books
   findBook(bookId) {
-    return axios.get(`${API_PREFIX}/books/${bookId}`)
+    return apiCall('get', `${API_PREFIX}/books/${bookId}`)
   },
   findBooks() {
-    return axios.get(`${API_PREFIX}/books`)
+    return apiCall('get', `${API_PREFIX}/books`)
   },
   findMyBooks() {
-    return axios.get(`${API_PREFIX}/my-books`)
+    return apiCall('get', `${API_PREFIX}/my-books`)
   },
   findMyBook(bookId) {
-    return axios.get(`${API_PREFIX}/my-books/${bookId}`)
+    return apiCall('get', `${API_PREFIX}/my-books/${bookId}`)
   },
   createBook(book) {
-    return axios.post(`${API_PREFIX}/my-books`, book)
+    return apiCall('post', `${API_PREFIX}/my-books`, book)
   },
   saveBook(book) {
-    return axios.put(`${API_PREFIX}/my-books/${book.id}`, book)
+    return apiCall('put', `${API_PREFIX}/my-books/${book.id}`, book)
   },
   listGenres() {
-    return axios.get(`${API_PREFIX}/genres`)
+    return apiCall('get', `${API_PREFIX}/genres`)
   },
   listBookTypes() {
-    return axios.get(`${API_PREFIX}/book-types`)
+    return apiCall('get', `${API_PREFIX}/book-types`)
   },
   listMentionTypes() {
-    return axios.get(`${API_PREFIX}/mention-types`)
+    return apiCall('get', `${API_PREFIX}/mention-types`)
   },
   listMentionTemplates() {
-    return axios.get(`${API_PREFIX}/mention-templates`)
+    return apiCall('get', `${API_PREFIX}/mention-templates`)
   },
   createMention(template) {
-    return axios.post(`${API_PREFIX}/mentions`, template)
+    return apiCall('post', `${API_PREFIX}/mentions`, template)
   }
 }
