@@ -4,7 +4,7 @@
             <div class="container mx-auto text-dark">
                 <div class="row">
                     <div class="col-md-5 col-lg-4 text-center">
-                        <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image rounded shadow-sm"
+                        <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image rounded"
                             v-bind:style="{'background' : `url(${bookCoverPreviewUrl}) no-repeat scroll center center / cover`}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
                                 <title>{{ book.title }}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title>
@@ -95,7 +95,7 @@
                             <router-link v-if="book.price" class="btn btn-block btn-warning" v-bind:to="`/reader/${book.id}`">Read for ${{ discountPrice }}<del v-if="book.discount" class="text-muted ml-2">${{ book.price.toFixed(2) }}</del></router-link>
                             <router-link v-else class="btn flex-grow-1 btn-success" v-bind:to="`/reader/${book.id}`">Read for free</router-link>
 
-                            <b-dd v-if="book.ebook" id="bookEBookDownload" no-caret variant="primary" menu-class="p-0 overflow-hidden shadow-sm text-center" class="ml-2">
+                            <b-dd v-if="book.ebook" id="bookEBookDownload" no-caret variant="primary" menu-class="p-0 overflow-hidden border-0 shadow-sm text-center" class="ml-2">
                                 <template slot="button-content"><font-awesome-icon icon="download"></font-awesome-icon></template>
                                 <b-dd-item variant="primary" href="#" target="_blank"><span class="d-block py-1 small">.pdf</span></b-dd-item>
                                 <b-dd-item variant="primary" href="#" target="_blank"><span class="d-block py-1 small">.epub</span></b-dd-item>
@@ -114,7 +114,7 @@
                         <hr class="d-md-none">
                     </div>
                     <div class="col-md-7 col-lg-8 mt-auto text-center text-md-right">
-                        <b-dd id="bookShareDropMenu" no-caret size="sm" variant="primary" menu-class="p-0 overflow-hidden shadow-sm" class="mr-1">
+                        <b-dd id="bookShareDropMenu" no-caret size="sm" variant="primary" menu-class="p-0 overflow-hidden border-0 shadow-sm" class="mr-1">
                             <template slot="button-content"><font-awesome-icon icon="share-square" class="mr-2"></font-awesome-icon>Share</template>
                             <b-dd-item variant="primary" href="#" target="_blank">
                                 <span class="d-block py-1"><font-awesome-icon :icon="['fab', 'facebook']" class="mr-2"></font-awesome-icon>Facebook</span>
@@ -160,7 +160,7 @@
                 </div>
             </div>
         </div>
-        <div class="nav-scroller position-relative overflow-hidden border-bottom bg-light shadow-sm mb-4">
+        <div class="nav-scroller position-relative overflow-hidden bg-light mb-4">
             <nav class="nav d-flex flex-nowrap overflow-auto pb-0 container">
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'info'">
                     <font-awesome-icon icon="id-card"></font-awesome-icon>

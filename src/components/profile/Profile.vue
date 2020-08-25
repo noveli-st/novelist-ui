@@ -4,7 +4,7 @@
             <div class="container mx-auto text-dark">
                 <div class="row">
                     <div class="col-md-5 col-lg-4 text-center">
-                        <img class="broken img-fluid rounded-circle shadow-sm" v-bind:src="userAvatarUrl" @error="userAvatarUrlError" alt="User name">
+                        <img class="broken img-fluid rounded-circle" v-bind:src="userAvatarUrl" @error="userAvatarUrlError" alt="User name">
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <div class="my-3 mt-md-0 h1" role="heading" aria-level="1">{{ userProfile.name }}</div>
@@ -140,7 +140,7 @@
             </div>
         </div>
 
-        <div class="nav-scroller position-relative overflow-hidden border-bottom bg-light shadow-sm mb-4">
+        <div class="nav-scroller position-relative overflow-hidden bg-light mb-4">
             <nav class="nav d-flex flex-nowrap overflow-auto pb-0 container">
                 <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'info'">
                     <font-awesome-icon icon="id-card"></font-awesome-icon>

@@ -2,16 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8 col-xl-9">
-                <div class="card border-0 mb-4 shadow-sm">
-                    <div class="card-header">
+                <div class="card border-0 mb-4">
+                    <div class="card-header border-bottom-0">
                         <div class="my-0 h5" role="heading" aria-level="2">Annotation</div>
                     </div>
                     <div class="card-body">
                         <l-html-text :text="$parent.book.annotation"/>
                     </div>
                 </div>
-                <div class="card border-0 mb-4 shadow-sm">
-                    <div class="card-header">
+                <div class="card border-0 mb-4">
+                    <div class="card-header border-bottom-0">
                         <div class="my-0 h5" role="heading" aria-level="2">Table of contents</div>
                     </div>
                     <div class="card-body px-3">
@@ -58,8 +58,8 @@
                 </div>
             </div>
             <div class="col-12 col-lg-4 col-xl-3">
-                <div class="card border-0 mb-4 shadow-sm d-none d-lg-flex">
-                    <div class="card-header">
+                <div class="card border-0 mb-4 d-none d-lg-flex">
+                    <div class="card-header border-bottom-0">
                         <div class="mb-0 h5" role="heading" aria-level="2">Author</div>
                     </div>
                     <div class="position-relative">
@@ -103,7 +103,7 @@
                             <a v-if="this.$parent.book.author.twitter" class="mx-2" v-bind:href="this.$parent.book.author.twitter" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
                         </div>
                     </div>
-                    <div class="card-footer mt-auto">
+                    <div class="card-footer bg-transparent border-top-0 mt-auto">
                         <router-link class="btn btn-block btn-primary" v-bind:to="`/profile/${this.$parent.book.author.id}/info`">View profile</router-link>
                     </div>
                 </div>

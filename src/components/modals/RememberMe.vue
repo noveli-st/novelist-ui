@@ -1,5 +1,14 @@
 <template>
-	<b-modal id="modalRememberMe" v-bind:header-bg-variant="'light'" v-on:ok="handleOk" centered no-stacking>
+	<b-modal
+        id="modalRememberMe"
+        v-bind:header-class="'border-bottom-0'"
+        v-bind:footer-class="'border-top-0'"
+        v-bind:header-bg-variant="'light'"
+        v-bind:content-class="'border-0'"
+        v-on:ok="handleOk"
+        centered
+        no-stacking
+    >
 		<template v-slot:modal-header="{ close }">
 			<div class="h5 modal-title">Please remember me</div>
             <button class="btn close" v-on:click="close()" type="button"><font-awesome-icon icon="times" size="sm" /></button>

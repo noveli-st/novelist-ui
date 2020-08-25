@@ -13,7 +13,7 @@
                         <router-link class="d-flex btn btn-light btn-block border-0 rounded-0 m-0 p-3 text-decoration-none disable-events" active-class="active" v-bind:to="'...'">
                             <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">{{ this.$store.state.user.me.name }}</span>
                         </router-link>
-                        <hr class="my-0">
+                        <!-- <hr class="my-0"> -->
                         <router-link class="btn btn-outline-secondary btn-block border-0 rounded-0 text-left text-nowrap m-0 px-3 py-3 disable-events" active-class="active" v-bind:to="'wallet'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="wallet" class="mr-2" />Wallet <span class="float-right">$201.00</span></router-link>
                         <div class="d-flex flex-wrap">
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-3 col-4 disable-events" active-class="active" v-bind:to="'my-library'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="book-reader" size="2x" /><div class="small">Library</div></router-link>
@@ -28,7 +28,7 @@
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'/settings'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="cogs" size="lg" /><div class="small">Settings</div></router-link>
                             <router-link class="btn btn-outline-secondary border-0 rounded-0 m-0 p-2 col-3 disable-events" active-class="active" v-bind:to="'get-help'" v-on:click.native="closeMainMenu"><font-awesome-icon icon="question-circle" size="lg" /><div class="small text-truncate">Get help</div></router-link>
                         </div>
-                        <hr class="my-0">
+                        <!-- <hr class="my-0"> -->
                         <button class="btn btn-light btn-block border-0 rounded-0 text-right px-3 py-2" v-on:click="signOut" type="button">Sign out<font-awesome-icon icon="sign-out-alt" class="ml-2" /></button>
                     </b-collapse>
                 </div>

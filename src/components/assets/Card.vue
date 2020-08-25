@@ -1,8 +1,8 @@
 <template>
-    <div class="card border-0 shadow-sm">
-        <div class="card-header">
+    <div class="card border-0">
+        <div class="card-header border-bottom-0">
             <router-link class="d-flex align-items-center text-decoration-none" v-bind:to="`/profile/${book.author.id}/info`">
-                <img class="image-42 mr-3 rounded-circle shadow-sm overflow-hidden" :alt="book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
+                <img class="image-42 mr-3 rounded-circle overflow-hidden" :alt="book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
                 <span class="text-truncate">
                     {{ book.author.name }}
                     <time class="d-block text-muted small mb-1-" :datetime="book.published"><font-awesome-icon icon="calendar-day" class="mr-2"></font-awesome-icon>{{ (new Date(book.published)).toLocaleDateString() }}</time>
@@ -90,7 +90,7 @@
                 </template>
             </svg>
         </div-->
-        <div class="card-footer mt-auto">
+        <div class="card-footer bg-transparent border-top-0 mt-auto">
             <router-link v-if="book.price" class="btn btn-block btn-warning" v-bind:to="`/reader/${book.id}`">Read for ${{ discountPrice }}<del v-if="book.discount" class="text-muted ml-2">${{ book.price.toFixed(2) }}</del></router-link>
             <router-link v-else class="btn btn-block btn-success" v-bind:to="`/reader/${book.id}`">Read for free</router-link>
         </div>
