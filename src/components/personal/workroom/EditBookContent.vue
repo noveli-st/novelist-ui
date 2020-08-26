@@ -24,7 +24,7 @@
         </b-alert>
         <div class="accordion">
             <b-card no-body v-for="chapter in orderChapters" v-bind:key="chapter.order">
-                <b-card-header header-tag="header" role="tab" class="d-flex flex-column flex-md-row align-items-md-center">
+                <b-card-header header-tag="header" role="tab" class="d-flex flex-column flex-md-row align-items-md-center border-bottom-0">
                     <div class="h6 mb-0" role="heading" aria-level="3">{{ chapter.title }}</div>
                     <div class="ml-md-auto d-flex d-md-inline-flex">
                         <b-button v-b-toggle="`accordion-${chapter.id}-edit`" class="text-primary" variant="link" v-b-tooltip.hover title="Edit chapter">

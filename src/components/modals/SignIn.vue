@@ -1,6 +1,15 @@
 <template>
-    <b-modal id="modalSignIn" v-bind:header-bg-variant="'light'" v-on:ok="handleOk" centered no-stacking>
-        <template v-slot:modal-header="{ close }">
+    <b-modal
+        id="modalSignIn"
+        v-bind:header-class="'border-bottom-0'"
+        v-bind:footer-class="'border-top-0'"
+        v-bind:header-bg-variant="'light'"
+        v-bind:content-class="'border-0'"
+        v-on:ok="handleOk"
+        centered
+        no-stacking
+    >
+        <template v-slot:modal-header="{ close }" >
             <div class="h5 modal-title">Please sign in</div>
             <button class="btn close" v-on:click="close()" type="button"><font-awesome-icon icon="times" size="sm" /></button>
         </template>
@@ -31,8 +40,8 @@
             <button class="btn btn-link p-0 float-right" v-b-modal.modalRememberMe type="button">Forgot password?</button>
         </template>
         <template v-slot:modal-footer="{cancel, ok}">
-            <button class="btn btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2"></font-awesome-icon> Close</button>
-            <button class="btn btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>Sign in</button>
+            <button class="btn ml-0 my-0 btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2"></font-awesome-icon> Close</button>
+            <button class="btn ml-0 my-0 btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>Sign in</button>
         </template>
     </b-modal>
 </template>

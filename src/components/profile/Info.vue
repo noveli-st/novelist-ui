@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-12 col-lg-8 col-xl-9">
 
-                <div id="profileAbout" class="card border-0 mb-4 shadow-sm">
-                    <div class="card-header">
+                <div id="profileAbout" class="card border-0 mb-4">
+                    <div class="card-header border-bottom-0">
                         <h2 class="h5 my-0">About me</h2>
                     </div>
                     <div class="card-body">
@@ -15,8 +15,8 @@
                     </div>
                 </div>
 
-                <div v-if="this.$parent.userProfile.books.length" class="card border-0 mb-4 shadow-sm">
-                    <div class="card-header">
+                <div v-if="this.$parent.userProfile.books.length" class="card border-0 mb-4">
+                    <div class="card-header border-bottom-0">
                         <h2 class="h5 my-0">My books</h2>
                     </div>
                     <div class="card-body">
@@ -44,21 +44,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-transparent text-right">
+                    <div class="card-footer bg-transparent border-top-0 text-right">
                         <router-link v-bind:to="'books'" class="small">View all<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>
                     </div>
                 </div>
 
             </div>
             <div class="col-12 col-lg-4 col-xl-3">
-                <div class="card border-0 mb-4 shadow-sm">
-                    <div class="card-header">
+                <div class="card border-0 mb-4">
+                    <div class="card-header border-bottom-0">
                         <h2 class="h5 my-0">Activity</h2>
                     </div>
                     <div class="card-body">
                         ...
                     </div>
-                    <div class="card-footer bg-transparent text-right">
+                    <div class="card-footer bg-transparent border-top-0 text-right">
                         <router-link v-bind:to="'activity'" class="small">View all<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>
                     </div>
                 </div>

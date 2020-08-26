@@ -248,6 +248,19 @@ outline: none; */
     padding-right: 1.25rem;
 }
 
+/*     -     Adds for Accordion     -     */
+.accordion > .card {
+    border-left: 0;
+    border-right: 0;
+}
+  
+.accordion > .card:last-of-type {
+    border-bottom: 0;
+}
+
+.accordion > .card:first-of-type {
+    border-top: 0;
+}
 
 /*     -     Adds for VueRouter     -     */
 
