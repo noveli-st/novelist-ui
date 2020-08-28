@@ -13,7 +13,8 @@
         class="bg-white"
     >
         <slide>
-            <section class="container">
+            <section class="container position-relative px-0 px-md-2">
+                <div class="position-absolute d-md-none l-0 t-0 r-0 b-0 bg-white opa-025"></div>
                 <div class="row no-gutters align-items-center py-5 slide-step-1" style="height: 480px;">
                     <div class="col-md-6 ml-auto text-center">
                         <header>
@@ -30,7 +31,8 @@
             </section>
         </slide>
         <slide>
-            <section class="container">
+            <section class="container position-relative px-0 px-md-2">
+                <div class="position-absolute d-md-none l-0 t-0 r-0 b-0 bg-white opa-025"></div>
                 <div class="row no-gutters align-items-center py-5 slide-step-2" style="height: 480px;">
                     <div class="col-md-6 ml-auto text-center">
                         <header>
@@ -47,7 +49,8 @@
             </section>
         </slide>
         <slide>
-            <section class="container">
+            <section class="container position-relative px-0 px-md-2">
+                <div class="position-absolute d-md-none l-0 t-0 r-0 b-0 bg-white opa-025"></div>
                 <div class="row no-gutters align-items-center py-5 slide-app" style="height: 480px;">
                     <div class="col-md-6 text-center">
                         <header>
