@@ -67,7 +67,7 @@
                 this.submitSignIn()
             },
             submitSignIn() {
-                this.login(this.email, this.password);
+                this.login({ username: this.email, password: this.password });
             }
         },
         validations: {

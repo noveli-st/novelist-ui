@@ -38,9 +38,10 @@ const mutations = {
 };
 
 const actions = {
-    async [AUTH_LOGIN]({ commit, dispatch }, username, password) {
+    async [AUTH_LOGIN]({ commit, dispatch }, { username, password }) {
         try {
             commit(AUTH_LOGIN);
+            console.log(`AUTH: ${username} ${password}`)
             const token = await client.login(username, password);
             localStorage.setItem('session-token', token);
             commit(AUTH_SUCCESS, token);

@@ -1,19 +1,31 @@
 import axios from 'axios'
+import store from '../../store/index'
 
 const API_PREFIX = '/api/v1'
 
-const apiCall = (method, ...params) =>
-    axios[method](...params).then(response => response.data)
+const apiCall = (method, ...params) => {
+    const token = store.state.auth.sessionToken
+    if (token) {
+        const index = method === "get" ? 1 : 2
+        const conf = params[index] || {}
+        params[index] = conf
+
+        conf.headers = conf.headers || {}
+        conf.headers["Authorization"] = `Token ${token}`;
+    }
+
+    return axios[method](...params).then(response => response.data)
+}
 
 export default {
   login(username, password) {
-    return apiCall('post', `${API_PREFIX}/auth/login`, {
+    return apiCall('post', `${API_PREFIX}/auth/token/login`, {
       username: username,
       password: password
-    })
+    }).then(data => data.auth_token)
   },
   logout() {
-    return apiCall('post', `${API_PREFIX}/auth/logout`)
+    return apiCall('post', `${API_PREFIX}/auth/token/logout`)
   },
   // user and profile
   fetchMe() {
