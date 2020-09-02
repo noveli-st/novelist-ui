@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-1" v-if="book.cycle.name">
+                        <div class="small mb-1" v-if="book.cycle">
                             <div class="position-absolute"><font-awesome-icon icon="link" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">
