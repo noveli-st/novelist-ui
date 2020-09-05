@@ -44,6 +44,9 @@ export default {
   findBooks() {
     return apiCall('get', `${API_PREFIX}/books/`)
   },
+  findProfileBooks(profileId) {
+    return apiCall('get', `${API_PREFIX}/profiles/${profileId}/books/`)
+  },
   findMyBooks() {
     return apiCall('get', `${API_PREFIX}/my-books/`)
   },
