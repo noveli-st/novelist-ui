@@ -24,6 +24,9 @@ Vue.component('cmp-cls-input', cmpClsInput)
 import cmpCardeiner from './components/assets/Cardeiner'
 Vue.component('cmp-cardeiner', cmpCardeiner)
 
+import cmpBookPreviewCover from './components/assets/BookPreviewCover'
+Vue.component('cmp-book-preview-cover', cmpBookPreviewCover)
+
 import cmpCard from './components/assets/Card'
 Vue.component('cmp-card', cmpCard)
 

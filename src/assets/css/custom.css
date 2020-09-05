@@ -68,7 +68,7 @@ del:after {
 .VueCarousel-navigation-button svg {
     height: 75%;
 }
-.VueC.arousel-navigation-button.VueCarousel-navigation-prev {
+.VueCarousel-navigation-button.VueCarousel-navigation-prev {
     left: calc(48px - 15px + 4px) !important;
 }
 @media screen and (max-width: 575px) {

@@ -1,17 +1,31 @@
 <template>
-    <div class="container">
-		<header class="mb-3">
-            <div class="h2" role="heading" aria-level="2">Books</div>
-        </header>
-        <div class="alert alert-info border-0">
-            <font-awesome-icon icon="info-circle" size="lg" class="mr-3"></font-awesome-icon>
-            The section will be soon.
-        </div>
-    </div>
+    <cmp-cardeiner
+        v-bind:cardainer-header="2"
+        v-bind:cardainer-title="'Books'"
+        v-bind:cardainer-style="'deck'"
+    >
+        <cmp-card
+            v-for="(bookId, index) in $parent.userProfile.books.map(book => book.id)"
+            v-bind:key="index"
+            v-bind:book="books.filter(book => book.id === bookId)[0]"
+            class="mb-4"
+        ></cmp-card>
+    </cmp-cardeiner>
 </template>
 
 <script>
+    import client from 'api-client'
+
+
 	export default {
-		name: 'ProfileBooks'
+		name: 'ProfileBooks',
+        data() {
+            return {
+                books: []
+            }
+        },
+        mounted() {
+            client.findBooks().then(books => (this.books = books.list))
+        }
 	}
 </script>

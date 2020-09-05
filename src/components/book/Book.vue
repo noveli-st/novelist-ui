@@ -6,13 +6,7 @@
                     <div class="col-md-5 col-lg-4 text-center">
                         <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image rounded"
                             v-bind:style="{'background' : `url(${bookCoverPreviewUrl}) no-repeat scroll center center / cover`}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-                                <title>{{ book.title }}: {{ book.author.name }}<text v-if="book.discount"> - discount {{ book.discount }}%</text></title>
-                                <template v-if="book.discount">
-                                    <polygon fill="#D4145A" opacity=".9" points="0,128 128,0 256,0 0,256" filter="drop-shadow(0 .125rem .25rem rgba(0,0,0,.75))"></polygon>
-                                    <text fill="#ffffff" font-weight="bold" font-size="90" transform="translate(55 182) rotate(-45)">{{ book.discount }}%</text>
-                                </template>
-                            </svg>
+                            <cmp-book-preview-cover></cmp-book-preview-cover>
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-8">
