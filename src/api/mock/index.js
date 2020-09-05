@@ -80,6 +80,13 @@ export default {
     findBooks() {
         return fetchOk(indexBooks);
     },
+    findProfileBooks(profileId) {
+        const books = indexBooks.list.filter(book => book.author.id === profileId)
+        return fetchOk({
+            "total": books.length,
+            "list": books
+        });
+    },
     findMyBooks() {
       return fetchOk({ list: this._getMyBooks() });
     },

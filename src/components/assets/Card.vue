@@ -96,7 +96,7 @@
 
     export default {
         name: 'Card',
-        data(){
+        data() {
             return {
                 userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.book.author.id}/preview.jpg`,
                 bookCoverPreviewUrl: `http://mobitoon.ru/novelist/images/books/${this.book.id}/preview.jpg`
@@ -106,12 +106,12 @@
             rate
         },
         methods: {
-            userAvatarUrlError(event){
+            userAvatarUrlError(event) {
                 event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
             }
         },
         computed:{
-            discountPrice(){
+            discountPrice() {
                 if(this.book.discount)
                     return (this.book.price * (100 - this.book.discount) / 100).toFixed(2)
                 else

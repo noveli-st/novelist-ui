@@ -2,12 +2,11 @@
     <cmp-cardeiner
         v-bind:cardainer-header="2"
         v-bind:cardainer-title="'Books'"
-        v-bind:cardainer-style="'deck'"
-    >
+        v-bind:cardainer-style="'deck'">
         <cmp-card
-            v-for="(bookId, index) in $parent.userProfile.books.map(book => book.id)"
+            v-for="(book, index) in books"
             v-bind:key="index"
-            v-bind:book="books.filter(book => book.id === bookId)[0]"
+            v-bind:book="book"
             class="mb-4"
         ></cmp-card>
     </cmp-cardeiner>
@@ -16,16 +15,16 @@
 <script>
     import client from 'api-client'
 
-
-	export default {
-		name: 'ProfileBooks',
+    export default {
+        name: 'ProfileBooks',
         data() {
             return {
                 books: []
             }
         },
         mounted() {
-            client.findBooks().then(books => (this.books = books.list))
+            const profileId = this.$parent.userProfile.id
+            client.findProfileBooks(profileId).then(books => this.books = books.list)
         }
-	}
+    }
 </script>
