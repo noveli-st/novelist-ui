@@ -1,0 +1,16 @@
+name: ISSUES
+
+on: [issues, issue_comment]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: notify via Telegram
+      uses: dmitry-at-hyla/telegram-action@master
+      with:
+        destination: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
