@@ -7,9 +7,10 @@
                 <button class="d-none d-md-inline-block mt-auto mb-n1 p-2 btn btn-link" v-bind:class="{'disabled': cardViewStyle == 'list'}" v-on:click="changeCardainerStyle" type="button" v-b-tooltip.hover title="List view"><font-awesome-icon icon="th-list" size="lg"></font-awesome-icon></button>
             </template>
         </header>
+        <slot name="underheader"></slot>
         <hr class="border-top">
         <div v-bind:class="cardainerStyleClass">
-            <slot></slot>
+            <slot name="cardeiner"></slot>
         </div>
         <footer v-if="cardainerLink" class="border-top pt-1 text-right">
             <router-link v-bind:to="cardainerLink" class="btn btn-link">View more<font-awesome-icon icon="arrow-alt-circle-right" class="ml-2"></font-awesome-icon></router-link>

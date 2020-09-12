@@ -39,6 +39,7 @@
             v-bind:cardainer-link="'/books'"
         >
             <cmp-card
+                slot="cardeiner"
                 v-for="(book, index) in books.slice(0, 3)"
                 v-bind:key="index"
                 v-bind:book="book"
