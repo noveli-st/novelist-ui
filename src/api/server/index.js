@@ -27,11 +27,24 @@ export default {
   logout() {
     return apiCall('post', `${API_PREFIX}/auth/token/logout`)
   },
+  registerUser(email) {
+    const password = Math.random().toString(36).substring(2)
+    return apiCall('post', `${API_PREFIX}/auth/users/`, {
+      email: email,
+      password: password,
+      re_password: password,
+    }).then(() => "success", response => {
+      if (response.status == 400) return "invalid-data"
+      console.log("activateUser: unknown status")
+      console.log(response)
+      return "unknown"
+    })
+  },
   activateUser(userid, token) {
     return apiCall('post', `${API_PREFIX}/auth/users/activation/`, {
       uid: userid,
       token: token
-    }).then(response => "success", response => {
+    }).then(() => "success", response => {
       if (response.status == 400) return "invalid-data"
       if (response.status == 403) return "already-activated"
       console.log("activateUser: unknown status")
