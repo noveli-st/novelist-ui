@@ -26,7 +26,6 @@
 import client from 'api-client'
 
 export default {
-    name: 'RegistrationSuccess',
     data() {
         return {
             status: 'in-progress'
