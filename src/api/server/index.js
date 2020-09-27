@@ -20,7 +20,7 @@ const apiCall = (method, ...params) => {
 export default {
   login(username, password) {
     return apiCall('post', `${API_PREFIX}/auth/token/login`, {
-      username: username,
+      email: username,
       password: password
     }).then(data => data.auth_token)
   },
