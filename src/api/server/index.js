@@ -27,8 +27,7 @@ export default {
   logout() {
     return apiCall('post', `${API_PREFIX}/auth/token/logout`)
   },
-  registerUser(email) {
-    const password = Math.random().toString(36).substring(2)
+  registerUser(email, password) {
     return apiCall('post', `${API_PREFIX}/auth/users/`, {
       email: email,
       password: password,

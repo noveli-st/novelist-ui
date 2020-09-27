@@ -24,6 +24,8 @@
                 <div class="invalid-feedback" v-if="!$v.registerEmail.email">This field should be an eMail</div>
                 <!-- <div class="invalid-feedback" v-if="!$v.registerEmail.uniqEmail">This eMail is already exists</div> -->
 
+                <input class="form-control" v-model="registerPassword" placeholder="Password" type="password"/>
+
                 <div class="custom-control custom-checkbox mt-3 mb-1">
                     <input id="checkUserAgreed" class="custom-control-input" v-model="hasUserAgreed" type="checkbox">
                     <label class="custom-control-label" for="checkUserAgreed">By registering you agree to the conditions:</label> <a href="agreements-policies.html" target="_blank">User agreement...</a>, <a href="agreements-policies.html#PrivacyPolicy" target="_blank">Privacy policy...</a> and <a href="agreements-policies.html#CookiePolicy" target="_blank">Cookie policy...</a>
@@ -46,6 +48,7 @@ export default {
   data() {
     return {
       registerEmail: '',
+      registerPassword: '',
       hasUserAgreed: false
     }
   },
@@ -53,10 +56,11 @@ export default {
     handleOk() {
       // should be re-routed to a proper component!
       // possible statuses:
+      //
       // * success -- user is registered and mail has been sent
       // * invalid-data -- if the data is not accepted by djoser
       // * unknown -- if unknown error occured
-      client.registerUser(this.registerEmail).then(console.log)
+      client.registerUser(this.registerEmail, this.registerPassword).then(console.log)
     }
   },
   validations: {

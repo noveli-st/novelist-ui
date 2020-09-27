@@ -45,8 +45,11 @@ export default {
         toast.success(`LOGOUT`);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
-    registerUser(email) {
+    registerUser(email, password) {
         if (email === "invalid@noveli.st") {
+            return fetchOk("invalid-data", 3000)
+        }
+        if (password === "") {
             return fetchOk("invalid-data", 3000)
         }
         return fetchOk("success", 3000)
