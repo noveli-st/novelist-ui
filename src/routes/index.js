@@ -9,6 +9,7 @@ import cmpRegInfo           from '../components/mail/RegistrationInfo'
 import cmpRegSuccess        from '../components/mail/RegistrationSuccess'
 import cmpResInfo           from '../components/mail/ResetpassInfo'
 import cmpResSuccess        from '../components/mail/ResetpassSuccess'
+import cmpActivation        from '../components/mail/Activation'
 
 import cmpSettings          from '../components/personal/settings/Settings'
 import cmpAccount           from '../components/personal/settings/Account'
@@ -79,6 +80,10 @@ export default new VueRouter({
         {
             path: '/registration-success',
             component: cmpRegSuccess
+        },
+        {
+            path: '/activate/:uid/:token',
+            component: cmpActivation
         },
         {
             path: '/resetpass-info',

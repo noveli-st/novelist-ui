@@ -7,8 +7,7 @@
         v-bind:content-class="'border-0'"
         v-on:ok="handleOk"
         centered
-        no-stacking
-    >
+        no-stacking>
         <template v-slot:modal-header="{ close }" >
             <div class="h5 modal-title">Please sign in</div>
             <button class="btn close" v-on:click="close()" type="button"><font-awesome-icon icon="times" size="sm" /></button>

@@ -45,6 +45,26 @@ export default {
         toast.success(`LOGOUT`);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
+    registerUser(email, password) {
+        if (email === "invalid@noveli.st") {
+            return fetchOk("invalid-data", 3000)
+        }
+        if (password === "") {
+            return fetchOk("invalid-data", 3000)
+        }
+        return fetchOk("success", 3000)
+    },
+    /* eslint-disable no-unused-vars */
+    activateUser(userid, token) {
+    /* eslint-enable no-unused-vars */
+        if (userid == "1") {
+            return fetchOk("invalid-data", 3000);
+        }
+        if (userid == "2") {
+            return fetchOk("already-activated", 3000);
+        }
+        return fetchOk("success", 3000);
+    },
     // user and profile
     fetchMe() {
         const token = store.state.auth.sessionToken;

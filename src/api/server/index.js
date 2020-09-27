@@ -20,12 +20,36 @@ const apiCall = (method, ...params) => {
 export default {
   login(username, password) {
     return apiCall('post', `${API_PREFIX}/auth/token/login`, {
-      username: username,
+      email: username,
       password: password
     }).then(data => data.auth_token)
   },
   logout() {
     return apiCall('post', `${API_PREFIX}/auth/token/logout`)
+  },
+  registerUser(email, password) {
+    return apiCall('post', `${API_PREFIX}/auth/users/`, {
+      email: email,
+      password: password,
+      re_password: password,
+    }).then(() => "success", response => {
+      if (response.status == 400) return "invalid-data"
+      console.log("activateUser: unknown status")
+      console.log(response)
+      return "unknown"
+    })
+  },
+  activateUser(userid, token) {
+    return apiCall('post', `${API_PREFIX}/auth/users/activation/`, {
+      uid: userid,
+      token: token
+    }).then(() => "success", response => {
+      if (response.status == 400) return "invalid-data"
+      if (response.status == 403) return "already-activated"
+      console.log("activateUser: unknown status")
+      console.log(response)
+      return "unknown"
+    })
   },
   // user and profile
   fetchMe() {
