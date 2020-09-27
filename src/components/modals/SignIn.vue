@@ -40,7 +40,7 @@
         </template>
         <template v-slot:modal-footer="{cancel, ok}">
             <button class="btn ml-0 my-0 btn-link text-decoration-none" v-on:click="cancel()" type="button"><font-awesome-icon icon="times" class="mr-2"></font-awesome-icon> Close</button>
-            <button class="btn ml-0 my-0 btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>Sign in</button>
+            <button class="btn ml-0 my-0 btn-primary" v-on:click="ok()" v-bind:disabled="$v.$invalid || !password" type="submit"><font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>Sign in</button>
         </template>
     </b-modal>
 </template>
@@ -75,7 +75,7 @@
                 email
             },
             password: {
-                minLength: minLength(6)
+                minLength: minLength(8)
             }
         }
     }
