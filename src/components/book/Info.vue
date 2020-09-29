@@ -123,7 +123,10 @@
         },
         methods: {
             userAvatarUrlError(event){
-                event.target.src = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                const failsafeUrl = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                if (event.target.src != failsafeUrl) {
+                    event.target.src = failsafeUrl
+                }
             }
         }
     }
