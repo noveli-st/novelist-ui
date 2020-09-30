@@ -79,7 +79,8 @@ import {
     faCompress,
     faImage,
     faDollarSign,
-    faHandshake
+    faHandshake,
+    faCheckCircle
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -174,7 +175,8 @@ library.add(
     faCompress,
     faImage,
     faDollarSign,
-    faHandshake
+    faHandshake,
+    faCheckCircle
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
