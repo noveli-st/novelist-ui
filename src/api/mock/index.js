@@ -45,14 +45,16 @@ export default {
         toast.success(`LOGOUT`);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
+    /* eslint-disable no-unused-vars */
     registerUser(email, password) {
+    /* eslint-enable no-unused-vars */
         if (email === "invalid@noveli.st") {
-            return fetchOk("invalid-data", 3000)
+            return fetch(err(SC.BAD_REQUEST), 1000)
         }
-        if (password === "") {
-            return fetchOk("invalid-data", 3000)
+        if (email === "timeout@noveli.st") {
+            return fetch(err(SC.TIMEOUT), 1000)
         }
-        return fetchOk("success", 3000)
+        return fetchOk("success", 1000)
     },
     /* eslint-disable no-unused-vars */
     activateUser(userid, token) {

@@ -49,6 +49,7 @@
     import { required, email, minLength } from 'vuelidate/lib/validators';
     import { mapActions } from 'vuex';
 
+    import toast from '../../util/toast'
     import { AUTH_LOGIN } from "../../store/actions/auth";
 
     export default {
@@ -57,7 +58,7 @@
             return {
                 email: '',
                 password: '',
-                hasRememberMe: false
+                hasRememberMe: false,
             }
         },
         methods: {
@@ -66,7 +67,8 @@
                 this.submitSignIn()
             },
             submitSignIn() {
-                this.login({ username: this.email, password: this.password });
+                this.login({ username: this.email, password: this.password }).
+                    catch(() => toast.error("Can't login"))
             }
         },
         validations: {
