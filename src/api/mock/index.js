@@ -48,13 +48,13 @@ export default {
     /* eslint-disable no-unused-vars */
     registerUser(email, password) {
     /* eslint-enable no-unused-vars */
-        if (email === "invalid@noveli.st") {
-            return fetch(err(SC.BAD_REQUEST), 1000)
+        if (email === "tester@noveli.st") {
+            return fetchOk("success", 1000)
         }
         if (email === "timeout@noveli.st") {
             return fetch(err(SC.TIMEOUT), 1000)
         }
-        return fetchOk("success", 1000)
+        return fetch(err(SC.BAD_REQUEST), 1000)
     },
     /* eslint-disable no-unused-vars */
     activateUser(userid, token) {
