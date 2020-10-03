@@ -18,7 +18,7 @@ const fetch = (response, time = 0) => {
                 resolve(response.data);
             }
             else {
-                toast.error(`${response.code} ${response.message}`);
+                toast.error(`Mock error: ${response.code} ${response.message}`);
                 reject(response);
             }
         }, time)
