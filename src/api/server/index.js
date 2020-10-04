@@ -32,11 +32,6 @@ export default {
       email: email,
       password: password,
       re_password: password,
-    }).then(() => "success", response => {
-      if (response.status == 400) return "invalid-data"
-      console.log("activateUser: unknown status")
-      console.log(response)
-      return "unknown"
     })
   },
   activateUser(userid, token) {
