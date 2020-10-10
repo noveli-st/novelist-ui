@@ -14,6 +14,11 @@
         </template>
         <template v-slot:default>
             <form ref="form" v-on:submit.prevent="submitSignIn">
+                <div class="alert alert-danger border-0">
+                    <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
+                    Access denied. Wrong email or password.
+                </div>
+
                 <label for="inputEmail" class="sr-only">eMail</label>
                 <input id="inputEmail" class="form-control" placeholder="eMail address" type="email"
                     v-bind:class="{'is-invalid': $v.email.$error}"
