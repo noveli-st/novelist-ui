@@ -15,6 +15,11 @@
 		</template>
 		<template v-slot:default>
 			<form ref="form" v-on:submit.prevent="submitRememberMe">
+                <div class="alert alert-danger border-0">
+                    <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
+                    We didn't find a user with this email.
+                </div>
+
 				<div class="alert alert-info border-0"><font-awesome-icon icon="info-circle" class="mr-2"/> To reset a password for your account, you have to enter the eMail to which the account is linked.</div>
 				<label for="inputEmail" class="sr-only">eMail</label>
 				<input type="email" id="inputEmail" placeholder="eMail address" class="form-control"

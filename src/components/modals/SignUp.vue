@@ -15,6 +15,11 @@
     </template>
     <template v-slot:default>
             <form ref="form" v-on:submit.prevent="handleOk">
+                <div class="alert alert-danger border-0">
+                    <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
+                    A user with this email has already been registered.
+                </div>
+
                 <label for="inputRegisterEmail" class="sr-only">eMail address</label>
                 <input id="inputRegisterEmail" class="form-control" placeholder="eMail address" type="email"
                     v-bind:class="{'is-invalid': $v.registerEmail.$error}"
