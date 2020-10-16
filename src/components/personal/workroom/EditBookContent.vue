@@ -22,6 +22,8 @@
             </ul>
             Reveal chapters gradually, one by one, no more than one chapter per day. This also applied to the translated books.
         </b-alert>
+                        {{sectionContentTMP}}
+
         <div class="accordion">
             <b-card no-body v-for="chapter in orderChapters" v-bind:key="chapter.order">
                 <b-card-header header-tag="header" role="tab" class="d-flex flex-column flex-md-row align-items-md-center border-bottom-0">
@@ -41,9 +43,13 @@
                 <b-collapse v-bind:id="`accordion-${chapter.id}-edit`" accordion="accordion" role="tabpanel">
                     <b-card-body>
                         <cmp-editor
+                            v-model="sectionContentTMP"
+                            v-bind:content="sectionContentTMP"
+                        ></cmp-editor>
+                        <!-- <cmp-editor
                             v-bind:content="sectionContentTMP"
                             v-on:updateContent="sectionContentTMP = $event"
-                        ></cmp-editor>
+                        ></cmp-editor> -->
                     </b-card-body>
                 </b-collapse>
                 <b-collapse v-bind:id="`accordion-${chapter.id}-settings`" accordion="accordion" role="tabpanel">
@@ -97,7 +103,7 @@
 </template>
 
 <script>
-    import cmpEditor from '../../../components/assets/Editor'
+    import cmpEditor from '@/components/assets/Editor'
 
     export default {
         name: 'EditBookContent',
