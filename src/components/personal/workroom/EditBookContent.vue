@@ -42,9 +42,10 @@
                 </b-card-header>
                 <b-collapse v-bind:id="`accordion-${chapter.id}-edit`" accordion="accordion" role="tabpanel">
                     <b-card-body>
-                        <cmp-editor
+                        <cmp-editor 
                             v-model="sectionContentTMP"
                             v-bind:content="sectionContentTMP"
+                            v-bind:id="chapter.id"
                         ></cmp-editor>
                         <!-- <cmp-editor
                             v-bind:content="sectionContentTMP"

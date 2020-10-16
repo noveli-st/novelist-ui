@@ -15,17 +15,8 @@
                 <font-awesome-icon icon="compress"></font-awesome-icon>
             </button>
         </header>
-        <!--div
-            v-html="content"
-            v-on:blur="onFocusOut($event)"
-            class="editor-body mt-3 mb-2 py-3 border-top border-bottom border-light outline-none flex-grow-1 overflow-auto"
-            role="textbox"
-            aria-multiline="true"
-            spellcheck="true"
-            contenteditable="true"
-        ></div-->
         <div
-            id="editor"
+            v-bind:id="`editor-${id}`"
             class="editor-body mt-3 mb-2 py-3 border-top border-bottom border-light outline-none flex-grow-1 overflow-auto"
             role="textbox"
             aria-multiline="true"
@@ -45,18 +36,21 @@
             content: {
                 type: String,
                 default: ``
+            },
+            id: {
+                type: Number,
+                default: 0
             }
         },
         data(){
             return {
-                // contentCurent: ``,
                 isCompressed: true
             }
         },
         mounted () {
             let that = this
             this.$nextTick(() => {
-                document.getElementsByClassName('editor-body')[0].addEventListener('input', function() {
+                document.getElementById(`editor-${this.id}`).addEventListener('input', function() {
                     that.getValue();
                 }, false);
             });
@@ -66,8 +60,8 @@
                 handler (val) {
                     if (val) {
                         setTimeout(() => {
-                            if (!document.getElementsByClassName('editor-body')[0].innerHTML) {
-                                document.getElementsByClassName('editor-body')[0].innerHTML = val;
+                            if (!document.getElementById(`editor-${this.id}`).innerHTML) {
+                                document.getElementById(`editor-${this.id}`).innerHTML = val;
                             }
                         }, 100);
                     }
@@ -77,7 +71,7 @@
         },
         methods: {
             getValue () {
-                this.$emit('input', document.getElementsByClassName('editor-body')[0].innerHTML);
+                this.$emit('input', document.getElementById(`editor-${this.id}`).innerHTML);
             },
             resizeEditor(status){
                 this.isCompressed = status
@@ -88,11 +82,7 @@
                     document.body.style.paddingRight = window.innerWidth - document.body.clientWidth + 'px';
                     document.body.classList.add('overflow-hidden');
                 }
-            },
-            // onFocusOut(e) {
-            //     this.contentCurent = e.target.innerHTML
-            //     this.$emit('updateContent', this.contentCurent)
-            // }
+            }
         },
         computed:{
         }
