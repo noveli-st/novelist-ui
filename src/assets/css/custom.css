@@ -98,6 +98,12 @@ outline: none; */
     pointer-events: none;
 }
 
+.btn-link-focus:focus,
+.btn-link-focus.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 .outline-none { outline: none; }
 
 .border-transparent { border-color: transparent !important; }
@@ -296,4 +302,3 @@ outline: none; */
 }
 
 /*     -     !!! Hacks !!!     -     */
-
