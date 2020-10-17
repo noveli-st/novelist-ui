@@ -90,6 +90,9 @@ export default {
         toast.info(`Save profile: ${JSON.stringify(userProfile)}`);
         return fetch(with_status(SC.NO_CONTENT, null));
     },
+    findProfiles() {
+        return fetchOk(profiles);
+    },
     // books
     findBook(bookId) {
         const response = bookId <= 12 ?

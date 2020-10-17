@@ -22,12 +22,12 @@
     "books": [
         { "id": 2, "title": "Lorem ipsum dolor sit amet", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" }
     ],
-    "cycles": [ ],
-    "reviews": [ ],
+    "cycles": [],
+    "reviews": [],
     "library": {
-        "reading": [ ],
-        "readed": [ ],
-        "bookmarks": [ ]
+        "reading": [],
+        "readed": [],
+        "bookmarks": []
     },
     "follows": {
         "my": [ { "id": 3 } ],
@@ -51,20 +51,20 @@
     "about": "I'm the author #5",
     "location": "USA / Texas",
     "website": "http://noveli.st/profile/5/info",
-    "facebook": "",
-    "instagram": "",
-    "twitter": "",
+    "facebook": "https://facebook.com/...",
+    "instagram": "https://www.instagram.com/...",
+    "twitter": "https://twitter.com/...",
     "books": [
         { "id": 8, "title": "Adipisci at: chapter one", "price": 6.00, "lastEdited": "2019-10-23T18:25:43.511Z" },
         { "id": 3, "title": "Quas facilis", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" },
         { "id": 9, "title": "Aperiam blanditiis neque", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" }
     ],
-    "cycles": [ ],
-    "reviews": [ ],
+    "cycles": [],
+    "reviews": [],
     "library": {
-        "reading": [ ],
-        "readed": [ ],
-        "bookmarks": [ ]
+        "reading": [],
+        "readed": [],
+        "bookmarks": []
     },
     "follows": {
         "my": [ { "id": 1 }, { "id": 3 } ],
@@ -88,22 +88,22 @@
     "about": "I'm the author #1",
     "location": "USA / Texas",
     "website": "http://noveli.st/profile/1/info",
-    "facebook": "",
+    "facebook": "https://facebook.com/...",
     "instagram": "",
-    "twitter": "",
+    "twitter": "https://twitter.com/...",
     "books": [
         { "id": 4, "title": "Tempora quod nam", "price": 6.00, "lastEdited": "2019-10-23T18:25:43.511Z" }
     ],
     "cycles": [ { "id": 1 } ],
-    "reviews": [ ],
+    "reviews": [],
     "library": {
-        "reading": [ ],
-        "readed": [ ],
-        "bookmarks": [ ]
+        "reading": [],
+        "readed": [],
+        "bookmarks": []
     },
     "follows": {
-        "my": [ ],
-        "im": [ ]
+        "my": [],
+        "im": []
     },
     "rate": 4.2
 }, {
@@ -126,20 +126,20 @@
     "website": "http://noveli.st/profile/4/info",
     "facebook": "",
     "instagram": "",
-    "twitter": "",
+    "twitter": "https://twitter.com/...",
     "books": [
         { "id": 5, "title": "Magnam, consequuntur et", "price": 2.99, "lastEdited": "2019-10-23T18:25:43.511Z" }
     ],
-    "cycles": [ ],
-    "reviews": [ ],
+    "cycles": [],
+    "reviews": [],
     "library": {
-        "reading": [ ],
-        "readed": [ ],
-        "bookmarks": [ ]
+        "reading": [],
+        "readed": [],
+        "bookmarks": []
     },
     "follows": {
-        "my": [ ],
-        "im": [ ]
+        "my": [],
+        "im": []
     },
     "rate": 2.8
 }, {
@@ -167,16 +167,16 @@
         { "id": 6, "title": "Optio", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" },
         { "id": 12, "title": "Amet laborum", "price": 4.00, "lastEdited": "2019-10-23T18:25:43.511Z" }
     ],
-    "cycles": [ ],
-    "reviews": [ ],
+    "cycles": [],
+    "reviews": [],
     "library": {
-        "reading": [ ],
-        "readed": [ ],
-        "bookmarks": [ ]
+        "reading": [],
+        "readed": [],
+        "bookmarks": []
     },
     "follows": {
-        "my": [ ],
-        "im": [ ]
+        "my": [],
+        "im": []
     },
     "rate": 4.1
 }, {
@@ -197,24 +197,24 @@
     "about": "I'm the author #2",
     "location": "USA / Texas",
     "website": "http://noveli.st/profile/2/info",
-    "facebook": "",
-    "instagram": "",
+    "facebook": "https://facebook.com/...",
+    "instagram": "https://www.instagram.com/...",
     "twitter": "",
     "books": [
         { "id": 7, "title": "Exercitationem aut officiis", "price": 3.99, "lastEdited": "2019-10-23T18:25:43.511Z" },
         { "id": 10, "title": "Ariatur quibusdam!", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" },
         { "id": 11, "title": "Voluptatum", "price": 0, "lastEdited": "2019-10-23T18:25:43.511Z" }
     ],
-    "cycles": [ ],
-    "reviews": [ ],
+    "cycles": [],
+    "reviews": [],
     "library": {
-        "reading": [ ],
-        "readed": [ ],
-        "bookmarks": [ ]
+        "reading": [],
+        "readed": [],
+        "bookmarks": []
     },
     "follows": {
-        "my": [ ],
-        "im": [ ]
+        "my": [],
+        "im": []
     },
     "rate": 0
 }]
