@@ -5,7 +5,9 @@
         v-bind:footer-class="'border-top-0'"
         v-bind:header-bg-variant="'light'"
         v-bind:content-class="'border-0'"
-        v-on:ok="handleOk"
+        @ok="handleOk"
+        @show="reset"
+        @hidden="reset"
         centered
         no-stacking>
         <template v-slot:modal-header="{ close }" >
@@ -14,9 +16,9 @@
         </template>
         <template v-slot:default>
             <form ref="form" v-on:submit.prevent="submitSignIn">
-                <div class="alert alert-danger border-0">
+                <div class="alert alert-danger border-0" v-if="hasErrors">
                     <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
-                    Access denied. Wrong email or password.
+                    Access denied. Invalid email or password.
                 </div>
 
                 <label for="inputEmail" class="sr-only">eMail</label>
@@ -54,7 +56,6 @@
     import { required, email, minLength } from 'vuelidate/lib/validators';
     import { mapActions } from 'vuex';
 
-    import toast from '../../util/toast'
     import { AUTH_LOGIN } from "../../store/actions/auth";
 
     export default {
@@ -64,6 +65,7 @@
                 email: '',
                 password: '',
                 hasRememberMe: false,
+                hasErrors: false,
             }
         },
         methods: {
@@ -73,8 +75,14 @@
             },
             submitSignIn() {
                 this.login({ username: this.email, password: this.password }).
-                    catch(() => toast.error("Can't login"))
-            }
+                    catch(() => this.hasErrors = true)
+            },
+            reset() {
+                this.hasErrors = false
+            },
+        },
+        mounted() {
+            this.root$
         },
         validations: {
             email: {

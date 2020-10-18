@@ -5,7 +5,9 @@
         v-bind:footer-class="'border-top-0'"
         v-bind:header-bg-variant="'light'"
         v-bind:content-class="'border-0'"
-        v-on:ok="handleOk"
+        @ok="handleOk"
+        @show="reset"
+        @hidden="reset"
         centered
         no-stacking
     >
@@ -15,7 +17,7 @@
     </template>
     <template v-slot:default>
             <form ref="form" v-on:submit.prevent="handleOk">
-                <div class="alert alert-danger border-0">
+                <div class="alert alert-danger border-0" v-if="hasErrors">
                     <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
                     A user with this email has already been registered.
                 </div>
@@ -73,7 +75,8 @@ export default {
             registerEmail: '',
             registerPassword: '',
             registerPasswordConfirm: '',
-            hasUserAgreed: false
+            hasUserAgreed: false,
+            hasErrors: false,
         }
     },
     computed: {
@@ -92,7 +95,10 @@ export default {
             client.registerUser(this.registerEmail, this.registerPassword).
                 then(() => toast.info("Success")).
                 catch(() => toast.error("Can't register"))
-        }
+        },
+        reset() {
+          this.hasErrors = false
+        },
     },
     validations: {
         registerEmail: {
