@@ -70,11 +70,15 @@
         },
         methods: {
             ...mapActions({ 'login': AUTH_LOGIN }),
-            handleOk() {
+            handleOk(ev) {
+                ev.preventDefault()
                 this.submitSignIn()
             },
             submitSignIn() {
                 this.login({ username: this.email, password: this.password }).
+                    then(() => {
+                        this.$bvModal.hide('modalSignIn')
+                    }).
                     catch(() => this.hasErrors = true)
             },
             reset() {

@@ -66,7 +66,6 @@
 <script>
 import { required, email, minLength } from 'vuelidate/lib/validators'
 import client from 'api-client'
-import toast from '../../util/toast'
 
 export default {
     name: 'ModalSignUp',
@@ -85,16 +84,19 @@ export default {
         }
     },
     methods: {
-        handleOk() {
+        handleOk(ev) {
             // should be re-routed to a proper component!
             // possible statuses:
             //
             // * success -- user is registered and mail has been sent
             // * invalid-data -- if the data is not accepted by djoser
             // * unknown -- if unknown error occured
+            ev.preventDefault()
             client.registerUser(this.registerEmail, this.registerPassword).
-                then(() => toast.info("Success")).
-                catch(() => toast.error("Can't register"))
+                then(() => {
+                    this.$bvModal.hide('modalSignUp')
+                }).
+                catch(() => this.hasErrors = true)
         },
         reset() {
           this.hasErrors = false
