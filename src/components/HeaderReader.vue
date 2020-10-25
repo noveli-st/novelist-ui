@@ -76,12 +76,6 @@
                     this.$refs.userMainMenu.show = false
                 }
             }
-        },
-        // mounted() {
-        //     this.$root.$on('bv::collapse::state', (collapseId, isJustShown) => {
-        //         if( collapseId == 'collapseGlobalSearch' && isJustShown)
-        //             document.querySelector("#collapseGlobalSearch input").focus();
-        //     })
-        // }
+        }
     }
 </script>
