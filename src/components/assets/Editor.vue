@@ -22,6 +22,7 @@
             aria-multiline="true"
             spellcheck="true"
             contenteditable="true"
+            v-on:input="pushInputEvent"
         ></div>
         <footer class="editor-footer mt-auto">
             <span class="small text-black-50">Symbols: ~{{content.length}}</span>
@@ -47,14 +48,6 @@
                 isCompressed: true
             }
         },
-        mounted () {
-            let that = this
-            this.$nextTick(() => {
-                document.getElementById(`editor-${this.id}`).addEventListener('input', function() {
-                    that.getValue();
-                }, false);
-            });
-        },
         watch: {
             content: {
                 handler (val) {
@@ -70,7 +63,7 @@
             }
         },
         methods: {
-            getValue () {
+            pushInputEvent () {
                 this.$emit('input', document.getElementById(`editor-${this.id}`).innerHTML);
             },
             resizeEditor(status){
