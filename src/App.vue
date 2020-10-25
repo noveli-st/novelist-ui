@@ -1,8 +1,9 @@
 <template>
     <div id="app">
-        <cmp-header />
+        <cmp-header v-if="$route.meta.layout != 'reader'" />
+        <cmp-header-reader v-else />
         <router-view />
-        <cmp-footer />
+        <cmp-footer v-if="$route.meta.layout != 'reader'" />
 
         <cmp-modal-sign-up />
         <cmp-modal-sign-in />
@@ -18,6 +19,7 @@
     import { CURRENT_USER_REQUEST } from "./store/actions/user"
 
     import cmpHeader from './components/Header'
+    import cmpHeaderReader from './components/HeaderReader'
     import cmpFooter from './components/Footer'
     import cmpModalSignUp from './components/modals/SignUp'
     import cmpModalSignIn from './components/modals/SignIn'
@@ -29,6 +31,7 @@
         name: 'App',
         components: {
             cmpHeader,
+            cmpHeaderReader,
             cmpFooter,
             cmpModalSignUp,
             cmpModalSignIn,
