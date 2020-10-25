@@ -48,6 +48,7 @@ import cmpBookInBookmarks   from '../components/book/InBookmarks'
 import cmpBookActivity      from '../components/book/Activity'
 import cmpBookStatistic     from '../components/book/Statistic'
 
+import cmpReader            from '../components/reader/Reader'
 
 import cmp404               from '../components/errors/Error404'
 
@@ -72,6 +73,13 @@ export default new VueRouter({
         {
             path: '/reviewers',
             component: cmpReviewers
+        },
+        {
+            path: '/reader/:id',
+            meta: {
+                layout: 'reader'
+            },
+            component: cmpReader
         },
         {
             path: '/registration-info',
