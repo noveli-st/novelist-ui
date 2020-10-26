@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="position-fixed z-index-1 w-100">
         <div class="p-2 bg-dark text-light d-flex flex-nowrap align-items-center">
             <router-link v-bind:to="'/'" title="Novelist - share your impressions">
                 <img class="d-sm-none" src="../assets/images/logo/logo.svg" height="40" alt="Novelist">
