@@ -6,7 +6,10 @@
                 <img class="d-none d-sm-block " src="../assets/images/logo/logoname.svg" height="40" alt="Novelist">
             </router-link>
             <div class="ml-auto d-flex align-items-center">
-                <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button>
+                <!-- <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button> -->
+                <button ref="buttonBookInfo" v-b-toggle.collapseBookInfo class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button>
+                <button ref="buttonTableLists" v-b-toggle.collapseTableLists class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="list-alt" size="lg" /></button>
+                <button ref="buttonViewSettings" v-b-toggle.collapseViewSettings class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="cog" size="lg" /></button>
                 <div v-if="isAuthenticated" class="position-relative d-inline-block mx-2">
                     <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
                     <b-collapse ref="userMainMenu" id="userMainMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-on-click-outside="closeMainMenu">
@@ -39,9 +42,33 @@
             </div>
         </div>
         <div class="nav-scroller position-absolute w-100 bg-light shadow-sm z-index-1">
-            <b-collapse ref="collapseGlobalSearch" id="collapseGlobalSearch" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeGlobalSearch">
+            <!-- <b-collapse ref="collapseGlobalSearch" id="collapseGlobalSearch" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeGlobalSearch">
                 <div class="container">
                     <div class="mx-auto">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
+                    </div>
+                </div>
+            </b-collapse> -->
+            <b-collapse ref="collapseBookInfo" id="collapseBookInfo" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeBookInfo">
+                <div class="container">
+                    <div class="mx-auto">
+                        <h1>collapseBookInfo</h1>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
+                    </div>
+                </div>
+            </b-collapse>
+            <b-collapse ref="collapseTableLists" id="collapseTableLists" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeTableLists">
+                <div class="container">
+                    <div class="mx-auto">
+                        <h1>collapseTableLists</h1>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
+                    </div>
+                </div>
+            </b-collapse>
+            <b-collapse ref="collapseViewSettings" id="collapseViewSettings" class="py-3 py-sm-5 px-0 px-sm-3" v-on-click-outside="closeViewSettings">
+                <div class="container">
+                    <div class="mx-auto">
+                        <h1>collapseViewSettings</h1>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
                     </div>
                 </div>
@@ -66,9 +93,24 @@
                 this.closeMainMenu();
                 this.logout();
             },
-            closeGlobalSearch(ev) {
-                if (!this.$refs.buttonGlobalSearch.contains(ev.target)) {
-                    this.$refs.collapseGlobalSearch.show = false
+            // closeGlobalSearch(ev) {
+            //     if (!this.$refs.buttonGlobalSearch.contains(ev.target)) {
+            //         this.$refs.collapseGlobalSearch.show = false
+            //     }
+            // },
+            closeBookInfo(ev) {
+                if (!this.$refs.buttonBookInfo.contains(ev.target)) {
+                    this.$refs.collapseBookInfo.show = false
+                }
+            },
+            closeTableLists(ev) {
+                if (!this.$refs.buttonTableLists.contains(ev.target)) {
+                    this.$refs.collapseTableLists.show = false
+                }
+            },
+            closeViewSettings(ev) {
+                if (!this.$refs.buttonViewSettings.contains(ev.target)) {
+                    this.$refs.collapseViewSettings.show = false
                 }
             },
             closeMainMenu(ev) {
