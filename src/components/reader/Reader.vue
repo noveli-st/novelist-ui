@@ -1,5 +1,5 @@
 <template>
-    <main class="min-vh-100">
+    <main class="min-vh-100" v-bind:class="colorMode">
         <article class="container pt-4 pb-3 pt-md-5 hyphens" lang="en">
             <div class="h2 mt-5 mb-3" role="heading" aria-level="2">Chapter #</div>
             <div class="d-flex align-items-center small mb-3">
@@ -7,7 +7,7 @@
                 <span class="flex-fill mx-2 border-bottom"></span>
                 <small class="text-nowrap">Page 1</small>
             </div>
-            <div class="page-1">
+            <div class="page-1" v-bind:class="textSize">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius nostrum magnam, temporibus ratione voluptatem at fugit molestias consequatur quia accusantium? Mollitia recusandae error itaque temporibus sit quaerat culpa tempore doloremque.</p>
                 <p>Eligendi, similique. Itaque, quaerat nulla sit fuga vitae harum delectus sunt perspiciatis labore quod beatae pariatur quisquam commodi! Consectetur, a nulla illum quas reiciendis eveniet sapiente ad necessitatibus et sit.</p>
                 <p>Dolorem, vero soluta possimus ab recusandae, nobis reiciendis repudiandae assumenda repellendus, obcaecati odit harum odio autem quam ipsam maxime corrupti suscipit molestias ratione! Sunt voluptatum officiis id, in consequatur dicta?</p>
@@ -24,7 +24,21 @@
     export default {
         name: 'Reader',
         computed: {
-            bookId () { return this.$route.params.id }
+            bookId() { return this.$route.params.id },
+            colorMode() {
+                if(this.$parent.settings.reader.colorMode === 'gray')
+                    return 'bg-secondary text-white'
+                if(this.$parent.settings.reader.colorMode === 'dark')
+                    return 'bg-dark text-white'
+                return ''
+            },
+            textSize() {
+                if(this.$parent.settings.reader.textSize === 'middle')
+                    return 'font-size-125'
+                if(this.$parent.settings.reader.textSize === 'big')
+                    return 'font-size-150'
+                return ''
+            }
         }
     }
 </script>

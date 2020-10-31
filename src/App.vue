@@ -29,6 +29,16 @@
 
     export default {
         name: 'App',
+        data() {
+            return {
+                settings: {
+                    "reader": {
+                        colorMode : "light",
+                        textSize : "normal"
+                    }
+                }
+            }
+        },
         components: {
             cmpHeader,
             cmpHeaderReader,

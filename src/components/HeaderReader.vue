@@ -7,7 +7,7 @@
             </router-link>
             <div class="ml-auto d-flex align-items-center">
                 <!-- <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button> -->
-                <button ref="buttonBookInfo" v-b-toggle.collapseBookInfo class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button>
+                <button ref="buttonBookInfo" v-on:click="showBookInfo()" v-b-toggle.collapseBookInfo class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button>
                 <button ref="buttonTableLists" v-b-toggle.collapseTableLists class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="list-alt" size="lg" /></button>
                 <button ref="buttonViewSettings" v-b-toggle.collapseViewSettings class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="cog" size="lg" /></button>
                 <div v-if="isAuthenticated" class="position-relative d-inline-block mx-2">
@@ -42,16 +42,12 @@
             </div>
         </div>
         <div class="nav-scroller position-absolute w-100 bg-light shadow-sm z-index-1">
-            <!-- <b-collapse ref="collapseGlobalSearch" id="collapseGlobalSearch" class="py-3 py-sm-5 px-0 px-sm-3" v-click-outside="closeGlobalSearch">
-                <div class="container">
-                    <div class="mx-auto">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
-                    </div>
-                </div>
-            </b-collapse> -->
             <b-collapse ref="collapseBookInfo" id="collapseBookInfo" class="py-3 py-sm-5 px-0 px-sm-3" v-click-outside="closeBookInfo">
                 <div class="container">
                     <div class="mx-auto">
+                        {{ bookId }}
+                        <hr>
+                        {{ book === null ? 'null' : book  }}
                         <h1>collapseBookInfo</h1>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
                     </div>
@@ -67,9 +63,29 @@
             </b-collapse>
             <b-collapse ref="collapseViewSettings" id="collapseViewSettings" class="py-3 py-sm-5 px-0 px-sm-3" v-click-outside="closeViewSettings">
                 <div class="container">
-                    <div class="mx-auto">
-                        <h1>collapseViewSettings</h1>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit ipsa at? Consequatur molestias debitis iste optio suscipit neque vero tempora autem quae alias rerum dignissimos, ad fuga tempore nihil.
+                    <span class="h5 d-inline-block mb-3"><i class="fas fa-adjust mr-2"></i>Color mode</span>
+                    <div class="btn-group d-flex" role="group" aria-label="Color model">
+                        <button v-on:click="changeColorMode('light')" class="btn btn-light border-0 active col" type="button">
+                            <font-awesome-icon v-show="isColorMode('light')" icon="check" size="lg" /> Light
+                        </button>
+                        <button v-on:click="changeColorMode('gray')" class="btn btn-secondary border-0 active col" type="button" >
+                            <font-awesome-icon v-show="isColorMode('gray')" icon="check" size="lg" /> Gray
+                        </button>
+                        <button v-on:click="changeColorMode('dark')" class="btn btn-dark border-0 active col" type="button">
+                            <font-awesome-icon v-show="isColorMode('dark')" icon="check" size="lg" /> Dark
+                        </button>
+                    </div>
+                    <span class="h5 d-inline-block my-3"><i class="fas fa-text-height mr-2"></i>Text size</span>
+                    <div class="btn-group d-flex" role="group" aria-label="Color model">
+                        <button v-on:click="changeTextSize('normal')" class="btn p-0 btn-transparent col" type="button">
+                            <font-awesome-icon v-show="isTextSize('normal')" icon="check" size="lg" /> Normal
+                        </button>
+                        <button v-on:click="changeTextSize('middle')" class="btn p-0 btn-transparent col font-size-125" type="button">
+                            <font-awesome-icon v-show="isTextSize('middle')" icon="check" size="lg" /> Middle
+                        </button>
+                        <button v-on:click="changeTextSize('big')" class="btn p-0 btn-transparent col font-size-150" type="button">
+                            <font-awesome-icon v-show="isTextSize('big')" icon="check" size="lg" /> Big
+                        </button>
                     </div>
                 </div>
             </b-collapse>
@@ -78,14 +94,21 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
+    import client from 'api-client'
 
-    import { AUTH_LOGOUT } from "../store/actions/auth";
+    import { mapActions } from 'vuex'
+    import { AUTH_LOGOUT } from "@/store/actions/auth";
 
     export default {
         name: 'Header',
+        data() {
+            return {
+                book: null
+            }
+        },
         computed: {
-            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; }
+            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
+            bookId() { return this.$route.params.id }
         },
         methods: {
             ...mapActions({ logout: AUTH_LOGOUT }),
@@ -93,30 +116,41 @@
                 this.closeMainMenu();
                 this.logout();
             },
-            // closeGlobalSearch(ev) {
-            //     if (!this.$refs.buttonGlobalSearch.contains(ev.target)) {
-            //         this.$refs.collapseGlobalSearch.show = false
-            //     }
-            // },
             closeBookInfo(ev) {
-                if (!this.$refs.buttonBookInfo.contains(ev.target)) {
+                if (!ev || !this.$refs.buttonBookInfo.contains(ev.target))
                     this.$refs.collapseBookInfo.show = false
-                }
             },
             closeTableLists(ev) {
-                if (!this.$refs.buttonTableLists.contains(ev.target)) {
+                if (!ev || !this.$refs.buttonTableLists.contains(ev.target))
                     this.$refs.collapseTableLists.show = false
-                }
             },
             closeViewSettings(ev) {
-                if (!this.$refs.buttonViewSettings.contains(ev.target)) {
+                if (!ev || !this.$refs.buttonViewSettings.contains(ev.target))
                     this.$refs.collapseViewSettings.show = false
-                }
             },
             closeMainMenu(ev) {
-                if (!ev || !this.$refs.inputUserMainMenu.contains(ev.target)) {
+                if (!ev || !this.$refs.inputUserMainMenu.contains(ev.target))
                     this.$refs.userMainMenu.show = false
-                }
+            },
+            changeColorMode(mode) {
+                return this.$parent.settings.reader.colorMode = mode
+            },
+            isColorMode(mode) {
+                return this.$parent.settings.reader.colorMode === mode ? true : false
+            },
+            changeTextSize(size) {
+                return this.$parent.settings.reader.textSize = size
+            },
+            isTextSize(size) {
+                return this.$parent.settings.reader.textSize === size ? true : false
+            },
+
+            setBook(book) { this.book = book },
+            showBookInfo() {
+                console.log(client.findBook(this.bookId))
+                // client.findBook(to.params.id).then(book => {
+                //     next(vm => vm.setBook(book))
+                // })
             }
         }
     }
