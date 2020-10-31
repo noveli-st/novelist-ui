@@ -7,7 +7,7 @@
             </router-link>
             <div class="ml-auto d-flex align-items-center">
                 <!-- <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button> -->
-                <button ref="buttonBookInfo" v-on:click="showBookInfo()" v-b-toggle.collapseBookInfo class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button>
+                <button ref="buttonBookInfo" v-on:click="showBookInfo" v-b-toggle.collapseBookInfo class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="info-circle" size="lg" /></button>
                 <button ref="buttonTableLists" v-b-toggle.collapseTableLists class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="list-alt" size="lg" /></button>
                 <button ref="buttonViewSettings" v-b-toggle.collapseViewSettings class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="cog" size="lg" /></button>
                 <div v-if="isAuthenticated" class="position-relative d-inline-block mx-2">
@@ -107,8 +107,15 @@
             }
         },
         computed: {
-            isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
-            bookId() { return this.$route.params.id }
+            isAuthenticated() {
+                return this.$store.getters.isCurrentUserLoaded
+            },
+            bookId() {
+                return this.$route.params.id
+            }
+        },
+        async mounted() {
+            this.book = await client.findBook(this.bookId)
         },
         methods: {
             ...mapActions({ logout: AUTH_LOGOUT }),
@@ -144,13 +151,11 @@
             isTextSize(size) {
                 return this.$parent.settings.reader.textSize === size ? true : false
             },
-
-            setBook(book) { this.book = book },
+            setBook(book) {
+                this.book = book
+            },
             showBookInfo() {
-                console.log(client.findBook(this.bookId))
-                // client.findBook(to.params.id).then(book => {
-                //     next(vm => vm.setBook(book))
-                // })
+                console.log(this.book)
             }
         }
     }
