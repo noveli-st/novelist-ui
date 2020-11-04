@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <cmp-header v-if="$route.meta.layout != 'reader'" />
-        <cmp-header-reader v-else />
+        <cmp-header-reader v-else ref="reader" />
         <router-view />
         <cmp-footer v-if="$route.meta.layout != 'reader'" />
 
@@ -34,7 +34,8 @@
                 settings: {
                     "reader": {
                         colorMode : "light",
-                        textSize : "normal"
+                        textSize : "normal",
+                        pageWidth : "responsive"
                     }
                 }
             }

@@ -306,6 +306,12 @@ outline: none; */
     padding: 1.25rem;
 }
 
+/*     -     Adds for Reader     -     */
+.nav-scroller {
+    max-height: calc(100vh - 57px);
+    overflow-y: auto;
+}
+
 /*     -     !!! Hacks !!!     -     */
 
 

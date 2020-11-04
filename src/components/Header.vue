@@ -2,8 +2,8 @@
     <header>
         <div class="p-2 bg-dark text-light d-flex flex-nowrap align-items-center">
             <router-link v-bind:to="'/'" title="Novelist - share your impressions">
-                <img class="d-sm-none" src="../assets/images/logo/logo.svg" height="40" alt="Novelist">
-                <img class="d-none d-sm-block " src="../assets/images/logo/logoname.svg" height="40" alt="Novelist">
+                <img class="d-sm-none" src="../assets/images/logo/logo.svg" height="41" alt="Novelist">
+                <img class="d-none d-sm-block " src="../assets/images/logo/logoname.svg" height="41" alt="Novelist">
             </router-link>
             <div class="ml-auto d-flex align-items-center">
                 <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="search" size="lg" /></button>
