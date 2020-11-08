@@ -15,8 +15,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/custom.css'
 
-import { directive as onClickOutside } from 'vue-on-click-outside'
-Vue.directive('on-click-outside', onClickOutside)
+import vClickOutside from 'v-click-outside'
+Vue.use(vClickOutside)
 
 import cmpClsInput from './components/assets/ClsInput'
 Vue.component('cmp-cls-input', cmpClsInput)

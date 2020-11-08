@@ -16,13 +16,13 @@
             </button>
         </header>
         <div
-            v-html="content"
-            v-on:blur="onFocusOut($event)"
+            v-bind:id="`editor-${id}`"
             class="editor-body mt-3 mb-2 py-3 border-top border-bottom border-light outline-none flex-grow-1 overflow-auto"
             role="textbox"
             aria-multiline="true"
             spellcheck="true"
             contenteditable="true"
+            v-on:input="pushInputEvent"
         ></div>
         <footer class="editor-footer mt-auto">
             <span class="small text-black-50">Symbols: ~{{content.length}}</span>
@@ -37,15 +37,35 @@
             content: {
                 type: String,
                 default: ``
+            },
+            id: {
+                type: Number,
+                default: 0
             }
         },
         data(){
             return {
-                contentCurent: ``,
                 isCompressed: true
             }
         },
+        watch: {
+            content: {
+                handler (val) {
+                    if (val) {
+                        setTimeout(() => {
+                            if (!document.getElementById(`editor-${this.id}`).innerHTML) {
+                                document.getElementById(`editor-${this.id}`).innerHTML = val;
+                            }
+                        }, 100);
+                    }
+                },
+                immediate: true
+            }
+        },
         methods: {
+            pushInputEvent () {
+                this.$emit('input', document.getElementById(`editor-${this.id}`).innerHTML);
+            },
             resizeEditor(status){
                 this.isCompressed = status
                 if(this.isCompressed) {
@@ -55,10 +75,6 @@
                     document.body.style.paddingRight = window.innerWidth - document.body.clientWidth + 'px';
                     document.body.classList.add('overflow-hidden');
                 }
-            },
-            onFocusOut(e) {
-                this.contentCurent = e.target.innerHTML
-                this.$emit('updateContent', this.contentCurent)
             }
         },
         computed:{

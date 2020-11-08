@@ -1,8 +1,9 @@
 <template>
     <div id="app">
-        <cmp-header />
+        <cmp-header v-if="$route.meta.layout != 'reader'" />
+        <cmp-header-reader v-else ref="reader" />
         <router-view />
-        <cmp-footer />
+        <cmp-footer v-if="$route.meta.layout != 'reader'" />
 
         <cmp-modal-sign-up />
         <cmp-modal-sign-in />
@@ -18,6 +19,7 @@
     import { CURRENT_USER_REQUEST } from "./store/actions/user"
 
     import cmpHeader from './components/Header'
+    import cmpHeaderReader from './components/HeaderReader'
     import cmpFooter from './components/Footer'
     import cmpModalSignUp from './components/modals/SignUp'
     import cmpModalSignIn from './components/modals/SignIn'
@@ -27,8 +29,20 @@
 
     export default {
         name: 'App',
+        data() {
+            return {
+                settings: {
+                    "reader": {
+                        colorMode : "light",
+                        textSize : "normal",
+                        pageWidth : "responsive"
+                    }
+                }
+            }
+        },
         components: {
             cmpHeader,
+            cmpHeaderReader,
             cmpFooter,
             cmpModalSignUp,
             cmpModalSignIn,

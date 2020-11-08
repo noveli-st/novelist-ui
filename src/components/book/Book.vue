@@ -1,7 +1,7 @@
 <template>
     <main class="min-vh-100" v-if="book">
         <div class="py-3 py-sm-5 px-0 px-sm-3">
-            <div class="container mx-auto text-dark">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-5 col-lg-4 text-center">
                         <div v-on:click="$store.commit('expandContainer', book.id)" class="position-relative cursor-pointer expand-image rounded"
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="small mb-1" v-if="book.cycle">
+                        <div class="small mb-1" v-if="book.cycle.length">
                             <div class="position-absolute"><font-awesome-icon icon="link" class="mr-1"></font-awesome-icon></div>
                             <div class="ml-2 pl-3">
                                 <div class="row">

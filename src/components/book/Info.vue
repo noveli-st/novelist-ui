@@ -103,7 +103,7 @@
                             <a v-if="this.$parent.book.author.twitter" class="mx-2" v-bind:href="this.$parent.book.author.twitter" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
                         </div>
                     </div>
-                    <div class="card-footer bg-transparent border-top-0 mt-auto">
+                    <div class="card-footer bg-transparent border-top-0 mt-auto pt-0">
                         <router-link class="btn btn-block btn-primary" v-bind:to="`/profile/${this.$parent.book.author.id}/info`">View profile</router-link>
                     </div>
                 </div>

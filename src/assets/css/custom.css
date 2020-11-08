@@ -1,7 +1,8 @@
 :root {
     --primary-hover: #0056b3;
+    --light-hover:   #e2e6ea;
 
-    --bg-main-color: #e7e9eb; /* rgba(20, 40, 60, .1) */
+    --bg-main-color: var(--light-hover); /* #e7e9eb; */ /* rgba(20, 40, 60, .1) */
     --black: #000;
 }
 
@@ -98,6 +99,12 @@ outline: none; */
     pointer-events: none;
 }
 
+.btn-link-focus:focus,
+.btn-link-focus.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 .outline-none { outline: none; }
 
 .border-transparent { border-color: transparent !important; }
@@ -116,6 +123,10 @@ outline: none; */
 .opa-05 { opacity: 0.5; }
 .opa-075 { opacity: 0.75; }
 .opa-1 { opacity: 1; }
+
+.font-size-100 { font-size: 1.00rem; }
+.font-size-125 { font-size: 1.25rem; }
+.font-size-150 { font-size: 1.50rem; }
 
 .image-42 {
     min-width: 42px;
@@ -295,5 +306,23 @@ outline: none; */
     padding: 1.25rem;
 }
 
+/*     -     Adds for Reader     -     */
+.nav-scroller {
+    max-height: calc(100vh - 57px);
+    overflow-y: auto;
+}
+
 /*     -     !!! Hacks !!!     -     */
 
+
+/*     -     !!!  TMP  !!!     -     */
+/* !MUST TO DELETE AFTER PRODUCTION! */
+.toast {
+    max-height: 90vh;
+    overflow-y: auto;
+    word-break: break-all;
+}
+.toast-header {
+    position: sticky;
+    top: 0;
+}
