@@ -17,9 +17,9 @@
     </template>
     <template v-slot:default>
             <form ref="form" v-on:submit.prevent="handleOk">
-                <div class="alert alert-danger border-0" v-if="hasErrors">
+                <div class="alert alert-danger border-0" v-if="errorMessage !== null">
                     <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
-                    A user with this email has already been registered.
+                    {{ errorMessage }}
                 </div>
 
                 <label for="inputRegisterEmail" class="sr-only">eMail address</label>
@@ -75,7 +75,7 @@ export default {
             registerPassword: '',
             registerPasswordConfirm: '',
             hasUserAgreed: false,
-            hasErrors: false,
+            errorMessage: null
         }
     },
     computed: {
@@ -96,10 +96,18 @@ export default {
                 then(() => {
                     this.$bvModal.hide('modalSignUp')
                 }).
-                catch(() => this.hasErrors = true)
+                catch(error => {
+                    const resp = error.response.data
+                    // get first error message
+                    for (idx in resp) {
+                        const msg = resp[idx]
+                        this.errorMessage = Array.isArray(msg) ? msg[0] : msg
+                        break;
+                    }
+                })
         },
         reset() {
-          this.hasErrors = false
+          this.errorMessage = null
         },
     },
     validations: {
