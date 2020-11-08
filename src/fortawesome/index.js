@@ -80,7 +80,15 @@ import {
     faImage,
     faDollarSign,
     faHandshake,
-    faCheckCircle
+    faCheckCircle,
+    faListAlt,
+    faCheck,
+    faAdjust,
+    faTextHeight,
+    faArrowsAltH,
+    faListOl,
+    faAngleDoubleLeft,
+    faAngleDoubleRight
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -176,7 +184,15 @@ library.add(
     faImage,
     faDollarSign,
     faHandshake,
-    faCheckCircle
+    faCheckCircle,
+    faListAlt,
+    faCheck,
+    faAdjust,
+    faTextHeight,
+    faArrowsAltH,
+    faListOl,
+    faAngleDoubleLeft,
+    faAngleDoubleRight
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
