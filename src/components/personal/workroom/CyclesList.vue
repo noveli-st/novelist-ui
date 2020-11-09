@@ -163,9 +163,8 @@
             cycleCoverPreviewUrl() {
                 // const id = this.book ? this.book.id : 0
                 const id = 0
-                return `http://mobitoon.ru/novelist/images/cycles/${id}/preview.svg`
+                return `https://noveli.st/images/cycles/${id}/preview.svg`
             }
         }
-        
 	}
 </script>

@@ -98,8 +98,8 @@
         name: 'Card',
         data() {
             return {
-                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.book.author.id}/preview.jpg`,
-                bookCoverPreviewUrl: `http://mobitoon.ru/novelist/images/books/${this.book.id}/preview.jpg`
+                userAvatarUrl: `https://noveli.st/images/users/${this.book.author.id}/preview.jpg`,
+                bookCoverPreviewUrl: `https://noveli.st/images/books/${this.book.id}/preview.jpg`
             }
         },
         components: {
@@ -107,7 +107,7 @@
         },
         methods: {
             userAvatarUrlError(event) {
-                const failsafeUrl = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                const failsafeUrl = "https://noveli.st/images/users/0/preview.svg"
                 if (event.target.src != failsafeUrl) {
                     event.target.src = failsafeUrl
                 }

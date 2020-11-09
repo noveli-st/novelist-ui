@@ -118,12 +118,12 @@
         data () {
             return {
                 bookPrice: this.$parent.book.price,
-                userAvatarUrl: `http://mobitoon.ru/novelist/images/users/${this.$parent.book.author.id}/preview.jpg`
+                userAvatarUrl: `https://noveli.st/images/users/${this.$parent.book.author.id}/preview.jpg`
             }
         },
         methods: {
             userAvatarUrlError(event){
-                const failsafeUrl = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                const failsafeUrl = "https://noveli.st/images/users/0/preview.svg"
                 if (event.target.src != failsafeUrl) {
                     event.target.src = failsafeUrl
                 }

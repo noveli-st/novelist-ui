@@ -40,9 +40,8 @@
             bookCoverPreviewUrl() {
                 // const id = this.book ? this.book.id : 0
                 const id = 1
-                return `http://mobitoon.ru/novelist/images/books/${id}/preview.jpg`
+                return `https://noveli.st/images/books/${id}/preview.jpg`
             }
         }
-        
 	}
 </script>

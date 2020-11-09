@@ -28,7 +28,7 @@
 							</div>
 							<div class="card-body text-center">
 								<div class="pl-4 pt-4 pr-4 pb-2">
-									<img class="rounded-circle shadow-sm overflow-hidden" :alt="profile.name" :src="`http://mobitoon.ru/novelist/images/users/${profile.id}/preview.jpg`" @error="userAvatarUrlError">
+									<img class="rounded-circle shadow-sm overflow-hidden" :alt="profile.name" :src="`https://noveli.st/images/users/${profile.id}/preview.jpg`" @error="userAvatarUrlError">
 								</div>
 								<span class="h5 text-center text-ellipsis mb-2">{{ profile.name }}</span>
 								<div class="mb-2">
@@ -88,7 +88,7 @@
 		},
         methods: {
             userAvatarUrlError(event){
-                const failsafeUrl = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                const failsafeUrl = "https://noveli.st/images/users/0/preview.svg"
                 if (event.target.src != failsafeUrl) {
                     event.target.src = failsafeUrl
                 }
@@ -101,6 +101,6 @@
         },
         mounted() {
             client.findProfiles().then(profiles => (this.profiles = profiles))
-        }		
+        }
 	}
 </script>

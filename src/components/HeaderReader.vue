@@ -11,7 +11,7 @@
                 <button ref="buttonTableLists" v-b-toggle.collapseTableLists class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="list-alt" size="lg" /></button>
                 <button ref="buttonViewSettings" v-b-toggle.collapseViewSettings class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="cog" size="lg" /></button>
                 <div v-if="isAuthenticated" class="position-relative d-inline-block mx-2">
-                    <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
+                    <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(https://noveli.st/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
                     <b-collapse ref="userMainMenu" id="userMainMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-click-outside="closeMainMenu">
                         <router-link class="d-flex btn btn-light btn-block border-0 rounded-0 m-0 p-3 text-decoration-none disable-events" active-class="active" v-bind:to="'...'">
                             <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">{{ this.$store.state.user.me.name }}</span>
@@ -214,7 +214,7 @@
                         <b-tab active>
                             <template #title>
                                 <font-awesome-icon icon="list-ol" class="mr-sm-2" /><span class="d-none d-sm-inline">Table of contents</span>
-                            </template>                                
+                            </template>
                             <b-card-text class="mt-3">
                                 <h2 class="d-sm-none">Table of contents</h2>
                                 <div
@@ -241,7 +241,7 @@
                         <b-tab>
                             <template #title>
                                 <font-awesome-icon icon="bookmark" class="mr-sm-2" /><span class="d-none d-sm-inline">Table of bookmarks</span>
-                            </template>                                
+                            </template>
                             <b-card-text class="mt-3">
                                 <h2 class="d-sm-none">Table of bookmarks</h2>
                                 <div class="alert alert-info border-0">
@@ -317,7 +317,7 @@
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
             bookCoverPreviewUrl() {
                 const id = this.book ? this.book.id : 0
-                return `http://mobitoon.ru/novelist/images/books/${id}/preview.jpg`
+                return `https://noveli.st/images/books/${id}/preview.jpg`
             },
             discountPrice(){
                 if(this.book.discount)
