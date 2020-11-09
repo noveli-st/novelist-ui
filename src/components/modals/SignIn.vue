@@ -16,7 +16,7 @@
         </template>
         <template v-slot:default>
             <form ref="form" v-on:submit.prevent="submitSignIn">
-                <div class="alert alert-danger border-0" v-if="hasErrors">
+                <div class="alert alert-danger border-0" v-if="errorMessage !== null">
                     <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
                     Access denied. Invalid email or password.
                 </div>
@@ -65,20 +65,32 @@
                 email: '',
                 password: '',
                 hasRememberMe: false,
-                hasErrors: false,
+                errorMessage: null,
             }
         },
         methods: {
             ...mapActions({ 'login': AUTH_LOGIN }),
-            handleOk() {
+            handleOk(ev) {
+                ev.preventDefault()
                 this.submitSignIn()
             },
             submitSignIn() {
                 this.login({ username: this.email, password: this.password }).
-                    catch(() => this.hasErrors = true)
+                    then(() => {
+                        this.$bvModal.hide('modalSignIn')
+                    }).
+                    catch(error => {
+                        const resp = error.response.data
+                        // get first error message
+                        for (const idx in resp) {
+                            const msg = resp[idx]
+                            this.errorMessage = Array.isArray(msg) ? msg[0] : msg
+                            break;
+                        }
+                    })
             },
             reset() {
-                this.hasErrors = false
+                this.errorMessage = null
             },
         },
         mounted() {

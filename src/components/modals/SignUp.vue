@@ -17,9 +17,9 @@
     </template>
     <template v-slot:default>
             <form ref="form" v-on:submit.prevent="handleOk">
-                <div class="alert alert-danger border-0" v-if="hasErrors">
+                <div class="alert alert-danger border-0" v-if="errorMessage !== null">
                     <font-awesome-icon icon="exclamation-circle" size="lg" class="mr-3"></font-awesome-icon>
-                    A user with this email has already been registered.
+                    {{ errorMessage }}
                 </div>
 
                 <label for="inputRegisterEmail" class="sr-only">eMail address</label>
@@ -66,7 +66,6 @@
 <script>
 import { required, email, minLength } from 'vuelidate/lib/validators'
 import client from 'api-client'
-import toast from '../../util/toast'
 
 export default {
     name: 'ModalSignUp',
@@ -76,7 +75,7 @@ export default {
             registerPassword: '',
             registerPasswordConfirm: '',
             hasUserAgreed: false,
-            hasErrors: false,
+            errorMessage: null
         }
     },
     computed: {
@@ -85,19 +84,31 @@ export default {
         }
     },
     methods: {
-        handleOk() {
+        handleOk(ev) {
             // should be re-routed to a proper component!
             // possible statuses:
             //
             // * success -- user is registered and mail has been sent
             // * invalid-data -- if the data is not accepted by djoser
             // * unknown -- if unknown error occured
+            ev.preventDefault()
             client.registerUser(this.registerEmail, this.registerPassword).
-                then(() => toast.info("Success")).
-                catch(() => toast.error("Can't register"))
+                then(() => {
+                    this.$bvModal.hide('modalSignUp')
+                    this.$router.push('/registration-info')
+                }).
+                catch(error => {
+                    const resp = error.response.data
+                    // get first error message
+                    for (const idx in resp) {
+                        const msg = resp[idx]
+                        this.errorMessage = Array.isArray(msg) ? msg[0] : msg
+                        break;
+                    }
+                })
         },
         reset() {
-          this.hasErrors = false
+          this.errorMessage = null
         },
     },
     validations: {
