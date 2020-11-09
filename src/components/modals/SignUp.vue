@@ -95,6 +95,7 @@ export default {
             client.registerUser(this.registerEmail, this.registerPassword).
                 then(() => {
                     this.$bvModal.hide('modalSignUp')
+                    this.$router.push('/registration-info')
                 }).
                 catch(error => {
                     const resp = error.response.data
