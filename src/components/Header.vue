@@ -8,7 +8,7 @@
             <div class="ml-auto d-flex align-items-center">
                 <button ref="buttonGlobalSearch" v-b-toggle.collapseGlobalSearch class="btn btn-sm text-light mx-2" type="button"><font-awesome-icon icon="search" size="lg" /></button>
                 <div v-if="isAuthenticated" class="position-relative d-inline-block mx-2">
-                    <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(http://mobitoon.ru/novelist/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
+                    <input ref="inputUserMainMenu" v-b-toggle.userMainMenu class="btn text-light p-0 rounded-circle shadow-sm" style="width: 40px; height: 40px; background:url(https://noveli.st/images/users/0/preview.svg) no-repeat center / 40px;" type="button">
                     <b-collapse ref="userMainMenu" id="userMainMenu" class="position-absolute r-0 mt-1 rounded overflow-hidden shadow-sm bg-white z-index-1" style="min-width: 320px; max-width: 320px;" v-click-outside="closeMainMenu">
                         <router-link class="d-flex btn btn-light btn-block border-0 rounded-0 m-0 p-3 text-decoration-none disable-events" active-class="active" v-bind:to="'...'">
                             <font-awesome-icon icon="id-card" class="my-auto" /><span class="ml-auto pl-2 text-truncate">{{ this.$store.state.user.me.name }}</span>

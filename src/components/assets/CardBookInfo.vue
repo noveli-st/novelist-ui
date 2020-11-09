@@ -171,7 +171,7 @@
                 </b-dd-item>
             </b-dd>
             <router-link v-bind:to="`/book/${book.id}/edit/terminate`" class="btn btn-sm btn-danger float-right"><font-awesome-icon icon="trash"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Delete</span></router-link>
-        </div>                            
+        </div>
     </div>
 
 </template>
@@ -182,12 +182,12 @@
         name: 'CardBookInfo',
         data(){
             return {
-                bookCoverPreviewUrl: `http://mobitoon.ru/novelist/images/books/${this.book.id}/preview.jpg`
+                bookCoverPreviewUrl: `https://noveli.st/images/books/${this.book.id}/preview.jpg`
             }
         },
         methods: {
             userAvatarUrlError(event){
-                const failsafeUrl = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                const failsafeUrl = "https://noveli.st/images/users/0/preview.svg"
                 if (event.target.src != failsafeUrl) {
                     event.target.src = failsafeUrl
                 }

@@ -205,7 +205,7 @@
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; },
             userAvatarUrl() {
                 const id = this.userProfile ? this.userProfile.id : 0
-                return `http://mobitoon.ru/novelist/images/users/${id}/preview.jpg`
+                return `https://noveli.st/images/users/${id}/preview.jpg`
             },
             isFollowed(){
                 return this.$store.getters.currentUser.follows.im.some( fluser => fluser.id === this.userProfile.id )
@@ -213,7 +213,7 @@
         },
         methods: {
             userAvatarUrlError(event) {
-                const failsafeUrl = "http://mobitoon.ru/novelist/images/users/0/preview.svg"
+                const failsafeUrl = "https://noveli.st/images/users/0/preview.svg"
                 if (event.target.src != failsafeUrl) {
                     event.target.src = failsafeUrl
                 }
