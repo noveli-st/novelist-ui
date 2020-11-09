@@ -82,7 +82,7 @@
                     catch(error => {
                         const resp = error.response.data
                         // get first error message
-                        for (idx in resp) {
+                        for (const idx in resp) {
                             const msg = resp[idx]
                             this.errorMessage = Array.isArray(msg) ? msg[0] : msg
                             break;
