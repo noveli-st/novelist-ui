@@ -1,5 +1,5 @@
 <template>
-    <header class="position-fixed z-index-1 w-100 t-0">
+    <header class="z-index-1 w-100 t-0" v-bind:class="{ 'position-fixed': scroll.direction <= 0, 'position-absolute': scroll.direction > 0 }">
         <div class="p-2 bg-dark text-light d-flex flex-nowrap align-items-center">
             <router-link v-bind:to="'/'" title="Novelist - share your impressions">
                 <img class="d-sm-none" src="../assets/images/logo/logo.svg" height="41" alt="Novelist">
@@ -310,8 +310,19 @@
         name: 'Header',
         data() {
             return {
-                book: null
+                book: null,
+                scroll: {
+                    delta: 5,
+                    value: 0,
+                    direction: 0
+                },
             }
+        },
+        created () {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        destroyed () {
+            window.removeEventListener('scroll', this.handleScroll);
         },
         computed: {
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded },
@@ -364,6 +375,12 @@
             isPageWidth(width) { return this.$parent.settings.reader.pageWidth === width ? true : false },
             setBook(book) {
                 this.book = book
+            },
+
+            handleScroll() {
+                if( Math.abs(this.scroll.value - window.scrollY) <= this.scroll.delta ) return
+                this.scroll.direction = this.scroll.value - window.scrollY < 0 ? 1 : -1
+                this.scroll.value = window.scrollY
             }
         }
     }

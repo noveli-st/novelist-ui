@@ -3,7 +3,7 @@
         <article
             class="mt-2 pt-4 pt-md-5 pb-3 hyphens"
             v-bind:class="pageWidth"
-            v-on:click="HandlerFunction($event)"
+            v-on:click="handlerArticle($event)"
             lang="en"
         >
             <div class="h2 mt-5 mb-3" role="heading" aria-level="2">Chapter #</div>
@@ -92,7 +92,7 @@
             }
         },
         methods: {
-            HandlerFunction(event) {
+            handlerArticle(event) {
                 console.log(event.target)
             }
         }
