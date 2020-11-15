@@ -1,9 +1,13 @@
 :root {
     --primary-hover: #0056b3;
     --light-hover:   #e2e6ea;
+    --border-link-focus: rgba(0, 123, 255, 0.25);
 
     --bg-main-color: var(--light-hover); /* #e7e9eb; */ /* rgba(20, 40, 60, .1) */
     --black: #000;
+
+
+    --bg-expand-container: rgba(0, 0, 0, .75);
 }
 
 /* Hide horizontal negative overhang and redefine background */
@@ -101,8 +105,8 @@ outline: none; */
 
 .btn-link-focus:focus,
 .btn-link-focus.focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    -webkit-box-shadow: 0 0 0 0.2rem var(--border-link-focus);
+    box-shadow: 0 0 0 0.2rem var(--border-link-focus);
 }
 
 .outline-none { outline: none; }
@@ -243,7 +247,7 @@ outline: none; */
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, .75);
+    background-color: var(--bg-expand-container);
     z-index: 2000;
 }
 .expand-container img {
