@@ -157,7 +157,7 @@
                             </div>
                             <hr class="d-md-none">
                         </div>
-                        <div class="col-md-7 col-lg-8 mt-auto text-center text-md-right">
+                        <div class="col-md-7 col-lg-8 my-auto text-center text-md-right">
                             <b-dd id="bookShareDropMenu" no-caret size="sm" variant="primary" menu-class="p-0 overflow-hidden border-0 shadow-sm" class="mr-1">
                                 <template slot="button-content"><font-awesome-icon icon="share-square" class="mr-2"></font-awesome-icon>Share</template>
                                 <b-dd-item variant="primary" href="#" target="_blank">
@@ -260,39 +260,48 @@
                 </div>
             </b-collapse>
             <b-collapse ref="collapseViewSettings" id="collapseViewSettings" class="py-3 py-sm-5 px-0 px-sm-3" v-click-outside="closeViewSettings">
-                <div class="container">
-                    <div class="h5 mb-3"><font-awesome-icon icon="adjust" class="mr-2" />Color mode</div>
-                    <div class="btn-group d-flex mb-5" role="group" aria-label="Color model">
-                        <button v-on:click="changeColorMode('light')" class="btn btn-light border-0 active col" type="button">
-                            <font-awesome-icon v-show="isColorMode('light')" icon="check" size="lg" /> Light
-                        </button>
-                        <button v-on:click="changeColorMode('gray')" class="btn btn-secondary border-0 active col" type="button" >
-                            <font-awesome-icon v-show="isColorMode('gray')" icon="check" size="lg" /> Gray
-                        </button>
-                        <button v-on:click="changeColorMode('dark')" class="btn btn-dark border-0 active col" type="button">
-                            <font-awesome-icon v-show="isColorMode('dark')" icon="check" size="lg" /> Dark
-                        </button>
+                <div class="container row mx-auto">
+                    <div class="col-md-6">
+                        <div class="h5 mb-3"><font-awesome-icon icon="adjust" class="mr-2" />Color mode</div>
+                        <hr class="border-top">
+                        <div class="btn-group d-flex mb-5" role="group" aria-label="Color model">
+                            <button v-on:click="changeColorMode('light')" class="btn btn-light border-0 active col" type="button">
+                                <font-awesome-icon v-show="isColorMode('light')" icon="check" size="lg" /> Light
+                            </button>
+                            <button v-on:click="changeColorMode('gray')" class="btn btn-secondary border-0 active col" type="button" >
+                                <font-awesome-icon v-show="isColorMode('gray')" icon="check" size="lg" /> Gray
+                            </button>
+                            <button v-on:click="changeColorMode('dark')" class="btn btn-dark border-0 active col" type="button">
+                                <font-awesome-icon v-show="isColorMode('dark')" icon="check" size="lg" /> Dark
+                            </button>
+                        </div>
                     </div>
-                    <div class="h5 my-3"><font-awesome-icon icon="text-height" class="mr-2" />Text size</div>
-                    <div class="btn-group d-flex mb-sm-5" role="group" aria-label="Color model">
-                        <button v-on:click="changeTextSize('normal')" class="btn p-0 btn-transparent col" type="button">
-                            <font-awesome-icon v-show="isTextSize('normal')" icon="check" size="lg" /> Normal
-                        </button>
-                        <button v-on:click="changeTextSize('middle')" class="btn p-0 btn-transparent col font-size-125" type="button">
-                            <font-awesome-icon v-show="isTextSize('middle')" icon="check" size="lg" /> Middle
-                        </button>
-                        <button v-on:click="changeTextSize('big')" class="btn p-0 btn-transparent col font-size-150" type="button">
-                            <font-awesome-icon v-show="isTextSize('big')" icon="check" size="lg" /> Big
-                        </button>
+                    <div class="col-md-6">
+                        <div class="h5 mb-3"><font-awesome-icon icon="text-height" class="mr-2" />Text size</div>
+                        <hr class="border-top">
+                        <div class="btn-group d-flex mb-sm-5" role="group" aria-label="Color model">
+                            <button v-on:click="changeTextSize('normal')" class="btn p-0 btn-transparent col" type="button">
+                                <font-awesome-icon v-show="isTextSize('normal')" icon="check" size="lg" /> Normal
+                            </button>
+                            <button v-on:click="changeTextSize('middle')" class="btn p-0 btn-transparent col font-size-125" type="button">
+                                <font-awesome-icon v-show="isTextSize('middle')" icon="check" size="lg" /> Middle
+                            </button>
+                            <button v-on:click="changeTextSize('big')" class="btn p-0 btn-transparent col font-size-150" type="button">
+                                <font-awesome-icon v-show="isTextSize('big')" icon="check" size="lg" /> Big
+                            </button>
+                        </div>
                     </div>
-                    <div class="d-none d-sm-block h5 my-3"><font-awesome-icon icon="arrows-alt-h" class="mr-2" />Page width</div>
-                    <div class="btn-group d-none d-sm-flex" role="group" aria-label="Color model">
-                        <button v-on:click="changePageWidth('responsive')" class="btn btn-transparent border-0 active col" type="button">
-                            <font-awesome-icon v-show="isPageWidth('responsive')" icon="check" size="lg" /> Responsive
-                        </button>
-                        <button v-on:click="changePageWidth('full')" class="btn btn-transparent border-0 active col" type="button" >
-                            <font-awesome-icon v-show="isPageWidth('full')" icon="check" size="lg" /> Full width
-                        </button>
+                    <div class="col-12 d-none d-sm-block">
+                        <div class="h5 mb-3"><font-awesome-icon icon="arrows-alt-h" class="mr-2" />Page width</div>
+                        <hr class="border-top">
+                        <div class="btn-group d-flex" role="group" aria-label="Color model">
+                            <button v-on:click="changePageWidth('responsive')" class="btn btn-transparent border-0 active col" type="button">
+                                <font-awesome-icon v-show="isPageWidth('responsive')" icon="check" size="lg" /> Responsive
+                            </button>
+                            <button v-on:click="changePageWidth('full')" class="btn btn-transparent border-0 active col" type="button" >
+                                <font-awesome-icon v-show="isPageWidth('full')" icon="check" size="lg" /> Full width
+                            </button>
+                        </div>
                     </div>
                 </div>
             </b-collapse>
