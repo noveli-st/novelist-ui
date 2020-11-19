@@ -70,7 +70,7 @@ export default {
     return apiCall('get', `${API_PREFIX}/my-books/`)
   },
   findMyBook(bookId) {
-    return apiCall('get', `${API_PREFIX}/my-books/${bookId}/`)
+    return apiCall('get', `${API_PREFIX}/books/${bookId}/`)
   },
   createBook(book) {
     return apiCall('post', `${API_PREFIX}/my-books/`, book)

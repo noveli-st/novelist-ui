@@ -44,7 +44,7 @@
                     <b-card-body>
                         <cmp-editor 
                             v-model="sectionContentTMP"
-                            v-bind:content="sectionContentTMP"
+                            v-bind:content="chapter.text"
                             v-bind:id="chapter.id"
                         ></cmp-editor>
                         <!-- <cmp-editor

@@ -5,7 +5,7 @@
                 <div class="h1 text-truncate" role="heading" aria-level="1">{{ book.title }}</div>
                 <ul class="nav my-md-n2">
                     <li class="nav-item">
-                        <router-link v-bind:to="'content'" class="nav-link" active-class="disabled">
+                        <router-link v-bind:to="'text'" class="nav-link" active-class="disabled">
                             <font-awesome-icon icon="edit"></font-awesome-icon><span class="d-none d-md-inline-block ml-2">Content</span>
                         </router-link>
                     </li>
