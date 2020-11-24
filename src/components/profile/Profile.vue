@@ -152,33 +152,33 @@
                         {{ userProfile.books.length }}
                     </span>
                 </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'cycles'">
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'cycles'">
                     Cycles
                     <span class="badge badge-pill ml-1 bg-secondary text-light">
                         {{ userProfile.cycles.length }}
                     </span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
                     Reviews
                     <span class="badge badge-pill ml-1 bg-secondary text-light">
                         {{ userProfile.reviews.length }}
                     </span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'library'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'library'">
                     Library
                     <span class="badge badge-pill ml-1 bg-secondary text-light">
                         {{ userProfile.library.reading.length }} &#8226; {{ userProfile.library.readed.length }} &#8226; {{ userProfile.library.bookmarks.length }}
                     </span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'follows'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'follows'">
                     Follows
                     <span class="badge badge-pill ml-1 bg-secondary text-light">
                         {{ userProfile.follows.my.length }} &#8226; {{ userProfile.follows.im.length }}
                     </span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
                     Activity
-                </router-link>
+                </router-link> -->
             </nav>
         </div>
         <router-view></router-view>

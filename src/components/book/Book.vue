@@ -17,7 +17,7 @@
                                 <div class="row">
                                     <b class="col-4 col-lg-3 pr-0">Author:</b>
                                     <div class="col-8 col-lg-9 pl-0">
-                                        <a class="d-inline-block mb-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none" href="profile.html">{{ book.author.name }}</a>
+                                        <router-link v-bind:to="`/profile/${book.author.id}`" class="d-inline-block mb-1 px-1 bg-primary rounded text-white text-nowrap text-decoration-none">{{ book.author.name }}</router-link>
                                     </div>
                                 </div>
                             </div>
@@ -160,30 +160,30 @@
                     <font-awesome-icon icon="id-card"></font-awesome-icon>
                 </router-link>
                 <span class="nav-link border-left px-0"></span>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'mentions'">
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'mentions'">
                     Mentions<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.mentions.length }}</span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'illustrations'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'illustrations'">
                     Illustrations<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.illustrations.length }}</span>
-                </router-link>
+                </router-link> -->
                 <!--router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'quotations'">
                     Quotations<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
                 </router-link-->
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
                     Reviews<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.reviews.length }}</span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'guestbook'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'guestbook'">
                     Guestbook<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.comments }}</span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'in-bookmarks'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'in-bookmarks'">
                     In bookmarks<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.bookmarkers.length }}</span>
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
                     Activity
-                </router-link>
-                <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'statistic'">
+                </router-link> -->
+                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'statistic'">
                     Statistic
-                </router-link>
+                </router-link> -->
             </nav>
         </div>
         <router-view></router-view>
