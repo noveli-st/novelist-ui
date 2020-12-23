@@ -141,12 +141,6 @@
                             v-bind:readonly="true"
                             v-b-popover.top.hover.focus.blur="'Start reading the book to vote.'"
                         ></rate>
-                        
-                        <!-- <span class="font-weight-bold d-none d-md-inline-block">Book rating:</span>
-                        <span id="bookRating" class="starrr text-nowrap"
-                        data-toggle="popover" data-trigger="focus" data-placement="top"
-                        title="Как проголосовать?"
-                        data-content="Начните читать книгу для того чтобы получить возможность проголосовать."><span id="ratingScore" class="pl-2 pr-1"></span></span> -->
                     </div>
                     <div class="col-6 col-sm-7 col-lg-8 text-right">
                         <span v-if="book.adult" class="px-1 rounded bg-dark text-white cursor-default" v-b-popover.hover.focus.blur="'The book contains strong sexual content or graphic nudity or extreme portrayals of violence!'">18+</span>
@@ -160,30 +154,6 @@
                     <font-awesome-icon icon="id-card"></font-awesome-icon>
                 </router-link>
                 <span class="nav-link border-left px-0"></span>
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'mentions'">
-                    Mentions<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.mentions.length }}</span>
-                </router-link> -->
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'illustrations'">
-                    Illustrations<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.illustrations.length }}</span>
-                </router-link> -->
-                <!--router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'quotations'">
-                    Quotations<span class="badge badge-pill ml-1 bg-secondary text-light">0</span>
-                </router-link-->
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'reviews'">
-                    Reviews<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.reviews.length }}</span>
-                </router-link> -->
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'guestbook'">
-                    Guestbook<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.comments }}</span>
-                </router-link> -->
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'in-bookmarks'">
-                    In bookmarks<span class="badge badge-pill ml-1 bg-secondary text-light">{{ book.bookmarkers.length }}</span>
-                </router-link> -->
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'activity'">
-                    Activity
-                </router-link> -->
-                <!-- <router-link class="nav-link text-nowrap" active-class="disabled" v-bind:to="'statistic'">
-                    Statistic
-                </router-link> -->
             </nav>
         </div>
         <router-view></router-view>
