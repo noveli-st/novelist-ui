@@ -9,7 +9,7 @@
             <hr class="border-top">
             <div class="row">
                 <div id="listBlock" class="col-12 col-lg-8 col-xl-9">
-                    <!--div class="btn-toolbar">
+                    <div class="btn-toolbar">
                         <cmp-cls-input class="flex-fill" type="search" placeholder="Search" aria-label="Search"/>
                         <div class="btn-group ml-2 d-lg-none" role="group" aria-label="Open filters panel">
                             <button class="btn btn-primary border-0" type="button"><font-awesome-icon icon="filter"/><span class="ml-2 d-none d-sm-inline-flex">Filters</span></button>
@@ -23,7 +23,7 @@
                             <a class="nav-link text-nowrap" href="#">Comments</a>
                             <a class="nav-link text-nowrap" href="#">Date</a>
                         </div>
-                    </div-->
+                    </div>
                     <div v-bind:class="cardainerStyleClass">
                         <cmp-card v-for="(book, index) in books.slice(0, booksLoadNumb)" v-bind:key="index" v-bind:book="book" class="mb-4"></cmp-card>
                     </div>
@@ -62,12 +62,6 @@
             }
         },
         computed: {
-            // userProfile(){
-            //     return this.$store.getters.currentUser
-            // },
-            // isAuthenticated(){
-            //     return this.$store.getters.isCurrentUserLoaded
-            // },
             cardainerStyleClass(){
                 return {
                     'card-deck': this.cardViewStyle == 'deck',
