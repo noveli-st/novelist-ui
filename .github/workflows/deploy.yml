@@ -1,0 +1,55 @@
+name: DEPLOY
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Build UI
+      run: |
+        npm run build
+
+    - name: Prepare an archive
+      run: |
+        cd dist && tar cvfz novelist-ui.tar.gz * && cd -
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Copy new archive to S3
+      run: |
+        aws s3 cp dist/novelist-ui.tar.gz s3://clevernet-web/
+
+    - name: Deploy UI
+      run: |
+        aws ssm send-command \
+        --targets Key=tag:Name,Values=app-server \
+        --document-name "AWS-RunShellScript" \
+        --timeout-seconds 60 \
+        --parameters '{"executionTimeout":["60"],"commands":["/mnt/efs/novelist-aws/aws/scripts/startup/ring2/deploy-ui.sh"]}'
