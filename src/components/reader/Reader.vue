@@ -33,7 +33,7 @@
                     <span class="flex-fill mx-2 border-bottom"></span>
                     <small class="text-nowrap">Page 2</small>
                 </header>
-                <div class="page-2" v-bind:class="textSize">
+                <div v-bind:class="textSize">
                     <p>Necessitatibus est maiores obcaecati molestiae dolores ullam cum mollitia molestias laborum quibusdam, expedita dolore explicabo repudiandae rem nulla doloremque, tenetur sint fugiat minus dolorem? Ratione facere corrupti necessitatibus distinctio ea?</p>
                     <p>Autem dolorum rem vel nulla molestiae, natus odio doloribus itaque, suscipit praesentium neque quia quisquam amet doloremque corrupti delectus quae similique? Dolor nam sapiente voluptatem minus nihil perferendis molestias odit?</p>
                     <p>Excepturi ab, dolorum nam aperiam voluptate odio possimus eveniet explicabo deserunt expedita, quam vel sint, porro iste nostrum laudantium culpa tempora. Nam quidem non iste at recusandae eos autem fugit?</p>
@@ -93,7 +93,7 @@
         },
         methods: {
             handlerArticle(event) {
-                console.log(event.target)
+                console.log(event.target.tagName)
             }
         }
     }
