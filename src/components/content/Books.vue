@@ -47,12 +47,6 @@
             }
         },
         computed: {
-            // userProfile(){
-            //     return this.$store.getters.currentUser
-            // },
-            // isAuthenticated(){
-            //     return this.$store.getters.isCurrentUserLoaded
-            // },
             cardainerStyleClass(){
                 return {
                     'card-deck': this.cardViewStyle == 'deck',
