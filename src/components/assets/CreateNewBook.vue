@@ -1,11 +1,35 @@
 <template>
     <div class="d-flex mb-3">
-        <button class="btn btn-success col-md-6 mx-auto" type="button"><font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Create new book</button>
-        <!-- <div class="col-md-6 px-0 mx-auto d-flex">
-            <input type="text" class="form-control mr-2" placeholder="Type the book title">
-            <button class="btn btn-primary text-nowrap mr-2" type="button"><font-awesome-icon icon="check" class="mr-2"></font-awesome-icon>Create</button>
-            <button class="btn btn-secondary" type="button"><font-awesome-icon icon="times"></font-awesome-icon></button>
-        </div> -->
+        <button
+            v-if="!shaowCreateForm"
+            v-on:click="shaowCreateForm = true"
+            class="btn btn-success col-md-6 mx-auto" type="button"
+        >
+            <font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Create new book
+        </button>
+        <div v-else class="col-md-6 px-0 mx-auto d-flex" >
+            <input
+                v-model="newBookTitle"
+                class="form-control mr-2"
+                placeholder="Type new book title"
+                type="text"
+            >
+            <button
+                v-on:click="createNewBook"
+                class="btn btn-success text-nowrap mr-2"
+                type="button"
+                v-bind:disabled="newBookTitle===''"
+            >
+                <font-awesome-icon icon="check" class="mr-2"></font-awesome-icon>Create
+            </button>
+            <button
+                v-on:click="shaowCreateForm = false"
+                class="btn btn-secondary"
+                type="button"
+            >
+                <font-awesome-icon icon="times"></font-awesome-icon>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -14,10 +38,15 @@
         name: 'CreateNewBook',
         data() {
             return {
-                
+                shaowCreateForm: false,
+                newBookTitle: ''
             }
         },
         methods: {
+            createNewBook() {
+                console.log(this.newBookTitle)
+                // here will be create new book actions
+            }
         },
         computed:{
         }

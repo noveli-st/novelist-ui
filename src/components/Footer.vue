@@ -82,7 +82,7 @@
                         <div class="col-12 col-md-5 text-md-left">
                             <a class="d-inline-flex flex-nowrap text-decoration-none outline-none" href="#">
                                 <img src="../assets/images/logo/logo.svg" height="40px" alt="Novelist">
-                                <span class="text-light text-left h6 m-0 ml-1"><small>&copy; 2020 - ...</small><br><b>noveli.st</b></span>
+                                <span class="text-light text-left h6 m-0 ml-1"><small>&copy; 2021</small><br><b>noveli.st</b></span>
                             </a>
                         </div>
                     </div>
