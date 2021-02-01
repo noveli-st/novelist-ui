@@ -1,8 +1,8 @@
 <template>
     <div class="d-flex mb-3">
         <button
-            v-if="!shaowCreateForm"
-            v-on:click="shaowCreateForm = true"
+            v-if="!showCreateForm"
+            v-on:click="showCreateForm = true"
             class="btn btn-success col-md-6 mx-auto" type="button"
         >
             <font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Create new book
@@ -23,7 +23,7 @@
                 <font-awesome-icon icon="check" class="mr-2"></font-awesome-icon>Create
             </button>
             <button
-                v-on:click="shaowCreateForm = false"
+                v-on:click="showCreateForm = false"
                 class="btn btn-secondary"
                 type="button"
             >
@@ -38,14 +38,18 @@
         name: 'CreateNewBook',
         data() {
             return {
-                shaowCreateForm: false,
+                showCreateForm: false,
                 newBookTitle: ''
             }
         },
         methods: {
             createNewBook() {
                 console.log(this.newBookTitle)
+                
                 // here will be create new book actions
+
+                this.newBookTitle = ''
+                this.showCreateForm = false
             }
         },
         computed:{
