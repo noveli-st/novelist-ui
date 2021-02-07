@@ -14,7 +14,7 @@
                         All the works you have written are collected in one place. You can manage them easily - add, edit, settings, preview, delete and much more.
                     </p>
 
-                    <cmp-create-new-book/>
+                    <cmp-create-new-book class="col-md-6 mx-auto px-0"></cmp-create-new-book>
 
                     <div class="h5" role="heading" aria-level="3">Last edited</div>
                     <ul class="list-group list-group-flush rounded overflow-hidden">
