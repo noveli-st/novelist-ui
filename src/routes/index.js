@@ -1,5 +1,7 @@
 import VueRouter            from 'vue-router'
 
+import store                from '../store/index.js'
+
 import cmpIndex             from '../components/index/Index'
 import cmpBooks             from '../components/content/Books'
 import cmpReviews           from '../components/content/Reviews'
@@ -52,7 +54,6 @@ import cmpReader            from '../components/reader/Reader'
 
 import cmp404               from '../components/errors/Error404'
 
-import store from '../store/index.js'
 function guardMyroute(to, from, next) {
     // console.log(to, from)
     if(store.getters.isAuthenticated)
