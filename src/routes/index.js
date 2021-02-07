@@ -52,6 +52,15 @@ import cmpReader            from '../components/reader/Reader'
 
 import cmp404               from '../components/errors/Error404'
 
+import store from '../store/index.js'
+function guardMyroute(to, from, next) {
+    // console.log(to, from)
+    if(store.getters.isAuthenticated)
+        next()
+    else
+        next('')
+}
+
 export default new VueRouter({
     routes: [
         {
@@ -115,6 +124,7 @@ export default new VueRouter({
         },
         {
             path: '/my-workroom',
+            beforeEnter: guardMyroute,
             component: cmpWorkroom
         },
         {
