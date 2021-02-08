@@ -1,5 +1,7 @@
 import VueRouter            from 'vue-router'
 
+import store                from '../store/index.js'
+
 import cmpIndex             from '../components/index/Index'
 import cmpBooks             from '../components/content/Books'
 import cmpReviews           from '../components/content/Reviews'
@@ -51,6 +53,13 @@ import cmpBookStatistic     from '../components/book/Statistic'
 import cmpReader            from '../components/reader/Reader'
 
 import cmp404               from '../components/errors/Error404'
+
+function guardMyroute(to, from, next) {
+    if(store.getters.isAuthenticated)
+        next()
+    else
+        next('')
+}
 
 export default new VueRouter({
     routes: [
@@ -115,6 +124,7 @@ export default new VueRouter({
         },
         {
             path: '/my-workroom',
+            beforeEnter: guardMyroute,
             component: cmpWorkroom
         },
         {
