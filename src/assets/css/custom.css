@@ -99,7 +99,6 @@ outline: none; */
 
 /*     -     Adds for Bootstrap     -     */
 a.disabled,
-a:disabled,
 .btn.disabled,
 .btn:disabled {
     pointer-events: none;

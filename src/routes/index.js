@@ -55,7 +55,6 @@ import cmpReader            from '../components/reader/Reader'
 import cmp404               from '../components/errors/Error404'
 
 function guardMyroute(to, from, next) {
-    // console.log(to, from)
     if(store.getters.isAuthenticated)
         next()
     else
