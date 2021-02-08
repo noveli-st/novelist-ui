@@ -160,7 +160,7 @@
             </div-->
             <div class="row justify-content-center mb-3">
                 <div class="col-md-6">
-                    <router-link class="btn btn-block btn-outline-primary" v-bind:to="'profile'"><font-awesome-icon icon="id-card" class="mr-2"></font-awesome-icon>Open profile page</router-link>
+                    <router-link class="btn btn-block btn-outline-primary" v-bind:to="`/profile/${userProfile.id}/info`"><font-awesome-icon icon="id-card" class="mr-2"></font-awesome-icon>Open profile page</router-link>
                 </div>
             </div>
             <hr class="border-top">
