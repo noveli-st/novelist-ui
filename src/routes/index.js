@@ -58,7 +58,7 @@ function guardMyroute(to, from, next) {
     if(store.getters.isAuthenticated)
         next()
     else
-        next('')
+        next('/')
 }
 
 export default new VueRouter({
@@ -112,14 +112,17 @@ export default new VueRouter({
         },
         {
             path: '/settings',
+            beforeEnter: guardMyroute,
             component: cmpSettings
         },
         {
             path: '/account',
+            beforeEnter: guardMyroute,
             component: cmpAccount
         },
         {
             path: '/account/terminate',
+            beforeEnter: guardMyroute,
             component: cmpAccountTerminate
         },
         {
@@ -129,10 +132,12 @@ export default new VueRouter({
         },
         {
             path: '/books/my',
+            beforeEnter: guardMyroute,
             component: cmpBooksList
         },
         {
             path: '/book/:id/edit',
+            beforeEnter: guardMyroute,
             component: cmpEditBook,
             children: [
                 {
@@ -159,26 +164,32 @@ export default new VueRouter({
         },
         {
             path: '/my-cycles',
+            beforeEnter: guardMyroute,
             component: cmpCyclesList
         },
         {
             path: '/my-cycle',
+            beforeEnter: guardMyroute,
             component: cmpEditCycle
         },
         {
             path: '/profile/edit',
+            beforeEnter: guardMyroute,
             component: cmpProfileEdit
         },
         {
             path: '/books-list',
+            beforeEnter: guardMyroute,
             component: cmpBooksList
         },
         {
             path: '/cycles-list',
+            beforeEnter: guardMyroute,
             component: cmpCyclesList
         },
         {
             path: '/edit-cycle',
+            beforeEnter: guardMyroute,
             component: cmpEditCycle
         },
         {
