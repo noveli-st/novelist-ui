@@ -22,19 +22,35 @@
             </ul>
             Reveal chapters gradually, one by one, no more than one chapter per day. This also applied to the translated books.
         </b-alert>
-                        {{sectionContentTMP}}
-
         <div class="accordion">
-            <b-card no-body v-for="chapter in orderChapters" v-bind:key="chapter.order">
+            <b-card no-body v-for="(chapter, index) in orderChapters" v-bind:key="index">
                 <b-card-header header-tag="header" role="tab" class="d-flex flex-column flex-md-row align-items-md-center border-bottom-0">
                     <div class="h6 mb-0" role="heading" aria-level="3">{{ chapter.title }}</div>
                     <div class="ml-md-auto d-flex d-md-inline-flex">
-                        <b-button v-b-toggle="`accordion-${chapter.id}-edit`" class="text-primary" variant="link" v-b-tooltip.hover title="Edit chapter">
-                            <font-awesome-icon icon="edit"></font-awesome-icon>
-                        </b-button>
-                        <b-button v-b-toggle="`accordion-${chapter.id}-settings`" class="text-primary" variant="link" v-b-tooltip.hover title="Chapter settings">
-                            <font-awesome-icon icon="cog"></font-awesome-icon>
-                        </b-button>
+                        <div class="my-auto">
+                            <button
+                                type="button"
+                                class="btn btn-link"
+                                v-on:click="orderUp(index)"
+                                v-b-tooltip.hover title="Move up"
+                                v-bind:disabled="index <= 0"
+                            ><font-awesome-icon icon="chevron-up" size="sm"></font-awesome-icon></button>
+                            <button
+                                type="button"
+                                class="btn btn-link"
+                                v-on:click="orderDown(index)"
+                                v-b-tooltip.hover title="Move down"
+                                v-bind:disabled="index >= orderChapters.length - 1"
+                            ><font-awesome-icon icon="chevron-down" size="sm"></font-awesome-icon></button>
+                        </div>
+                        <div class="ml-md-3">
+                            <b-button v-b-toggle="`accordion-${chapter.id}-edit`" class="text-primary" variant="link" v-b-tooltip.hover title="Edit chapter">
+                                <font-awesome-icon icon="edit"></font-awesome-icon>
+                            </b-button>
+                            <b-button v-b-toggle="`accordion-${chapter.id}-settings`" class="text-primary" variant="link" v-b-tooltip.hover title="Chapter settings">
+                                <font-awesome-icon icon="cog"></font-awesome-icon>
+                            </b-button>
+                        </div>
                         <b-button v-b-toggle="`accordion-${chapter.id}-delete`" class="ml-auto ml-md-3 text-danger" variant="link" v-b-tooltip.hover title="Delete chapter">
                             <font-awesome-icon icon="trash"></font-awesome-icon>
                         </b-button>
@@ -47,10 +63,6 @@
                             v-bind:content="sectionContentTMP"
                             v-bind:id="chapter.id"
                         ></cmp-editor>
-                        <!-- <cmp-editor
-                            v-bind:content="sectionContentTMP"
-                            v-on:updateContent="sectionContentTMP = $event"
-                        ></cmp-editor> -->
                     </b-card-body>
                 </b-collapse>
                 <b-collapse v-bind:id="`accordion-${chapter.id}-settings`" accordion="accordion" role="tabpanel">
@@ -120,10 +132,20 @@
         components: {
             cmpEditor
         },
+        methods: {
+            orderUp(index) {
+                this.$parent.book.chapters[index].order += 1
+                this.$parent.book.chapters[index - 1].order -= 1
+            },
+            orderDown(index) {
+                this.$parent.book.chapters[index].order -= 1
+                this.$parent.book.chapters[index + 1].order += 1
+            }
+        },
         computed: {
             orderChapters() {
                 const book = this.$parent.book
-                return book ? book.chapters : []
+                return book ? book.chapters.sort((a, b) => (a.order < b.order) ? 1 : -1 ) : []
             },
             chapterTypeName() {
                 const book = this.$parent.book
