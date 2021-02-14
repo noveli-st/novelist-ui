@@ -145,7 +145,7 @@
         computed: {
             orderChapters() {
                 const book = this.$parent.book
-                return book ? book.chapters.sort((a, b) => (a.order < b.order) ? 1 : -1 ) : []
+                return book ? book.chapters.sort((a, b) => b.order - a.order) : []
             },
             chapterTypeName() {
                 const book = this.$parent.book
