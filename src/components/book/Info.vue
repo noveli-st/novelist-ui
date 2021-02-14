@@ -15,7 +15,7 @@
                         <div class="my-0 h5" role="heading" aria-level="2">Table of contents</div>
                     </div>
                     <div class="card-body px-3">
-                        <div v-if="this.$parent.book.status" class="alert alert-success border-0">
+                        <div v-if="$parent.book.status" class="alert alert-success border-0">
                             <font-awesome-icon icon="check-square" size="lg" class="mr-3"></font-awesome-icon>
                             The book is completed.
                         </div>
@@ -36,7 +36,7 @@
                                 <hr class="my-0">
                             </header>
                             <div class="scroll-box-body px-1 small">
-                                <div v-for="chapter in this.$parent.book.chapters" v-bind:key="chapter.order" class="d-flex flex-row mt-3">
+                                <div v-for="chapter in $parent.book.chapters" v-bind:key="chapter.order" class="d-flex flex-row mt-3">
                                     <div class="pr-4">
                                         <span class="position-absolute">{{ chapter.order }}</span>
                                     </div>
@@ -44,10 +44,11 @@
                                         <template v-if="bookPrice">
                                             <font-awesome-icon v-if="chapter.order - 1" icon="lock" size="sm" class="mr-2 text-muted"></font-awesome-icon>
                                             <font-awesome-icon v-else icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon>
-                                            <a href="reader.html">{{ chapter.title }}</a>
+                                            <router-link v-bind:to="`/reader/${$parent.book.id}`">{{ chapter.title }}</router-link>
                                         </template>
                                         <template v-else>
-                                            <font-awesome-icon icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon><a href="reader.html">{{ chapter.title }}</a>
+                                            <font-awesome-icon icon="unlock" size="sm" class="mr-2 text-success"></font-awesome-icon>
+                                            <router-link v-bind:to="`/reader/${$parent.book.id}`">{{ chapter.title }}</router-link>
                                         </template>
                                     </div>
                                     <time class="text-nowrap" v-bind:datetime="chapter.published">{{ (new Date(chapter.published)).toLocaleDateString() }}</time>
@@ -68,7 +69,7 @@
                                 <!-- <span class="ml-2" data-toggle="tooltip" data-placement="top" title="Followers"><sup><i class="fas fa-long-arrow-alt-down"></i></sup><i class="fas fa-user mr-1"></i>29</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top" title="Following"><sup><i class="fas fa-long-arrow-alt-up"></i></sup><i class="fas fa-user mr-1"></i>174</span> -->
                             </div>
-                            <template v-if="this.$parent.isAuthenticated">
+                            <template v-if="$parent.isAuthenticated">
                                 <button class="btn btn-sm btn-outline-primary ml-auto" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
 <!--                        <button class="btn btn-sm btn-primary" type="button"><i class="fas fa-user-minus mr-2"></i>Unfollow</button>-->
                             </template>
@@ -79,32 +80,32 @@
                     </div>
                     <div class="card-body text-center">
                         <div class="pl-4 pt-4 pr-4 pb-2">
-                            <img class="rounded-circle shadow-sm overflow-hidden" :alt="this.$parent.book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
+                            <img class="rounded-circle shadow-sm overflow-hidden" :alt="$parent.book.author.name" :src="userAvatarUrl" @error="userAvatarUrlError">
                         </div>
-                        <span class="h5 text-center text-ellipsis mb-2">{{ this.$parent.book.author.name }}</span>
+                        <span class="h5 text-center text-ellipsis mb-2">{{ $parent.book.author.name }}</span>
                         <div class="mb-2">
-                            <span v-if="this.$parent.book.author.books" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... has written a book">
-                                <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>{{ this.$parent.book.author.books }}
+                            <span v-if="$parent.book.author.books" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... has written a book">
+                                <font-awesome-icon icon="pen-alt" class="mr-1"></font-awesome-icon>{{ $parent.book.author.books }}
                             </span>
-                            <span v-if="this.$parent.book.author.reviews" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... has given review of a book">
-                                <font-awesome-icon icon="glasses" class="mr-1"></font-awesome-icon>{{ this.$parent.book.author.reviews }}
+                            <span v-if="$parent.book.author.reviews" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... has given review of a book">
+                                <font-awesome-icon icon="glasses" class="mr-1"></font-awesome-icon>{{ $parent.book.author.reviews }}
                             </span>
-                            <span v-if="this.$parent.book.author.reads" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... had read a book">
-                                <font-awesome-icon icon="book-reader" class="mr-1"></font-awesome-icon>{{ this.$parent.book.author.reads }}
+                            <span v-if="$parent.book.author.reads" class="badge badge-secondary mr-1 cursor-default" v-b-tooltip.hover title="... had read a book">
+                                <font-awesome-icon icon="book-reader" class="mr-1"></font-awesome-icon>{{ $parent.book.author.reads }}
                             </span>
                         </div>
                         <!-- <time class="d-block small text-muted" datetime="2019-10-22T21:30"><i class="fas fa-calendar-day mr-2"></i><span class="font-weight-bold">Joined:</span> 22 October 2018</time> -->
-                        <time class="d-inline-block small text-muted" v-bind:datetime="this.$parent.book.author.created"><font-awesome-icon icon="calendar-day" class="mr-2"></font-awesome-icon><span class="font-weight-bold mr-1">Joined:</span>{{ (new Date(this.$parent.book.author.created)).toLocaleDateString() }}</time>
-                        <div v-if="this.$parent.book.author.website || this.$parent.book.author.facebook || this.$parent.book.author.instagram || this.$parent.book.author.twitter">
+                        <time class="d-inline-block small text-muted" v-bind:datetime="$parent.book.author.created"><font-awesome-icon icon="calendar-day" class="mr-2"></font-awesome-icon><span class="font-weight-bold mr-1">Joined:</span>{{ (new Date($parent.book.author.created)).toLocaleDateString() }}</time>
+                        <div v-if="$parent.book.author.website || $parent.book.author.facebook || $parent.book.author.instagram || $parent.book.author.twitter">
                             <hr>
-                            <a v-if="this.$parent.book.author.website" class="mx-2" v-bind:href="this.$parent.book.author.website" v-b-tooltip.hover.focus title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
-                            <a v-if="this.$parent.book.author.facebook" class="mx-2" v-bind:href="this.$parent.book.author.facebook" v-b-tooltip.hover.focus title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
-                            <a v-if="this.$parent.book.author.instagram" class="mx-2" v-bind:href="this.$parent.book.author.instagram" v-b-tooltip.hover.focus title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
-                            <a v-if="this.$parent.book.author.twitter" class="mx-2" v-bind:href="this.$parent.book.author.twitter" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
+                            <a v-if="$parent.book.author.website" class="mx-2" v-bind:href="$parent.book.author.website" v-b-tooltip.hover.focus title="Website"><font-awesome-icon icon="globe" size="lg"></font-awesome-icon></a>
+                            <a v-if="$parent.book.author.facebook" class="mx-2" v-bind:href="$parent.book.author.facebook" v-b-tooltip.hover.focus title="Facebook"><font-awesome-icon :icon="['fab', 'facebook']" size="lg"></font-awesome-icon></a>
+                            <a v-if="$parent.book.author.instagram" class="mx-2" v-bind:href="$parent.book.author.instagram" v-b-tooltip.hover.focus title="Twitter"><font-awesome-icon :icon="['fab', 'instagram']" size="lg"></font-awesome-icon></a>
+                            <a v-if="$parent.book.author.twitter" class="mx-2" v-bind:href="$parent.book.author.twitter" v-b-tooltip.hover.focus title="Instagram"><font-awesome-icon :icon="['fab', 'twitter']" size="lg"></font-awesome-icon></a>
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-top-0 mt-auto pt-0">
-                        <router-link class="btn btn-block btn-primary" v-bind:to="`/profile/${this.$parent.book.author.id}/info`">View profile</router-link>
+                        <router-link class="btn btn-block btn-primary" v-bind:to="`/profile/${$parent.book.author.id}/info`">View profile</router-link>
                     </div>
                 </div>
             </div>
