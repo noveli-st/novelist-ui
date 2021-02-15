@@ -16,6 +16,9 @@ jobs:
       with:
         node-version: 12.x
 
+    - name: Install jq
+      run: sudo apt-get install jq
+
     - name: Install dependencies
       run: |
         npm install
@@ -35,6 +38,13 @@ jobs:
       run: |
         cd dist && aws s3 sync --acl public-read . s3://clevernet-web/novelist-ui/
 
+    - name: Set distribution id
+      run: |
+        echo "DISTRIBUTION_ID=$( \
+              aws --profile mine cloudfront list-distributions | \
+              jq -r '.DistributionList.Items | map(select(.Aliases.Items | contains(["noveli.st"]))) | .[0].Id'
+        )" >> $GITHUB_ENV
+
     - name: Invalidate content
       run: |
-        aws cloudfront create-invalidation --distribution-id E21FAEGNWAYDVD --paths '/*'
+        aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
