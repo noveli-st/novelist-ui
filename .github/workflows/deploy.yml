@@ -41,7 +41,7 @@ jobs:
     - name: Set distribution id
       run: |
         echo "DISTRIBUTION_ID=$( \
-              aws --profile mine cloudfront list-distributions | \
+              aws cloudfront list-distributions | \
               jq -r '.DistributionList.Items | map(select(.Aliases.Items | contains(["noveli.st"]))) | .[0].Id'
         )" >> $GITHUB_ENV
 
