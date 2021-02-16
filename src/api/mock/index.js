@@ -116,7 +116,10 @@ export default {
       return fetchOk({ list: this._getMyBooks() });
     },
     findMyBook(bookId) {
-      return fetchOk(this._getMyBooks().find(book => book.id === Number(bookId)));
+        const response = this._isAuthenticated() ?
+            with_status(SC.OK, this._getMyBooks().find(book => book.id === Number(bookId))) :
+            err(SC.make_status(404, 'Not found'));
+        return fetch(response, 1000);
     },
     createBook(book) {
         // TODO: add as "my" book
