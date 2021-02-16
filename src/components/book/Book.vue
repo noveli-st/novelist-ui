@@ -169,10 +169,7 @@
                 title: book.title,
                 author: book.author.name
             }"
-            v-bind:reportSnitch="{
-                id: $store.getters.currentUser.id,
-                name: $store.getters.currentUser.name
-            }"
+            v-bind:reportSnitch="$store.getters.currentUser"
         />
     </main>
 </template>
