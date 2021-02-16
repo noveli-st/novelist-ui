@@ -69,11 +69,7 @@ export default {
     },
     // user and profile
     fetchMe() {
-        const token = store.state.auth.sessionToken;
-        toast.info(`TOKEN: ${token}`);
-
-        const hasToken = token != null;
-        const response = hasToken ?
+        const response = this._isAuthenticated() ?
             with_status(SC.OK, me) : err(SC.make_status(801, 'Token not set'));
 
         return fetch(response, 1000);
@@ -113,7 +109,8 @@ export default {
         });
     },
     findMyBooks() {
-      return fetchOk({ list: this._getMyBooks() });
+        const books = this._isAuthenticated() ? this._getMyBooks() : [];
+        return fetchOk({list: books});
     },
     findMyBook(bookId) {
         const response = this._isAuthenticated() ?
@@ -151,7 +148,10 @@ export default {
     },
     // private methods
     _getMyBooks() {
-        console.log(indexBooks.list.filter(book => book.id === 2));
         return indexBooks.list.filter(book => book.id === 2);
+    },
+    _isAuthenticated() {
+        const token = store.state.auth.sessionToken;
+        return token != null;
     }
 }
