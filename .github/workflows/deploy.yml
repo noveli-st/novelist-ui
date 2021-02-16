@@ -11,17 +11,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
+
+    - name: Install jq
+      run: sudo apt-get install jq
 
     - name: Install dependencies
       run: |
@@ -31,10 +27,6 @@ jobs:
       run: |
         npm run build
 
-    - name: Prepare an archive
-      run: |
-        cd dist && tar cvfz novelist-ui.tar.gz * && cd -
-
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -42,14 +34,17 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Copy new archive to S3
+    - name: Sync content with S3
       run: |
-        aws s3 cp dist/novelist-ui.tar.gz s3://clevernet-web/
+        cd dist && aws s3 sync --acl public-read . s3://clevernet-web/novelist-ui/
 
-    - name: Deploy UI
+    - name: Set distribution id
       run: |
-        aws ssm send-command \
-        --targets Key=tag:Name,Values=app-server \
-        --document-name "AWS-RunShellScript" \
-        --timeout-seconds 60 \
-        --parameters '{"executionTimeout":["60"],"commands":["/mnt/efs/novelist-aws/aws/scripts/startup/ring2/deploy-ui.sh"]}'
+        echo "DISTRIBUTION_ID=$( \
+              aws --profile mine cloudfront list-distributions | \
+              jq -r '.DistributionList.Items | map(select(.Aliases.Items | contains(["noveli.st"]))) | .[0].Id'
+        )" >> $GITHUB_ENV
+
+    - name: Invalidate content
+      run: |
+        aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*'
