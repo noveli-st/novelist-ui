@@ -109,11 +109,16 @@
                         <template v-if="isAuthenticated">
                             <button v-if="isFollowed" class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Unfollow</button>
                             <button v-else class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+                            <button v-if="!isMyPage" class="btn btn-sm btn-danger" v-b-modal.modalReportViolation v-b-tooltip.hover.focus title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button>
                         </template>
-                        <span v-else class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can follow! Please Sign in...">
-                            <button class="btn btn-sm btn-outline-primary mr-1" type="button" disabled><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
-                        </span>
-                        <button class="btn btn-sm btn-danger" v-b-tooltip.hover.focus title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button> <!-- disabled если на своей странице -->
+                        <template v-else>
+                            <span class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can follow! Please Sign in...">
+                                <button class="btn btn-sm btn-outline-primary mr-1" type="button" disabled><font-awesome-icon icon="user-check" class="mr-2"></font-awesome-icon>Follow</button>
+                            </span>
+                            <span class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Report a violation avaliable only for registered users!">
+                                <button class="btn btn-sm btn-danger" type="button" disabled><font-awesome-icon icon="ban"></font-awesome-icon></button>
+                            </span>
+                        </template>
                     </div>
                 </div>
                 <hr>
@@ -155,6 +160,14 @@
             </nav>
         </div>
         <router-view></router-view>
+        <cmp-modal-report-violation
+            reportHeader="Violation target - user"
+            v-bind:reportInfo="{
+                id: userProfile.id,
+                name: userProfile.name
+            }"
+            v-bind:reportSnitch="$store.getters.currentUser"
+        />
     </main>
 </template>
 
@@ -162,7 +175,7 @@
     import client from 'api-client'
     import toast from '../../util/toast'
     import rate from '../../components/assets/Rate'
-
+    import cmpModalReportViolation from '@/components/modals/ReportViolation'
 
     export default {
         name: 'Profile',
@@ -172,7 +185,8 @@
             }
         },
         components: {
-            rate
+            rate,
+            cmpModalReportViolation
         },
         computed: {
             isAuthenticated() { return this.$store.getters.isCurrentUserLoaded; },
@@ -182,6 +196,9 @@
             },
             isFollowed(){
                 return this.$store.getters.currentUser.follows.im.some( fluser => fluser.id === this.userProfile.id )
+            },
+            isMyPage() {
+                return this.$store.getters.currentUser.id === this.userProfile.id ? true : false
             }
         },
         methods: {
