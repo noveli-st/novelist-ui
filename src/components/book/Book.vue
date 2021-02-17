@@ -123,8 +123,7 @@
                         <template v-if="isAuthenticated">
                             <button v-if="isBookmarked" class="btn btn-sm btn-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Bookmarked</button>
                             <button v-else class="btn btn-sm btn-outline-primary mr-1" type="button"><font-awesome-icon icon="bookmark" class="mr-2"></font-awesome-icon>Add bookmark</button>
-                            <button class="btn btn-sm btn-danger" v-b-modal.modalReportViolation v-b-tooltip.hover.focus title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button>
-                            <!-- disabled если на своей странице -->
+                            <button v-if="!isBookMy" class="btn btn-sm btn-danger" v-b-modal.modalReportViolation v-b-tooltip.hover.focus title="Report a violation" type="button"><font-awesome-icon icon="ban"></font-awesome-icon></button>
                         </template>
                         <template v-else>
                             <span class="d-inline-block" tabindex="0" v-b-tooltip.hover.v-info title="Only registered users can bookmark! Please Sign in...">
@@ -205,14 +204,17 @@
                 const id = this.book ? this.book.id : 0
                 return `https://noveli.st/images/books/${id}/preview.jpg`
             },
-            discountPrice(){
+            discountPrice() {
                 if(this.book.discount)
                     return (this.book.price * (100 - this.book.discount) / 100).toFixed(2)
                 else
                     return this.book.price
             },
-            isBookmarked(){
+            isBookmarked() {
                 return this.$store.getters.currentUser.library.bookmarks.some( bmbook => bmbook.id === this.book.id )
+            },
+            isBookMy() {
+                return this.books.findIndex(x => x.id === this.book.id) < 0  ? false : true
             }
         },
         methods: {
