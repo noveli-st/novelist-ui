@@ -72,8 +72,8 @@ export default {
   findMyBook(bookId) {
     return apiCall('get', `${API_PREFIX}/my-books/${bookId}/`)
   },
-  createBook(book) {
-    return apiCall('post', `${API_PREFIX}/my-books/`, book)
+  createBook(bookTitle) {
+    return apiCall('post', `${API_PREFIX}/books/create/`, bookTitle)
   },
   saveBook(book) {
     return apiCall('put', `${API_PREFIX}/my-books/${book.id}/`, book)

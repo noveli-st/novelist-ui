@@ -34,6 +34,7 @@
 </template>
 
 <script>
+    import client from 'api-client'
     export default {
         name: 'CreateNewBook',
         data() {
@@ -44,10 +45,9 @@
         },
         methods: {
             createNewBook() {
-                console.log(this.newBookTitle)
-                
-                // here will be create new book actions
-
+                client.createBook({"title": this.newBookTitle}).then(
+                    book => this.$parent.books.unshift(book)
+                );
                 this.newBookTitle = ''
                 this.showCreateForm = false
             }
