@@ -1,5 +1,7 @@
 import VueRouter            from 'vue-router'
 
+import store                from '../store/index.js'
+
 import cmpIndex             from '../components/index/Index'
 import cmpBooks             from '../components/content/Books'
 import cmpReviews           from '../components/content/Reviews'
@@ -52,6 +54,13 @@ import cmpReader            from '../components/reader/Reader'
 
 import cmp404               from '../components/errors/Error404'
 
+function guardMyroute(to, from, next) {
+    if(store.getters.isAuthenticated)
+        next()
+    else
+        next('/')
+}
+
 export default new VueRouter({
     routes: [
         {
@@ -103,26 +112,32 @@ export default new VueRouter({
         },
         {
             path: '/settings',
+            beforeEnter: guardMyroute,
             component: cmpSettings
         },
         {
             path: '/account',
+            beforeEnter: guardMyroute,
             component: cmpAccount
         },
         {
             path: '/account/terminate',
+            beforeEnter: guardMyroute,
             component: cmpAccountTerminate
         },
         {
             path: '/my-workroom',
+            beforeEnter: guardMyroute,
             component: cmpWorkroom
         },
         {
             path: '/books/my',
+            beforeEnter: guardMyroute,
             component: cmpBooksList
         },
         {
             path: '/book/:id/edit',
+            beforeEnter: guardMyroute,
             component: cmpEditBook,
             children: [
                 {
@@ -149,26 +164,32 @@ export default new VueRouter({
         },
         {
             path: '/my-cycles',
+            beforeEnter: guardMyroute,
             component: cmpCyclesList
         },
         {
             path: '/my-cycle',
+            beforeEnter: guardMyroute,
             component: cmpEditCycle
         },
         {
             path: '/profile/edit',
+            beforeEnter: guardMyroute,
             component: cmpProfileEdit
         },
         {
             path: '/books-list',
+            beforeEnter: guardMyroute,
             component: cmpBooksList
         },
         {
             path: '/cycles-list',
+            beforeEnter: guardMyroute,
             component: cmpCyclesList
         },
         {
             path: '/edit-cycle',
+            beforeEnter: guardMyroute,
             component: cmpEditCycle
         },
         {

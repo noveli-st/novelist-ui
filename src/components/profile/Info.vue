@@ -8,14 +8,14 @@
                         <h2 class="h5 my-0">About me</h2>
                     </div>
                     <div class="card-body">
-                        <div v-if="!this.$parent.userProfile.about.length" class="alert alert-secondary border-0 mb-0">
-                           <font-awesome-icon icon="frown" size="lg" class="mr-3"></font-awesome-icon>{{ this.$parent.userProfile.name }} chose not to tell anything about themselves.
+                        <div v-if="!$parent.userProfile.about.length" class="alert alert-secondary border-0 mb-0">
+                           <font-awesome-icon icon="frown" size="lg" class="mr-3"></font-awesome-icon>{{ $parent.userProfile.name }} chose not to tell anything about themselves.
                         </div>
-                        {{ this.$parent.userProfile.about }}
+                        {{ $parent.userProfile.about }}
                     </div>
                 </div>
 
-                <div v-if="this.$parent.userProfile.books.length" class="card border-0 mb-4">
+                <div v-if="$parent.userProfile.books.length" class="card border-0 mb-4">
                     <div class="card-header border-bottom-0">
                         <h2 class="h5 my-0">My books</h2>
                     </div>
@@ -32,7 +32,7 @@
                                 <hr class="my-0">
                             </header>
                             <div class="scroll-box-body px-1 small">
-                                <div v-for="(book, index) in this.$parent.userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
+                                <div v-for="(book, index) in $parent.userProfile.books" v-bind:key="book.id" class="d-flex flex-row mt-3">
                                     <div class="pr-4">
                                         <span class="position-absolute">{{ index + 1 }}</span>
                                     </div>

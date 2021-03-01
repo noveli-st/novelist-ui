@@ -91,7 +91,10 @@ import {
     faAngleDoubleRight,
     faFilter,
     faSortAmountDownAlt,
-    faSortAmountDown
+    faSortAmountDown,
+    faChevronUp,
+    faChevronDown,
+    faPaperPlane
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -198,7 +201,10 @@ library.add(
     faAngleDoubleRight,
     faFilter,
     faSortAmountDownAlt,
-    faSortAmountDown
+    faSortAmountDown,
+    faChevronUp,
+    faChevronDown,
+    faPaperPlane
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
