@@ -1,6 +1,6 @@
 <template>
-    <div class="card border-0 mb-3 shadow-sm">
-        <div class="card-header">
+    <div class="card border-0 mb-3">
+        <div class="card-header border-bottom-0">
            <div class="mb-0 h5 text-truncate" role="heading" aria-level="2">{{ book.title }}</div>
         </div>
         <div class="d-flex align-items-start flex-column flex-md-row">
@@ -157,7 +157,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer">
+        <div class="card-footer border-top-0">
             <router-link v-bind:to="`/book/${book.id}/edit/content`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="edit"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Edit</span></router-link>
             <router-link v-bind:to="`/book/${book.id}/edit/settings`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="cog"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Settings</span></router-link>
             <router-link v-bind:to="`/book/${book.id}/edit/mentions`" class="btn btn-sm btn-primary mr-1"><font-awesome-icon icon="paperclip"></font-awesome-icon><span class="ml-2 d-none d-sm-inline-block">Mentions</span></router-link>

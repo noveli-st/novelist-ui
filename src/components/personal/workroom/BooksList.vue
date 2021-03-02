@@ -5,11 +5,7 @@
                 <div class="h1" role="heading" aria-level="1">My books</div>
             </header>
             <hr class="border-top">
-            <div class="row justify-content-center">
-                <p class="col-sm-8 col-md-6">
-                    <button id="buttonCreateNewBook" class="btn btn-success btn-block" type="button"><font-awesome-icon icon="plus" class="mr-2"></font-awesome-icon>Create new book</button>
-                </p>
-            </div>
+            <cmp-create-new-book class="col-md-6 mx-auto px-0"></cmp-create-new-book>
             <div id="myBooksList" class="card-list">
                 <cmp-card-book-info v-for="book in books" v-bind:key="book.index" v-bind:book="book"></cmp-card-book-info>
             </div>
@@ -19,7 +15,9 @@
 
 <script>
     import client from 'api-client'
-    import cmpCardBookInfo from '../../../components/assets/CardBookInfo'
+    import cmpCardBookInfo from '@/components/assets/CardBookInfo'
+    import cmpCreateNewBook from '@/components/assets/CreateNewBook'
+
     
 	export default {
         name: 'MyBooks',
@@ -29,7 +27,8 @@
             }
         },
         components: {
-            cmpCardBookInfo
+            cmpCardBookInfo,
+            cmpCreateNewBook
         },
         mounted() {
             client.findMyBooks().then(books => {

@@ -13,6 +13,9 @@
                     <p>
                         All the works you have written are collected in one place. You can manage them easily - add, edit, settings, preview, delete and much more.
                     </p>
+
+                    <cmp-create-new-book class="col-md-6 mx-auto px-0"></cmp-create-new-book>
+
                     <div class="h5" role="heading" aria-level="3">Last edited</div>
                     <ul class="list-group list-group-flush rounded overflow-hidden">
                         <li v-for="book in books" v-bind:key="book.index"
@@ -25,7 +28,7 @@
                                 <router-link v-bind:to="`/book/${book.id}/edit/settings`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book settings"><font-awesome-icon icon="cog"></font-awesome-icon></router-link>
                                 <router-link v-bind:to="`/book/${book.id}/edit/mentions`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book mentions"><font-awesome-icon icon="paperclip"></font-awesome-icon></router-link>
                                 <router-link v-bind:to="`/book/${book.id}/`" class="btn btn-sm btn-link mr-1" v-b-tooltip.hover.focus title="Book page"><font-awesome-icon icon="book"></font-awesome-icon></router-link>
-                                <router-link v-bind:to="`/reader/${book.id}`" target= "_blank" class="btn btn-sm btn-link" v-b-tooltip.hover.focus title="Reader page"><font-awesome-icon icon="book-open"></font-awesome-icon></router-link>
+                                <router-link v-bind:to="`/reader/${book.id}/`" target= "_blank" class="btn btn-sm btn-link" v-b-tooltip.hover.focus title="Reader page"><font-awesome-icon icon="book-open"></font-awesome-icon></router-link>
                                 <router-link v-bind:to="`/book/${book.id}/edit/terminate`" class="btn btn-sm btn-link text-danger float-right ml-3" v-b-tooltip.hover.focus title="Delete"><font-awesome-icon icon="trash"></font-awesome-icon></router-link>
                             </div>
                         </li>
@@ -70,6 +73,8 @@
 <script>
     import client from 'api-client';
 
+    import cmpCreateNewBook from '@/components/assets/CreateNewBook'
+
     export default {
         name: 'Workroom',
         data() {
@@ -77,6 +82,9 @@
                 books: [],
                 cycles: []
             }
+        },
+        components: {
+            cmpCreateNewBook
         },
         mounted() {
             client.findMyBooks().then(books => {
