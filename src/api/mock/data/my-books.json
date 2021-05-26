@@ -31,7 +31,25 @@
                     "title": "Chapter order second",
                     "published": "2019-10-22T18:25:43.511Z",
                     "annotation": "Laborum magnam rem iure amet reprehenderit dicta.",
-                    "visibility": "publiс"
+                    "visibility": "publiс",
+                    "paragraphs": [
+                        {
+                            "id": 6,
+                            "type": "text",
+                            "content": "Inventore veritatis voluptatem autem corporis commodi doloremque atque distinctio, id blanditiis quisquam, iusto enim nostrum esse rerum eum nulla repellendus minima odit maiores et deserunt dolorum quaerat exercitationem. Officia, temporibus."
+                        },
+                        {
+                            "id": 7,
+                            "type": "figure",
+                            "jpg": "nameorfileplaceorsomeother",
+                            "figcaption": "Natus - dicta! Veritatis culpa, tenetur ullam, nam hic architecto cumque"
+                        },
+                        {
+                            "id": 4,
+                            "type": "text",
+                            "content": "Esse amet corrupti temporibus delectus veniam impedit cumque deleniti, natus dicta! Veritatis culpa, tenetur ullam, nam hic architecto cumque esse ut corporis praesentium saepe magni dolorem velit vel sunt fugit!"
+                        }
+                    ]
                 },
                 {
                     "id": 43,
